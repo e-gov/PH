@@ -1,0 +1,57 @@
+[
+  {
+    "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+    "representee": {
+      "id": "person1111111",
+      "type": "LEGAL_ENTITY",
+      "name": "Suurfirma AS",
+      "identityCodeCountry": "EE",
+      "identityCode": "10234958"
+    },
+    "delegate": {
+      "id": "person22222222",
+      "type": "INDIVIDUAL",
+      "name": "Seidi Saar",
+      "identityCodeCountry": "EE",
+      "identityCode": "48102250123"
+    },
+    "mandates": [
+      {
+        "canSubDelegate": true,
+        "id": "mandate3333",
+        "modified": "2022-10-18T13:00:00+02:00", "namespace": "EMTA",
+        "role": "Accountant_s_package",
+        "validFrom": "2017-07-21",
+        "validThrough": "2023-12-31",
+        "links": [
+          {
+            "href": "xroad:/namespaces/STAT/represented-persons/person1111111/delegates/person22222222/mandates/mandate3333",
+            "rel": "delete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "edit"
+          }
+        ]
+      },
+      {
+        "canSubDelegate": false,
+        "id": "mandate4444",
+        "modified": "2022-10-18T13:00:00+02:00", "namespace": "EMTA",
+        "role": "REPORTING_CUSTOMER",
+        "validFrom": "2024-07-01",
+        "links": [
+          {
+            "href": "xroad:/namespaces/STAT/represented-persons/person1111111/delegates/person22222222/mandates/mandate4444",
+            "rel": "delete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "edit"
+          }
+        ]
+      }
+    ]
+
+  }
+]

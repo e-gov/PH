@@ -1,0 +1,716 @@
+openapi: 3.0.0
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/aasaru/paasuhalduse-x-tee-teenused/1.0.17
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/aasaru/Oraakliliides/1.0.13
+info:
+  description: Sisaldab Pääsukese poolt standardiseeritud x-tee teeunuseid
+  version: 0.2.0
+  title: Pääsukese X-tee liides
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: Kõik teenused
+    description: Selleks, et vaadata kõiki teenuseid ühe tervikuna
+  - name: Pääsukese poolt pakutav
+    description: Pääsukese poolt pakutavad x-tee teenused kehtivate volituste pärimiseks neile asutustele, kes laadivad kehtivad volitused Pääsukesest.
+  - name: Pääsukesele pakutav
+    description: Mistahes süsteemi, mis hoiab volitusi enda juures (näit Statistikaamet ja EMTA) poolt Pääsukesele pakutavad x-tee teenused
+  - name: Pääsukesele pakutav (lisaks)
+    description: Neid teenuseid pakuvad süsteemid, mis hoiavad volitusi enda juures, aga lubavad Pääsukese kasutajaliidese kaudu rolle anda.
+paths:
+  /delegates/{delegate}/representees:
+    get:
+      tags:
+        - Kõik teenused
+        - Pääsukese poolt pakutav
+      summary: List representees that the delegate can represent. Mandates (roles) are not included.
+      operationId: getDelegateRepresentees
+      description: |
+        Kutsutakse kui sisseloginud kasutajale (= delegate) on vaja kuvada nimekirja ettevõtetest (või eraisikutest), keda tal on õigus esindada. Kehtivaid õigusi selle päringuga ei väljastata.
+      parameters:
+        - in: path
+          name: delegate
+          description: Person code or company code of the delegate
+          example: EE38302250123
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: namespace
+          description: Filter by namespace (comma separated)
+          example: STAT
+          required: false
+          schema:
+            type: string
+            example: 'STAT,EMTA'
+        - in: header
+          name: representeeType
+          description: Filter by representee type
+          required: false
+          schema:
+            type: string
+            enum: [ANY, INDIVIDUAL, LEGAL_ENTITY]
+        - in: header
+          name: skip
+          description: Skip this number of records for pagination
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: header
+          name: limit
+          description: Maximum number of records to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 500
+      responses:
+        '200':
+          description: List of representees
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+        '400':
+          description: bad input parameter
+
+  /delegates/{delegate}/representees/mandates:
+    get:
+      tags:
+        - Kõik teenused
+        - Pääsukesele pakutav
+      summary: List persons the delegate can represent. Mandates (roles) are included.
+      operationId: getDelegateRepresenteesWithMandates
+      description: |
+        Second tab
+      parameters:
+        - in: path
+          name: delegate
+          description: Person code or company code of the delegate
+          example: EE38302250123
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: namespace
+          description: Namespace (or comma separated namespaces) for filtering mandates
+          example: STAT
+          required: false
+          schema:
+            type: string
+            example: 'STAT,EMTA'
+        - in: header
+          name: hasRoleIn
+          description: Filter out delegates who don't have any mandates with any of the roles in the list. This parameter is only used if the service is provided by Pääsuke and must be ignored by others.
+          required: false
+          schema:
+            type: string
+            example: 'Legal_person_representative_package'
+        - in: query
+          name: skip
+          description: Skip this number of records for pagination
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: header
+          name: limit
+          description: Maximum number of records to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 500
+      responses:
+        '200':
+          description: List of persons (with mandates) that delegate can represent.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MandateTriplet'
+        '400':
+          description: bad input parameter
+
+
+  /representees/{representee}/delegates/mandates:
+    get:
+      tags:
+        - Kõik teenused
+        - Pääsukesele pakutav
+      summary: List delegates with mandates
+      operationId: getRepresenteeDelegatesWithMandates
+      description: |
+        Returns list of delegates who have any mandates.
+        
+        Protos: Ettevõtte esindajad ja volitatud isikud.
+        
+        Kui Väikefirma (representee) on andnud Raamatupidamisfirmale (subDelegatedBy) mingi rolli koos edasivolitamise (edasidelegeerimise) õigusega, siis saab Raamatupidamisfirma selle parameetri abil küsida, kellele tema omakorda on vastava volituse edasi volitanud (delegeerinud).
+
+      parameters:
+        - in: path
+          name: representee
+          description: Person code or company code of the representee
+          example: EE10391131
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: namespace
+          description: Filter by namespace (comma separated)
+          example: STAT
+          required: false
+          schema:
+            type: string
+            example: 'STAT,EMTA'
+        - in: header
+          name: subDelegatedBy
+          description: Filter by subdelegator (edasivolitaja) code
+          required: false
+          example: EE10391132
+          schema:
+            type: string
+        - in: header
+          name: hasRoleIn
+          description: Filter out delegates who don't have any of the roles in the list. This parameter is only used if the service is provided by Pääsuke and must be ignored by others.
+          required: false
+          schema:
+            type: string
+            example: 'Legal_person_representative_package'
+        - in: header
+          name: skip
+          description: Skip this number of records for pagination
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: header
+          name: limit
+          description: Maximum number of records to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 500
+      responses:
+        '200':
+          description: Matching mandates that are granted to delegates for this representee
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MandateTriplet'
+        '400':
+          description: bad input parameter
+        '422':
+          description: Unprocessable request. For example system doesn't know about the namespace.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+
+  /representees/{representee}/delegates/{delegate}/mandates:
+    get:
+      tags:
+        - Kõik teenused
+        - Pääsukese poolt pakutav
+      summary: List active mandates of the delegate
+      operationId: getRepresenteeDelegateWithMandates
+      description: |
+        Usually this endpoint is called after the user selects a legal entity who the delegate want's to represent at the given session.
+      parameters:
+        - in: path
+          name: representee
+          description: Person code or company code of the representee
+          example: EE10391131
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: delegate
+          description: Person code or company code of the delegate
+          example: EE38302250123
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: namespace
+          description: Filter by namespace (comma separated)
+          required: false
+          schema:
+            type: string
+            example: 'STAT,EMTA'
+        - in: header
+          name: roles
+          description: Filter by role (comma separated)
+          required: false
+          schema:
+            type: string
+            example: 'Legal_person_representative_package'
+
+      responses:
+        '200':
+          description: Matching mandates that are granted to the delegate for this representee
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MandateTriplet'
+        '400':
+          description: bad input parameter
+        '422':
+          description: Unprocessable request. For example system doesn't know about the namespace.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+    post:
+      tags:
+        - Kõik teenused
+        - Pääsukese poolt pakutav
+        - Pääsukesele pakutav (lisaks)
+      summary: Add mandates to a delegate under a representee
+      operationId: addMandatesToDelegate
+      description: |
+        Kui liidestuv süsteem pakub seda teenust Pääsukesele, siis lubab Pääsuke oma kasutajaliidese kaudu volitusi anda ja selle teenuse abil Pääsuke edastab uued volitused liidestunud süsteemile.
+        
+        Pääsuke pakub ka ise seda teenust liidestunud klientidele, kes hoiavad oma volitusi Pääsukeses. Teenuse kasutamine on vajalik juhul kui partnerasutus kasutab Pääsukest oma volituste süsteemina, aga keegi isik tuleb partnerasutusse (notariaalse volikirjaga) ja selle alusel tuleb partnerasutusel Pääsukesse sisse kanda volikirjal olevad volitused partnerasutuse nimeruumi.
+      parameters:
+        - in: path
+          name: representee
+          description: Person code or company code of the representee
+          example: EE10391131
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: delegate
+          description: Person code or company code of the delegate
+          required: true
+          example: EE38302250123
+          schema:
+            type: string
+      requestBody:
+        $ref: '#/components/requestBodies/MandatesToAdd'
+
+      responses:
+        '202':
+          description: Accepted for processing
+        '400':
+          description: Incorrect format of the payload.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+        '403':
+          description: You are not owner of the namespace.
+        '404':
+          description: Delegate doesn't have anything matching to remove
+        '422':
+          description: Unprocessable request. For example system doesn't know about the namespace.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+
+  /representees/{representee}/delegates/{delegate}/mandates/{role}:
+    delete:
+      tags:
+        - Kõik teenused
+        - Pääsukesele pakutav
+      summary: Remove a specific role from the delegate
+      operationId: removeMandateFromDelegate
+      description: |
+        Remove all mandates from the delegate
+      parameters:
+        - in: path
+          name: representee
+          description: Person code or company code of the representee
+          example: EE10391131
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: delegate
+          description: Person code or company code of the delegate
+          required: true
+          example: EE38302250123
+          schema:
+            type: string
+        - in: header
+          name: namespace
+          description: Namespace of the role
+          required: true
+          example: STAT
+          schema:
+            type: string
+        - in: path
+          name: role
+          description: Role to delete
+          required: true
+          example: Tegevjuht
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Removed sucessfully
+        '202':
+          description: Request accepted but not yet removed
+        '400':
+          description: Invalid parameter
+        '403':
+          description: You are not owner of the namespace.
+        '404':
+          description: Delegate doesn't have anything matching to remove
+        '422':
+          description: Unprocessable request. For example system doesn't know about the namespace.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+
+  /roles:
+    get:
+      tags:
+        - Kõik teenused
+        - Pääsukese poolt pakutav
+        - Pääsukesele pakutav
+      summary: List roles with translations
+      description: |
+        When 'If-Modified-Since' is included in the request the service responds HTTP Status code 304 if nor roles have been changed since that time. Otherwise all results (that match the filters) are returned (even the ones that have modified time earlier than If-Modified-Since parameter).
+      operationId: getRoles
+      parameters:
+        # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since
+        - in: header
+          name: If-Modified-Since
+          schema:
+            type: string
+            format: date-time
+            example: 2022-10-18T17:32:28+02:00
+          required: false
+        - in: header
+          name: namespace
+          description: Filter by namespace (comma separated)
+          example: STAT
+          required: false
+          schema:
+            type: string
+            example: 'STAT,EMTA'
+      responses:
+        '200':
+          description: List roles of some namespace(s) with translations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleDefinition'
+        '304':
+          description: List of roles is not modified. Might be returned only if request sent additional header "If-Modified-Since" and no changes have been done since that date.
+        '422':
+          description: Unprocessable request. For example system doesn't know about the namespace.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+
+components:
+  requestBodies:
+    MandatesToAdd:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MandatesToAdd'
+      description: Enter details of the mandate(s)
+
+  schemas:
+    MandatesToAdd:
+      type: object
+      required:
+        - namespace
+        - mandates
+        - comment
+      properties:
+        namespace:
+          type: string
+          description: The namespace the mandates are added under
+        comment:
+          type: string
+          description: The reason why mandates are added manually
+        mandates:
+          type: array
+          description: Mandates to be added
+          items:
+            $ref: '#/components/schemas/MandateToAdd'
+
+    MandateTriplet:
+      type: object
+      required:
+        - id
+        - representee
+        - delegate
+        - mandates
+      properties:
+        id:
+          type: string
+          format: string
+          description: ID
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        representee:
+          $ref: '#/components/schemas/Person'
+        delegate:
+          $ref: '#/components/schemas/Person'
+        mandates:
+          type: array
+          description: Mandates
+          items:
+            $ref: '#/components/schemas/Mandate'
+
+    Person:
+      type: object
+      required:
+        - id
+        - type
+        - identityCodeCountry
+        - identityCode
+      properties:
+        id:
+          type: string
+          format: string
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+          description: ID
+        type:
+          type: string
+          enum: [INDIVIDUAL, LEGAL_ENTITY]
+          description: Type
+        name:
+          type: string
+          format: string
+          example: Jüri Juurikas
+          description: Name
+        identityCodeCountry:
+          type: string
+          example: EE
+          description: Identity code country
+        identityCode:
+          type: string
+          example: 38302250123
+          description: Identity code
+        links:
+          type: array
+          description: Links that indicate allowed actions and provide parameters for for calling other services
+          items:
+            $ref: '#/components/schemas/Link'
+
+    MandateToAdd:
+      type: object
+      required:
+        - role
+      properties:
+        role:
+          type: string
+          format: string
+          description: Role
+          example: 'Legal_person_data_viewer_package'
+        validFrom:
+          type: string
+          format: date
+          example: '2017-07-21'
+          description: Valid from date.
+        validIndefinitely:
+          type: boolean
+          description: Is valid indefinitely
+        validThrough:
+          type: string
+          format: date
+          example: '2024-02-21'
+          description: Valid through (last day is inclusive, used only if not valid indefinitely)
+
+
+
+    Mandate:
+      type: object
+      required:
+        - namespace
+        - role
+      properties:
+        id:
+          type: string
+          format: string
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+          description: ID
+        namespace:
+          type: string
+          format: string
+          example: 'EMTA'
+          description: Namespace
+        role:
+          type: string
+          format: string
+          example: 'Legal_person_data_viewer_package'
+          description: Role
+        validFrom:
+          type: string
+          format: date
+          example: '2017-07-21'
+          description: Valid from
+        validThrough:
+          type: string
+          format: date
+          example: '2024-02-21'
+          description: Valid through (last day is inclusive, null if valid indefinitely)
+        canSubDelegate:
+          type: boolean
+          description: Does the person have the right to sub-delegate (edasi volitada) this mandate.
+        links:
+          type: array
+          description: Links that indicate allowed actions (like delete) and provide params for for calling other services
+          items:
+            $ref: '#/components/schemas/Link'
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: url
+          example: '/namespaces/STAT/representees/representeeIdentifierAtStat/delegates/delegateidentifierAtStat/mandates/roleIdentifierAtStat'
+        rel:
+          type: string
+          example: 'delete'
+
+
+    RoleDefinition:
+      type: object
+      required:
+        - namespace
+        - role
+        - title
+        - metadata
+      properties:
+        id:
+          type: string
+          format: string
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+          description: ID
+        namespace:
+          type: string
+          format: string
+          example: 'STAT'
+          description: Namespace
+        role:
+          type: string
+          format: string
+          example: 'Respondent'
+          description: Role
+        title:
+          type: array
+          description: Title
+          items:
+            $ref: '#/components/schemas/Translation'
+        description:
+          type: array
+          description: Description
+          items:
+            $ref: '#/components/schemas/Translation'
+        modified:
+          type: string
+          format: date-time
+          description: Last modified
+          example: '2022-10-18T13:00:00+02:00'
+        metadata:
+          description: Additional metadata
+          $ref: '#/components/schemas/RoleMetadata'
+
+    RoleMetadata:
+      type: object
+      properties:
+        xroadSubsystem:
+          type: string
+          description: Xroad subsystem that stores roles of this type
+          example: stat-volitused
+
+    Translation:
+      type: object
+      properties:
+        lang:
+          type: string
+          enum: [et, en, ru]
+          description: Translation language
+        value:
+          type: string
+          format: string
+          description: Translation value
+          example: Translation in that language
+
+
+    # https://www.belgif.be/specification/rest/api-guide/#error-handling
+    Problem:
+      description: A Problem Details object (RFC 7807)
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          description: An absolute URI that identifies the problem type
+          default: about:blank  # kept for backwards-compatibility, type will be mandatory in problem-v2
+        href:
+          type: string
+          format: uri
+          description: An absolute URI that, when dereferenced, provides human-readable documentation for the problem type (e.g. using HTML).
+        title:
+          type: string
+          description: A short summary of the problem type. Written in English and readable for engineers (usually not suited for non technical stakeholders and not localized).
+          example: Service Unavailable
+        status:
+          type: integer
+          format: int32
+          description: The HTTP status code generated by the origin server for this occurrence of the problem.
+          minimum: 400
+          maximum: 600
+          exclusiveMaximum: true
+          example: 503
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem
+        instance:
+          type: string
+          format: uri
+          description: An absolute URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+      example:
+        {
+          "type": "urn:problem-type:belgif:payloadTooLarge",
+          "href": "https://www.belgif.be/specification/rest/api-guide/problems/payloadTooLarge.html", # location of linked doc will change in the future to recommended URI structure
+          "title": "Payload Too Large",
+          "status": 413,
+          "detail": "Request message must not be larger than 10 MB",
+          "instance": "urn:uuid:123e4567-e89b-12d3-a456-426614174000",
+          "limit": 10485760  # additional properties specific to the problem type are allowed
+        }

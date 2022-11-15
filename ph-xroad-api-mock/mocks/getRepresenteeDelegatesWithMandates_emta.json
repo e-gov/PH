@@ -1,0 +1,1102 @@
+[
+  {
+    "id": "3123217",
+    "representee": {
+      "id": "9028624709",
+      "type": "LEGAL_ENTITY",
+      "name": "Tervisekeskus OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "13568394"
+    },
+    "delegate": {
+      "id": "9028623070",
+      "type": "INDIVIDUAL",
+      "name": "Lotte Koer",
+      "identityCodeCountry": "EE",
+      "identityCode": "36007254335"
+    },
+    "mandates": [
+      {
+        "id": "3123216",
+        "namespace": "EMTA",
+        "role": "HAMPI",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ],
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123217",
+        "namespace": "EMTA",
+        "role": "ADEK_CLIENT",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123218",
+        "namespace": "EMTA",
+        "role": "PAS_BUSINESS",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123219",
+        "namespace": "EMTA",
+        "role": "ECS_VOLITATUDEV_VALJUMINE",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123220",
+        "namespace": "EMTA",
+        "role": "EMCS_LAHETAJA",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123221",
+        "namespace": "EMTA",
+        "role": "EMCS_PEAKLIENT",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123222",
+        "namespace": "EMTA",
+        "role": "EMCS_PIIRATUD_LAHETAJA",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123223",
+        "namespace": "EMTA",
+        "role": "EMCS_PIIRATUD_VASTUVOTJA",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123224",
+        "namespace": "EMTA",
+        "role": "M-EORI",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123225",
+        "namespace": "EMTA",
+        "role": "GARANTIID",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123226",
+        "namespace": "EMTA",
+        "role": "M-AKTID",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123227",
+        "namespace": "EMTA",
+        "role": "MIRROR_USER",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123228",
+        "namespace": "EMTA",
+        "role": "MIRROR_ANALYST",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123229",
+        "namespace": "EMTA",
+        "role": "MIRROR_TAX_RISK",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123230",
+        "namespace": "EMTA",
+        "role": "MIRROR_TAX_COMPLIANCE",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123231",
+        "namespace": "EMTA",
+        "role": "MIRROR_ADMIN",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123232",
+        "namespace": "EMTA",
+        "role": "ICS_DEKLARATSIOONI_ESITAJA",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123233",
+        "namespace": "EMTA",
+        "role": "P_EXTERNAL_USER",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123234",
+        "namespace": "EMTA",
+        "role": "P_EXTERNAL_USER_MANAGER",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123235",
+        "namespace": "EMTA",
+        "role": "IMPULSS_CUSTOMER",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123236",
+        "namespace": "EMTA",
+        "role": "INF_ESITAMINE",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123237",
+        "namespace": "EMTA",
+        "role": "M-VIITED",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123238",
+        "namespace": "EMTA",
+        "role": "TOEND_ERHT",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123239",
+        "namespace": "EMTA",
+        "role": "DASHBOARD_GLOBAL_CLIENT",
+        "validFrom": "2025-01-01",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123240",
+        "namespace": "EMTA",
+        "role": "KMD_VAATAMINE",
+        "validFrom": "2025-01-01",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123241",
+        "namespace": "EMTA",
+        "role": "KMD_KOIKLUBATUD",
+        "validFrom": "2025-01-01",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123242",
+        "namespace": "EMTA",
+        "role": "KMKRA_ESITAJA",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123243",
+        "namespace": "EMTA",
+        "role": "EAREST_KASUTAJA",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123244",
+        "namespace": "EMTA",
+        "role": "TAG_TAOTLUSED",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123245",
+        "namespace": "EMTA",
+        "role": "M_TOEND_CLIENT",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123246",
+        "namespace": "EMTA",
+        "role": "REPORTING_CUSTOMER",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-31",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "representee": {
+      "id": "9028624709",
+      "type": "LEGAL_ENTITY",
+      "name": "Tervisekeskus OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "13568394"
+    },
+    "delegate": {
+      "id": "9028622532",
+      "type": "INDIVIDUAL",
+      "name": "Eefraim Pikksukk",
+      "identityCodeCountry": "EE",
+      "identityCode": "36008240007"
+    },
+    "mandates": [
+      {
+        "id": "3123247",
+        "namespace": "EMTA",
+        "role": "A-JI",
+        "validFrom": "2022-10-21",
+        "canSubDelegate": false,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/vaata?x=y&z=2",
+            "rel": "uiView"
+          }
+        ]
+      },
+      {
+        "id": "3123248",
+        "namespace": "EMTA",
+        "role": "A-JI-V",
+        "validFrom": "2022-10-21",
+        "canSubDelegate": false,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/vaata?x=y&z=2",
+            "rel": "uiView"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "representee": {
+      "id": "9028624709",
+      "type": "LEGAL_ENTITY",
+      "name": "Tervisekeskus OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "13568394"
+    },
+    "delegate": {
+      "id": "9028622960",
+      "type": "INDIVIDUAL",
+      "name": "Karl Kingpool",
+      "identityCodeCountry": "EE",
+      "identityCode": "36007250075"
+    },
+    "mandates": [
+      {
+        "id": "3123249",
+        "namespace": "EMTA",
+        "role": "I",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123250",
+        "namespace": "EMTA",
+        "role": "TOLL",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123251",
+        "namespace": "EMTA",
+        "role": "AKTSIIS",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "representee": {
+      "id": "9028624709",
+      "type": "LEGAL_ENTITY",
+      "name": "Tervisekeskus OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "13568394"
+    },
+    "delegate": {
+      "id": "9028622737",
+      "type": "INDIVIDUAL",
+      "name": "Karlsson Katuselt",
+      "identityCodeCountry": "EE",
+      "identityCode": "35511140005"
+    },
+    "mandates": [
+      {
+        "id": "3123252",
+        "namespace": "EMTA",
+        "role": "I",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123253",
+        "namespace": "EMTA",
+        "role": "TOLL",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123254",
+        "namespace": "EMTA",
+        "role": "AKTSIIS",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "representee": {
+      "id": "9028624709",
+      "type": "LEGAL_ENTITY",
+      "name": "Tervisekeskus OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "13568394"
+    },
+    "delegate": {
+      "id": "9028623071",
+      "type": "INDIVIDUAL",
+      "name": "Minni Hiir",
+      "identityCodeCountry": "EE",
+      "identityCode": "61005211702"
+    },
+    "mandates": [
+      {
+        "id": "3123255",
+        "namespace": "EMTA",
+        "role": "I",
+        "validFrom": "2022-10-21",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123256",
+        "namespace": "EMTA",
+        "role": "Hinnangute teenuse kasutamine",
+        "validFrom": "2022-10-21",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123257",
+        "namespace": "EMTA",
+        "role": "KMKRA_ESITAJA",
+        "validFrom": "2022-10-21",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123258",
+        "namespace": "EMTA",
+        "role": "FATCA_KOIKOIGUSED",
+        "validFrom": "2022-10-21",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "representee": {
+      "id": "9028624709",
+      "type": "LEGAL_ENTITY",
+      "name": "Tervisekeskus OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "13568394"
+    },
+    "delegate": {
+      "id": "9028622408",
+      "type": "LEGAL_ENTITY",
+      "name": "Meeskond OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "12345643"
+    },
+    "mandates": [
+      {
+        "id": "3123259",
+        "namespace": "EMTA",
+        "role": "XT_MM",
+        "validFrom": "2022-10-21",
+        "validThrough": "2024-10-27",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123260",
+        "namespace": "EMTA",
+        "role": "KKS_XT",
+        "validFrom": "2022-10-21",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "representee": {
+      "id": "9028624709",
+      "type": "LEGAL_ENTITY",
+      "name": "Tervisekeskus OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "13568394"
+    },
+    "delegate": {
+      "id": "9028622848",
+      "type": "INDIVIDUAL",
+      "name": "Miki Hiir",
+      "identityCodeCountry": "EE",
+      "identityCode": "36008245504"
+    },
+    "mandates": [
+      {
+        "id": "3123261",
+        "namespace": "EMTA",
+        "role": "I",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123262",
+        "namespace": "EMTA",
+        "role": "TOLL",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123263",
+        "namespace": "EMTA",
+        "role": "AKTSIIS",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "representee": {
+      "id": "9028624709",
+      "type": "LEGAL_ENTITY",
+      "name": "Tervisekeskus OÜ",
+      "identityCodeCountry": "EE",
+      "identityCode": "13568394"
+    },
+    "delegate": {
+      "id": "9028622847",
+      "type": "INDIVIDUAL",
+      "name": "Pipi Pikksukk",
+      "identityCodeCountry": "EE",
+      "identityCode": "61005210008"
+    },
+    "mandates": [
+      {
+        "id": "3123264",
+        "namespace": "EMTA",
+        "role": "I",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123265",
+        "namespace": "EMTA",
+        "role": "TOLL",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123266",
+        "namespace": "EMTA",
+        "role": "AKTSIIS",
+        "validFrom": "2022-10-21",
+        "validThrough": "2023-10-08",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123267",
+        "namespace": "EMTA",
+        "role": "P_EXTERNAL_AUTHORITY_MANAGER",
+        "validFrom": "2022-10-21",
+        "validThrough": "2024-10-27",
+        "canSubDelegate": true,
+        "links": [
+          {
+            "href": "**FILLED_BY_CODE**",
+            "rel": "xroadDelete"
+          },
+          {
+            "href": "https://vaarikas.emta.ee/muuda?x=y&z=2",
+            "rel": "uiEdit"
+          }
+        ]
+      },
+      {
+        "id": "3123267",
+        "namespace": "EMTA",
+        "role": "P_EXTERNAL_AUTHORITY_MANAGER",
+        "validFrom": "2022-10-21",
+        "validThrough": "2024-10-27",
+        "canSubDelegate": false,
+        "links": [
+          {
+            "href": "https://vaarikas.emta.ee/vaata?x=y&z=2",
+            "rel": "uiView"
+          }
+        ]
+      }
+    ]
+  }
+]
+

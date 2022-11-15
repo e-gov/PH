@@ -1,0 +1,32 @@
+{
+  "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "representee": {
+    "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+    "type": "INDIVIDUAL",
+    "name": "Jüri Juurikas",
+    "identityCodeCountry": "EE",
+    "identityCode": "38302250123"
+  },
+  "delegate": {
+    "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+    "type": "INDIVIDUAL",
+    "name": "Jüri Juurikas",
+    "identityCodeCountry": "EE",
+    "identityCode": "38302250123"
+  },
+  "mandates": [
+    {
+      "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+      "modified": "2022-10-18T13:00:00+02:00", "namespace": "EMTA",
+      "role": "Legal_person_data_viewer_package",
+      "validFrom": "2017-07-21",
+      "validUntil": "2024-02-21",
+      "links": [
+        {
+          "href": "/namespaces/STAT/representees/representeeIdentifierAtStat/delegates/delegateidentifierAtStat/mandates/roleIdentifierAtStat",
+          "rel": "delete"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "role": "Respondent",
+    "modified": "2022-10-18T13:00:00+02:00", "namespace": "STAT",
+    "title": [
+      {
+        "lang": "et",
+        "value": "Andmeesitaja"
+      },
+      {
+        "lang": "en",
+        "value": "Respondent"
+      },
+      {
+        "lang": "ru",
+        "value": "Респондент"
+      }
+    ],
+    "description": [
+      {
+        "lang": "et",
+        "value": "Andmeesitaja, kellel on õigus esitada kõigi majandusüksuste küsimustike andmeid"
+      },
+      {
+        "lang": "en",
+        "value": "Respondent who has the right to submit questionnaire data for all economic entities."
+      },
+      {
+        "lang": "ru",
+        "value": "Респондент описание..."
+      }
+    ]
+  }
+]
