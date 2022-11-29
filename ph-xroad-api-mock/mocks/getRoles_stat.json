@@ -1,7 +1,9 @@
 [
   {
     "role": "Respondent",
-    "modified": "2022-10-18T13:00:00+02:00", "namespace": "STAT",
+    "state": "ACTIVE",
+    "modified": "2022-10-18T13:00:00+02:00",
+    "namespace": "STAT",
     "title": [
       {
         "lang": "et",

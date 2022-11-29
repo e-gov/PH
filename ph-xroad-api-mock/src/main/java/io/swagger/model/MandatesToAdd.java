@@ -15,39 +15,16 @@ import javax.validation.constraints.*;
  * MandatesToAdd
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-09T08:21:54.440Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:22:46.494Z[GMT]")
 
 
 public class MandatesToAdd   {
-  @JsonProperty("namespace")
-  private String namespace = null;
-
   @JsonProperty("comment")
   private String comment = null;
 
   @JsonProperty("mandates")
   @Valid
   private List<MandateToAdd> mandates = new ArrayList<MandateToAdd>();
-
-  public MandatesToAdd namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-  /**
-   * The namespace the mandates are added under
-   * @return namespace
-   **/
-  @Schema(required = true, description = "The namespace the mandates are added under")
-      @NotNull
-
-    public String getNamespace() {
-    return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
 
   public MandatesToAdd comment(String comment) {
     this.comment = comment;
@@ -104,14 +81,13 @@ public class MandatesToAdd   {
       return false;
     }
     MandatesToAdd mandatesToAdd = (MandatesToAdd) o;
-    return Objects.equals(this.namespace, mandatesToAdd.namespace) &&
-        Objects.equals(this.comment, mandatesToAdd.comment) &&
+    return Objects.equals(this.comment, mandatesToAdd.comment) &&
         Objects.equals(this.mandates, mandatesToAdd.mandates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespace, comment, mandates);
+    return Objects.hash(comment, mandates);
   }
 
   @Override
@@ -119,7 +95,6 @@ public class MandatesToAdd   {
     StringBuilder sb = new StringBuilder();
     sb.append("class MandatesToAdd {\n");
     
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    mandates: ").append(toIndentedString(mandates)).append("\n");
     sb.append("}");

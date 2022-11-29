@@ -18,18 +18,19 @@ import javax.validation.constraints.*;
  * Person
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-09T08:21:54.440Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:22:46.494Z[GMT]")
 
 
 public class Person   {
   @JsonProperty("id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id = null;
 
   /**
    * Type
    */
   public enum TypeEnum {
-    INDIVIDUAL("INDIVIDUAL"),
+    NATURAL_PERSON("NATURAL_PERSON"),
     
     LEGAL_ENTITY("LEGAL_ENTITY");
 

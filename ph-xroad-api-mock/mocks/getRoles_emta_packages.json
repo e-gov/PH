@@ -1,6 +1,6 @@
 [
   {
-    "modified": "2022-10-18T13:00:00+02:00",
+    "state": "ACTIVE", "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "I",
     "title": [
@@ -36,6 +36,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "I-E",
@@ -72,6 +73,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "TOLL",
@@ -108,6 +110,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "TOLL-E",
@@ -144,6 +147,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "XT_MM",
@@ -180,6 +184,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "KKS_XT",
@@ -216,6 +221,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "A-FI",
@@ -252,6 +258,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "A-FIE",
@@ -288,6 +295,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "A-FIE-V",
@@ -324,6 +332,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "A-FI-V",
@@ -360,6 +369,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "A-JI",
@@ -396,6 +406,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "A-JI-E",
@@ -432,6 +443,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "A-JI-V",
@@ -468,6 +480,7 @@
     }
   },
   {
+    "state": "ACTIVE",
     "modified": "2022-10-18T13:00:00+02:00",
     "namespace": "EMTA",
     "role": "AKTSIIS",

@@ -33,7 +33,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-15T06:15:59.962Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:09:24.975Z[GMT]")
 @Validated
 public interface DelegatesApi {
 
@@ -45,10 +45,10 @@ public interface DelegatesApi {
     @RequestMapping(value = "/delegates/{delegate}/representees",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<List<Person>> getDelegateRepresentees(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.HEADER, description = "Filter by namespace (comma separated)" ,schema=@Schema()) @RequestHeader(value="namespace", required=false) String namespace, @Parameter(in = ParameterIn.HEADER, description = "Filter by representee type" ,schema=@Schema(allowableValues={ "ANY", "INDIVIDUAL", "LEGAL_ENTITY" }
-)) @RequestHeader(value="representeeType", required=false) String representeeType, @Parameter(in = ParameterIn.HEADER, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
-)) @RequestHeader(value="skip", required=false) Integer skip, @Parameter(in = ParameterIn.HEADER, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
-)) @RequestHeader(value="limit", required=false) Integer limit);
+    ResponseEntity<List<Person>> getDelegateRepresentees(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.QUERY, description = "Filter by namespace(s)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) List<String> namespace, @Parameter(in = ParameterIn.QUERY, description = "Filter by representee types. SELF means that the person has the right to represent oneself." ,schema=@Schema(allowableValues={ "SELF", "LEGAL_ENTITY", "NATURAL_PERSON" }
+)) @Valid @RequestParam(value = "representeeType", required = false) List<String> representeeType, @Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles may be prefixed with namespace and colon. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) String hasRoleIn, @Min(0)@Parameter(in = ParameterIn.QUERY, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
+)) @Valid @RequestParam(value = "skip", required = false) Integer skip, @Min(0) @Max(500) @Parameter(in = ParameterIn.QUERY, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
+)) @Valid @RequestParam(value = "limit", required = false) Integer limit);
 
 
     @Operation(summary = "List persons the delegate can represent. Mandates (roles) are included.", description = "Second tab ", tags={ "Kõik teenused", "Pääsukesele pakutav" })
@@ -59,9 +59,9 @@ public interface DelegatesApi {
     @RequestMapping(value = "/delegates/{delegate}/representees/mandates",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<List<MandateTriplet>> getDelegateRepresenteesWithMandates(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.HEADER, description = "Namespace (or comma separated namespaces) for filtering mandates" ,schema=@Schema()) @RequestHeader(value="namespace", required=false) String namespace, @Parameter(in = ParameterIn.HEADER, description = "Filter out delegates who don't have any mandates with any of the roles in the list. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @RequestHeader(value="hasRoleIn", required=false) String hasRoleIn, @Min(0)@Parameter(in = ParameterIn.QUERY, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
-)) @Valid @RequestParam(value = "skip", required = false) Integer skip, @Parameter(in = ParameterIn.HEADER, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
-)) @RequestHeader(value="limit", required=false) Integer limit);
+    ResponseEntity<List<MandateTriplet>> getDelegateRepresenteesWithMandates(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.QUERY, description = "Filter by namespace(s)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) List<String> namespace, @Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles may be prefixed with namespace and colon. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) String hasRoleIn, @Min(0)@Parameter(in = ParameterIn.QUERY, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
+)) @Valid @RequestParam(value = "skip", required = false) Integer skip, @Min(0) @Max(500) @Parameter(in = ParameterIn.QUERY, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
+)) @Valid @RequestParam(value = "limit", required = false) Integer limit);
 
 }
 

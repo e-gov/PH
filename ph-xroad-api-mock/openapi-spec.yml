@@ -1,12 +1,12 @@
 openapi: 3.0.0
 servers:
   - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/aasaru/paasuhalduse-x-tee-teenused/1.0.17
+    url: https://virtserver.swaggerhub.com/aasaru/paasuhalduse-x-tee-teenused/0.3.1
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/aasaru/Oraakliliides/1.0.13
 info:
   description: Sisaldab Pääsukese poolt standardiseeritud x-tee teeunuseid
-  version: 0.2.0
+  version: 0.3.1
   title: Pääsukese X-tee liides
   contact:
     email: you@your-company.com
@@ -33,38 +33,49 @@ paths:
       description: |
         Kutsutakse kui sisseloginud kasutajale (= delegate) on vaja kuvada nimekirja ettevõtetest (või eraisikutest), keda tal on õigus esindada. Kehtivaid õigusi selle päringuga ei väljastata.
       parameters:
-        - in: path
-          name: delegate
+        - name: delegate
+          in: path
           description: Person code or company code of the delegate
           example: EE38302250123
           required: true
           schema:
             type: string
-        - in: header
-          name: namespace
-          description: Filter by namespace (comma separated)
+        - name: namespace
+          in: query
+          description: Filter by namespace(s)
           example: STAT
           required: false
           schema:
-            type: string
-            example: 'STAT,EMTA'
-        - in: header
-          name: representeeType
-          description: Filter by representee type
+            type: array
+            items:
+              type: string
+            example: 'EMTA'
+        - name: representeeType
+          in: query
+          description: Filter by representee types. SELF means that the person has the right to represent oneself.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum: [SELF, LEGAL_ENTITY, NATURAL_PERSON]
+        - name: hasRoleIn
+          in: query
+          description: Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles may be prefixed with namespace and colon. This parameter is only used if the service is provided by Pääsuke and must be ignored by others.
           required: false
           schema:
             type: string
-            enum: [ANY, INDIVIDUAL, LEGAL_ENTITY]
-        - in: header
-          name: skip
+            example: 'TOOTUKASSA:Job_Advertisement_Editor'
+        - name: skip
+          in: query
           description: Skip this number of records for pagination
           required: false
           schema:
             type: integer
             format: int32
             minimum: 0
-        - in: header
-          name: limit
+        - name: limit
+          in: query
           description: Maximum number of records to return
           required: false
           schema:
@@ -94,38 +105,40 @@ paths:
       description: |
         Second tab
       parameters:
-        - in: path
-          name: delegate
+        - name: delegate
+          in: path
           description: Person code or company code of the delegate
           example: EE38302250123
           required: true
           schema:
             type: string
-        - in: header
-          name: namespace
-          description: Namespace (or comma separated namespaces) for filtering mandates
+        - name: namespace
+          in: query
+          description: Filter by namespace(s)
           example: STAT
           required: false
           schema:
-            type: string
-            example: 'STAT,EMTA'
-        - in: header
-          name: hasRoleIn
-          description: Filter out delegates who don't have any mandates with any of the roles in the list. This parameter is only used if the service is provided by Pääsuke and must be ignored by others.
+            type: array
+            items:
+              type: string
+            example: 'EMTA'
+        - name: hasRoleIn
+          in: query
+          description: Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles may be prefixed with namespace and colon. This parameter is only used if the service is provided by Pääsuke and must be ignored by others.
           required: false
           schema:
             type: string
             example: 'Legal_person_representative_package'
-        - in: query
-          name: skip
+        - name: skip
+          in: query
           description: Skip this number of records for pagination
           required: false
           schema:
             type: integer
             format: int32
             minimum: 0
-        - in: header
-          name: limit
+        - name: limit
+          in: query
           description: Maximum number of records to return
           required: false
           schema:
@@ -161,45 +174,47 @@ paths:
         Kui Väikefirma (representee) on andnud Raamatupidamisfirmale (subDelegatedBy) mingi rolli koos edasivolitamise (edasidelegeerimise) õigusega, siis saab Raamatupidamisfirma selle parameetri abil küsida, kellele tema omakorda on vastava volituse edasi volitanud (delegeerinud).
 
       parameters:
-        - in: path
-          name: representee
+        - name: representee
+          in: path
           description: Person code or company code of the representee
           example: EE10391131
           required: true
           schema:
             type: string
-        - in: header
-          name: namespace
-          description: Filter by namespace (comma separated)
+        - name: namespace
+          in: query
+          description: Filter by namespace(s)
           example: STAT
           required: false
           schema:
-            type: string
-            example: 'STAT,EMTA'
-        - in: header
-          name: subDelegatedBy
+            type: array
+            items:
+              type: string
+            example: 'EMTA'
+        - name: subDelegatedBy
+          in: query
           description: Filter by subdelegator (edasivolitaja) code
           required: false
           example: EE10391132
           schema:
             type: string
-        - in: header
-          name: hasRoleIn
-          description: Filter out delegates who don't have any of the roles in the list. This parameter is only used if the service is provided by Pääsuke and must be ignored by others.
+        - name: hasRoleIn
+          in: query
+          description: Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles may be prefixed with namespace and colon. This parameter is only used if the service is provided by Pääsuke and must be ignored by others.
           required: false
           schema:
             type: string
             example: 'Legal_person_representative_package'
-        - in: header
-          name: skip
+        - name: skip
+          in: query
           description: Skip this number of records for pagination
           required: false
           schema:
             type: integer
             format: int32
             minimum: 0
-        - in: header
-          name: limit
+        - name: limit
+          in: query
           description: Maximum number of records to return
           required: false
           schema:
@@ -237,29 +252,29 @@ paths:
       description: |
         Usually this endpoint is called after the user selects a legal entity who the delegate want's to represent at the given session.
       parameters:
-        - in: path
-          name: representee
+        - name: representee
+          in: path
           description: Person code or company code of the representee
           example: EE10391131
           required: true
           schema:
             type: string
-        - in: path
-          name: delegate
+        - name: delegate
+          in: path
           description: Person code or company code of the delegate
           example: EE38302250123
           required: true
           schema:
             type: string
-        - in: header
-          name: namespace
+        - name: namespace
+          in: query
           description: Filter by namespace (comma separated)
           required: false
           schema:
             type: string
-            example: 'STAT,EMTA'
-        - in: header
-          name: roles
+            example: 'eSTAT,EMTA'
+        - name: roles
+          in: query
           description: Filter by role (comma separated)
           required: false
           schema:
@@ -295,15 +310,15 @@ paths:
         
         Pääsuke pakub ka ise seda teenust liidestunud klientidele, kes hoiavad oma volitusi Pääsukeses. Teenuse kasutamine on vajalik juhul kui partnerasutus kasutab Pääsukest oma volituste süsteemina, aga keegi isik tuleb partnerasutusse (notariaalse volikirjaga) ja selle alusel tuleb partnerasutusel Pääsukesse sisse kanda volikirjal olevad volitused partnerasutuse nimeruumi.
       parameters:
-        - in: path
-          name: representee
+        - name: representee
+          in: path
           description: Person code or company code of the representee
           example: EE10391131
           required: true
           schema:
             type: string
-        - in: path
-          name: delegate
+        - name: delegate
+          in: path
           description: Person code or company code of the delegate
           required: true
           example: EE38302250123
@@ -336,39 +351,39 @@ paths:
                 items:
                   $ref: '#/components/schemas/Problem'
 
-  /representees/{representee}/delegates/{delegate}/mandates/{role}:
+  /representees/{representee}/delegates/{delegate}/mandates/{mandateIdentifier}:
     delete:
       tags:
         - Kõik teenused
         - Pääsukesele pakutav
-      summary: Remove a specific role from the delegate
+      summary: Remove a specific mandate from the delegate
       operationId: removeMandateFromDelegate
       description: |
-        Remove all mandates from the delegate
+        The mandateIdentifier is returned by the query that returned the mandates.
       parameters:
-        - in: path
-          name: representee
+        - name: representee
+          in: path
           description: Person code or company code of the representee
           example: EE10391131
           required: true
           schema:
             type: string
-        - in: path
-          name: delegate
+        - name: delegate
+          in: path
           description: Person code or company code of the delegate
           required: true
           example: EE38302250123
           schema:
             type: string
-        - in: header
-          name: namespace
-          description: Namespace of the role
+        - name: namespace
+          in: query
+          description: Namespace of the mandate
           required: true
-          example: STAT
+          example: eSTAT
           schema:
             type: string
-        - in: path
-          name: role
+        - name: mandateIdentifier
+          in: path
           description: Role to delete
           required: true
           example: Tegevjuht
@@ -406,21 +421,23 @@ paths:
       operationId: getRoles
       parameters:
         # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since
-        - in: header
-          name: If-Modified-Since
+        - name: If-Modified-Since
+          in: header
           schema:
             type: string
             format: date-time
             example: 2022-10-18T17:32:28+02:00
           required: false
-        - in: header
-          name: namespace
-          description: Filter by namespace (comma separated)
+        - name: namespace
+          in: query
+          description: Filter by namespace(s)
           example: STAT
           required: false
           schema:
-            type: string
-            example: 'STAT,EMTA'
+            type: array
+            items:
+              type: string
+            example: 'EMTA'
       responses:
         '200':
           description: List roles of some namespace(s) with translations
@@ -441,6 +458,34 @@ paths:
                 items:
                   $ref: '#/components/schemas/Problem'
 
+  /namespaces:
+    get:
+      tags:
+        - Kõik teenused
+        - Pääsukese poolt pakutav
+      summary: List namespaces with translations
+      operationId: getNamespaces
+      parameters:
+        - name: ownerCode
+          in: query
+          description: Filter by owner registry code
+          example: '70000332'
+          required: false
+          schema:
+            type: string
+            example: 'STAT,EMTA'
+      responses:
+        '200':
+          description: List of namespaces with translations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NamespaceDefinition'
+
+
+
 components:
   requestBodies:
     MandatesToAdd:
@@ -454,13 +499,9 @@ components:
     MandatesToAdd:
       type: object
       required:
-        - namespace
         - mandates
         - comment
       properties:
-        namespace:
-          type: string
-          description: The namespace the mandates are added under
         comment:
           type: string
           description: The reason why mandates are added manually
@@ -508,7 +549,7 @@ components:
           description: ID
         type:
           type: string
-          enum: [INDIVIDUAL, LEGAL_ENTITY]
+          enum: [NATURAL_PERSON, LEGAL_ENTITY]
           description: Type
         name:
           type: string
@@ -532,8 +573,14 @@ components:
     MandateToAdd:
       type: object
       required:
+        - namespace
         - role
       properties:
+        namespace:
+          type: string
+          format: string
+          description: The namespace the mandate is added under
+          example: 'STAT_ESTAT'
         role:
           type: string
           format: string
@@ -569,7 +616,7 @@ components:
         namespace:
           type: string
           format: string
-          example: 'EMTA'
+          example: 'STAT'
           description: Namespace
         role:
           type: string
@@ -601,18 +648,70 @@ components:
         href:
           type: string
           format: url
-          example: '/namespaces/STAT/representees/representeeIdentifierAtStat/delegates/delegateidentifierAtStat/mandates/roleIdentifierAtStat'
+          example: '/representees/representeeIdentifierAtStat/delegates/delegateidentifierAtStat/mandates'
         rel:
           type: string
-          example: 'delete'
+          example: 'getRepresenteeDelegateWithMandates'
 
+    NamespaceDefinition:
+      type: object
+      required:
+        - namespace
+      properties:
+        namespace:
+          type: string
+          format: string
+          example: 'STAT'
+          description: Namespace
+        parent_namespace:
+          type: string
+          format: string
+          example: null
+          description: Parent namespace (has value if namespace type is set to 'CHILD')
+        title:
+          type: array
+          description: Title
+          items:
+            $ref: '#/components/schemas/Translation'
+        hiddenDescription:
+          type: array
+          description: Namespace description that is not public to end users and can only be in a single language (Estonian or English)
+          items:
+            $ref: '#/components/schemas/Translation'
+        type:
+          type: string
+          nullable: false
+          enum:
+            - PARENT
+            - CHILD
+            - STANDALONE
+            - AUTOMATIC
+            - EXTERNAL
+          example: STANDALONE
+          description: Roles in PARENT namespace cannot be assigned to delegates. CHILD namespace must point at some parent_namespace and can only declare roles that exists in that parent namespace. AUTOMATIC namespace has roles that are automatically assigned and removed from persons based on some external info (for example when becoming a management board member of some company). STANDALONE roles are regular roles. EXTERNAL roles (and mandates connected with these roles) are stored at owner's side and only made available to Pääsuke.
+        owner:
+          $ref: '#/components/schemas/NamespaceOwner'
 
+    NamespaceOwner:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          format: string
+          example: 'RIA'
+          description: Name of the agency who is the maintainer of the namespace
+        code:
+          type: string
+          format: string
+          example: '70006317'
+          description: Registry code of the maintainer
     RoleDefinition:
       type: object
       required:
         - namespace
         - role
-        - title
         - metadata
       properties:
         id:
@@ -640,22 +739,25 @@ components:
           description: Description
           items:
             $ref: '#/components/schemas/Translation'
+        state:
+          type: string
+          nullable: false
+          enum:
+            - ACTIVE
+            - ACTIVE_GOVERNMENT
+            - HIDDEN
+            - REMOVED
+          description: 'Role is ACTIVE if it can be assigned; ACTIVE_GOVERNMENT if role can be assigned only to representees that are govenrment agencyes (representee registry code starts with 7); HIDDEN if role is still supported but cannot be assigned to new employees; REMOVED if role is no longer in action'
         modified:
           type: string
           format: date-time
           description: Last modified
           example: '2022-10-18T13:00:00+02:00'
         metadata:
-          description: Additional metadata
           $ref: '#/components/schemas/RoleMetadata'
 
     RoleMetadata:
       type: object
-      properties:
-        xroadSubsystem:
-          type: string
-          description: Xroad subsystem that stores roles of this type
-          example: stat-volitused
 
     Translation:
       type: object

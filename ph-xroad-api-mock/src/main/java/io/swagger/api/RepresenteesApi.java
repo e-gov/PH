@@ -34,7 +34,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-15T06:24:27.699Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:09:24.975Z[GMT]")
 @Validated
 public interface RepresenteesApi {
 
@@ -66,7 +66,7 @@ public interface RepresenteesApi {
     @RequestMapping(value = "/representees/{representee}/delegates/{delegate}/mandates",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<MandateTriplet> getRepresenteeDelegateWithMandates(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.HEADER, description = "Filter by namespace (comma separated)" ,schema=@Schema()) @RequestHeader(value="namespace", required=false) String namespace, @Parameter(in = ParameterIn.HEADER, description = "Filter by role (comma separated)" ,schema=@Schema()) @RequestHeader(value="roles", required=false) String roles);
+    ResponseEntity<MandateTriplet> getRepresenteeDelegateWithMandates(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.QUERY, description = "Filter by namespace (comma separated)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) String namespace, @Parameter(in = ParameterIn.QUERY, description = "Filter by role (comma separated)" ,schema=@Schema()) @Valid @RequestParam(value = "roles", required = false) String roles);
 
 
     @Operation(summary = "List delegates with mandates", description = "Returns list of delegates who have any mandates.  Protos: Ettevõtte esindajad ja volitatud isikud.  Kui Väikefirma (representee) on andnud Raamatupidamisfirmale (subDelegatedBy) mingi rolli koos edasivolitamise (edasidelegeerimise) õigusega, siis saab Raamatupidamisfirma selle parameetri abil küsida, kellele tema omakorda on vastava volituse edasi volitanud (delegeerinud). ", tags={ "Kõik teenused", "Pääsukesele pakutav" })
@@ -79,12 +79,12 @@ public interface RepresenteesApi {
     @RequestMapping(value = "/representees/{representee}/delegates/mandates",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<List<MandateTriplet>> getRepresenteeDelegatesWithMandates(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.HEADER, description = "Filter by namespace (comma separated)" ,schema=@Schema()) @RequestHeader(value="namespace", required=false) String namespace, @Parameter(in = ParameterIn.HEADER, description = "Filter by subdelegator (edasivolitaja) code" ,schema=@Schema()) @RequestHeader(value="subDelegatedBy", required=false) String subDelegatedBy, @Parameter(in = ParameterIn.HEADER, description = "Filter out delegates who don't have any of the roles in the list. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @RequestHeader(value="hasRoleIn", required=false) String hasRoleIn, @Parameter(in = ParameterIn.HEADER, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
-)) @RequestHeader(value="skip", required=false) Integer skip, @Parameter(in = ParameterIn.HEADER, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
-)) @RequestHeader(value="limit", required=false) Integer limit);
+    ResponseEntity<List<MandateTriplet>> getRepresenteeDelegatesWithMandates(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.QUERY, description = "Filter by namespace(s)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) List<String> namespace, @Parameter(in = ParameterIn.QUERY, description = "Filter by subdelegator (edasivolitaja) code" ,schema=@Schema()) @Valid @RequestParam(value = "subDelegatedBy", required = false) String subDelegatedBy, @Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles may be prefixed with namespace and colon. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) String hasRoleIn, @Min(0)@Parameter(in = ParameterIn.QUERY, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
+)) @Valid @RequestParam(value = "skip", required = false) Integer skip, @Min(0) @Max(500) @Parameter(in = ParameterIn.QUERY, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
+)) @Valid @RequestParam(value = "limit", required = false) Integer limit);
 
 
-    @Operation(summary = "Remove a specific role from the delegate", description = "Remove all mandates from the delegate ", tags={ "Kõik teenused", "Pääsukesele pakutav" })
+    @Operation(summary = "Remove a specific mandate from the delegate", description = "The mandateIdentifier is returned by the query that returned the mandates.  ", tags={ "Kõik teenused", "Pääsukesele pakutav" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Removed sucessfully"),
         
@@ -97,10 +97,10 @@ public interface RepresenteesApi {
         @ApiResponse(responseCode = "404", description = "Delegate doesn't have anything matching to remove"),
         
         @ApiResponse(responseCode = "422", description = "Unprocessable request. For example system doesn't know about the namespace.", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Problem.class)))) })
-    @RequestMapping(value = "/representees/{representee}/delegates/{delegate}/mandates/{role}",
+    @RequestMapping(value = "/representees/{representee}/delegates/{delegate}/mandates/{mandateIdentifier}",
         produces = { "application/json" }, 
         method = RequestMethod.DELETE)
-    ResponseEntity<Void> removeMandateFromDelegate(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.HEADER, description = "Namespace of the role" ,required=true,schema=@Schema()) @RequestHeader(value="namespace", required=true) String namespace, @Parameter(in = ParameterIn.PATH, description = "Role to delete", required=true, schema=@Schema()) @PathVariable("role") String role);
+    ResponseEntity<Void> removeMandateFromDelegate(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @NotNull @Parameter(in = ParameterIn.QUERY, description = "Namespace of the mandate" ,required=true,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = true) String namespace, @Parameter(in = ParameterIn.PATH, description = "Role to delete", required=true, schema=@Schema()) @PathVariable("mandateIdentifier") String mandateIdentifier);
 
 }
 

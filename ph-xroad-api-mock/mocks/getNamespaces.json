@@ -1,0 +1,176 @@
+[
+  {
+    "namespace": "EMTA",
+    "parent_namespace": null,
+    "type": "EXTERNAL",
+    "owner": {
+      "code": "70000349",
+      "name": "Maksu- ja Tolliamet"
+    },
+    "title": [
+      {
+        "lang": "et",
+        "value": "Maksu- ja Tolliameti rollid"
+      },
+      {
+        "lang": "en",
+        "value": "Translation in that language"
+      },
+      {
+        "lang": "ru",
+        "value": "Translation in that language"
+      }
+    ],
+    "hiddenDescription": [
+      {
+        "lang": "et",
+        "value": "Maksu- ja Tolliameti standalone rollid. Rollid on hoiustatud Maksu- ja Tolliameti poolel."
+      }
+    ]
+  },
+  {
+    "namespace": "STAT_ESTAT",
+    "parent_namespace": null,
+    "type": "EXTERNAL",
+    "owner": {
+      "code": "70000332",
+      "name": "Statistikaamet"
+    },
+    "title": [
+      {
+        "lang": "et",
+        "value": "Statistikaameti eSTAT süsteemi rollid"
+      },
+      {
+        "lang": "en",
+        "value": "Translation in that language"
+      },
+      {
+        "lang": "ru",
+        "value": "Translation in that language"
+      }
+    ],
+    "hiddenDescription": [
+      {
+        "lang": "et",
+        "value": "Statistikaameti ESTAT rollid"
+      }
+    ]
+  },
+  {
+    "namespace": "STAT_SCIENTIST",
+    "parent_namespace": null,
+    "type": "EXTERNAL",
+    "owner": {
+      "code": "70000332",
+      "name": "Statistikaamet"
+    },
+    "title": [
+      {
+        "lang": "et",
+        "value": "Statistikaameti Teadlaste infosüsteemi rollid"
+      },
+      {
+        "lang": "en",
+        "value": "Translation in that language"
+      },
+      {
+        "lang": "ru",
+        "value": "Translation in that language"
+      }
+    ],
+    "hiddenDescription": [
+      {
+        "lang": "et",
+        "value": "Statistikaameti SSO rollid"
+      }
+    ]
+  },
+  {
+    "namespace": "GLOBAL1",
+    "parent_namespace": null,
+    "type": "PARENT",
+    "owner": {
+      "code": "70006317",
+      "name": "Riigi Infosüsteemi Amet"
+    },
+    "title": [
+      {
+        "lang": "et",
+        "value": "Asutusteülesed katusrollid"
+      },
+      {
+        "lang": "en",
+        "value": "Translation in that language"
+      },
+      {
+        "lang": "ru",
+        "value": "Translation in that language"
+      }
+    ],
+    "hiddenDescription": [
+      {
+        "lang": "et",
+        "value": "Selles nimeruumis kirjeldab RIA katusrollid, mida teised asutused saavad pakkuda."
+      }
+    ]
+  },
+  {
+    "namespace": "LHV_GLOBAL1",
+    "parent_namespace": "GLOBAL1",
+    "type": "CHILD",
+    "owner": {
+      "code": "10539549",
+      "name": "LHV pank"
+    },
+    "title": [
+      {
+        "lang": "et",
+        "value": "LHV pank"
+      },
+      {
+        "lang": "en",
+        "value": "LHV bank"
+      },
+      {
+        "lang": "ru",
+        "value": "LHV pank (ru)"
+      }
+    ],
+    "hiddenDescription": [
+      {
+        "lang": "et",
+        "value": "Selles nimeruumis kirjeldab LHV need katusrollid, mida nad toetavad nimeruumist GLOBAL1"
+      }
+    ]
+  },
+  {
+    "namespace": "AUTOM_BUSINESSREG",
+    "parent_namespace": null,
+    "type": "AUTOMATIC",
+    "owner": {
+      "code": "70006317",
+      "name": "Riigi Infosüsteemi Amet"
+    },
+    "title": [
+      {
+        "lang": "et",
+        "value": "Äriregistri andmete põhjal automaatselt lisatavad ja eemaldatavad rollid"
+      },
+      {
+        "lang": "en",
+        "value": "Automaticcally assigned roles based on business register data"
+      },
+      {
+        "lang": "ru",
+        "value": "Automaticcally assigned roles based on business register data(ru)"
+      }
+    ],
+    "hiddenDescription": [
+      {
+        "lang": "et",
+        "value": "Selles nimeruumis on kirjeldatud rollid, mis äriregistri andmete põhjal lisatakse ja eemaldatakse automaatselt"
+      }
+    ]
+  }
+]

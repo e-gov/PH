@@ -35,7 +35,7 @@ public class SwaggerDocumentationConfig {
             .license("Apache 2.0")
             .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
             .termsOfServiceUrl("")
-            .version("0.2.0")
+            .version("0.3.1")
             .contact(new Contact("","", "you@your-company.com"))
             .build();
     }
@@ -47,7 +47,7 @@ public class SwaggerDocumentationConfig {
                 .title("Pääsukese X-tee liides")
                 .description("Sisaldab Pääsukese poolt standardiseeritud x-tee teeunuseid")
                 .termsOfService("")
-                .version("0.2.0")
+                .version("0.3.1")
                 .license(new License()
                     .name("Apache 2.0")
                     .url("http://www.apache.org/licenses/LICENSE-2.0.html"))

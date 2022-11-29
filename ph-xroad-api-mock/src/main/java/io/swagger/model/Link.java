@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
  * Link
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-09T08:21:54.440Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:22:46.494Z[GMT]")
 
 
 public class Link   {
@@ -31,7 +31,7 @@ public class Link   {
    * Get href
    * @return href
    **/
-  @Schema(example = "/namespaces/STAT/representees/representeeIdentifierAtStat/delegates/delegateidentifierAtStat/mandates/roleIdentifierAtStat", description = "")
+  @Schema(example = "/representees/representeeIdentifierAtStat/delegates/delegateidentifierAtStat/mandates", description = "")
   
     public String getHref() {
     return href;
@@ -50,7 +50,7 @@ public class Link   {
    * Get rel
    * @return rel
    **/
-  @Schema(example = "delete", description = "")
+  @Schema(example = "getRepresenteeDelegateWithMandates", description = "")
   
     public String getRel() {
     return rel;

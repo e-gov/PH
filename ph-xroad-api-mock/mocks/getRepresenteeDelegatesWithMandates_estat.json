@@ -10,7 +10,7 @@
     },
     "delegate": {
       "id": "person22222222",
-      "type": "INDIVIDUAL",
+      "type": "NATURAL_PERSON",
       "name": "Seidi Saar",
       "identityCodeCountry": "EE",
       "identityCode": "48102250123"

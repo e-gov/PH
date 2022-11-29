@@ -1,6 +1,8 @@
 package io.swagger.model;
 
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.Link;
@@ -16,10 +18,11 @@ import javax.validation.constraints.*;
  * Mandate
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-15T06:15:59.962Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:22:46.494Z[GMT]")
 
 
 public class Mandate   {
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @JsonProperty("id")
   private String id = null;
 
@@ -29,15 +32,19 @@ public class Mandate   {
   @JsonProperty("role")
   private String role = null;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @JsonProperty("validFrom")
   private LocalDate validFrom = null;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @JsonProperty("validThrough")
   private LocalDate validThrough = null;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @JsonProperty("canSubDelegate")
   private Boolean canSubDelegate = null;
 
+  @JsonInclude(JsonInclude.Include.NON_EMPTY)
   @JsonProperty("links")
   @Valid
   private List<Link> links = null;
@@ -70,7 +77,7 @@ public class Mandate   {
    * Namespace
    * @return namespace
    **/
-  @Schema(example = "EMTA", required = true, description = "Namespace")
+  @Schema(example = "STAT", required = true, description = "Namespace")
       @NotNull
 
     public String getNamespace() {

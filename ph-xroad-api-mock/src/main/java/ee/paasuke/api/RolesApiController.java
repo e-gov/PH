@@ -1,5 +1,7 @@
 package ee.paasuke.api;
 
+import static ee.paasuke.api.HeaderUtil.logHeaders;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,12 +50,13 @@ public class RolesApiController implements RolesApi {
         this.mocksDir = mocksDir;
     }
 
-    public ResponseEntity<List<RoleDefinition>> getRoles(@Parameter(in = ParameterIn.HEADER, description = "" ,schema=@Schema()) @RequestHeader(value="If-Modified-Since", required=false) OffsetDateTime ifModifiedSince,@Parameter(in = ParameterIn.HEADER, description = "Filter by namespace (comma separated)" ,schema=@Schema()) @RequestHeader(value="namespace", required=false) String namespace) {
+    public ResponseEntity<List<RoleDefinition>> getRoles(@Parameter(in = ParameterIn.HEADER, description = "" ,schema=@Schema()) @RequestHeader(value="If-Modified-Since", required=false) OffsetDateTime ifModifiedSince,@Parameter(in = ParameterIn.QUERY, description = "Filter by namespace(s)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) List<String> namespace) {
+        logHeaders(request);
+
         if (ifModifiedSince != null && ifModifiedSince.isAfter(OffsetDateTime.parse("2022-11-01T15:20:30+02:00"))) {
             log.info("'If-Modified-Since header' was sent - returning 304 ");
             return new ResponseEntity<List<RoleDefinition>>(HttpStatus.NOT_MODIFIED);
         }
-
 
         String accept = request.getHeader("Accept");
         if (accept != null && (accept.contains("application/json") || accept.contains("*/*"))) {

@@ -5,6 +5,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.model.RoleMetadata;
 import io.swagger.model.Translation;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -19,7 +20,7 @@ import javax.validation.constraints.*;
  * RoleDefinition
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-15T06:15:59.962Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:22:46.494Z[GMT]")
 
 
 public class RoleDefinition   {
@@ -35,18 +36,55 @@ public class RoleDefinition   {
 
   @JsonProperty("title")
   @Valid
-  private List<Translation> title = new ArrayList<Translation>();
+  private List<Translation> title = null;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   @JsonProperty("description")
   @Valid
   private List<Translation> description = null;
 
+  /**
+   * Role is ACTIVE if it can be assigned; ACTIVE_GOVERNMENT if role can be assigned only to representees that are govenrment agencyes (representee registry code starts with 7); HIDDEN if role is still supported but cannot be assigned to new employees; REMOVED if role is no longer in action
+   */
+  public enum StateEnum {
+    ACTIVE("ACTIVE"),
+    
+    ACTIVE_GOVERNMENT("ACTIVE_GOVERNMENT"),
+    
+    HIDDEN("HIDDEN"),
+    
+    REMOVED("REMOVED");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StateEnum fromValue(String text) {
+      for (StateEnum b : StateEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+  @JsonProperty("state")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private StateEnum state = null;
+
   @JsonProperty("modified")
   private OffsetDateTime modified = null;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private RoleMetadata metadata = null;
 
   public RoleDefinition id(String id) {
@@ -114,6 +152,9 @@ public class RoleDefinition   {
   }
 
   public RoleDefinition addTitleItem(Translation titleItem) {
+    if (this.title == null) {
+      this.title = new ArrayList<Translation>();
+    }
     this.title.add(titleItem);
     return this;
   }
@@ -122,9 +163,8 @@ public class RoleDefinition   {
    * Title
    * @return title
    **/
-  @Schema(required = true, description = "Title")
-      @NotNull
-    @Valid
+  @Schema(description = "Title")
+      @Valid
     public List<Translation> getTitle() {
     return title;
   }
@@ -158,6 +198,25 @@ public class RoleDefinition   {
 
   public void setDescription(List<Translation> description) {
     this.description = description;
+  }
+
+  public RoleDefinition state(StateEnum state) {
+    this.state = state;
+    return this;
+  }
+
+  /**
+   * Role is ACTIVE if it can be assigned; ACTIVE_GOVERNMENT if role can be assigned only to representees that are govenrment agencyes (representee registry code starts with 7); HIDDEN if role is still supported but cannot be assigned to new employees; REMOVED if role is no longer in action
+   * @return state
+   **/
+  @Schema(description = "Role is ACTIVE if it can be assigned; ACTIVE_GOVERNMENT if role can be assigned only to representees that are govenrment agencyes (representee registry code starts with 7); HIDDEN if role is still supported but cannot be assigned to new employees; REMOVED if role is no longer in action")
+  
+    public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
   }
 
   public RoleDefinition modified(OffsetDateTime modified) {
@@ -216,13 +275,14 @@ public class RoleDefinition   {
         Objects.equals(this.role, roleDefinition.role) &&
         Objects.equals(this.title, roleDefinition.title) &&
         Objects.equals(this.description, roleDefinition.description) &&
+        Objects.equals(this.state, roleDefinition.state) &&
         Objects.equals(this.modified, roleDefinition.modified) &&
         Objects.equals(this.metadata, roleDefinition.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, role, title, description, modified, metadata);
+    return Objects.hash(id, namespace, role, title, description, state, modified, metadata);
   }
 
   @Override
@@ -235,6 +295,7 @@ public class RoleDefinition   {
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");

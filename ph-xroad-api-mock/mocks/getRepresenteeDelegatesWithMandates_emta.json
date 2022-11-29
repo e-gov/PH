@@ -10,7 +10,7 @@
     },
     "delegate": {
       "id": "9028623070",
-      "type": "INDIVIDUAL",
+      "type": "NATURAL_PERSON",
       "name": "Lotte Koer",
       "identityCodeCountry": "EE",
       "identityCode": "36007254335"
@@ -597,7 +597,7 @@
     },
     "delegate": {
       "id": "9028622532",
-      "type": "INDIVIDUAL",
+      "type": "NATURAL_PERSON",
       "name": "Eefraim Pikksukk",
       "identityCodeCountry": "EE",
       "identityCode": "36008240007"
@@ -649,7 +649,7 @@
     },
     "delegate": {
       "id": "9028622960",
-      "type": "INDIVIDUAL",
+      "type": "NATURAL_PERSON",
       "name": "Karl Kingpool",
       "identityCodeCountry": "EE",
       "identityCode": "36007250075"
@@ -721,7 +721,7 @@
     },
     "delegate": {
       "id": "9028622737",
-      "type": "INDIVIDUAL",
+      "type": "NATURAL_PERSON",
       "name": "Karlsson Katuselt",
       "identityCodeCountry": "EE",
       "identityCode": "35511140005"
@@ -793,7 +793,7 @@
     },
     "delegate": {
       "id": "9028623071",
-      "type": "INDIVIDUAL",
+      "type": "NATURAL_PERSON",
       "name": "Minni Hiir",
       "identityCodeCountry": "EE",
       "identityCode": "61005211702"
@@ -932,7 +932,7 @@
     },
     "delegate": {
       "id": "9028622848",
-      "type": "INDIVIDUAL",
+      "type": "NATURAL_PERSON",
       "name": "Miki Hiir",
       "identityCodeCountry": "EE",
       "identityCode": "36008245504"
@@ -1004,7 +1004,7 @@
     },
     "delegate": {
       "id": "9028622847",
-      "type": "INDIVIDUAL",
+      "type": "NATURAL_PERSON",
       "name": "Pipi Pikksukk",
       "identityCodeCountry": "EE",
       "identityCode": "61005210008"

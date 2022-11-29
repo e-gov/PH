@@ -6,7 +6,7 @@
     "type": "LEGAL_ENTITY",
     "links": [
         {
-          "href": "xroad:/namespaces/{namespace}/representees/EE10689305/delegates/{delegate}/mandates",
+          "href": "xroad:/v1/representees/EE10689305/delegates/{delegate}/mandates",
           "rel": "delegateMandates"
         }
     ]
@@ -18,7 +18,7 @@
     "type": "LEGAL_ENTITY",
     "links": [
       {
-        "href": "xroad:/namespaces/{namespace}/representees/EE10234958/delegates/{delegate}/mandates",
+        "href": "xroad:/v1/representees/EE10234958/delegates/{delegate}/mandates",
         "rel": "delegateMandates"
       }
     ]
@@ -30,7 +30,7 @@
     "type": "LEGAL_ENTITY",
     "links": [
       {
-        "href": "xroad:/namespaces/{namespace}/representees/EE11107676/delegates/{delegate}/mandates",
+        "href": "xroad:/v1/representees/EE11107676/delegates/{delegate}/mandates",
         "rel": "delegateMandates"
       }
     ]
@@ -42,7 +42,7 @@
     "type": "LEGAL_ENTITY",
     "links": [
       {
-        "href": "xroad:/namespaces/{namespace}/representees/EE14015963/delegates/{delegate}/mandates",
+        "href": "xroad:/v1/representees/EE14015963/delegates/{delegate}/mandates",
         "rel": "delegateMandates"
       }
     ]
@@ -54,7 +54,7 @@
     "type": "LEGAL_ENTITY",
     "links": [
       {
-        "href": "xroad:/namespaces/{namespace}/representees/EE10464397/delegates/{delegate}/mandates",
+        "href": "xroad:/v1/representees/EE10464397/delegates/{delegate}/mandates",
         "rel": "delegateMandates"
       }
     ]

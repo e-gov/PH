@@ -13,10 +13,13 @@ import javax.validation.constraints.*;
  * MandateToAdd
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-15T06:15:59.962Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:22:46.494Z[GMT]")
 
 
 public class MandateToAdd   {
+  @JsonProperty("namespace")
+  private String namespace = null;
+
   @JsonProperty("role")
   private String role = null;
 
@@ -28,6 +31,26 @@ public class MandateToAdd   {
 
   @JsonProperty("validThrough")
   private LocalDate validThrough = null;
+
+  public MandateToAdd namespace(String namespace) {
+    this.namespace = namespace;
+    return this;
+  }
+
+  /**
+   * The namespace the mandate is added under
+   * @return namespace
+   **/
+  @Schema(example = "STAT_ESTAT", required = true, description = "The namespace the mandate is added under")
+      @NotNull
+
+    public String getNamespace() {
+    return namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
 
   public MandateToAdd role(String role) {
     this.role = role;
@@ -118,7 +141,8 @@ public class MandateToAdd   {
       return false;
     }
     MandateToAdd mandateToAdd = (MandateToAdd) o;
-    return Objects.equals(this.role, mandateToAdd.role) &&
+    return Objects.equals(this.namespace, mandateToAdd.namespace) &&
+        Objects.equals(this.role, mandateToAdd.role) &&
         Objects.equals(this.validFrom, mandateToAdd.validFrom) &&
         Objects.equals(this.validIndefinitely, mandateToAdd.validIndefinitely) &&
         Objects.equals(this.validThrough, mandateToAdd.validThrough);
@@ -126,7 +150,7 @@ public class MandateToAdd   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, validFrom, validIndefinitely, validThrough);
+    return Objects.hash(namespace, role, validFrom, validIndefinitely, validThrough);
   }
 
   @Override
@@ -134,6 +158,7 @@ public class MandateToAdd   {
     StringBuilder sb = new StringBuilder();
     sb.append("class MandateToAdd {\n");
     
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
     sb.append("    validIndefinitely: ").append(toIndentedString(validIndefinitely)).append("\n");
