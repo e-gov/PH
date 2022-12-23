@@ -3,7 +3,7 @@
     "id": "3123217",
     "representee": {
       "id": "9028624709",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Tervisekeskus OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "13568394"
@@ -590,7 +590,7 @@
   {
     "representee": {
       "id": "9028624709",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Tervisekeskus OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "13568394"
@@ -642,7 +642,7 @@
   {
     "representee": {
       "id": "9028624709",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Tervisekeskus OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "13568394"
@@ -714,7 +714,7 @@
   {
     "representee": {
       "id": "9028624709",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Tervisekeskus OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "13568394"
@@ -786,7 +786,7 @@
   {
     "representee": {
       "id": "9028624709",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Tervisekeskus OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "13568394"
@@ -872,14 +872,14 @@
   {
     "representee": {
       "id": "9028624709",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Tervisekeskus OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "13568394"
     },
     "delegate": {
       "id": "9028622408",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Meeskond OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "12345643"
@@ -925,7 +925,7 @@
   {
     "representee": {
       "id": "9028624709",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Tervisekeskus OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "13568394"
@@ -997,7 +997,7 @@
   {
     "representee": {
       "id": "9028624709",
-      "type": "LEGAL_ENTITY",
+      "type": "LEGAL_PERSON",
       "name": "Tervisekeskus OÜ",
       "identityCodeCountry": "EE",
       "identityCode": "13568394"

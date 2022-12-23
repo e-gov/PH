@@ -1,31 +1,22 @@
 package io.swagger.model;
 
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.model.Link;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * Person
+ * AddPerson
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T08:01:40.233Z[GMT]")
 
 
-public class Person   {
-  @JsonProperty("id")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String id = null;
-
+public class AddPerson   {
   /**
    * Type
    */
@@ -68,32 +59,7 @@ public class Person   {
   @JsonProperty("identityCode")
   private String identityCode = null;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  @JsonProperty("links")
-  @Valid
-  private List<Link> links = null;
-
-  public Person id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * ID
-   * @return id
-   **/
-  @Schema(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, description = "ID")
-      @NotNull
-
-    public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Person type(TypeEnum type) {
+  public AddPerson type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -113,7 +79,7 @@ public class Person   {
     this.type = type;
   }
 
-  public Person name(String name) {
+  public AddPerson name(String name) {
     this.name = name;
     return this;
   }
@@ -132,7 +98,7 @@ public class Person   {
     this.name = name;
   }
 
-  public Person identityCodeCountry(String identityCodeCountry) {
+  public AddPerson identityCodeCountry(String identityCodeCountry) {
     this.identityCodeCountry = identityCodeCountry;
     return this;
   }
@@ -152,7 +118,7 @@ public class Person   {
     this.identityCodeCountry = identityCodeCountry;
   }
 
-  public Person identityCode(String identityCode) {
+  public AddPerson identityCode(String identityCode) {
     this.identityCode = identityCode;
     return this;
   }
@@ -172,33 +138,6 @@ public class Person   {
     this.identityCode = identityCode;
   }
 
-  public Person links(List<Link> links) {
-    this.links = links;
-    return this;
-  }
-
-  public Person addLinksItem(Link linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<Link>();
-    }
-    this.links.add(linksItem);
-    return this;
-  }
-
-  /**
-   * Links that indicate allowed actions and provide parameters for for calling other services
-   * @return links
-   **/
-  @Schema(description = "Links that indicate allowed actions and provide parameters for for calling other services")
-      @Valid
-    public List<Link> getLinks() {
-    return links;
-  }
-
-  public void setLinks(List<Link> links) {
-    this.links = links;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -208,31 +147,27 @@ public class Person   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Person person = (Person) o;
-    return Objects.equals(this.id, person.id) &&
-        Objects.equals(this.type, person.type) &&
-        Objects.equals(this.name, person.name) &&
-        Objects.equals(this.identityCodeCountry, person.identityCodeCountry) &&
-        Objects.equals(this.identityCode, person.identityCode) &&
-        Objects.equals(this.links, person.links);
+    AddPerson addPerson = (AddPerson) o;
+    return Objects.equals(this.type, addPerson.type) &&
+        Objects.equals(this.name, addPerson.name) &&
+        Objects.equals(this.identityCodeCountry, addPerson.identityCodeCountry) &&
+        Objects.equals(this.identityCode, addPerson.identityCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, name, identityCodeCountry, identityCode, links);
+    return Objects.hash(type, name, identityCodeCountry, identityCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Person {\n");
+    sb.append("class AddPerson {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    identityCodeCountry: ").append(toIndentedString(identityCodeCountry)).append("\n");
     sb.append("    identityCode: ").append(toIndentedString(identityCode)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
   }

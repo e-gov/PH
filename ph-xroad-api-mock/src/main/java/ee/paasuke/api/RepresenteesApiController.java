@@ -17,22 +17,42 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ee.paasuke.FileUtil;
 import ee.paasuke.MandateTripletFillerUtil;
 import io.swagger.api.RepresenteesApi;
+import io.swagger.model.MandateToAdd;
 import io.swagger.model.MandateTriplet;
-import io.swagger.model.MandatesToAdd;
+import io.swagger.model.MandatesToAddMisp;
+import io.swagger.model.Problem;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-07T14:54:24.274Z[GMT]")
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T08:01:40.233Z[GMT]")
 @RestController
 public class RepresenteesApiController implements RepresenteesApi {
 
@@ -51,13 +71,12 @@ public class RepresenteesApiController implements RepresenteesApi {
         this.mocksDir = mocksDir;
     }
 
-    public ResponseEntity<Void> addMandatesToDelegate(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee,@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate,@Parameter(in = ParameterIn.DEFAULT, description = "Enter details of the mandate(s)", schema=@Schema()) @Valid @RequestBody MandatesToAdd body) {
-        logHeaders(request);
-        String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+    @Override
+    public ResponseEntity<Void> addMandatesToDelegateFromMisp(@Pattern(regexp="^[A-Z]{2}.+") @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee. Starts with country code (ISO 3166-1 alpha-2).", required=true, schema=@Schema()) @PathVariable("representee") String representee,@Pattern(regexp="^[A-Z]{2}.+") @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate. Starts with country code (ISO 3166-1 alpha-2).", required=true, schema=@Schema()) @PathVariable("delegate") String delegate,@Parameter(in = ParameterIn.DEFAULT, description = "Enter details of the mandate(s)", schema=@Schema()) @Valid @RequestBody MandatesToAddMisp body) {
+        return null;
     }
 
-    public ResponseEntity<MandateTriplet> getRepresenteeDelegateWithMandates(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee,@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate,@Parameter(in = ParameterIn.QUERY, description = "Filter by namespace (comma separated)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) String namespace,@Parameter(in = ParameterIn.QUERY, description = "Filter by role (comma separated)" ,schema=@Schema()) @Valid @RequestParam(value = "roles", required = false) String roles) {
+    public ResponseEntity<MandateTriplet> getRepresenteeDelegateWithMandates(@Pattern(regexp="^[A-Z]{2}.+") @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee. Starts with country code (ISO 3166-1 alpha-2).", required=true, schema=@Schema()) @PathVariable("representee") String representee,@Pattern(regexp="^[A-Z]{2}.+") @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate. Starts with country code (ISO 3166-1 alpha-2).", required=true, schema=@Schema()) @PathVariable("delegate") String delegate,@Parameter(in = ParameterIn.QUERY, description = "Filter by namespace (comma separated)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) String namespace,@Parameter(in = ParameterIn.QUERY, description = "Filter by role (comma separated)" ,schema=@Schema()) @Valid @RequestParam(value = "roles", required = false) String roles) {
         logHeaders(request);
         String accept = request.getHeader("Accept");
         if (accept != null && (accept.contains("application/json") || accept.contains("*/*"))) {
@@ -101,7 +120,7 @@ public class RepresenteesApiController implements RepresenteesApi {
         return new ResponseEntity<MandateTriplet>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<List<MandateTriplet>> getRepresenteeDelegatesWithMandates(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee,@Parameter(in = ParameterIn.QUERY, description = "Filter by namespace(s)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) List<String> namespace,@Parameter(in = ParameterIn.QUERY, description = "Filter by subdelegator (edasivolitaja) code" ,schema=@Schema()) @Valid @RequestParam(value = "subDelegatedBy", required = false) String subDelegatedBy,@Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles may be prefixed with namespace and colon. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) String hasRoleIn,@Min(0)@Parameter(in = ParameterIn.QUERY, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
+    public ResponseEntity<List<MandateTriplet>> getRepresenteeDelegatesWithMandates(@Pattern(regexp="^[A-Z]{2}.+") @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee. Starts with country code (ISO 3166-1 alpha-2).", required=true, schema=@Schema()) @PathVariable("representee") String representee,@Parameter(in = ParameterIn.QUERY, description = "Filter by namespace(s)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) List<String> namespace,@Parameter(in = ParameterIn.QUERY, description = "Filter by subdelegator (edasivolitaja) code" ,schema=@Schema()) @Valid @RequestParam(value = "subDelegatedBy", required = false) String subDelegatedBy,@Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles must be prefixed with namespace and colon. To match all roles in namespace use * like this: 'MYNS:*'. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) List<String> hasRoleIn,@Min(0)@Parameter(in = ParameterIn.QUERY, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
     )) @Valid @RequestParam(value = "skip", required = false) Integer skip,@Min(0) @Max(500) @Parameter(in = ParameterIn.QUERY, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
     )) @Valid @RequestParam(value = "limit", required = false) Integer limit) {
         logHeaders(request);
@@ -128,12 +147,6 @@ public class RepresenteesApiController implements RepresenteesApi {
         }
 
         return new ResponseEntity<List<MandateTriplet>>(HttpStatus.NOT_IMPLEMENTED);
-    }
-
-    public ResponseEntity<Void> removeMandateFromDelegate(@Parameter(in = ParameterIn.PATH, description = "Person code or company code of the representee", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @NotNull @Parameter(in = ParameterIn.QUERY, description = "Namespace of the mandate" ,required=true,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = true) String namespace, @Parameter(in = ParameterIn.PATH, description = "Role to delete", required=true, schema=@Schema()) @PathVariable("mandateIdentifier") String mandateIdentifier) {
-        logHeaders(request);
-        String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
 }

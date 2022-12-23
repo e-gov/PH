@@ -3,7 +3,7 @@
     "name": "Raamatupidajad OÜ",
     "identityCode": "10689305",
     "identityCodeCountry": "EE",
-    "type": "LEGAL_ENTITY",
+    "type": "LEGAL_PERSON",
     "links": [
         {
           "href": "xroad:/v1/representees/EE10689305/delegates/{delegate}/mandates",
@@ -15,7 +15,7 @@
     "name": "Suurfirma AS",
     "identityCode": "10234958",
     "identityCodeCountry": "EE",
-    "type": "LEGAL_ENTITY",
+    "type": "LEGAL_PERSON",
     "links": [
       {
         "href": "xroad:/v1/representees/EE10234958/delegates/{delegate}/mandates",
@@ -27,7 +27,7 @@
     "name": "Põllumajandusühistu TÜ",
     "identityCode": "11107676",
     "identityCodeCountry": "EE",
-    "type": "LEGAL_ENTITY",
+    "type": "LEGAL_PERSON",
     "links": [
       {
         "href": "xroad:/v1/representees/EE11107676/delegates/{delegate}/mandates",
@@ -39,7 +39,7 @@
     "name": "Juristid OÜ",
     "identityCode": "14015963",
     "identityCodeCountry": "EE",
-    "type": "LEGAL_ENTITY",
+    "type": "LEGAL_PERSON",
     "links": [
       {
         "href": "xroad:/v1/representees/EE14015963/delegates/{delegate}/mandates",
@@ -51,7 +51,7 @@
     "name": "Väikefirma OÜ",
     "identityCode": "10464397",
     "identityCodeCountry": "EE",
-    "type": "LEGAL_ENTITY",
+    "type": "LEGAL_PERSON",
     "links": [
       {
         "href": "xroad:/v1/representees/EE10464397/delegates/{delegate}/mandates",

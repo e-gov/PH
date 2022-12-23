@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
  * RoleDefinition
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:22:46.494Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T09:37:06.463Z[GMT]")
 
 
 public class RoleDefinition   {
@@ -35,12 +35,10 @@ public class RoleDefinition   {
   private String role = null;
 
   @JsonProperty("title")
-  @Valid
-  private List<Translation> title = null;
+  private Translation title = null;
 
   @JsonProperty("description")
-  @Valid
-  private List<Translation> description = null;
+  private Translation description = null;
 
   /**
    * Role is ACTIVE if it can be assigned; ACTIVE_GOVERNMENT if role can be assigned only to representees that are govenrment agencyes (representee registry code starts with 7); HIDDEN if role is still supported but cannot be assigned to new employees; REMOVED if role is no longer in action
@@ -138,7 +136,7 @@ public class RoleDefinition   {
   @Schema(example = "Respondent", required = true, description = "Role")
       @NotNull
 
-    public String getRole() {
+  @Pattern(regexp="[A-Za-z0-9_\\.]+")   public String getRole() {
     return role;
   }
 
@@ -146,57 +144,43 @@ public class RoleDefinition   {
     this.role = role;
   }
 
-  public RoleDefinition title(List<Translation> title) {
+  public RoleDefinition title(Translation title) {
     this.title = title;
-    return this;
-  }
-
-  public RoleDefinition addTitleItem(Translation titleItem) {
-    if (this.title == null) {
-      this.title = new ArrayList<Translation>();
-    }
-    this.title.add(titleItem);
     return this;
   }
 
   /**
-   * Title
+   * Get title
    * @return title
    **/
-  @Schema(description = "Title")
-      @Valid
-    public List<Translation> getTitle() {
+  @Schema(description = "")
+  
+    @Valid
+    public Translation getTitle() {
     return title;
   }
 
-  public void setTitle(List<Translation> title) {
+  public void setTitle(Translation title) {
     this.title = title;
   }
 
-  public RoleDefinition description(List<Translation> description) {
+  public RoleDefinition description(Translation description) {
     this.description = description;
     return this;
   }
 
-  public RoleDefinition addDescriptionItem(Translation descriptionItem) {
-    if (this.description == null) {
-      this.description = new ArrayList<Translation>();
-    }
-    this.description.add(descriptionItem);
-    return this;
-  }
-
   /**
-   * Description
+   * Get description
    * @return description
    **/
-  @Schema(description = "Description")
-      @Valid
-    public List<Translation> getDescription() {
+  @Schema(description = "")
+  
+    @Valid
+    public Translation getDescription() {
     return description;
   }
 
-  public void setDescription(List<Translation> description) {
+  public void setDescription(Translation description) {
     this.description = description;
   }
 
@@ -228,7 +212,7 @@ public class RoleDefinition   {
    * Last modified
    * @return modified
    **/
-  @Schema(example = "2022-10-18T13:00+02:00", description = "Last modified")
+  @Schema(example = "2022-10-18T13:00+02:00", implementation = OffsetDateTime.class, description = "Last modified")
   
     @Valid
     public OffsetDateTime getModified() {

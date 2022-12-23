@@ -10,16 +10,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * MandateToAdd
+ * MandateToSubDelegate
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-19T09:44:20.956Z[GMT]")
 
 
-public class MandateToAdd   {
-  @JsonProperty("role")
-  private String role = null;
-
+public class MandateToSubDelegate   {
   @JsonProperty("validFrom")
   private LocalDate validFrom = null;
 
@@ -29,26 +26,7 @@ public class MandateToAdd   {
   @JsonProperty("validThrough")
   private LocalDate validThrough = null;
 
-  public MandateToAdd role(String role) {
-    this.role = role;
-    return this;
-  }
-
-  /**
-   * Role name
-   * @return role
-   **/
-  @Schema(example = "ACCOUNTANT", description = "Role name")
-  
-    public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
-
-  public MandateToAdd validFrom(LocalDate validFrom) {
+  public MandateToSubDelegate validFrom(LocalDate validFrom) {
     this.validFrom = validFrom;
     return this;
   }
@@ -68,7 +46,7 @@ public class MandateToAdd   {
     this.validFrom = validFrom;
   }
 
-  public MandateToAdd validIndefinitely(Boolean validIndefinitely) {
+  public MandateToSubDelegate validIndefinitely(Boolean validIndefinitely) {
     this.validIndefinitely = validIndefinitely;
     return this;
   }
@@ -77,7 +55,7 @@ public class MandateToAdd   {
    * Is valid indefinitely
    * @return validIndefinitely
    **/
-  @Schema(example = "false", description = "Is valid indefinitely")
+  @Schema(description = "Is valid indefinitely")
   
     public Boolean isValidIndefinitely() {
     return validIndefinitely;
@@ -87,7 +65,7 @@ public class MandateToAdd   {
     this.validIndefinitely = validIndefinitely;
   }
 
-  public MandateToAdd validThrough(LocalDate validThrough) {
+  public MandateToSubDelegate validThrough(LocalDate validThrough) {
     this.validThrough = validThrough;
     return this;
   }
@@ -116,24 +94,22 @@ public class MandateToAdd   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MandateToAdd mandateToAdd = (MandateToAdd) o;
-    return Objects.equals(this.role, mandateToAdd.role) &&
-        Objects.equals(this.validFrom, mandateToAdd.validFrom) &&
-        Objects.equals(this.validIndefinitely, mandateToAdd.validIndefinitely) &&
-        Objects.equals(this.validThrough, mandateToAdd.validThrough);
+    MandateToSubDelegate mandateToSubDelegate = (MandateToSubDelegate) o;
+    return Objects.equals(this.validFrom, mandateToSubDelegate.validFrom) &&
+        Objects.equals(this.validIndefinitely, mandateToSubDelegate.validIndefinitely) &&
+        Objects.equals(this.validThrough, mandateToSubDelegate.validThrough);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, validFrom, validIndefinitely, validThrough);
+    return Objects.hash(validFrom, validIndefinitely, validThrough);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MandateToAdd {\n");
+    sb.append("class MandateToSubDelegate {\n");
     
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
     sb.append("    validIndefinitely: ").append(toIndentedString(validIndefinitely)).append("\n");
     sb.append("    validThrough: ").append(toIndentedString(validThrough)).append("\n");

@@ -10,13 +10,16 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * MandateToAdd
+ * MandateToAddMisp
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-19T09:44:20.956Z[GMT]")
 
 
-public class MandateToAdd   {
+public class MandateToAddMisp   {
+  @JsonProperty("namespace")
+  private String namespace = null;
+
   @JsonProperty("role")
   private String role = null;
 
@@ -29,17 +32,38 @@ public class MandateToAdd   {
   @JsonProperty("validThrough")
   private LocalDate validThrough = null;
 
-  public MandateToAdd role(String role) {
+  public MandateToAddMisp namespace(String namespace) {
+    this.namespace = namespace;
+    return this;
+  }
+
+  /**
+   * The namespace the mandate is added under
+   * @return namespace
+   **/
+  @Schema(example = "STAT_ESTAT", required = true, description = "The namespace the mandate is added under")
+      @NotNull
+
+    public String getNamespace() {
+    return namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public MandateToAddMisp role(String role) {
     this.role = role;
     return this;
   }
 
   /**
-   * Role name
+   * Role
    * @return role
    **/
-  @Schema(example = "ACCOUNTANT", description = "Role name")
-  
+  @Schema(example = "Legal_person_data_viewer_package", required = true, description = "Role")
+      @NotNull
+
     public String getRole() {
     return role;
   }
@@ -48,7 +72,7 @@ public class MandateToAdd   {
     this.role = role;
   }
 
-  public MandateToAdd validFrom(LocalDate validFrom) {
+  public MandateToAddMisp validFrom(LocalDate validFrom) {
     this.validFrom = validFrom;
     return this;
   }
@@ -68,7 +92,7 @@ public class MandateToAdd   {
     this.validFrom = validFrom;
   }
 
-  public MandateToAdd validIndefinitely(Boolean validIndefinitely) {
+  public MandateToAddMisp validIndefinitely(Boolean validIndefinitely) {
     this.validIndefinitely = validIndefinitely;
     return this;
   }
@@ -77,7 +101,7 @@ public class MandateToAdd   {
    * Is valid indefinitely
    * @return validIndefinitely
    **/
-  @Schema(example = "false", description = "Is valid indefinitely")
+  @Schema(description = "Is valid indefinitely")
   
     public Boolean isValidIndefinitely() {
     return validIndefinitely;
@@ -87,7 +111,7 @@ public class MandateToAdd   {
     this.validIndefinitely = validIndefinitely;
   }
 
-  public MandateToAdd validThrough(LocalDate validThrough) {
+  public MandateToAddMisp validThrough(LocalDate validThrough) {
     this.validThrough = validThrough;
     return this;
   }
@@ -116,23 +140,25 @@ public class MandateToAdd   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MandateToAdd mandateToAdd = (MandateToAdd) o;
-    return Objects.equals(this.role, mandateToAdd.role) &&
-        Objects.equals(this.validFrom, mandateToAdd.validFrom) &&
-        Objects.equals(this.validIndefinitely, mandateToAdd.validIndefinitely) &&
-        Objects.equals(this.validThrough, mandateToAdd.validThrough);
+    MandateToAddMisp mandateToAddMisp = (MandateToAddMisp) o;
+    return Objects.equals(this.namespace, mandateToAddMisp.namespace) &&
+        Objects.equals(this.role, mandateToAddMisp.role) &&
+        Objects.equals(this.validFrom, mandateToAddMisp.validFrom) &&
+        Objects.equals(this.validIndefinitely, mandateToAddMisp.validIndefinitely) &&
+        Objects.equals(this.validThrough, mandateToAddMisp.validThrough);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, validFrom, validIndefinitely, validThrough);
+    return Objects.hash(namespace, role, validFrom, validIndefinitely, validThrough);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MandateToAdd {\n");
+    sb.append("class MandateToAddMisp {\n");
     
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
     sb.append("    validIndefinitely: ").append(toIndentedString(validIndefinitely)).append("\n");

@@ -7,8 +7,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.model.NamespaceOwner;
 import io.swagger.model.Translation;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -17,23 +15,21 @@ import javax.validation.constraints.*;
  * NamespaceDefinition
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-29T11:33:27.681Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T09:37:06.463Z[GMT]")
 
 
 public class NamespaceDefinition   {
   @JsonProperty("namespace")
   private String namespace = null;
 
-  @JsonProperty("parent_namespace")
+  @JsonProperty("parentNamespace")
   private String parentNamespace = null;
 
   @JsonProperty("title")
-  @Valid
-  private List<Translation> title = null;
+  private Translation title = null;
 
   @JsonProperty("hiddenDescription")
-  @Valid
-  private List<Translation> hiddenDescription = null;
+  private Translation hiddenDescription = null;
 
   /**
    * Roles in PARENT namespace cannot be assigned to delegates. CHILD namespace must point at some parent_namespace and can only declare roles that exists in that parent namespace. AUTOMATIC namespace has roles that are automatically assigned and removed from persons based on some external info (for example when becoming a management board member of some company). STANDALONE roles are regular roles. EXTERNAL roles (and mandates connected with these roles) are stored at owner's side and only made available to Pääsuke.
@@ -89,7 +85,7 @@ public class NamespaceDefinition   {
   @Schema(example = "STAT", required = true, description = "Namespace")
       @NotNull
 
-    public String getNamespace() {
+  @Pattern(regexp="[A-Z0-9_\\.]+")   public String getNamespace() {
     return namespace;
   }
 
@@ -116,57 +112,43 @@ public class NamespaceDefinition   {
     this.parentNamespace = parentNamespace;
   }
 
-  public NamespaceDefinition title(List<Translation> title) {
+  public NamespaceDefinition title(Translation title) {
     this.title = title;
-    return this;
-  }
-
-  public NamespaceDefinition addTitleItem(Translation titleItem) {
-    if (this.title == null) {
-      this.title = new ArrayList<Translation>();
-    }
-    this.title.add(titleItem);
     return this;
   }
 
   /**
-   * Title
+   * Get title
    * @return title
    **/
-  @Schema(description = "Title")
-      @Valid
-    public List<Translation> getTitle() {
+  @Schema(description = "")
+  
+    @Valid
+    public Translation getTitle() {
     return title;
   }
 
-  public void setTitle(List<Translation> title) {
+  public void setTitle(Translation title) {
     this.title = title;
   }
 
-  public NamespaceDefinition hiddenDescription(List<Translation> hiddenDescription) {
+  public NamespaceDefinition hiddenDescription(Translation hiddenDescription) {
     this.hiddenDescription = hiddenDescription;
     return this;
   }
 
-  public NamespaceDefinition addHiddenDescriptionItem(Translation hiddenDescriptionItem) {
-    if (this.hiddenDescription == null) {
-      this.hiddenDescription = new ArrayList<Translation>();
-    }
-    this.hiddenDescription.add(hiddenDescriptionItem);
-    return this;
-  }
-
   /**
-   * Namespace description that is not public to end users and can only be in a single language (Estonian or English)
+   * Get hiddenDescription
    * @return hiddenDescription
    **/
-  @Schema(description = "Namespace description that is not public to end users and can only be in a single language (Estonian or English)")
-      @Valid
-    public List<Translation> getHiddenDescription() {
+  @Schema(description = "")
+  
+    @Valid
+    public Translation getHiddenDescription() {
     return hiddenDescription;
   }
 
-  public void setHiddenDescription(List<Translation> hiddenDescription) {
+  public void setHiddenDescription(Translation hiddenDescription) {
     this.hiddenDescription = hiddenDescription;
   }
 

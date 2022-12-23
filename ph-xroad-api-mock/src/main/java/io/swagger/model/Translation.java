@@ -3,7 +3,6 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
@@ -13,84 +12,76 @@ import javax.validation.constraints.*;
  * Translation
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-09T08:21:54.440Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T08:01:40.233Z[GMT]")
 
 
 public class Translation   {
-  /**
-   * Translation language
-   */
-  public enum LangEnum {
-    ET("et"),
-    
-    EN("en"),
-    
-    RU("ru");
+  @JsonProperty("et")
+  private String et = null;
 
-    private String value;
+  @JsonProperty("en")
+  private String en = null;
 
-    LangEnum(String value) {
-      this.value = value;
-    }
+  @JsonProperty("ru")
+  private String ru = null;
 
-    @Override
-    @JsonValue
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static LangEnum fromValue(String text) {
-      for (LangEnum b : LangEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-  @JsonProperty("lang")
-  private LangEnum lang = null;
-
-  @JsonProperty("value")
-  private String value = null;
-
-  public Translation lang(LangEnum lang) {
-    this.lang = lang;
+  public Translation et(String et) {
+    this.et = et;
     return this;
   }
 
   /**
-   * Translation language
-   * @return lang
+   * Translation in Estonian
+   * @return et
    **/
-  @Schema(description = "Translation language")
-  
-    public LangEnum getLang() {
-    return lang;
+  @Schema(example = "Tere", required = true, description = "Translation in Estonian")
+      @NotNull
+
+    public String getEt() {
+    return et;
   }
 
-  public void setLang(LangEnum lang) {
-    this.lang = lang;
+  public void setEt(String et) {
+    this.et = et;
   }
 
-  public Translation value(String value) {
-    this.value = value;
+  public Translation en(String en) {
+    this.en = en;
     return this;
   }
 
   /**
-   * Translation value
-   * @return value
+   * Translation in English
+   * @return en
    **/
-  @Schema(example = "Translation in that language", description = "Translation value")
-  
-    public String getValue() {
-    return value;
+  @Schema(example = "Hello", required = true, description = "Translation in English")
+      @NotNull
+
+    public String getEn() {
+    return en;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setEn(String en) {
+    this.en = en;
+  }
+
+  public Translation ru(String ru) {
+    this.ru = ru;
+    return this;
+  }
+
+  /**
+   * Translation in Russian
+   * @return ru
+   **/
+  @Schema(example = "Привет", description = "Translation in Russian")
+  
+    public String getRu() {
+    return ru;
+  }
+
+  public void setRu(String ru) {
+    this.ru = ru;
   }
 
 
@@ -103,13 +94,14 @@ public class Translation   {
       return false;
     }
     Translation translation = (Translation) o;
-    return Objects.equals(this.lang, translation.lang) &&
-        Objects.equals(this.value, translation.value);
+    return Objects.equals(this.et, translation.et) &&
+        Objects.equals(this.en, translation.en) &&
+        Objects.equals(this.ru, translation.ru);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lang, value);
+    return Objects.hash(et, en, ru);
   }
 
   @Override
@@ -117,8 +109,9 @@ public class Translation   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Translation {\n");
     
-    sb.append("    lang: ").append(toIndentedString(lang)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    et: ").append(toIndentedString(et)).append("\n");
+    sb.append("    en: ").append(toIndentedString(en)).append("\n");
+    sb.append("    ru: ").append(toIndentedString(ru)).append("\n");
     sb.append("}");
     return sb.toString();
   }
