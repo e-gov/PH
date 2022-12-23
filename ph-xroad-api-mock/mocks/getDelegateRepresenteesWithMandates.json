@@ -25,7 +25,7 @@
         "validThrough": "2023-12-31",
         "links": [
           {
-            "href": "xroad:/namespaces/STAT/represented-persons/person1111111/delegates/person22222222/mandates/mandate3333",
+            "href": "xroad:/v1/ns/STAT/representees/person1111111/delegates/person22222222/mandates/mandate3333",
             "rel": "delete"
           },
           {
@@ -42,7 +42,7 @@
         "validFrom": "2024-07-01",
         "links": [
           {
-            "href": "xroad:/namespaces/STAT/represented-persons/person1111111/delegates/person22222222/mandates/mandate4444",
+            "href": "xroad:/v1/ns/STAT/representees/person1111111/delegates/person22222222/mandates/mandate4444",
             "rel": "delete"
           },
           {
