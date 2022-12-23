@@ -1,9 +1,21 @@
 # Public documentation of Pääsuke
 
+General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
+
 ## Specification draft
 
 X-road services spec draft:
-* Latest version is [0.3.1](Pääsuke-xroad-services-spec-v0.3.1.pdf) - 29 November 2022
+* Latest version is [0.4.1](Pääsuke-xroad-services-spec-v0.4.1.pdf) - 23 December 2022
+
+OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.4.1#/
+
+## Prototype
+
+* The latest prototype is [0.4](proto/paasuke_proto_0.4.zip) - 23 December 2022
+
+Unzip it and open index.html with browser.
+Browse around (mandates defined by law (Äriregistrist), global mandates (katusrollid), regular mandates)
+and try adding a mandate, try to remove a mandate, try to sub-delegate a mandate.
 
 
 ## Mock service
