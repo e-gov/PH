@@ -5,13 +5,13 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 ## Specification draft
 
 X-road services spec draft:
-* Latest version is [0.4.1](Pääsuke-xroad-services-spec-v0.4.1.pdf) - 23 December 2022
+* Latest version is [0.5.0](Pääsuke-xroad-services-spec-v0.5.0.pdf) - 19 January 2023
 
-OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.4.1#/
+OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.5.0#/
 
 ## Prototype
 
-* The latest prototype is [0.4](proto/paasuke_proto_0.4.zip) - 23 December 2022
+* The latest prototype is [0.5](proto/paasuke_proto_0.5.zip) - 19 January 2023
 
 Unzip it and open index.html with browser.
 Browse around (mandates defined by law (Äriregistrist), global mandates (katusrollid), regular mandates)
