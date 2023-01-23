@@ -5,9 +5,9 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 ## Specification draft
 
 X-road services spec draft:
-* Latest version is [0.5.0](Pääsuke-xroad-services-spec-v0.5.0.pdf) - 19 January 2023
+* Latest version is [0.5.1](Pääsuke-xroad-services-spec-v0.5.1.pdf) - 20 January 2023
 
-OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.5.0#/
+OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.5.1#/
 
 ## Prototype
 
