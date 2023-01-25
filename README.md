@@ -4,10 +4,24 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 
 ## Specification draft
 
+### X-Road services offered to Pääsuke
+
+Systems that keep mandates on their side and open API to Pääsuke to query and change them
+
 X-road services spec draft:
 * Latest version is [0.5.2](Pääsuke-xroad-services-spec-v0.5.2.pdf) - 24 January 2023
+  * Description of an example mock service built according to that spec: [sample_client_mock.v0.1](description-of-EMTA-mock-for-paasuke-v0.1.pdf)
 
-OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.5.2#/
+OpenAPI definitions: 
+* https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.5.2#/Offered%20to%20P%C3%A4%C3%A4suke
+* https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.5.2#/Offered%20to%20P%C3%A4%C3%A4suke%20(additional)
+
+### X-Road services offered by Pääsuke
+
+This is for systems that keep mandates in Pääsuke and load them from there using X-Road queries.
+Spec is currently work-in-progress.
+
+OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuhalduse-x-tee-teenused/0.5.2#/Offered%20by%20P%C3%A4%C3%A4suke
 
 ## Prototype
 
