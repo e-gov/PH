@@ -9,7 +9,7 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec draft:
-* Latest version is [0.6.0](Pääsuke-xroad-services-spec-v0.6.0.pdf) - 31 January 2023
+* Latest version is [0.6.1](spec/Pääsuke-xroad-services-spec-v0.6.1.pdf) - 31 January 2023
   * Description of an example mock service built according to version 0.6.0 of that spec: [sample_client_mock.v0.2](description-of-EMTA-mock-for-paasuke-v0.2.pdf)
 
 OpenAPI definitions: 
