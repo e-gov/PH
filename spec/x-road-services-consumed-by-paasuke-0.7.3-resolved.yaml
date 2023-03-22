@@ -1,0 +1,876 @@
+---
+openapi: 3.0.0
+info:
+  title: X-road services consumed by Pääsuke
+  description: <p>X-road services that are standardized by Pääsuke but offered by other parties (like Tax and Customs Board) and consumed by Pääsuke. NB! If some field has no value (null) then it must not sent at all.</p>More info can be found at <a href="https://github.com/e-gov/PH/">github.com/e-gov/PH</a>
+  license:
+    name: Licensed under Apache 2.0 license
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.7.3
+servers:
+- url: https://virtserver.swaggerhub.com/aasaru/x-road-services-consumed-by-paasuke/0.7.3
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: Offered to Pääsuke
+  description: E-services that store mandates on their side (like Statistics Estonia and Tax and Customs Board) offer these queries to Pääsuke to pull their state and display centrally)
+paths:
+  /delegates/{delegate}/representees/mandates:
+    get:
+      tags:
+      - Offered to Pääsuke
+      summary: List persons the delegate can represent. Mandates (roles) are included in the response.
+      description: ""
+      operationId: getDelegateRepresenteesWithMandates
+      parameters:
+      - name: delegate
+        in: path
+        description: <b>Identifier of the delegate (volituste saaja).</b> Can be one of the follwing&colon; <p>a)  'EE' followed by 8-digit legal entity code from Estonian Business Registry</p> <p>b) 'EE' followed by 11-digit national identity number</p> <p>c) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p>
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: EE38302250123
+      - name: X-Road-User-Id
+        in: header
+        description: User identifier whose action initiated the request. NB! This can be employee of RIA.
+        required: false
+        schema:
+          type: string
+        example: EE39912310123
+      - name: X-Road-Represented-Party
+        in: header
+        description: When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted.
+        required: false
+        schema:
+          type: string
+        example: EE12345678
+      - name: X-Road-Id
+        in: header
+        description: Unique identifier (UUID) for this message.
+        schema:
+          type: string
+        example: 123e4567-e89b-12d3-a456-42661417400
+      responses:
+        "200":
+          description: MandateTriplets that match to the query parameters. MandateTriplet consists of 3 parts&colon; 1) representee (volitaja) 2) delegate (volitatu) 3) list of mandates that are currently valid or become valid in the future. A mandate consists of a role and it can have validity period (either valid from, valid through or both).
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MandateTriplet'
+              example:
+              - representee:
+                  type: LEGAL_PERSON
+                  legalName: Väikefirma OÜ
+                  identifier: EE12345678
+                delegate:
+                  type: NATURAL_PERSON
+                  firstName: Jüri
+                  surname: Juurikas
+                  identifier: EE38302250123
+                mandates:
+                - role: EMTA:HAMPI
+                  validityPeriod:
+                    from: 2017-07-21
+                    through: 2028-12-31
+                  subDelegatorIdentifier: EE12345678
+                  links:
+                    delete: /v1/nss/EMTA/representees/int-EE12345678/delegates/int-EE38302250123/mandates/int-mandate-123
+                    addSubDelegate: /v1/nss/EMTA/representees/int-EE12345678/delegates/int-EE38302250123/mandates/int-mandate-123/subdelegates
+                    origin: https://vaarikas.emta.ee/view/int-mandate-123
+        "400":
+          description: bad input parameter
+        "403":
+          description: Forbidden. Request not authorized...
+        "404":
+          description: Delegate is unknown.
+  /representees/{representee}/delegates/mandates:
+    get:
+      tags:
+      - Offered to Pääsuke
+      summary: List delegates who have any mandates that are currently valid or become valid in the future.
+      description: ""
+      operationId: getRepresenteeDelegatesWithMandates
+      parameters:
+      - name: representee
+        in: path
+        description: <b>Identifier of the representee (volitaja).</b> Can be one of the follwing&colon; <p>a)  'EE' followed by 8-digit legal entity code from Estonian Business Registry</p> <p>b) 'EE' followed by 11-digit national identity number</p> <p>c) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p>
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: EE10391131
+      - name: subDelegatedBy
+        in: query
+        description: |-
+          <p><b>To add a filter to results so that only mandates that were sub-delegated by this person (edasivolitaja) would be returned.</b></p>
+          <p>This is to cover the following use case. Let's say LittleCompany has given BookkeepingCompany some role together with the right for BookkeepingCompany to further sub-delegate the role to its employees.</p>
+          <p>BookkeepingCompany can use this query to get the list of its employees who have received this role from BookkeepingCompany through sub-delegation.</p>
+          <p>To display this list Pääsuke makes a query  where representee={LittleCompanyIdentifier} and subDelegatedBy={BookkeepingCompanyIdentifier}.</p>
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: EE10391132
+      - name: X-Road-User-Id
+        in: header
+        description: User identifier whose action initiated the request. NB! This can be employee of RIA.
+        required: false
+        schema:
+          type: string
+        example: EE39912310123
+      - name: X-Road-Represented-Party
+        in: header
+        description: When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted.
+        required: false
+        schema:
+          type: string
+        example: EE12345678
+      - name: X-Road-Id
+        in: header
+        description: Unique identifier (UUID) for this message.
+        schema:
+          type: string
+        example: 123e4567-e89b-12d3-a456-42661417400
+      responses:
+        "200":
+          description: MandateTriplets that match to the query parameters. MandateTriplet consists of 3 parts&colon; 1) representee (volitaja) 2) delegate (volitatu) 3) list of mandates that are currently valid or become valid in the future. A mandate consists of a role and it can have validity period (either valid from, valid through or both).
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MandateTriplet'
+              example:
+              - representee:
+                  type: LEGAL_PERSON
+                  legalName: Väikefirma OÜ
+                  identifier: EE12345678
+                delegate:
+                  type: NATURAL_PERSON
+                  firstName: Jüri
+                  surname: Juurikas
+                  identifier: EE38302250123
+                mandates:
+                - role: EMTA:HAMPI
+                  validityPeriod:
+                    from: 2017-07-21
+                    through: 2028-12-31
+                  subDelegatorIdentifier: EE12345678
+                  links:
+                    delete: /v1/nss/EMTA/representees/int-EE12345678/delegates/int-EE38302250123/mandates/int-mandate-123
+                    addSubDelegate: /v1/nss/EMTA/representees/int-EE12345678/delegates/int-EE38302250123/mandates/int-mandate-123/subdelegates
+                    origin: https://vaarikas.emta.ee/view/int-mandate-123
+        "400":
+          description: Bad input parameter
+        "403":
+          description: Forbidden. Request not authorized.
+        "404":
+          description: Representee is unknown.
+        "422":
+          description: Unprocessable request. Something went wrong.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+  /representees/{representee}/delegates/{delegate}/mandates:
+    post:
+      tags:
+      - Offered to Pääsuke
+      summary: Add a mandate to a delegate under a representee
+      description: |
+        <p>This query is for the following use-case. The end user (in our example EE39912310123) logs into Pääsuke (that runs under www.eesti.ee) and adds a mandate from there (for example the end user adds "GLOBAL1_EMTA:ACCOUNTANT" role (with the right to further sub-delegate it) for the company accountant Jüri Juurikas). After end user confirms adding of the mandate then Pääsuke makes this POST request for each mandate.</p> <p>NB! The end user can only add mandates that have assignableBy in the role definition and the end user must have one of the roles.</p>
+      operationId: addMandate
+      parameters:
+      - name: representee
+        in: path
+        description: <b>Identifier of the representee (volitaja).</b> Can be one of the follwing&colon; <p>a)  'EE' followed by 8-digit legal entity code from Estonian Business Registry</p> <p>b) 'EE' followed by 11-digit national identity number</p> <p>c) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p>
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: EE10391131
+      - name: delegate
+        in: path
+        description: <b>Identifier of the delegate (volituste saaja).</b> Can be one of the follwing&colon; <p>a)  'EE' followed by 8-digit legal entity code from Estonian Business Registry</p> <p>b) 'EE' followed by 11-digit national identity number</p> <p>c) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p>
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: EE38302250123
+      - name: X-Road-User-Id
+        in: header
+        description: User identifier whose action initiated the request. NB! This can be employee of RIA.
+        required: false
+        schema:
+          type: string
+        example: EE39912310123
+      - name: X-Road-Represented-Party
+        in: header
+        description: When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted.
+        required: false
+        schema:
+          type: string
+        example: EE12345678
+      - name: X-Road-Id
+        in: header
+        description: Unique identifier (UUID) for this message.
+        schema:
+          type: string
+        example: 123e4567-e89b-12d3-a456-42661417400
+      requestBody:
+        $ref: '#/components/requestBodies/AddMandateTriplet'
+      responses:
+        "202":
+          description: Accepted for processing
+        "400":
+          description: Incorrect format of the payload.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+        "403":
+          description: Forbidden. Request not authorized.
+        "422":
+          description: Unprocessable request. Something went wrong.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+        "501":
+          description: This request is not supported.
+  /nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}/subdelegates:
+    post:
+      tags:
+      - Offered to Pääsuke
+      summary: Sub-delegate a single mandate
+      description: |
+        To add a sub-delegate for a specific mandate. The values of representeeId, delegateId and mandateId are taken from the output of the Mandate, from the 'addSubDelegate' link.
+      operationId: addSubDelegate
+      parameters:
+      - name: ns
+        in: path
+        description: Namespace
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: GLOBAL1_EMTA
+      - name: representeeId
+        in: path
+        description: Implementator can use any form of representee identifier (like internal person id). Pääsuke takes this value from 'addSubDelegate' link.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: EE10391131
+      - name: delegateId
+        in: path
+        description: Implementator can use any form of delegate identifier (like internal person id). Pääsuke takes this value from 'addSubDelegate' link.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: EE38302250123
+      - name: mandateId
+        in: path
+        description: Implementator can use any form of mandate (or role) identifier (like internal mandate id). Pääsuke takes this value from 'addSubDelegate' link.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: 8923032032
+      - name: X-Road-User-Id
+        in: header
+        description: User identifier whose action initiated the request. NB! This can be employee of RIA.
+        required: false
+        schema:
+          type: string
+        example: EE39912310123
+      - name: X-Road-Represented-Party
+        in: header
+        description: When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted.
+        required: false
+        schema:
+          type: string
+        example: EE12345678
+      - name: X-Road-Id
+        in: header
+        description: Unique identifier (UUID) for this message.
+        schema:
+          type: string
+        example: 123e4567-e89b-12d3-a456-42661417400
+      requestBody:
+        $ref: '#/components/requestBodies/MandateToSubDelegate'
+      responses:
+        "202":
+          description: Accepted for processing
+        "400":
+          description: Incorrect format of the payload.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+        "403":
+          description: Forbidden. Request not authorized.
+        "404":
+          description: Mandate to sub-delegate was not found
+        "422":
+          description: Unprocessable request. Something went wrong.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+        "501":
+          description: This operation is not supported.
+  /nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}:
+    delete:
+      tags:
+      - Offered to Pääsuke
+      summary: Delete a specific mandate from the delegate
+      description: |
+        To delete a specific mandate. The values of representeeId, delegateId and mandateId are taken from the output of the Mandate, from the delete link.
+      operationId: deleteMandate
+      parameters:
+      - name: ns
+        in: path
+        description: Namespace of mandate to be deleted.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: GLOBAL1_EMTA
+      - name: representeeId
+        in: path
+        description: Implementator can use any form of representee identifier (like internal person id). Pääsuke takes this value from 'delete' link.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: EE12345678-123
+      - name: delegateId
+        in: path
+        description: Implementator can use any form of delegate identifier (like internal person id). Pääsuke takes this value from 'delete' link.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: 754864
+      - name: mandateId
+        in: path
+        description: Implementator can use any form of mandate (or role) identifier (like internal mandate id). Pääsuke takes this value from 'delete' link.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: 8647
+      - name: X-Road-User-Id
+        in: header
+        description: User identifier whose action initiated the request. NB! This can be employee of RIA.
+        required: false
+        schema:
+          type: string
+        example: EE39912310123
+      - name: X-Road-Represented-Party
+        in: header
+        description: When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted.
+        required: false
+        schema:
+          type: string
+        example: EE12345678
+      - name: X-Road-Id
+        in: header
+        description: Unique identifier (UUID) for this message.
+        schema:
+          type: string
+        example: 123e4567-e89b-12d3-a456-42661417400
+      responses:
+        "200":
+          description: Deleted sucessfully
+        "202":
+          description: Request accepted but not yet deleted
+        "400":
+          description: Invalid parameter
+        "403":
+          description: Forbidden. Request not authorized.
+        "404":
+          description: Resource to delete was not found.
+        "422":
+          description: Unprocessable request. Something went wrong.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Problem'
+        "500":
+          description: This error code is reserved for security server.
+  /roles:
+    get:
+      tags:
+      - Offered to Pääsuke
+      summary: List roles with translations and with information whom this role can be assigned to and on what conditions the role can be assigned or deleted.
+      description: |
+        When 'If-Modified-Since' is included in the request the service can respond with HTTP Status code 304 if nor roles have been changed since that time. If there have been changes to roles (the provider does not support this parameter) all results (that match the filters) are returned (even the ones that have modified time earlier than If-Modified-Since parameter).
+      operationId: getRoles
+      parameters:
+      - name: If-Modified-Since
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: date-time
+          example: 2022-10-18T17:32:28+02:00
+      - name: X-Road-Id
+        in: header
+        description: Unique identifier (UUID) for this message.
+        schema:
+          type: string
+        example: 123e4567-e89b-12d3-a456-42661417400
+      responses:
+        "200":
+          description: |
+            <p>Return all roles that might be used by other queries.</p>
+            <p><b>modified</b> - when this role definition was last modified. It is highly recommended to include this value in the response.</p>
+            <p><b>canSubDelegate</b> - can this role be given out with the right to sub-delegate it further</p>
+            <p><b>representeeType</b> - one of [NATURAL_PERSON, LEGAL_PERSON, GOVERNMENT_PERSON] - who can be representee for this role. If representeeType is missing from the role definition then it cannot be assigned from Pääsuke.</p>
+            <p><b>delegateType</b> -  one of [LEGAL_PERSON, NATURAL_PERSON ]. Type of persons this role can be assigned to. If delegateType is missing from the role definition then it cannot be assigned from Pääsuke.</p>
+            <p><b>assignableBy</b> - list of roles that are allowed to assign this role. The person who wants to add this role needs to have at least one of listed oles. If the value is empty then this role cannot be assigned from Pääsuke.<br/>
+            Note&colon; Assigning a role through MISP2 portal. Pääsuke allows adding roles through MISP2 portal (this is a different portal than eesti.ee). If a role must be assignable from there then assignableBy must include "MISP2&colon;MISP2_USER".</p>
+            <p><b>deletableBy</b> - list of role codes that are allowed to delete this mandate. If this is missing then assignableBy roles are used instead.</p>
+            <p><b>deletableByDelegate</b> - is the delegate allowed to delete (in Estonian "loobuda") a mandate with this role. True by default. False value is used (among other use cases) for management board members.</p>
+            <p><b>visible</b> - by default all mandates are visible but there are cases when role can be added if user has some property that is not a mandate. Then invisible roles can be used to carry this property.</p>
+            <p><b>canAssignIfHasRoleAndOneOf</b> - user can assign this role to others if he has the role and at least one of the roles in the list.</p>
+            <p><b>canDeleteIfHasRoleAndOneOf</b> - if null then canAssignIfHasRoleAndOneOf is used</p>
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleDefinition'
+        "304":
+          description: List of roles is not modified. Might be returned only if request sent additional header "If-Modified-Since" and no changes have been done since that date.
+        "403":
+          description: Forbidden. Request not authorized.
+        "503":
+          description: Service is temporarily unavailable
+components:
+  schemas:
+    MandateTriplet:
+      required:
+      - delegate
+      - mandates
+      - representee
+      type: object
+      properties:
+        representee:
+          $ref: '#/components/schemas/Person'
+        delegate:
+          $ref: '#/components/schemas/Person'
+        mandates:
+          type: array
+          description: Mandates
+          items:
+            $ref: '#/components/schemas/Mandate'
+    Person:
+      required:
+      - identifier
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+          description: Person type
+          enum:
+          - NATURAL_PERSON
+          - LEGAL_PERSON
+          - UNKNOWN
+          - OTHER
+        firstName:
+          type: string
+          description: Person given name(s)
+          format: string
+          example: Jüri
+        surname:
+          type: string
+          description: Person surname
+          format: string
+          example: Juurikas
+        legalName:
+          type: string
+          description: Name of legal entity
+          format: string
+          example: Juurikas
+        identifier:
+          type: string
+          description: Identity code
+          example: EE38302250123
+    Mandate:
+      required:
+      - role
+      type: object
+      properties:
+        role:
+          type: string
+          description: Role
+          format: string
+          example: STAT:Legal_person_data_viewer_package
+        validityPeriod:
+          $ref: '#/components/schemas/ValidityPeriod'
+        links:
+          $ref: '#/components/schemas/MandateLinks'
+        subDelegatorIdentifier:
+          type: string
+          description: Who created
+          example: EE12345678
+    ValidityPeriod:
+      type: object
+      properties:
+        from:
+          type: string
+          description: First day of being in effect. If null then is already valid or becomes valid immediately after being added.
+          format: date
+          example: 2028-01-01
+        through:
+          type: string
+          description: Valid through (last day is inclusive). If no value is set (null) then valid indefinitely.
+          format: date
+          example: 2030-12-31
+    MandateLinks:
+      type: object
+      properties:
+        delete:
+          type: string
+          example: /v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}
+        addSubDelegate:
+          type: string
+          example: /v1/nss/{ns}/representees/{representee}/delegates/{delegate}/mandates/{mandateId}/subdelegates
+        origin:
+          type: string
+          example: https://vaarikas.emta.ee/view/123
+    Problem:
+      type: object
+      properties:
+        type:
+          type: string
+          description: An absolute URI that identifies the problem type
+          format: uri
+          default: about:blank
+        href:
+          type: string
+          description: An absolute URI that, when dereferenced, provides human-readable documentation for the problem type (e.g. using HTML).
+          format: uri
+        title:
+          type: string
+          description: A short summary of the problem type. Written in English and readable for engineers (usually not suited for non technical stakeholders and not localized).
+          example: Service Unavailable
+        translation:
+          $ref: '#/components/schemas/Translation'
+        ticket:
+          type: string
+          description: Reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+          format: uri
+      description: A Problem Details object (RFC 7807)
+      example:
+        type: urn:problem-type:ee.ria.pääsuke:mandateDeletingFailed
+        href: https://www.ria.ee/specification/rest/api-guide/problems/payloadTooLarge.html
+        title: Deleting of the role failed
+        translation:
+          et: Volituse kustutamine ebaõnnestus
+          en: Deleting of the mandate failed
+          ru: Volituse kustutamine ebaõnnestus (ru)
+        ticket: 123e4567-e89b-12d3-a456-426614174000
+    Translation:
+      required:
+      - et
+      type: object
+      properties:
+        et:
+          type: string
+          description: Translation in Estonian
+          example: Tere
+        en:
+          type: string
+          description: Translation in English
+          example: Hello
+        ru:
+          type: string
+          description: Translation in Russian
+          example: Привет
+    AddMandateTriplet:
+      required:
+      - delegate
+      - mandates
+      - representee
+      type: object
+      properties:
+        representee:
+          $ref: '#/components/schemas/Person'
+        delegate:
+          $ref: '#/components/schemas/Person'
+        mandate:
+          $ref: '#/components/schemas/MandateToAdd'
+        authorizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Authorization'
+      description: Delegate is optional (in case company gets deleted then updating is needed).
+    MandateToAdd:
+      type: object
+      properties:
+        role:
+          type: string
+          description: Role code
+          format: string
+          example: GLOBAL1_EMTA:ACCOUNTANT
+        canSubDelegate:
+          type: boolean
+          description: Can this role be given out with the right to sub-delegate it.
+        validityPeriod:
+          $ref: '#/components/schemas/ValidityPeriod'
+    Authorization:
+      type: object
+      properties:
+        userIdentifier:
+          type: string
+          example: EE39912310123
+        hasRole:
+          type: string
+          description: List of roles the user had
+          example: FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER_FULL
+      description: On what grounds did Pääsuke allow the user to perform this addition
+    MandateToSubDelegate:
+      type: object
+      properties:
+        subDelegate:
+          $ref: '#/components/schemas/Person'
+        validityPeriod:
+          $ref: '#/components/schemas/ValidityPeriod'
+        authorizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Authorization'
+    RoleDefinition:
+      required:
+      - code
+      - title
+      type: object
+      properties:
+        code:
+          type: string
+          description: Namespace code + ":" + role code. Role code can contain any UTF-8 character (even spaces and colons).
+          format: string
+          example: STAT_ESTAT:Respondent
+        title:
+          $ref: '#/components/schemas/Translation'
+        description:
+          $ref: '#/components/schemas/Translation'
+        modified:
+          type: string
+          description: Last modified
+          format: date-time
+          example: 2022-10-18T13:00:00+02:00
+        canSubDelegate:
+          type: boolean
+          description: Can this role be given out with the right to sub-delegate it.
+        representeeType:
+          type: array
+          description: What type of representees are allowed to delegate this role. GOVERNMENT_PERSON is a sub-type of a LEGAL_PERSON whose Estonian registry code starts with 7 (state and local government bodies).
+          example:
+          - LEGAL_PERSON
+          - NATURAL_PERSON
+          items:
+            type: string
+            enum:
+            - LEGAL_PERSON
+            - NATURAL_PERSON
+            - GORVENRMENT_PERSON
+        delegateType:
+          type: array
+          description: Whom this mandate can be assigned to. If not set then there are no restrictions.
+          items:
+            type: string
+            example: NATURAL_PERSON
+            enum:
+            - LEGAL_PERSON
+            - NATURAL_PERSON
+        assignableBy:
+          type: array
+          description: Who has a mandatate with role in the list can give this mandate. There are situations when the list is empty.
+          example:
+          - FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER
+          - EMTA:I
+          items:
+            type: string
+        deletableBy:
+          type: array
+          description: Who has a mandatate with role in the list can delete this mandate. If this list is not given then assignableBy is used.
+          example:
+          - FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER
+          - EMTA:I
+          items:
+            type: string
+        deletableByDelegate:
+          type: boolean
+          description: Is delegate allowed to delete (in Estonian "loobuda") a mandate with this role. True by default. False value is used (among other use cases) for management board members.
+        visible:
+          type: boolean
+          description: True by default. Only visible roles are shown in Pääsuke and non-visible ones are not shown out. Non-visible role is a method to inform Pääsuke that a person can add some other role. For example we can create role AA with property AA.assignableBy:BB. Now we can create non-visible role BB that we add to persons who actually can add role AA.
+        canAssignIfHasRoleAndOneOf:
+          type: array
+          description: A delegate can create a mandate with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to add a role you must have that role yourself)
+          example:
+          - RR_PARTNER:VOLITUSTE_HALDUR_ENDA_ROLLIDE_PIIRES
+          items:
+            type: string
+        canDeleteIfHasRoleAndOneOf:
+          type: array
+          description: A delegate can delete mandates with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to delete a role you must have that role yourself)
+          example:
+          - RR_PARTNER:VOLITUSTE_HALDUR_ENDA_ROLLIDE_PIIRES
+          items:
+            type: string
+  responses:
+    MandateTriplets:
+      description: MandateTriplets that match to the query parameters. MandateTriplet consists of 3 parts&colon; 1) representee (volitaja) 2) delegate (volitatu) 3) list of mandates that are currently valid or become valid in the future. A mandate consists of a role and it can have validity period (either valid from, valid through or both).
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MandateTriplet'
+          example:
+          - representee:
+              type: LEGAL_PERSON
+              legalName: Väikefirma OÜ
+              identifier: EE12345678
+            delegate:
+              type: NATURAL_PERSON
+              firstName: Jüri
+              surname: Juurikas
+              identifier: EE38302250123
+            mandates:
+            - role: EMTA:HAMPI
+              validityPeriod:
+                from: 2017-07-21
+                through: 2028-12-31
+              subDelegatorIdentifier: EE12345678
+              links:
+                delete: /v1/nss/EMTA/representees/int-EE12345678/delegates/int-EE38302250123/mandates/int-mandate-123
+                addSubDelegate: /v1/nss/EMTA/representees/int-EE12345678/delegates/int-EE38302250123/mandates/int-mandate-123/subdelegates
+                origin: https://vaarikas.emta.ee/view/int-mandate-123
+    RoleDefinitions:
+      description: |
+        <p>Return all roles that might be used by other queries.</p>
+        <p><b>modified</b> - when this role definition was last modified. It is highly recommended to include this value in the response.</p>
+        <p><b>canSubDelegate</b> - can this role be given out with the right to sub-delegate it further</p>
+        <p><b>representeeType</b> - one of [NATURAL_PERSON, LEGAL_PERSON, GOVERNMENT_PERSON] - who can be representee for this role. If representeeType is missing from the role definition then it cannot be assigned from Pääsuke.</p>
+        <p><b>delegateType</b> -  one of [LEGAL_PERSON, NATURAL_PERSON ]. Type of persons this role can be assigned to. If delegateType is missing from the role definition then it cannot be assigned from Pääsuke.</p>
+        <p><b>assignableBy</b> - list of roles that are allowed to assign this role. The person who wants to add this role needs to have at least one of listed oles. If the value is empty then this role cannot be assigned from Pääsuke.<br/>
+        Note&colon; Assigning a role through MISP2 portal. Pääsuke allows adding roles through MISP2 portal (this is a different portal than eesti.ee). If a role must be assignable from there then assignableBy must include "MISP2&colon;MISP2_USER".</p>
+        <p><b>deletableBy</b> - list of role codes that are allowed to delete this mandate. If this is missing then assignableBy roles are used instead.</p>
+        <p><b>deletableByDelegate</b> - is the delegate allowed to delete (in Estonian "loobuda") a mandate with this role. True by default. False value is used (among other use cases) for management board members.</p>
+        <p><b>visible</b> - by default all mandates are visible but there are cases when role can be added if user has some property that is not a mandate. Then invisible roles can be used to carry this property.</p>
+        <p><b>canAssignIfHasRoleAndOneOf</b> - user can assign this role to others if he has the role and at least one of the roles in the list.</p>
+        <p><b>canDeleteIfHasRoleAndOneOf</b> - if null then canAssignIfHasRoleAndOneOf is used</p>
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RoleDefinition'
+  parameters:
+    X-Road-User-Id:
+      name: X-Road-User-Id
+      in: header
+      description: User identifier whose action initiated the request. NB! This can be employee of RIA.
+      required: false
+      schema:
+        type: string
+      example: EE39912310123
+    X-Road-Represented-Party:
+      name: X-Road-Represented-Party
+      in: header
+      description: When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted.
+      required: false
+      schema:
+        type: string
+      example: EE12345678
+    X-Road-Id:
+      name: X-Road-Id
+      in: header
+      description: Unique identifier (UUID) for this message.
+      schema:
+        type: string
+      example: 123e4567-e89b-12d3-a456-42661417400
+  requestBodies:
+    AddMandateTriplet:
+      description: Details of the mandate being added.<p><b>Identifier of the representee (volituse andja) and delegate (volitaja)</b> can be one of the follwing&colon;</p><p>a)  'EE' followed by 8-digit legal entity code from Estonian Business Registry (however in reality it is very rarely that the sub-delegate is a company, it is usually a natural person)</p> <p>b) 'EE' followed by 11-digit national identity number</p> <p>c) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p><p>The <b>validityPeriod</b> can be from today and infinite (no through date) or with specific end date.</p><p>The <b>authorizations</b> block informs why Pääsuke came to a conclusin that this user has the authorization to add this mandate. The userIdentifier always points to the acutal natural person who confirmed the action in the user interface.</p>
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddMandateTriplet'
+          example:
+            representee:
+              type: LEGAL_PERSON
+              legalName: Väikefirma OÜ
+              identifier: EE12345678
+            delegate:
+              type: NATURAL_PERSON
+              firstName: Jüri
+              surname: Juurikas
+              identifier: EE38302250123
+            mandate:
+              role: GLOBAL1_EMTA:ACCOUNTANT
+              canSubDelegate: true
+              validityPeriod:
+                from: 2028-01-01
+                through: 2030-12-31
+              subDelegatorIdentifier: EE12345678
+            authorizations:
+            - userIdentifier: EE49028099999
+              hasRole: FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER_FULL
+    MandateToSubDelegate:
+      description: Details of the person whom the mandate is being sub-delegated, also the validity period and the details why Pääsuke allowed this operation to take place. <p><b>Identifier of the subDelegate (edasivolitatu)</b> can be one of the follwing&colon;</p> <p>a) 'EE' followed by 11-digit national identity number</p> <p>b) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p><p>The sub-delegate cannot be a legal person.</p><p>The <b>validityPeriod</b> can only be within the original validity period and validity period.</p><p>The <b>authorizations</b> block informs why Pääsuke came to a conclusin that this user has the authorization to sub-delegate this mandate. The userIdentifier always points to the acutal natural person who confirmed the action from the user interface.</p>
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MandateToSubDelegate'
+          example:
+            subDelegate:
+              type: NATURAL_PERSON
+              firstName: Jüri
+              surname: Juurikas
+              identifier: EE38302250123
+            validityPeriod:
+              from: 2028-01-01
+              through: 2030-12-31
+            authorizations:
+            - userIdentifier: EE39912310123
+              hasRole: FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER_FULL
