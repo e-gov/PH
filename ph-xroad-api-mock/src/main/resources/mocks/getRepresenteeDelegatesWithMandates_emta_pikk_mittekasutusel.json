@@ -1,0 +1,544 @@
+[
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Mari",
+      "surname": "Maasikas",
+      "identifier": "EE49028099999"
+    },
+    "mandates": [
+      {
+        "role": "EMTA:HAMPI",
+        "validityPeriod": {
+          "from": "2022-10-23"
+        },
+        "links": {
+          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "update": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "addSubDelegate": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}/subdelegates",
+          "origin": "https://vaarikas.emta.ee?x=y&z=q"
+        }
+      },
+      {
+        "role": "EMTA:ADEK_CLIENT",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+        "namespace": "EMTA",
+        "role": "PAS_BUSINESS",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+        "namespace": "EMTA",
+        "role": "ECS_VOLITATUDEV_VALJUMINE",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "EMCS_LAHETAJA",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "EMCS_PEAKLIENT",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "EMCS_PIIRATUD_LAHETAJA",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "EMCS_PIIRATUD_VASTUVOTJA",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "M-EORI",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "GARANTIID",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "M-AKTID",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "MIRROR_USER",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "MIRROR_ANALYST",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "MIRROR_TAX_RISK",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "MIRROR_TAX_COMPLIANCE",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "MIRROR_ADMIN",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "ICS_DEKLARATSIOONI_ESITAJA",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "P_EXTERNAL_USER",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "P_EXTERNAL_USER_MANAGER",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "IMPULSS_CUSTOMER",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "INF_ESITAMINE",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "M-VIITED",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "TOEND_ERHT",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "DASHBOARD_GLOBAL_CLIENT",
+                "validityPeriod": {
+          "from": "2025-01-01",
+          "through": "2025-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "KMD_VAATAMINE",
+                "validityPeriod": {
+          "from": "2025-01-01",
+          "through": "2025-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "KMD_KOIKLUBATUD",
+                "validityPeriod": {
+          "from": "2025-01-01",
+          "through": "2025-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "KMKRA_ESITAJA",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "EAREST_KASUTAJA",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "TAG_TAOTLUSED",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "M_TOEND_CLIENT",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "REPORTING_CUSTOMER",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-02-21"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Eefraim",
+      "surname": "Pikksukk",
+      "identifier": "EE36008240007"
+    },
+    "mandates": [
+      {
+          "namespace": "EMTA",
+        "role": "A-JI",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "A-JI-V",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Karl",
+      "surname": "Kingpool",
+      "identifier": "EE36007250075"
+    },
+    "mandates": [
+      {
+          "namespace": "EMTA",
+        "role": "I",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "TOLL",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "AKTSIIS",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Karlsson",
+      "surname": "Katuselt",
+      "identifier": "EE35511140005"
+    },
+    "mandates": [
+      {
+          "namespace": "EMTA",
+        "role": "I",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "TOLL",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "AKTSIIS",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Minni",
+      "surname": "Hiir",
+      "identifier": "EE61005211702"
+    },
+    "mandates": [
+      {
+          "namespace": "EMTA",
+        "role": "I",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "Hinnangute teenuse kasutamine",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "KMKRA_ESITAJA",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "FATCA_KOIKOIGUSED",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Meeskond OÜ",
+      "identifier": "EE12345643"
+    },
+    "mandates": [
+      {
+          "namespace": "EMTA",
+        "role": "XT_MM",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "KKS_XT",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Miki",
+      "surname": "Hiir",
+      "identifier": "EE36008245504"
+    },
+    "mandates": [
+      {
+          "namespace": "EMTA",
+        "role": "I",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "TOLL",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "AKTSIIS",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Pipi",
+      "surname": "Pikksukk",
+      "identifier": "EE61005210008"
+    },
+    "mandates": [
+      {
+          "namespace": "EMTA",
+        "role": "I",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "TOLL",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "AKTSIIS",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2023-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "P_EXTERNAL_AUTHORITY_MANAGER",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-10-31"
+        }
+      },
+      {
+          "namespace": "EMTA",
+        "role": "P_EXTERNAL_AUTHORITY_MANAGER",
+        "validityPeriod": {
+          "from": "2022-10-21",
+          "through": "2024-10-31"
+        },
+        "links": {
+            "origin": "https://vaarikas.emta.ee/vaata?x=y&z=2"
+          }
+      }
+    ]
+  }
+]
+

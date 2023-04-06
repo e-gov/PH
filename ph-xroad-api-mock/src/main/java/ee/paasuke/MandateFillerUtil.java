@@ -1,40 +1,49 @@
 package ee.paasuke;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import io.swagger.model.Link;
 import io.swagger.model.Mandate;
 import io.swagger.model.MandateTriplet;
 
 public class MandateFillerUtil {
 
-    public static final String DEL_LINK = "/v1/representees/{representee}/delegates/{delegate}/mandates/{role}";
+    public static void replacePlaceholdersInLinks(Mandate mandate, MandateTriplet triplet) {
+
+        if (mandate.getLinks() != null) {
+            mandate.getLinks().setDelete(performReplacements(mandate.getLinks().getDelete(), mandate, triplet));
+            mandate.getLinks().setAddSubDelegate(performReplacements(mandate.getLinks().getAddSubDelegate(), mandate, triplet));
+        }
+
+    }
+
+    private static String performReplacements(String href, Mandate mandate, MandateTriplet triplet) {
+        if (href == null) {
+            return null;
+        }
+
+        String ns = "";
+        String roleWithoutNamespace = mandate.getRole();
+        if (mandate.getRole() != null) {
+            String[] nsAndRole = mandate.getRole().split(":", 2);
+            ns = nsAndRole[0];
+            if (nsAndRole.length > 1) {
+                roleWithoutNamespace = nsAndRole[1];
+            }
+        }
 
 
-    public static void fillMandateLinks(Mandate mandate, MandateTriplet triplet) {
-        List<Link> xroadDeleteLinks = mandate.getLinks().stream().filter(link -> link.getRel().equals("xroadDelete")).collect(Collectors.toList());
-
-        String delLinkHref = DEL_LINK
-             .replaceAll("\\{representee}", String.valueOf(triplet.getRepresentee().getId()))
-             .replaceAll("\\{delegate}",  String.valueOf(triplet.getDelegate().getId()))
-             .replaceAll("\\{role}", String.valueOf(mandate.getId()));
-
-        xroadDeleteLinks.stream().forEach(link -> link.setHref(delLinkHref));
+        return href
+                .replaceAll("\\{ns}", ns)
+                .replaceAll("\\{representeeId}", "imp1-" + triplet.getRepresentee().getIdentifier())
+                .replaceAll("\\{delegateId}",  "imp2-" + triplet.getDelegate().getIdentifier())
+                .replaceAll("\\{mandateId}", "imp3-" + roleWithoutNamespace);
     }
 
 
     public static void removeMandateLinks(Mandate mandate) {
-        mandate.setLinks(new ArrayList<>());
-    }
-
-    public static void removeId(Mandate mandate) {
-        mandate.setId(null);
+        mandate.setLinks(null);
     }
 
     public static void removeValidFrom(Mandate mandate) {
-        mandate.setValidFrom(null);
+        mandate.getValidityPeriod().setFrom(null);
     }
 
 

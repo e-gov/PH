@@ -3,8 +3,9 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.model.AddPerson;
+import io.swagger.model.Authorization;
 import io.swagger.model.MandateToAdd;
+import io.swagger.model.Person;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,24 +14,28 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * AddMandateTriplet
+ * Delegate is optional (in case company gets deleted then updating is needed).
  */
+@Schema(description = "Delegate is optional (in case company gets deleted then updating is needed).")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-19T09:44:20.956Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-23T06:43:49.006407902Z[GMT]")
 
 
 public class AddMandateTriplet   {
   @JsonProperty("representee")
-  private AddPerson representee = null;
+  private Person representee = null;
 
   @JsonProperty("delegate")
-  private AddPerson delegate = null;
+  private Person delegate = null;
 
-  @JsonProperty("mandates")
+  @JsonProperty("mandate")
+  private MandateToAdd mandate = null;
+
+  @JsonProperty("authorizations")
   @Valid
-  private List<MandateToAdd> mandates = new ArrayList<MandateToAdd>();
+  private List<Authorization> authorizations = null;
 
-  public AddMandateTriplet representee(AddPerson representee) {
+  public AddMandateTriplet representee(Person representee) {
     this.representee = representee;
     return this;
   }
@@ -43,15 +48,15 @@ public class AddMandateTriplet   {
       @NotNull
 
     @Valid
-    public AddPerson getRepresentee() {
+    public Person getRepresentee() {
     return representee;
   }
 
-  public void setRepresentee(AddPerson representee) {
+  public void setRepresentee(Person representee) {
     this.representee = representee;
   }
 
-  public AddMandateTriplet delegate(AddPerson delegate) {
+  public AddMandateTriplet delegate(Person delegate) {
     this.delegate = delegate;
     return this;
   }
@@ -64,37 +69,59 @@ public class AddMandateTriplet   {
       @NotNull
 
     @Valid
-    public AddPerson getDelegate() {
+    public Person getDelegate() {
     return delegate;
   }
 
-  public void setDelegate(AddPerson delegate) {
+  public void setDelegate(Person delegate) {
     this.delegate = delegate;
   }
 
-  public AddMandateTriplet mandates(List<MandateToAdd> mandates) {
-    this.mandates = mandates;
-    return this;
-  }
-
-  public AddMandateTriplet addMandatesItem(MandateToAdd mandatesItem) {
-    this.mandates.add(mandatesItem);
+  public AddMandateTriplet mandate(MandateToAdd mandate) {
+    this.mandate = mandate;
     return this;
   }
 
   /**
-   * Get mandates
-   * @return mandates
+   * Get mandate
+   * @return mandate
    **/
-  @Schema(required = true, description = "")
-      @NotNull
+  @Schema(description = "")
+  
     @Valid
-    public List<MandateToAdd> getMandates() {
-    return mandates;
+    public MandateToAdd getMandate() {
+    return mandate;
   }
 
-  public void setMandates(List<MandateToAdd> mandates) {
-    this.mandates = mandates;
+  public void setMandate(MandateToAdd mandate) {
+    this.mandate = mandate;
+  }
+
+  public AddMandateTriplet authorizations(List<Authorization> authorizations) {
+    this.authorizations = authorizations;
+    return this;
+  }
+
+  public AddMandateTriplet addAuthorizationsItem(Authorization authorizationsItem) {
+    if (this.authorizations == null) {
+      this.authorizations = new ArrayList<Authorization>();
+    }
+    this.authorizations.add(authorizationsItem);
+    return this;
+  }
+
+  /**
+   * Get authorizations
+   * @return authorizations
+   **/
+  @Schema(description = "")
+      @Valid
+    public List<Authorization> getAuthorizations() {
+    return authorizations;
+  }
+
+  public void setAuthorizations(List<Authorization> authorizations) {
+    this.authorizations = authorizations;
   }
 
 
@@ -109,12 +136,13 @@ public class AddMandateTriplet   {
     AddMandateTriplet addMandateTriplet = (AddMandateTriplet) o;
     return Objects.equals(this.representee, addMandateTriplet.representee) &&
         Objects.equals(this.delegate, addMandateTriplet.delegate) &&
-        Objects.equals(this.mandates, addMandateTriplet.mandates);
+        Objects.equals(this.mandate, addMandateTriplet.mandate) &&
+        Objects.equals(this.authorizations, addMandateTriplet.authorizations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(representee, delegate, mandates);
+    return Objects.hash(representee, delegate, mandate, authorizations);
   }
 
   @Override
@@ -124,7 +152,8 @@ public class AddMandateTriplet   {
     
     sb.append("    representee: ").append(toIndentedString(representee)).append("\n");
     sb.append("    delegate: ").append(toIndentedString(delegate)).append("\n");
-    sb.append("    mandates: ").append(toIndentedString(mandates)).append("\n");
+    sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
+    sb.append("    authorizations: ").append(toIndentedString(authorizations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

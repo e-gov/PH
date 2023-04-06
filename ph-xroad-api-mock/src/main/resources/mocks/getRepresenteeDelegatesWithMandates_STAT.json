@@ -1,0 +1,100 @@
+[
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Kalle",
+      "surname": "Kuusk-Konstantinov",
+      "identifier": "EE50001029996"
+    },
+    "mandates": [
+      {
+        "role": "STAT_ESTAT:CEO",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Mari",
+      "surname": "Maasikas",
+      "identifier": "EE60001019906"
+    },
+    "mandates": [
+      {
+        "role": "STAT_ESTAT:SuperUser",
+        "validityPeriod": {
+          "from": "2022-10-23"
+        },
+        "links": {
+          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "origin": "https://estat.stat.ee?x=y&z=q"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Mari",
+      "surname": "Maasikas",
+      "identifier": "EE60001019906"
+    },
+    "mandates": [
+      {
+        "role": "STAT_ESTAT:respondent",
+        "validityPeriod": {
+          "from": "2030-01-01",
+          "through": "2030-12-31"
+        },
+        "links": {
+          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "origin": "https://estat.stat.ee?x=y&z=q"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Jüri",
+      "surname": "Vaarikas",
+      "identifier": "EE30303039914"
+    },
+    "mandates": [
+      {
+        "role": "STAT_ESTAT:limitedRespondent",
+        "validityPeriod": {
+          "from": "2028-11-01"
+        },
+        "links": {
+          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "origin": "https://estat.stat.ee?x=y&z=q"
+        }
+      }
+    ]
+  }
+]
+

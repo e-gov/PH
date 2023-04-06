@@ -21,7 +21,7 @@ public class SwaggerDocumentationConfig {
     public Docket customImplementation(){
         return new Docket(DocumentationType.OAS_30)
                 .select()
-                    .apis(RequestHandlerSelectors.basePackage("io.swagger.api").or(RequestHandlerSelectors.basePackage("ee.paasuke.api")))
+                    .apis(RequestHandlerSelectors.basePackage("ee.paasuke.api"))
                     .build()
                 .directModelSubstitute(org.threeten.bp.LocalDate.class, java.sql.Date.class)
                 .directModelSubstitute(org.threeten.bp.OffsetDateTime.class, java.util.Date.class)
@@ -35,7 +35,7 @@ public class SwaggerDocumentationConfig {
             .license("Apache 2.0")
             .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
             .termsOfServiceUrl("")
-            .version("0.3.1")
+            .version("0.7.4")
             .contact(new Contact("","", "you@your-company.com"))
             .build();
     }
@@ -47,12 +47,12 @@ public class SwaggerDocumentationConfig {
                 .title("Pääsukese X-tee liides")
                 .description("Sisaldab Pääsukese poolt standardiseeritud x-tee teeunuseid")
                 .termsOfService("")
-                .version("0.3.1")
+                .version("0.7.4")
                 .license(new License()
                     .name("Apache 2.0")
                     .url("http://www.apache.org/licenses/LICENSE-2.0.html"))
                 .contact(new io.swagger.v3.oas.models.info.Contact()
-                    .email("you@your-company.com")));
+                    .email("help@ria.ee")));
     }
 
 }

@@ -2,7 +2,9 @@
 FROM nexus.riaint.ee:8500/maven:3.8-jdk-8-slim AS builder
 COPY ./pom.xml pom.xml
 COPY ./src src/
-RUN mvn clean package
+COPY ./settings.xml settings.xml
+
+RUN mvn -s settings.xml clean package
 
 # Second stage
 FROM nexus.riaint.ee:8500/eclipse-temurin:17.0.4.1_1-jre-focal
@@ -11,7 +13,7 @@ COPY --from=builder ${JAR_FILE} ph-xroad-api-mock.jar
 
 USER www-data
 
-COPY mocks /etc/mocks
+COPY ./src/main/resources/mocks/* /etc/mocks/
 ENV MOCKS_DIR=/etc/mocks/
 ENV server_port=8080
 

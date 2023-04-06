@@ -1,0 +1,29 @@
+[
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Agro Agro AS",
+      "identifier": "EE11430169"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Kaupo",
+      "surname": "Kuusik",
+      "identifier": "EE37925050002"
+    },
+    "mandates": [
+      {
+        "role": "PRIA:Unrestricted",
+        "validityPeriod": {
+          "from": "2027-01-01",
+          "through": "2027-12-31"
+        },
+        "links": {
+          "delete": "/v1/nss/PRIA/representees/imp1-EE11430169/delegates/imp2-EE37925050002/mandates/imp3-Unrestricted",
+          "origin": "https://epria.pria.ee?x=y&z=q"
+        },
+        "subDelegatorIdentifier": "EE60001019906"
+      }
+    ]
+  }
+]

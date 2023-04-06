@@ -1,8 +1,6 @@
 package io.swagger.model;
 
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.Mandate;
@@ -10,6 +8,8 @@ import io.swagger.model.Person;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.Builder;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -18,14 +18,10 @@ import javax.validation.constraints.*;
  * MandateTriplet
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-24T12:22:46.494Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-14T09:20:23.675Z[GMT]")
 
-
+@Builder
 public class MandateTriplet   {
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  @JsonProperty("id")
-  private String id = null;
-
   @JsonProperty("representee")
   private Person representee = null;
 
@@ -35,26 +31,6 @@ public class MandateTriplet   {
   @JsonProperty("mandates")
   @Valid
   private List<Mandate> mandates = new ArrayList<Mandate>();
-
-  public MandateTriplet id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * ID
-   * @return id
-   **/
-  @Schema(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, description = "ID")
-      @NotNull
-
-    public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public MandateTriplet representee(Person representee) {
     this.representee = representee;
@@ -133,15 +109,14 @@ public class MandateTriplet   {
       return false;
     }
     MandateTriplet mandateTriplet = (MandateTriplet) o;
-    return Objects.equals(this.id, mandateTriplet.id) &&
-        Objects.equals(this.representee, mandateTriplet.representee) &&
+    return Objects.equals(this.representee, mandateTriplet.representee) &&
         Objects.equals(this.delegate, mandateTriplet.delegate) &&
         Objects.equals(this.mandates, mandateTriplet.mandates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, representee, delegate, mandates);
+    return Objects.hash(representee, delegate, mandates);
   }
 
   @Override
@@ -149,7 +124,6 @@ public class MandateTriplet   {
     StringBuilder sb = new StringBuilder();
     sb.append("class MandateTriplet {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    representee: ").append(toIndentedString(representee)).append("\n");
     sb.append("    delegate: ").append(toIndentedString(delegate)).append("\n");
     sb.append("    mandates: ").append(toIndentedString(mandates)).append("\n");

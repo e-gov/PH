@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @SpringBootApplication
 @EnableOpenApi
-@ComponentScan(basePackages = { "io.swagger", "io.swagger.api" , "io.swagger.configuration", "ee.paasuke.api"})
+@ComponentScan(basePackages = { "io.swagger", "io.swagger.api" , "io.swagger.configuration", "ee.paasuke"})
 public class Swagger2SpringBoot implements CommandLineRunner {
 
     @Override

@@ -6,11 +6,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.model.RoleMetadata;
 import io.swagger.model.Translation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.threeten.bp.OffsetDateTime;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
@@ -20,19 +23,13 @@ import javax.validation.constraints.*;
  * RoleDefinition
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T09:37:06.463Z[GMT]")
-
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-04-05T11:46:16.611771420Z[GMT]")
+@Builder
+@ToString
+@EqualsAndHashCode
 public class RoleDefinition   {
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  @JsonProperty("id")
-  private String id = null;
-
-  @JsonProperty("namespace")
-  private String namespace = null;
-
-  @JsonProperty("role")
-  private String role = null;
+  @JsonProperty("code")
+  private String code = null;
 
   @JsonProperty("title")
   private Translation title = null;
@@ -40,21 +37,25 @@ public class RoleDefinition   {
   @JsonProperty("description")
   private Translation description = null;
 
+  @JsonProperty("modified")
+  private OffsetDateTime modified = null;
+
+  @JsonProperty("canSubDelegate")
+  private Boolean canSubDelegate = null;
+
   /**
-   * Role is ACTIVE if it can be assigned; ACTIVE_GOVERNMENT if role can be assigned only to representees that are govenrment agencyes (representee registry code starts with 7); HIDDEN if role is still supported but cannot be assigned to new employees; REMOVED if role is no longer in action
+   * Gets or Sets representeeType
    */
-  public enum StateEnum {
-    ACTIVE("ACTIVE"),
+  public enum RepresenteeTypeEnum {
+    LEGAL_PERSON("LEGAL_PERSON"),
     
-    ACTIVE_GOVERNMENT("ACTIVE_GOVERNMENT"),
+    NATURAL_PERSON("NATURAL_PERSON"),
     
-    HIDDEN("HIDDEN"),
-    
-    REMOVED("REMOVED");
+    GORVENRMENT_PERSON("GORVENRMENT_PERSON");
 
     private String value;
 
-    StateEnum(String value) {
+    RepresenteeTypeEnum(String value) {
       this.value = value;
     }
 
@@ -65,8 +66,8 @@ public class RoleDefinition   {
     }
 
     @JsonCreator
-    public static StateEnum fromValue(String text) {
-      for (StateEnum b : StateEnum.values()) {
+    public static RepresenteeTypeEnum fromValue(String text) {
+      for (RepresenteeTypeEnum b : RepresenteeTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -74,74 +75,92 @@ public class RoleDefinition   {
       return null;
     }
   }
-  @JsonProperty("state")
+  @JsonProperty("representeeType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private StateEnum state = null;
+  @Valid
+  private List<RepresenteeTypeEnum> representeeType = null;
 
-  @JsonProperty("modified")
-  private OffsetDateTime modified = null;
+  /**
+   * Gets or Sets delegateType
+   */
+  public enum DelegateTypeEnum {
+    LEGAL_PERSON("LEGAL_PERSON"),
+    
+    NATURAL_PERSON("NATURAL_PERSON");
 
-  @JsonProperty("metadata")
+    private String value;
+
+    DelegateTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static DelegateTypeEnum fromValue(String text) {
+      for (DelegateTypeEnum b : DelegateTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+  @JsonProperty("delegateType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private RoleMetadata metadata = null;
+  @Valid
+  private List<DelegateTypeEnum> delegateType = null;
 
-  public RoleDefinition id(String id) {
-    this.id = id;
+  @JsonProperty("assignableBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> assignableBy = null;
+
+  @JsonProperty("deletableBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> deletableBy = null;
+
+  @JsonProperty("deletableByDelegate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean deletableByDelegate = null;
+
+  @JsonProperty("visible")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean visible = null;
+
+  @JsonProperty("canAssignIfHasRoleAndOneOf")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> canAssignIfHasRoleAndOneOf = null;
+
+  @JsonProperty("canDeleteIfHasRoleAndOneOf")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> canDeleteIfHasRoleAndOneOf = null;
+
+  public RoleDefinition code(String code) {
+    this.code = code;
     return this;
   }
 
   /**
-   * ID
-   * @return id
+   * Namespace code + \":\" + role code. Role code can contain any UTF-8 character (even spaces and colons).
+   * @return code
    **/
-  @Schema(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", description = "ID")
-  
-    public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public RoleDefinition namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-  /**
-   * Namespace
-   * @return namespace
-   **/
-  @Schema(example = "STAT", required = true, description = "Namespace")
+  @Schema(example = "STAT_ESTAT:Respondent", required = true, description = "Namespace code + \":\" + role code. Role code can contain any UTF-8 character (even spaces and colons).")
       @NotNull
 
-    public String getNamespace() {
-    return namespace;
+    public String getCode() {
+    return code;
   }
 
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
-  public RoleDefinition role(String role) {
-    this.role = role;
-    return this;
-  }
-
-  /**
-   * Role
-   * @return role
-   **/
-  @Schema(example = "Respondent", required = true, description = "Role")
-      @NotNull
-
-  @Pattern(regexp="[A-Za-z0-9_\\.]+")   public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
+  public void setCode(String code) {
+    this.code = code;
   }
 
   public RoleDefinition title(Translation title) {
@@ -153,8 +172,9 @@ public class RoleDefinition   {
    * Get title
    * @return title
    **/
-  @Schema(description = "")
-  
+  @Schema(required = true, description = "")
+      @NotNull
+
     @Valid
     public Translation getTitle() {
     return title;
@@ -184,25 +204,6 @@ public class RoleDefinition   {
     this.description = description;
   }
 
-  public RoleDefinition state(StateEnum state) {
-    this.state = state;
-    return this;
-  }
-
-  /**
-   * Role is ACTIVE if it can be assigned; ACTIVE_GOVERNMENT if role can be assigned only to representees that are govenrment agencyes (representee registry code starts with 7); HIDDEN if role is still supported but cannot be assigned to new employees; REMOVED if role is no longer in action
-   * @return state
-   **/
-  @Schema(description = "Role is ACTIVE if it can be assigned; ACTIVE_GOVERNMENT if role can be assigned only to representees that are govenrment agencyes (representee registry code starts with 7); HIDDEN if role is still supported but cannot be assigned to new employees; REMOVED if role is no longer in action")
-  
-    public StateEnum getState() {
-    return state;
-  }
-
-  public void setState(StateEnum state) {
-    this.state = state;
-  }
-
   public RoleDefinition modified(OffsetDateTime modified) {
     this.modified = modified;
     return this;
@@ -223,77 +224,223 @@ public class RoleDefinition   {
     this.modified = modified;
   }
 
-  public RoleDefinition metadata(RoleMetadata metadata) {
-    this.metadata = metadata;
+  public RoleDefinition canSubDelegate(Boolean canSubDelegate) {
+    this.canSubDelegate = canSubDelegate;
     return this;
   }
 
   /**
-   * Get metadata
-   * @return metadata
+   * Can this role be given out with the right to sub-delegate it.
+   * @return canSubDelegate
    **/
-  @Schema(required = true, description = "")
-      @NotNull
-
-    @Valid
-    public RoleMetadata getMetadata() {
-    return metadata;
+  @Schema(description = "Can this role be given out with the right to sub-delegate it.")
+  
+    public Boolean isCanSubDelegate() {
+    return canSubDelegate;
   }
 
-  public void setMetadata(RoleMetadata metadata) {
-    this.metadata = metadata;
+  public void setCanSubDelegate(Boolean canSubDelegate) {
+    this.canSubDelegate = canSubDelegate;
   }
 
+  public RoleDefinition representeeType(List<RepresenteeTypeEnum> representeeType) {
+    this.representeeType = representeeType;
+    return this;
+  }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+  public RoleDefinition addRepresenteeTypeItem(RepresenteeTypeEnum representeeTypeItem) {
+    if (this.representeeType == null) {
+      this.representeeType = new ArrayList<RepresenteeTypeEnum>();
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    RoleDefinition roleDefinition = (RoleDefinition) o;
-    return Objects.equals(this.id, roleDefinition.id) &&
-        Objects.equals(this.namespace, roleDefinition.namespace) &&
-        Objects.equals(this.role, roleDefinition.role) &&
-        Objects.equals(this.title, roleDefinition.title) &&
-        Objects.equals(this.description, roleDefinition.description) &&
-        Objects.equals(this.state, roleDefinition.state) &&
-        Objects.equals(this.modified, roleDefinition.modified) &&
-        Objects.equals(this.metadata, roleDefinition.metadata);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, namespace, role, title, description, state, modified, metadata);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RoleDefinition {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    this.representeeType.add(representeeTypeItem);
+    return this;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+   * What type of representees are allowed to delegate this role. GOVERNMENT_PERSON is a sub-type of a LEGAL_PERSON whose Estonian registry code starts with 7 (state and local government bodies).
+   * @return representeeType
+   **/
+  @Schema(example = "[\"LEGAL_PERSON\",\"NATURAL_PERSON\"]", description = "What type of representees are allowed to delegate this role. GOVERNMENT_PERSON is a sub-type of a LEGAL_PERSON whose Estonian registry code starts with 7 (state and local government bodies).")
+  
+    public List<RepresenteeTypeEnum> getRepresenteeType() {
+    return representeeType;
   }
+
+  public void setRepresenteeType(List<RepresenteeTypeEnum> representeeType) {
+    this.representeeType = representeeType;
+  }
+
+  public RoleDefinition delegateType(List<DelegateTypeEnum> delegateType) {
+    this.delegateType = delegateType;
+    return this;
+  }
+
+  public RoleDefinition addDelegateTypeItem(DelegateTypeEnum delegateTypeItem) {
+    if (this.delegateType == null) {
+      this.delegateType = new ArrayList<DelegateTypeEnum>();
+    }
+    this.delegateType.add(delegateTypeItem);
+    return this;
+  }
+
+  /**
+   * Whom this mandate can be assigned to. If not set then there are no restrictions.
+   * @return delegateType
+   **/
+  @Schema(description = "Whom this mandate can be assigned to. If not set then there are no restrictions.")
+  
+    public List<DelegateTypeEnum> getDelegateType() {
+    return delegateType;
+  }
+
+  public void setDelegateType(List<DelegateTypeEnum> delegateType) {
+    this.delegateType = delegateType;
+  }
+
+  public RoleDefinition assignableBy(List<String> assignableBy) {
+    this.assignableBy = assignableBy;
+    return this;
+  }
+
+  public RoleDefinition addAssignableByItem(String assignableByItem) {
+    if (this.assignableBy == null) {
+      this.assignableBy = new ArrayList<String>();
+    }
+    this.assignableBy.add(assignableByItem);
+    return this;
+  }
+
+  /**
+   * Who has a mandatate with role in the list can give this mandate. There are situations when the list is empty.
+   * @return assignableBy
+   **/
+  @Schema(example = "[\"FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER\",\"EMTA:I\"]", description = "Who has a mandatate with role in the list can give this mandate. There are situations when the list is empty.")
+  
+    public List<String> getAssignableBy() {
+    return assignableBy;
+  }
+
+  public void setAssignableBy(List<String> assignableBy) {
+    this.assignableBy = assignableBy;
+  }
+
+  public RoleDefinition deletableBy(List<String> deletableBy) {
+    this.deletableBy = deletableBy;
+    return this;
+  }
+
+  public RoleDefinition addDeletableByItem(String deletableByItem) {
+    if (this.deletableBy == null) {
+      this.deletableBy = new ArrayList<String>();
+    }
+    this.deletableBy.add(deletableByItem);
+    return this;
+  }
+
+  /**
+   * Who has a mandatate with role in the list can delete this mandate. If this list is not given then assignableBy is used.
+   * @return deletableBy
+   **/
+  @Schema(example = "[\"FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER\",\"EMTA:I\"]", description = "Who has a mandatate with role in the list can delete this mandate. If this list is not given then assignableBy is used.")
+  
+    public List<String> getDeletableBy() {
+    return deletableBy;
+  }
+
+  public void setDeletableBy(List<String> deletableBy) {
+    this.deletableBy = deletableBy;
+  }
+
+  public RoleDefinition deletableByDelegate(Boolean deletableByDelegate) {
+    this.deletableByDelegate = deletableByDelegate;
+    return this;
+  }
+
+  /**
+   * Is delegate allowed to delete (in Estonian \"loobuda\") a mandate with this role. True by default. False value is used (among other use cases) for management board members.
+   * @return deletableByDelegate
+   **/
+  @Schema(description = "Is delegate allowed to delete (in Estonian \"loobuda\") a mandate with this role. True by default. False value is used (among other use cases) for management board members.")
+  
+    public Boolean isDeletableByDelegate() {
+    return deletableByDelegate;
+  }
+
+  public void setDeletableByDelegate(Boolean deletableByDelegate) {
+    this.deletableByDelegate = deletableByDelegate;
+  }
+
+  public RoleDefinition visible(Boolean visible) {
+    this.visible = visible;
+    return this;
+  }
+
+  /**
+   * True by default. Only visible roles are shown in Pääsuke and non-visible ones are not shown out. Non-visible role is a method to inform Pääsuke that a person can add some other role. For example we can create role AA with property AA.assignableBy:BB. Now we can create non-visible role BB that we add to persons who actually can add role AA.
+   * @return visible
+   **/
+  @Schema(description = "True by default. Only visible roles are shown in Pääsuke and non-visible ones are not shown out. Non-visible role is a method to inform Pääsuke that a person can add some other role. For example we can create role AA with property AA.assignableBy:BB. Now we can create non-visible role BB that we add to persons who actually can add role AA.")
+  
+    public Boolean isVisible() {
+    return visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
+  public RoleDefinition canAssignIfHasRoleAndOneOf(List<String> canAssignIfHasRoleAndOneOf) {
+    this.canAssignIfHasRoleAndOneOf = canAssignIfHasRoleAndOneOf;
+    return this;
+  }
+
+  public RoleDefinition addCanAssignIfHasRoleAndOneOfItem(String canAssignIfHasRoleAndOneOfItem) {
+    if (this.canAssignIfHasRoleAndOneOf == null) {
+      this.canAssignIfHasRoleAndOneOf = new ArrayList<String>();
+    }
+    this.canAssignIfHasRoleAndOneOf.add(canAssignIfHasRoleAndOneOfItem);
+    return this;
+  }
+
+  /**
+   * A delegate can create a mandate with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to add a role you must have that role yourself)
+   * @return canAssignIfHasRoleAndOneOf
+   **/
+  @Schema(example = "[\"RR_PARTNER:VOLITUSTE_HALDUR_ENDA_ROLLIDE_PIIRES\"]", description = "A delegate can create a mandate with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to add a role you must have that role yourself)")
+  
+    public List<String> getCanAssignIfHasRoleAndOneOf() {
+    return canAssignIfHasRoleAndOneOf;
+  }
+
+  public void setCanAssignIfHasRoleAndOneOf(List<String> canAssignIfHasRoleAndOneOf) {
+    this.canAssignIfHasRoleAndOneOf = canAssignIfHasRoleAndOneOf;
+  }
+
+  public RoleDefinition canDeleteIfHasRoleAndOneOf(List<String> canDeleteIfHasRoleAndOneOf) {
+    this.canDeleteIfHasRoleAndOneOf = canDeleteIfHasRoleAndOneOf;
+    return this;
+  }
+
+  public RoleDefinition addCanDeleteIfHasRoleAndOneOfItem(String canDeleteIfHasRoleAndOneOfItem) {
+    if (this.canDeleteIfHasRoleAndOneOf == null) {
+      this.canDeleteIfHasRoleAndOneOf = new ArrayList<String>();
+    }
+    this.canDeleteIfHasRoleAndOneOf.add(canDeleteIfHasRoleAndOneOfItem);
+    return this;
+  }
+
+  /**
+   * A delegate can delete mandates with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to delete a role you must have that role yourself)
+   * @return canDeleteIfHasRoleAndOneOf
+   **/
+  @Schema(example = "[\"RR_PARTNER:VOLITUSTE_HALDUR_ENDA_ROLLIDE_PIIRES\"]", description = "A delegate can delete mandates with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to delete a role you must have that role yourself)")
+  
+    public List<String> getCanDeleteIfHasRoleAndOneOf() {
+    return canDeleteIfHasRoleAndOneOf;
+  }
+
+  public void setCanDeleteIfHasRoleAndOneOf(List<String> canDeleteIfHasRoleAndOneOf) {
+    this.canDeleteIfHasRoleAndOneOf = canDeleteIfHasRoleAndOneOf;
+  }
+
 }

@@ -6,10 +6,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.model.Link;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Builder;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -18,21 +16,21 @@ import javax.validation.constraints.*;
  * Person
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T08:01:40.233Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-14T09:20:23.675Z[GMT]")
 
-
+@Builder
 public class Person   {
-  @JsonProperty("id")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String id = null;
-
   /**
-   * Type
+   * Person type
    */
   public enum TypeEnum {
     NATURAL_PERSON("NATURAL_PERSON"),
     
-    LEGAL_PERSON("LEGAL_PERSON");
+    LEGAL_PERSON("LEGAL_PERSON"),
+    
+    UNKNOWN("UNKNOWN"),
+    
+    OTHER("OTHER");
 
     private String value;
 
@@ -59,39 +57,20 @@ public class Person   {
   @JsonProperty("type")
   private TypeEnum type = null;
 
-  @JsonProperty("name")
-  private String name = null;
-
-  @JsonProperty("identityCodeCountry")
-  private String identityCodeCountry = null;
-
-  @JsonProperty("identityCode")
-  private String identityCode = null;
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @JsonProperty("firstName")
+  private String firstName = null;
 
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  @JsonProperty("links")
-  @Valid
-  private List<Link> links = null;
+  @JsonProperty("surname")
+  private String surname = null;
 
-  public Person id(String id) {
-    this.id = id;
-    return this;
-  }
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @JsonProperty("legalName")
+  private String legalName = null;
 
-  /**
-   * ID
-   * @return id
-   **/
-  @Schema(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, description = "ID")
-      @NotNull
-
-    public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
+  @JsonProperty("identifier")
+  private String identifier = null;
 
   public Person type(TypeEnum type) {
     this.type = type;
@@ -99,10 +78,10 @@ public class Person   {
   }
 
   /**
-   * Type
+   * Person type
    * @return type
    **/
-  @Schema(required = true, description = "Type")
+  @Schema(required = true, description = "Person type")
       @NotNull
 
     public TypeEnum getType() {
@@ -113,90 +92,81 @@ public class Person   {
     this.type = type;
   }
 
-  public Person name(String name) {
-    this.name = name;
+  public Person firstName(String firstName) {
+    this.firstName = firstName;
     return this;
   }
 
   /**
-   * Name
-   * @return name
+   * Person given name(s)
+   * @return firstName
    **/
-  @Schema(example = "Jüri Juurikas", description = "Name")
+  @Schema(example = "Jüri", description = "Person given name(s)")
   
-    public String getName() {
-    return name;
+    public String getFirstName() {
+    return firstName;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
-  public Person identityCodeCountry(String identityCodeCountry) {
-    this.identityCodeCountry = identityCodeCountry;
+  public Person surname(String surname) {
+    this.surname = surname;
     return this;
   }
 
   /**
-   * Identity code country
-   * @return identityCodeCountry
+   * Person surname
+   * @return surname
    **/
-  @Schema(example = "EE", required = true, description = "Identity code country")
-      @NotNull
-
-    public String getIdentityCodeCountry() {
-    return identityCodeCountry;
+  @Schema(example = "Juurikas", description = "Person surname")
+  
+    public String getSurname() {
+    return surname;
   }
 
-  public void setIdentityCodeCountry(String identityCodeCountry) {
-    this.identityCodeCountry = identityCodeCountry;
+  public void setSurname(String surname) {
+    this.surname = surname;
   }
 
-  public Person identityCode(String identityCode) {
-    this.identityCode = identityCode;
+  public Person legalName(String legalName) {
+    this.legalName = legalName;
+    return this;
+  }
+
+  /**
+   * Name of legal entity
+   * @return legalName
+   **/
+  @Schema(example = "Juurikas", description = "Name of legal entity")
+  
+    public String getLegalName() {
+    return legalName;
+  }
+
+  public void setLegalName(String legalName) {
+    this.legalName = legalName;
+  }
+
+  public Person identifier(String identifier) {
+    this.identifier = identifier;
     return this;
   }
 
   /**
    * Identity code
-   * @return identityCode
+   * @return identifier
    **/
-  @Schema(example = "38302250123", required = true, description = "Identity code")
+  @Schema(example = "EE38302250123", required = true, description = "Identity code")
       @NotNull
 
-    public String getIdentityCode() {
-    return identityCode;
+    public String getIdentifier() {
+    return identifier;
   }
 
-  public void setIdentityCode(String identityCode) {
-    this.identityCode = identityCode;
-  }
-
-  public Person links(List<Link> links) {
-    this.links = links;
-    return this;
-  }
-
-  public Person addLinksItem(Link linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<Link>();
-    }
-    this.links.add(linksItem);
-    return this;
-  }
-
-  /**
-   * Links that indicate allowed actions and provide parameters for for calling other services
-   * @return links
-   **/
-  @Schema(description = "Links that indicate allowed actions and provide parameters for for calling other services")
-      @Valid
-    public List<Link> getLinks() {
-    return links;
-  }
-
-  public void setLinks(List<Link> links) {
-    this.links = links;
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
   }
 
 
@@ -209,17 +179,16 @@ public class Person   {
       return false;
     }
     Person person = (Person) o;
-    return Objects.equals(this.id, person.id) &&
-        Objects.equals(this.type, person.type) &&
-        Objects.equals(this.name, person.name) &&
-        Objects.equals(this.identityCodeCountry, person.identityCodeCountry) &&
-        Objects.equals(this.identityCode, person.identityCode) &&
-        Objects.equals(this.links, person.links);
+    return Objects.equals(this.type, person.type) &&
+        Objects.equals(this.firstName, person.firstName) &&
+        Objects.equals(this.surname, person.surname) &&
+        Objects.equals(this.legalName, person.legalName) &&
+        Objects.equals(this.identifier, person.identifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, name, identityCodeCountry, identityCode, links);
+    return Objects.hash(type, firstName, surname, legalName, identifier);
   }
 
   @Override
@@ -227,12 +196,11 @@ public class Person   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Person {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    identityCodeCountry: ").append(toIndentedString(identityCodeCountry)).append("\n");
-    sb.append("    identityCode: ").append(toIndentedString(identityCode)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    surname: ").append(toIndentedString(surname)).append("\n");
+    sb.append("    legalName: ").append(toIndentedString(legalName)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

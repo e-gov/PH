@@ -1,0 +1,121 @@
+[
+  {
+    "namespace": "EMTA",
+    "parent_namespace": null,
+    "type": "EXTERNAL",
+    "owner": {
+      "code": "70000349",
+      "name": "Maksu- ja Tolliamet"
+    },
+    "title": {
+      "et": "Maksu- ja Tolliameti rollid",
+      "en": "Translation in that language",
+      "ru": "Translation in that language"
+    },
+    "hiddenDescription": {
+      "et": "Maksu- ja Tolliameti standalone rollid. Rollid on hoiustatud Maksu- ja Tolliameti poolel."
+    }
+  },
+  {
+    "namespace": "STAT_ESTAT",
+    "parent_namespace": null,
+    "type": "EXTERNAL",
+    "owner": {
+      "code": "70000332",
+      "name": "Statistikaamet"
+    },
+    "title": {
+      "et": "Statistikaameti eSTAT süsteemi rollid",
+      "en": "Translation in that language",
+      "ru": "Translation in that language"
+    },
+    "hiddenDescription": {
+      "et": "Statistikaameti ESTAT rollid"
+    }
+  },
+  {
+    "namespace": "STAT_SCIENTIST",
+    "parent_namespace": null,
+    "type": "EXTERNAL",
+    "owner": {
+      "code": "70000332",
+      "name": "Statistikaamet"
+    },
+    "title": {
+      "et": "Statistikaameti Teadlaste infosüsteemi rollid",
+      "en": "Translation in that language",
+      "ru": "Translation in that language"
+    },
+    "hiddenDescription": {
+      "et": "Statistikaameti SSO rollid"
+    }
+  },
+  {
+    "namespace": "GLOBAL1",
+    "parent_namespace": null,
+    "type": "PARENT",
+    "owner": {
+      "code": "70006317",
+      "name": "Riigi Infosüsteemi Amet"
+    },
+    "title": {
+      "et": "Asutusteülesed katusrollid",
+      "en": "Translation in that language",
+      "ru": "Translation in that language"
+    },
+    "hiddenDescription": {
+      "et": "Selles nimeruumis kirjeldab RIA katusrollid, mida teised asutused saavad pakkuda."
+    }
+  },
+  {
+    "namespace": "RAHVAPANK_GLOBAL1",
+    "parent_namespace": "GLOBAL1",
+    "type": "CHILD",
+    "owner": {
+      "code": "10539549",
+      "name": "RAHVAPANK pank"
+    },
+    "title": {
+      "et": "RAHVAPANK pank",
+      "en": "RAHVAPANK bank",
+      "ru": "RAHVAPANK pank (ru)"
+    },
+    "hiddenDescription": {
+      "et": "Selles nimeruumis kirjeldab RAHVAPANK need katusrollid, mida nad toetavad nimeruumist GLOBAL1"
+    }
+  },
+  {
+    "namespace": "BUSINESS_REGISTER_PARENT",
+    "parent_namespace": null,
+    "type": "PARENT",
+    "owner": {
+      "code": "70006317",
+      "name": "Riigi Infosüsteemi Amet"
+    },
+    "title": {
+      "et": "Äriregistri andmete põhjal automaatselt lisatavad ja eemaldatavad rollid",
+      "en": "Automaticcally assigned roles based on business register data",
+      "ru": "Automaticcally assigned roles based on business register data(ru)"
+    },
+    "hiddenDescription": {
+      "et": "Selles nimeruumis on kirjeldatud rollid, mis äriregistri andmete põhjal lisatakse ja eemaldatakse automaatselt"
+    }
+  },
+  {
+    "namespace": "BUSINESS_REGISTER_ORIGIN",
+    "parent_namespace": "BUSINESS_REGISTER_PARENT",
+    "type": "CHILD",
+    "owner": {
+      "code": "70006317",
+      "name": "Riigi Infosüsteemi Amet"
+    },
+    "title": {
+      "et": "Äriregistri andmete põhjal automaatselt lisatavad ja eemaldatavad rollid",
+      "en": "Automaticcally assigned roles based on business register data",
+      "ru": "Automaticcally assigned roles based on business register data(ru)"
+    },
+    "hiddenDescription": {
+      "et": "Selles nimeruumis on kirjeldatud rollid, mis äriregistri andmete põhjal lisatakse ja eemaldatakse automaatselt"
+    }
+  }
+]

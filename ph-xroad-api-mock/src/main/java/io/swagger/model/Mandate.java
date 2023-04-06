@@ -5,88 +5,40 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.model.Link;
+import io.swagger.model.MandateLinks;
+import io.swagger.model.ValidityPeriod;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
-import org.threeten.bp.LocalDate;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+
 
 /**
  * Mandate
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T08:01:40.233Z[GMT]")
-
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-04-05T08:45:28.834925897Z[GMT]")
+@Builder
+@ToString
+@EqualsAndHashCode
 public class Mandate   {
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  @JsonProperty("id")
-  private String id = null;
-
-  @JsonProperty("namespace")
-  private String namespace = null;
-
   @JsonProperty("role")
   private String role = null;
 
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  @JsonProperty("validFrom")
-  private LocalDate validFrom = null;
+  @JsonProperty("validityPeriod")
+  private ValidityPeriod validityPeriod = null;
 
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  @JsonProperty("validThrough")
-  private LocalDate validThrough = null;
-
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  @JsonProperty("canSubDelegate")
-  private Boolean canSubDelegate = null;
-
-  @JsonInclude(JsonInclude.Include.NON_EMPTY)
   @JsonProperty("links")
-  @Valid
-  private List<Link> links = null;
+  private MandateLinks links = null;
 
-  public Mandate id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * ID
-   * @return id
-   **/
-  @Schema(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", description = "ID")
-  
-    public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Mandate namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-  /**
-   * Namespace
-   * @return namespace
-   **/
-  @Schema(example = "STAT", required = true, description = "Namespace")
-      @NotNull
-
-    public String getNamespace() {
-    return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @JsonProperty("subDelegatorIdentifier")
+  private String subDelegatorIdentifier = null;
 
   public Mandate role(String role) {
     this.role = role;
@@ -97,10 +49,10 @@ public class Mandate   {
    * Role
    * @return role
    **/
-  @Schema(example = "Legal_person_data_viewer_package", required = true, description = "Role")
-      @NotNull
+  @Schema(example = "STAT:Legal_person_data_viewer_package", required = true, description = "Role")
+  @NotNull
 
-    public String getRole() {
+  public String getRole() {
     return role;
   }
 
@@ -108,140 +60,63 @@ public class Mandate   {
     this.role = role;
   }
 
-  public Mandate validFrom(LocalDate validFrom) {
-    this.validFrom = validFrom;
+  public Mandate validityPeriod(ValidityPeriod validityPeriod) {
+    this.validityPeriod = validityPeriod;
     return this;
   }
 
   /**
-   * Valid from
-   * @return validFrom
+   * Get validityPeriod
+   * @return validityPeriod
    **/
-  @Schema(example = "Fri Jul 21 00:00:00 GMT 2017", description = "Valid from")
-  
-    @Valid
-    public LocalDate getValidFrom() {
-    return validFrom;
+  @Schema(description = "")
+
+  @Valid
+  public ValidityPeriod getValidityPeriod() {
+    return validityPeriod;
   }
 
-  public void setValidFrom(LocalDate validFrom) {
-    this.validFrom = validFrom;
+  public void setValidityPeriod(ValidityPeriod validityPeriod) {
+    this.validityPeriod = validityPeriod;
   }
 
-  public Mandate validThrough(LocalDate validThrough) {
-    this.validThrough = validThrough;
-    return this;
-  }
-
-  /**
-   * Valid through (last day is inclusive, null if valid indefinitely)
-   * @return validThrough
-   **/
-  @Schema(example = "Wed Feb 21 00:00:00 GMT 2024", description = "Valid through (last day is inclusive, null if valid indefinitely)")
-  
-    @Valid
-    public LocalDate getValidThrough() {
-    return validThrough;
-  }
-
-  public void setValidThrough(LocalDate validThrough) {
-    this.validThrough = validThrough;
-  }
-
-  public Mandate canSubDelegate(Boolean canSubDelegate) {
-    this.canSubDelegate = canSubDelegate;
-    return this;
-  }
-
-  /**
-   * Does the person have the right to sub-delegate (edasi volitada) this mandate.
-   * @return canSubDelegate
-   **/
-  @Schema(description = "Does the person have the right to sub-delegate (edasi volitada) this mandate.")
-  
-    public Boolean isCanSubDelegate() {
-    return canSubDelegate;
-  }
-
-  public void setCanSubDelegate(Boolean canSubDelegate) {
-    this.canSubDelegate = canSubDelegate;
-  }
-
-  public Mandate links(List<Link> links) {
+  public Mandate links(MandateLinks links) {
     this.links = links;
     return this;
   }
 
-  public Mandate addLinksItem(Link linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<Link>();
-    }
-    this.links.add(linksItem);
-    return this;
-  }
-
   /**
-   * Links that indicate allowed actions (like delete) and provide params for for calling other services
+   * Get links
    * @return links
    **/
-  @Schema(description = "Links that indicate allowed actions (like delete) and provide params for for calling other services")
-      @Valid
-    public List<Link> getLinks() {
+  @Schema(description = "")
+
+  @Valid
+  public MandateLinks getLinks() {
     return links;
   }
 
-  public void setLinks(List<Link> links) {
+  public void setLinks(MandateLinks links) {
     this.links = links;
   }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Mandate mandate = (Mandate) o;
-    return Objects.equals(this.id, mandate.id) &&
-        Objects.equals(this.namespace, mandate.namespace) &&
-        Objects.equals(this.role, mandate.role) &&
-        Objects.equals(this.validFrom, mandate.validFrom) &&
-        Objects.equals(this.validThrough, mandate.validThrough) &&
-        Objects.equals(this.canSubDelegate, mandate.canSubDelegate) &&
-        Objects.equals(this.links, mandate.links);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, namespace, role, validFrom, validThrough, canSubDelegate, links);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Mandate {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
-    sb.append("    validThrough: ").append(toIndentedString(validThrough)).append("\n");
-    sb.append("    canSubDelegate: ").append(toIndentedString(canSubDelegate)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("}");
-    return sb.toString();
+  public Mandate subDelegatorIdentifier(String subDelegatorIdentifier) {
+    this.subDelegatorIdentifier = subDelegatorIdentifier;
+    return this;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+   * Identifier of the person who created this mandate through sub-delegation.
+   * @return subDelegatorIdentifier
+   **/
+  @Schema(example = "EE12345678", description = "Identifier of the person who created this mandate through sub-delegation.")
+
+  public String getSubDelegatorIdentifier() {
+    return subDelegatorIdentifier;
   }
+
+  public void setSubDelegatorIdentifier(String subDelegatorIdentifier) {
+    this.subDelegatorIdentifier = subDelegatorIdentifier;
+  }
+
 }

@@ -1,0 +1,47 @@
+{
+  "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "representee": {
+    "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+    "type": "LEGAL_PERSON",
+    "name": "Suurfirma AS",
+    "identityCodeCountry": "EE",
+    "identityCode": "{representee}"
+  },
+  "delegate": {
+    "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+    "type": "NATURAL_PERSON",
+    "name": "Jüri Juurikas",
+    "identityCodeCountry": "EE",
+    "identityCode": "{delegate}"
+  },
+  "mandates": [
+    {
+      "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+      "modified": "2022-10-18T13:00:00+02:00",
+      "namespace": "GLOBAL",
+      "role": "ACCOUTANT",
+      "validFrom": "2017-07-21",
+      "validThrough": "2024-02-21",
+      "links": [
+        {
+          "href": "xroad:/v1/representees/representeeIdAtStat/delegates/delegateIdAtStat/mandates/roleIdentifierAtStat",
+          "rel": "delete"
+        }
+      ]
+    },
+    {
+      "id": "d290f1ee-6c54-4b01-90e6-d701748f0822",
+      "modified": "2022-10-18T13:00:00+02:00",
+      "namespace": "GLOBAL",
+      "role": "JURIST",
+      "validFrom": "2017-07-21",
+      "validThrough": "2077-07-17",
+      "links": [
+        {
+          "href": "xroad:/v1/representees/representeeIdAtStat/delegates/delegateIdAtStat/mandates/roleIdentifierAtStat",
+          "rel": "delete"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 package io.swagger.model;
 
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -12,7 +14,7 @@ import javax.validation.constraints.*;
  * Translation
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T08:01:40.233Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-01-23T06:43:43.708Z[GMT]")
 
 
 public class Translation   {
@@ -20,9 +22,11 @@ public class Translation   {
   private String et = null;
 
   @JsonProperty("en")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String en = null;
 
   @JsonProperty("ru")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String ru = null;
 
   public Translation et(String et) {
@@ -54,9 +58,8 @@ public class Translation   {
    * Translation in English
    * @return en
    **/
-  @Schema(example = "Hello", required = true, description = "Translation in English")
-      @NotNull
-
+  @Schema(example = "Hello", description = "Translation in English")
+  
     public String getEn() {
     return en;
   }

@@ -3,8 +3,12 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.model.Authorization;
+import io.swagger.model.Person;
+import io.swagger.model.ValidityPeriod;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -13,76 +17,85 @@ import javax.validation.constraints.*;
  * MandateToSubDelegate
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-19T09:44:20.956Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-01-26T16:34:35.714Z[GMT]")
 
 
 public class MandateToSubDelegate   {
-  @JsonProperty("validFrom")
-  private LocalDate validFrom = null;
+  @JsonProperty("subDelegate")
+  private Person subDelegate = null;
 
-  @JsonProperty("validIndefinitely")
-  private Boolean validIndefinitely = null;
+  @JsonProperty("validityPeriod")
+  private ValidityPeriod validityPeriod = null;
 
-  @JsonProperty("validThrough")
-  private LocalDate validThrough = null;
+  @JsonProperty("authorizations")
+  @Valid
+  private List<Authorization> authorizations = null;
 
-  public MandateToSubDelegate validFrom(LocalDate validFrom) {
-    this.validFrom = validFrom;
+  public MandateToSubDelegate subDelegate(Person subDelegate) {
+    this.subDelegate = subDelegate;
     return this;
   }
 
   /**
-   * Valid from date.
-   * @return validFrom
+   * Get subDelegate
+   * @return subDelegate
    **/
-  @Schema(example = "Fri Jul 21 00:00:00 GMT 2017", description = "Valid from date.")
+  @Schema(description = "")
   
     @Valid
-    public LocalDate getValidFrom() {
-    return validFrom;
+    public Person getSubDelegate() {
+    return subDelegate;
   }
 
-  public void setValidFrom(LocalDate validFrom) {
-    this.validFrom = validFrom;
+  public void setSubDelegate(Person subDelegate) {
+    this.subDelegate = subDelegate;
   }
 
-  public MandateToSubDelegate validIndefinitely(Boolean validIndefinitely) {
-    this.validIndefinitely = validIndefinitely;
+  public MandateToSubDelegate validityPeriod(ValidityPeriod validityPeriod) {
+    this.validityPeriod = validityPeriod;
     return this;
   }
 
   /**
-   * Is valid indefinitely
-   * @return validIndefinitely
+   * Get validityPeriod
+   * @return validityPeriod
    **/
-  @Schema(description = "Is valid indefinitely")
-  
-    public Boolean isValidIndefinitely() {
-    return validIndefinitely;
-  }
-
-  public void setValidIndefinitely(Boolean validIndefinitely) {
-    this.validIndefinitely = validIndefinitely;
-  }
-
-  public MandateToSubDelegate validThrough(LocalDate validThrough) {
-    this.validThrough = validThrough;
-    return this;
-  }
-
-  /**
-   * Valid through (last day is inclusive, used only if not valid indefinitely)
-   * @return validThrough
-   **/
-  @Schema(example = "Wed Feb 21 00:00:00 GMT 2024", description = "Valid through (last day is inclusive, used only if not valid indefinitely)")
+  @Schema(description = "")
   
     @Valid
-    public LocalDate getValidThrough() {
-    return validThrough;
+    public ValidityPeriod getValidityPeriod() {
+    return validityPeriod;
   }
 
-  public void setValidThrough(LocalDate validThrough) {
-    this.validThrough = validThrough;
+  public void setValidityPeriod(ValidityPeriod validityPeriod) {
+    this.validityPeriod = validityPeriod;
+  }
+
+  public MandateToSubDelegate authorizations(List<Authorization> authorizations) {
+    this.authorizations = authorizations;
+    return this;
+  }
+
+  public MandateToSubDelegate addAuthorizationsItem(Authorization authorizationsItem) {
+    if (this.authorizations == null) {
+      this.authorizations = new ArrayList<Authorization>();
+    }
+    this.authorizations.add(authorizationsItem);
+    return this;
+  }
+
+  /**
+   * Get authorizations
+   * @return authorizations
+   **/
+  @Schema(description = "")
+      @Valid
+    public List<Authorization> getAuthorizations() {
+    return authorizations;
+  }
+
+  public void setAuthorizations(List<Authorization> authorizations) {
+    this.authorizations = authorizations;
   }
 
 
@@ -95,14 +108,14 @@ public class MandateToSubDelegate   {
       return false;
     }
     MandateToSubDelegate mandateToSubDelegate = (MandateToSubDelegate) o;
-    return Objects.equals(this.validFrom, mandateToSubDelegate.validFrom) &&
-        Objects.equals(this.validIndefinitely, mandateToSubDelegate.validIndefinitely) &&
-        Objects.equals(this.validThrough, mandateToSubDelegate.validThrough);
+    return Objects.equals(this.subDelegate, mandateToSubDelegate.subDelegate) &&
+        Objects.equals(this.validityPeriod, mandateToSubDelegate.validityPeriod) &&
+        Objects.equals(this.authorizations, mandateToSubDelegate.authorizations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validFrom, validIndefinitely, validThrough);
+    return Objects.hash(subDelegate, validityPeriod, authorizations);
   }
 
   @Override
@@ -110,9 +123,9 @@ public class MandateToSubDelegate   {
     StringBuilder sb = new StringBuilder();
     sb.append("class MandateToSubDelegate {\n");
     
-    sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
-    sb.append("    validIndefinitely: ").append(toIndentedString(validIndefinitely)).append("\n");
-    sb.append("    validThrough: ").append(toIndentedString(validThrough)).append("\n");
+    sb.append("    subDelegate: ").append(toIndentedString(subDelegate)).append("\n");
+    sb.append("    validityPeriod: ").append(toIndentedString(validityPeriod)).append("\n");
+    sb.append("    authorizations: ").append(toIndentedString(authorizations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

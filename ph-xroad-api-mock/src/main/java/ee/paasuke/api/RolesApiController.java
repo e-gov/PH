@@ -1,19 +1,9 @@
 package ee.paasuke.api;
 
-import static ee.paasuke.api.HeaderUtil.logHeaders;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ee.paasuke.FileUtil;
+import ee.paasuke.service.RoleService;
 import io.swagger.api.RolesApi;
 import io.swagger.model.RoleDefinition;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -25,11 +15,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.threeten.bp.OffsetDateTime;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static ee.paasuke.api.HeaderUtil.logHeaders;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-11-07T14:54:24.274Z[GMT]")
 @RestController
@@ -43,14 +37,18 @@ public class RolesApiController implements RolesApi {
 
     private final String mocksDir;
 
+    private final RoleService roleService;
+
     @org.springframework.beans.factory.annotation.Autowired
-    public RolesApiController(ObjectMapper objectMapper, HttpServletRequest request, @Value("${mocks.dir}") String mocksDir) {
+    public RolesApiController(ObjectMapper objectMapper, HttpServletRequest request, RoleService roleService, @Value("${mocks.dir}") String mocksDir) {
         this.objectMapper = objectMapper;
         this.request = request;
+        this.roleService = roleService;
         this.mocksDir = mocksDir;
     }
 
-    public ResponseEntity<List<RoleDefinition>> getRoles(@Parameter(in = ParameterIn.HEADER, description = "" ,schema=@Schema()) @RequestHeader(value="If-Modified-Since", required=false) OffsetDateTime ifModifiedSince,@Parameter(in = ParameterIn.QUERY, description = "Filter by namespace(s)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) List<String> namespace) {
+
+    public ResponseEntity<List<RoleDefinition>> getRoles(@Parameter(in = ParameterIn.HEADER, description = "" ,schema=@Schema()) @RequestHeader(value="If-Modified-Since", required=false) OffsetDateTime ifModifiedSince, @Parameter(in = ParameterIn.HEADER, description = "Unique identifier (UUID) for this message." ,schema=@Schema()) @RequestHeader(value="X-Road-Id", required=false) String xRoadId) {
         logHeaders(request);
 
         if (ifModifiedSince != null && ifModifiedSince.isAfter(OffsetDateTime.parse("2022-11-01T15:20:30+02:00"))) {
@@ -61,25 +59,39 @@ public class RolesApiController implements RolesApi {
         String accept = request.getHeader("Accept");
         if (accept != null && (accept.contains("application/json") || accept.contains("*/*"))) {
             try {
-                List<RoleDefinition> roles = new ArrayList<>();
-                roles.addAll(getRolesList("getRoles_stat.json"));
-                roles.addAll(getRolesList("getRoles_emta_packages.json"));
-                roles.addAll(getRolesList("getRoles_emta_others.json"));
 
-                // if EMTA or STAT then filter
-                if (namespace != null && (namespace.contains("STAT") || namespace.contains("EMTA"))) {
-                    roles = roles.stream()
-                         .filter(rd -> namespace.contains(rd.getNamespace()))
-                         .collect(Collectors.toList());
+               // return new ResponseEntity<List<RoleDefinition>>(roleService.getRoles(), HttpStatus.OK);
+
+
+                List<RoleDefinition> roles = new ArrayList<>();
+
+
+                if (xRoadId != null && xRoadId.toUpperCase().startsWith("STAT")) {
+                    roles.addAll(getRolesList("getRoles_stat.json"));
                 }
+                else if (xRoadId != null && xRoadId.toUpperCase().startsWith("PRIA")) {
+                    roles.addAll(getRolesList("getRoles_PRIA.json"));
+                }
+                else {
+                    roles.addAll(getRolesList("getRoles_emta_selection.json"));
+                }
+
+
 
                 return new ResponseEntity<List<RoleDefinition>>(roles, HttpStatus.OK);
 
-
             } catch (IOException e) {
+                throw new RuntimeException(e);
+            } finally {
+
+            }
+/*
+            catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<List<RoleDefinition>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
+
+ */
         }
 
         return new ResponseEntity<List<RoleDefinition>>(HttpStatus.NOT_IMPLEMENTED);

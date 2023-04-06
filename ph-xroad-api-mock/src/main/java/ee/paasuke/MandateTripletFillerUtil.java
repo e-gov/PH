@@ -3,7 +3,6 @@ package ee.paasuke;
 import java.util.List;
 
 import io.swagger.model.MandateTriplet;
-import io.swagger.model.Person;
 
 public class MandateTripletFillerUtil {
 
@@ -12,7 +11,7 @@ public class MandateTripletFillerUtil {
     }
 
     public static void fillMandateLinks(MandateTriplet mandateTriplet) {
-        mandateTriplet.getMandates().forEach(mandate -> MandateFillerUtil.fillMandateLinks(mandate, mandateTriplet));
+        mandateTriplet.getMandates().forEach(mandate -> MandateFillerUtil.replacePlaceholdersInLinks(mandate, mandateTriplet));
     }
 
     public static void removeMandateLinks(List<MandateTriplet> list) {
@@ -31,26 +30,7 @@ public class MandateTripletFillerUtil {
         mandateTriplet.getMandates().forEach(MandateFillerUtil::removeValidFrom);
     }
 
-    public static void removeIds(MandateTriplet mandateTriplet) {
-        mandateTriplet.setId(null);
-        mandateTriplet.getRepresentee().setId(null);
-        mandateTriplet.getDelegate().setId(null);
 
-        mandateTriplet.getMandates().forEach(MandateFillerUtil::removeId);
-    }
-
-    public static void setPersonIdentityCode(Person representeeOrDelegate, String inputParam) {
-
-        String country = "EE";
-        String code = inputParam;
-
-        if (inputParam.matches("[a-zA-Z][a-zA-Z].+")) {
-            country = inputParam.substring(0, 2).toUpperCase();
-            code = inputParam.substring(2);
-        }
-        representeeOrDelegate.setIdentityCodeCountry(country);
-        representeeOrDelegate.setIdentityCode(code);
-    }
 
 
 

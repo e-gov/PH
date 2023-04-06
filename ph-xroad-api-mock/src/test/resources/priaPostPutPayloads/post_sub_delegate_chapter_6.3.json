@@ -1,0 +1,18 @@
+{
+  "subDelegate": {
+    "identifier": "EE303030399143",
+    "firstName": "Jüri",
+    "surname": "Vaarikas",
+    "type": "NATURAL_PERSON"
+  },
+  "validityPeriod": {
+    "from": "2029-01-01",
+    "through": "2030-12-31"
+  },
+  "authorizations": [
+    {
+      "hasRole": "EMTA:HAMPI",
+      "userIdentifier": "EE60001019906"
+    }
+  ]
+}

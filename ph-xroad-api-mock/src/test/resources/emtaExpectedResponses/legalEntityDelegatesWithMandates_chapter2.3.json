@@ -1,0 +1,80 @@
+[
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Kalle",
+      "surname": "Kuusk-Konstantinov",
+      "identifier": "EE50001029996"
+    },
+    "mandates": [
+      {
+        "role": "EMTA:A-JI",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      },
+      {
+        "role": "EMTA:A-JI-V",
+        "validityPeriod": {
+          "from": "2022-10-21"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Mari",
+      "surname": "Maasikas",
+      "identifier": "EE60001019906"
+    },
+    "mandates": [
+      {
+        "role": "EMTA:HAMPI",
+        "validityPeriod": {
+                    "from": "2023-01-01",
+                    "through": "2031-10-31"
+        },
+        "links": {
+          "origin": "https://vaarikas.emta.ee?x=y&z=q",
+          "delete": "/v1/nss/EMTA/representees/imp1-EE11065244/delegates/imp2-EE60001019906/mandates/imp3-HAMPI"
+        }
+      }
+    ]
+  },
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "delegate": {
+      "type": "NATURAL_PERSON",
+      "firstName": "Jüri",
+      "surname": "Vaarikas",
+      "identifier": "EE30303039914"
+    },
+    "mandates": [
+      {
+        "role": "EMTA:HAMPI",
+        "validityPeriod": {
+                    "from": "2030-01-01",
+                    "through": "2030-12-31"
+        },
+        "links": {
+          "delete": "/v1/nss/EMTA/representees/imp1-EE11065244/delegates/imp2-EE30303039914/mandates/imp3-HAMPI"
+        }
+      }
+    ]
+  }
+]

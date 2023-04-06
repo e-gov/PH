@@ -1,0 +1,13 @@
+{
+  "canSubDelegate": true,
+  "validityPeriod": {
+    "from": "2023-01-24",
+    "through": "2023-01-24"
+  },
+  "authorizations": [
+    {
+      "hasRole": "FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER_FULL",
+      "userIdentifier": "EE50001029996"
+    }
+  ]
+}

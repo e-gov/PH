@@ -1,0 +1,40 @@
+[
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Väikefirma OÜ",
+      "identifier": "EE10391131"
+    },
+    "delegate": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Tolliagentuur Maks OÜ",
+      "identifier": "EE11065244"
+    },
+    "mandates": [
+      {
+        "role": "EMTA:ADEK_CLIENT",
+        "validityPeriod": {
+          "from": "2023-01-01",
+          "through": "2029-12-31"
+        },
+        "links": {
+          "uiExternalView": "https://vaarikas.emta.ee/vaata?x=y&z=2",
+          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "addSubDelegate": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}/subdelegates"
+        }
+      },
+      {
+        "role": "EMTA:ECS_VOLITATUDEV_VALJUMINE",
+        "validityPeriod": {
+          "from": "2028-01-01"
+        },
+        "links": {
+          "uiExternalView": "https://vaarikas.emta.ee/vaata?x=y&z=2",
+          "delete": "/v1/nss/STAT/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "addSubDelegate": "/v1/nss/STAT/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}/subdelegates"
+        }
+      }
+    ]
+
+  }
+]

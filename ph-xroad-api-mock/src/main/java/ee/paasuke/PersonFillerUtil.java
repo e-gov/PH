@@ -8,6 +8,7 @@ import io.swagger.model.Person;
 public class PersonFillerUtil {
 
     public static void replaceInLinks(List<Person> list, String searchString, String replacementString) {
+        /*
         list.stream()
              .filter(p -> p.getLinks() != null)
              .filter(p -> !p.getLinks().isEmpty())
@@ -15,10 +16,12 @@ public class PersonFillerUtil {
              .flatMap(Collection::stream)
              .forEach(x -> x.setHref(x.getHref()
                   .replace(searchString, replacementString)));
+
+         */
     }
 
     public static void setIdsToNull(List<Person> list) {
-        list.stream().forEach(p -> p.setId(null));
+        //list.stream().forEach(p -> p.setId(null));
     }
 
 

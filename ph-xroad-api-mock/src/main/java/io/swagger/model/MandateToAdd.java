@@ -3,8 +3,8 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.model.ValidityPeriod;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.LocalDate;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -13,21 +13,18 @@ import javax.validation.constraints.*;
  * MandateToAdd
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-19T09:44:20.956Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-14T09:20:23.675Z[GMT]")
 
 
 public class MandateToAdd   {
   @JsonProperty("role")
   private String role = null;
 
-  @JsonProperty("validFrom")
-  private LocalDate validFrom = null;
+  @JsonProperty("canSubDelegate")
+  private Boolean canSubDelegate = null;
 
-  @JsonProperty("validIndefinitely")
-  private Boolean validIndefinitely = null;
-
-  @JsonProperty("validThrough")
-  private LocalDate validThrough = null;
+  @JsonProperty("validityPeriod")
+  private ValidityPeriod validityPeriod = null;
 
   public MandateToAdd role(String role) {
     this.role = role;
@@ -35,10 +32,10 @@ public class MandateToAdd   {
   }
 
   /**
-   * Role name
+   * Role code
    * @return role
    **/
-  @Schema(example = "ACCOUNTANT", description = "Role name")
+  @Schema(example = "GLOBAL1_EMTA:ACCOUNTANT", description = "Role code")
   
     public String getRole() {
     return role;
@@ -48,63 +45,43 @@ public class MandateToAdd   {
     this.role = role;
   }
 
-  public MandateToAdd validFrom(LocalDate validFrom) {
-    this.validFrom = validFrom;
+  public MandateToAdd canSubDelegate(Boolean canSubDelegate) {
+    this.canSubDelegate = canSubDelegate;
     return this;
   }
 
   /**
-   * Valid from date.
-   * @return validFrom
+   * Can this role be given out with the right to sub-delegate it.
+   * @return canSubDelegate
    **/
-  @Schema(example = "Fri Jul 21 00:00:00 GMT 2017", description = "Valid from date.")
+  @Schema(description = "Can this role be given out with the right to sub-delegate it.")
+  
+    public Boolean isCanSubDelegate() {
+    return canSubDelegate;
+  }
+
+  public void setCanSubDelegate(Boolean canSubDelegate) {
+    this.canSubDelegate = canSubDelegate;
+  }
+
+  public MandateToAdd validityPeriod(ValidityPeriod validityPeriod) {
+    this.validityPeriod = validityPeriod;
+    return this;
+  }
+
+  /**
+   * Get validityPeriod
+   * @return validityPeriod
+   **/
+  @Schema(description = "")
   
     @Valid
-    public LocalDate getValidFrom() {
-    return validFrom;
+    public ValidityPeriod getValidityPeriod() {
+    return validityPeriod;
   }
 
-  public void setValidFrom(LocalDate validFrom) {
-    this.validFrom = validFrom;
-  }
-
-  public MandateToAdd validIndefinitely(Boolean validIndefinitely) {
-    this.validIndefinitely = validIndefinitely;
-    return this;
-  }
-
-  /**
-   * Is valid indefinitely
-   * @return validIndefinitely
-   **/
-  @Schema(example = "false", description = "Is valid indefinitely")
-  
-    public Boolean isValidIndefinitely() {
-    return validIndefinitely;
-  }
-
-  public void setValidIndefinitely(Boolean validIndefinitely) {
-    this.validIndefinitely = validIndefinitely;
-  }
-
-  public MandateToAdd validThrough(LocalDate validThrough) {
-    this.validThrough = validThrough;
-    return this;
-  }
-
-  /**
-   * Valid through (last day is inclusive, used only if not valid indefinitely)
-   * @return validThrough
-   **/
-  @Schema(example = "Wed Feb 21 00:00:00 GMT 2024", description = "Valid through (last day is inclusive, used only if not valid indefinitely)")
-  
-    @Valid
-    public LocalDate getValidThrough() {
-    return validThrough;
-  }
-
-  public void setValidThrough(LocalDate validThrough) {
-    this.validThrough = validThrough;
+  public void setValidityPeriod(ValidityPeriod validityPeriod) {
+    this.validityPeriod = validityPeriod;
   }
 
 
@@ -118,14 +95,13 @@ public class MandateToAdd   {
     }
     MandateToAdd mandateToAdd = (MandateToAdd) o;
     return Objects.equals(this.role, mandateToAdd.role) &&
-        Objects.equals(this.validFrom, mandateToAdd.validFrom) &&
-        Objects.equals(this.validIndefinitely, mandateToAdd.validIndefinitely) &&
-        Objects.equals(this.validThrough, mandateToAdd.validThrough);
+        Objects.equals(this.canSubDelegate, mandateToAdd.canSubDelegate) &&
+        Objects.equals(this.validityPeriod, mandateToAdd.validityPeriod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, validFrom, validIndefinitely, validThrough);
+    return Objects.hash(role, canSubDelegate, validityPeriod);
   }
 
   @Override
@@ -134,9 +110,8 @@ public class MandateToAdd   {
     sb.append("class MandateToAdd {\n");
     
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
-    sb.append("    validIndefinitely: ").append(toIndentedString(validIndefinitely)).append("\n");
-    sb.append("    validThrough: ").append(toIndentedString(validThrough)).append("\n");
+    sb.append("    canSubDelegate: ").append(toIndentedString(canSubDelegate)).append("\n");
+    sb.append("    validityPeriod: ").append(toIndentedString(validityPeriod)).append("\n");
     sb.append("}");
     return sb.toString();
   }

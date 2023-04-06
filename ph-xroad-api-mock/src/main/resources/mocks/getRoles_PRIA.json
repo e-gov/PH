@@ -1,0 +1,98 @@
+[
+  {
+    "code": "PRIA:Unrestricted",
+    "title": {
+      "et": "Piiranguteta volitus",
+      "en": "Piiranguteta volitus (eng)",
+      "ru": "Piiranguteta volitus (rus)"
+    },
+    "description": {
+      "et": "Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
+      "en": "ENG: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
+      "ru": "RUS: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses."
+    },
+    "modified": "2022-10-18T13:00:00+02:00",
+    "canSubDelegate": true,
+    "representeeType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "delegateType": [
+      "NATURAL_PERSON"
+    ],
+    "assignableBy": [
+      "PRIA:Unrestricted",
+      "BUSINESS_REGISTRY_CARD_PRIA:FULL_JUHL",
+      "BUSINESS_REGISTRY_CARD_PRIA:FULL_PROK"
+    ],
+    "deletableBy": [
+      "PRIA:Unrestricted",
+      "BUSINESS_REGISTRY_CARD_PRIA:FULL_JUHL",
+      "BUSINESS_REGISTRY_CARD_PRIA:FULL_PROK"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "PRIA:partial",
+    "title": {
+      "et": "Piirangutega volitus",
+      "en": "Partial authorisation",
+      "ru": "Piirangutega volitus (rus)"
+    },
+    "description": {
+      "et": "Osalised ehk piirangutega volitused. Detailide nägemiseks on vja pöörduda e-PRIA-sse.",
+      "en": "EN: Osalised ehk piirangutega volitused. Detailide nägemiseks on vja pöörduda e-PRIA-sse",
+      "ru": "RU: Osalised ehk piirangutega volitused. Detailide nägemiseks on vja pöörduda e-PRIA-sse"
+    },
+    "modified": "2022-10-18T13:00:00+02:00",
+    "canSubDelegate": false,
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "PRIA:fiscally_marked_gas_buyer",
+    "title": {
+      "et": "Erimärgistatud diislikütuse ostuõigus",
+      "en": "Erimärgistatud diislikütuse ostuõigus (en)",
+      "ru": "Erimärgistatud diislikütuse ostuõigus (ru)"
+    },
+    "description": {
+      "et": "Seda õigust saab e-PRIA-st anda erimärgistatud diislikütuse ostuõigust omav juriidiline isik või FIE oma töötajale või kaluri kalapüügi loale antud isikule.",
+      "en": "ENG: Seda õigust saab e-PRIA-st anda erimärgistatud diislikütuse ostuõigust omav juriidiline isik või FIE oma töötajale või kaluri kalapüügi loale antud isikule.",
+      "ru": "RU: Seda õigust saab e-PRIA-st anda erimärgistatud diislikütuse ostuõigust omav juriidiline isik või FIE oma töötajale või kaluri kalapüügi loale antud isikule."
+    },
+    "modified": "2023-01-18T11:00:00Z",
+    "canSubDelegate": false,
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "BUSINESS_REGISTRY_CARD_PRIA:FULL_JUHL",
+    "title": {
+      "et": "<seda ei kuvata>"
+    },
+    "description": {
+      "et": "Ainuesindusõigusega juhatuse liige saab ettevõtte nimel teha e-PRIA-s kõiki tegevusi. Eesti.ee-s saab juhatuse liige kõiki volitusi vaadata ja eemaldada ja lisada piiramatuid volitusi.",
+      "en": "Inglisekeelne kirjeldus",
+      "ru": "Venekeelne kirjeldus"
+    },
+    "modified": "2022-10-18T13:00:00+02:00",
+    "canSubDelegate": false,
+    "deletableByDelegate": false,
+    "visible": true
+  },
+  {
+    "code": "BUSINESS_REGISTRY_CARD_PRIA:FULL_PROK",
+    "title": {
+      "et": ""
+    },
+    "description": {
+      "et": "Prokurist saab ettevõtte nimel teha e-PRIA-s kõiki tegevusi. Eesti.ee-s saab juhatuse liige kõiki volitusi vaadata ja eemaldada ja lisada piiramatuid volitusi."
+    },
+    "modified": "2022-10-18T13:00:00+02:00",
+    "canSubDelegate": false,
+    "deletableByDelegate": false,
+    "visible": true
+  }
+]

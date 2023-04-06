@@ -1,0 +1,46 @@
+[
+  {
+    "representee": {
+      "type": "LEGAL_PERSON",
+      "legalName": "Väikefirma OÜ",
+      "identifier": "EE10391131"
+    },
+    "delegate": {
+      "type": "LEGAL_PERSON",
+      "firstName": "Tõnu",
+      "surname": "Tuuline",
+      "identifier": "EE30303039816"
+    },
+    "mandates": [
+      {
+        "role": "EMTA:ADEK_CLIENT",
+        "validityPeriod": {
+          "from": "2022-01-01",
+          "through": "2025-12-31"
+        },
+        "validityPeriodLimit": {
+          "from": "2022-01-01",
+          "through": "2025-12-31"
+        },
+        "links": {
+          "uiExternalView": "https://vaarikas.emta.ee/vaata?x=y&z=2",
+          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}"
+        }
+      },
+      {
+        "role": "EMTA:ECS_VOLITATUDEV_VALJUMINE",
+        "validityPeriod": {
+          "from": "2025-01-01"
+        },
+        "validityPeriodLimit": {
+          "from": "2025-01-01"
+        },
+        "links": {
+          "uiExternalView": "https://vaarikas.emta.ee/vaata?x=y&z=2",
+          "delete": "/v1/nss/STAT/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}"
+        }
+      }
+    ]
+
+  }
+]

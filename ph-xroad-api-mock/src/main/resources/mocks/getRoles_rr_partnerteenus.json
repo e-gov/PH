@@ -1,0 +1,23 @@
+[
+  {
+    "code": "RR_PARTNER:Isikupäring",
+    "title": {
+      "et": "Isikupäring",
+      "en": "Isikupäring (eng)",
+      "ru": "Isikupäring (rus)"
+    },
+    "modified": "2022-10-18T13:00:00+02:00",
+    "canSubDelegate": true,
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "canAssignIfHasRoleAndOneOf": [
+      "BUSINESS_REGISTRY_CARD:FULL:JUHL"
+    ],
+    "visible": true
+  }
+]

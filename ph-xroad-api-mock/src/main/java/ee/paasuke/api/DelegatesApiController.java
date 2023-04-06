@@ -1,54 +1,33 @@
 package ee.paasuke.api;
 
-import static ee.paasuke.api.HeaderUtil.logHeaders;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ee.paasuke.FileUtil;
 import ee.paasuke.MandateTripletFillerUtil;
 import ee.paasuke.PersonFillerUtil;
+import ee.paasuke.service.MockDataService;
 import io.swagger.api.DelegatesApi;
 import io.swagger.model.MandateTriplet;
 import io.swagger.model.Person;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.*;
-import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.Map;
+
+import static ee.paasuke.api.HeaderUtil.logHeaders;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-12-23T08:01:40.233Z[GMT]")
 @RestController
@@ -62,25 +41,31 @@ public class DelegatesApiController implements DelegatesApi {
 
     private final String mocksDir;
 
+    private final MockDataService mockDataService;
+
     @org.springframework.beans.factory.annotation.Autowired
-    public DelegatesApiController(ObjectMapper objectMapper, HttpServletRequest request, @Value("${mocks.dir}") String mocksDir) {
+    public DelegatesApiController(ObjectMapper objectMapper, HttpServletRequest request, @Value("${mocks.dir}") String mocksDir, MockDataService mockDataService) {
         this.objectMapper = objectMapper;
         this.request = request;
         this.mocksDir = mocksDir;
+        this.mockDataService = mockDataService;
     }
 
-    public ResponseEntity<List<Person>> getDelegateRepresentees(@Pattern(regexp="^[A-Z]{2}.+") @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate. Starts with country code (ISO 3166-1 alpha-2).", required=true, schema=@Schema()) @PathVariable("delegate") String delegate,@Parameter(in = ParameterIn.QUERY, description = "Filter by representee types. SELF means that the person has the right to represent oneself." ,schema=@Schema(allowableValues={ "SELF", "LEGAL_PERSON", "NATURAL_PERSON" }
-    )) @Valid @RequestParam(value = "representeeType", required = false) List<String> representeeType,@Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles must be prefixed with namespace and colon. To match all roles in namespace use * like this: 'MYNS:*'. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) List<String> hasRoleIn,@Min(0)@Parameter(in = ParameterIn.QUERY, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
-    )) @Valid @RequestParam(value = "skip", required = false) Integer skip,@Min(0) @Max(500) @Parameter(in = ParameterIn.QUERY, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
-    )) @Valid @RequestParam(value = "limit", required = false) Integer limit) {
+    public ResponseEntity<List<Person>> getDelegateRepresentees(@Pattern(regexp="(^[A-Z]{2}|^email:|^internal:).+") @Parameter(in = ParameterIn.PATH, description = "Person identifier.", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.QUERY, description = "Filter by representee types. SELF means that the person has the right to represent oneself." ,schema=@Schema(allowableValues={ "SELF", "LEGAL_PERSON", "NATURAL_PERSON" }
+    )) @Valid @RequestParam(value = "representeeType", required = false) List<String> representeeType, @Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles must be prefixed with namespace and colon. To match all roles in namespace use * like this: 'MYNS:*'. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) List<String> hasRoleIn, @Parameter(in = ParameterIn.HEADER, description = "Unique identifier (UUID) for this message." ,schema=@Schema()) @RequestHeader(value="X-Road-Id", required=false) String xRoadId)
+    {
         logHeaders(request);
 
         String accept = request.getHeader("Accept");
 
         if (accept != null && (accept.contains("application/json") || accept.contains("*/*")) ) {
-            try {
 
-                String json = FileUtil.getFileContent(mocksDir, "getDelegateRepresentees.json");
+            try {
+                String json;
+                json = FileUtil.getFileContent(mocksDir, "getDelegateRepresentees.json");
+
+
+
                 List<Person> personList = objectMapper.readValue(json, new TypeReference<List<Person>>() {
                 });
 
@@ -98,14 +83,34 @@ public class DelegatesApiController implements DelegatesApi {
         return new ResponseEntity<List<Person>>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<List<MandateTriplet>> getDelegateRepresenteesWithMandates(@Pattern(regexp="^[A-Z]{2}.+") @Parameter(in = ParameterIn.PATH, description = "Person code or company code of the delegate. Starts with country code (ISO 3166-1 alpha-2).", required=true, schema=@Schema()) @PathVariable("delegate") String delegate,@Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles must be prefixed with namespace and colon. To match all roles in namespace use * like this: 'MYNS:*'. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) List<String> hasRoleIn,@Min(0)@Parameter(in = ParameterIn.QUERY, description = "Skip this number of records for pagination" ,schema=@Schema(allowableValues={  }
-    )) @Valid @RequestParam(value = "skip", required = false) Integer skip,@Min(0) @Max(500) @Parameter(in = ParameterIn.QUERY, description = "Maximum number of records to return" ,schema=@Schema(allowableValues={  }, maximum="500"
-    )) @Valid @RequestParam(value = "limit", required = false) Integer limit) {
+    @RequestMapping(value = "/delegates/{delegate}/representees/mandates",
+            produces = { "application/json" },
+            method = RequestMethod.GET)
+    public ResponseEntity<List<MandateTriplet>> getDelegateRepresenteesWithMandates(@Parameter(in = ParameterIn.PATH, description = "<b>Identifier of the delegate (volituste saaja).</b> Can be one of the follwing&colon; <p>a)  'EE' followed by 8-digit legal entity code from Estonian Business Registry</p> <p>b) 'EE' followed by 11-digit national identity number</p> <p>c) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p>", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.HEADER, description = "User identifier whose action initiated the request. NB! This can be employee of RIA." ,schema=@Schema()) @RequestHeader(value="X-Road-User-Id", required=false) String xRoadUserId, @Parameter(in = ParameterIn.HEADER, description = "When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted." ,schema=@Schema()) @RequestHeader(value="X-Road-Represented-Party", required=false) String xRoadRepresentedParty, @Parameter(in = ParameterIn.HEADER, description = "Unique identifier (UUID) for this message." ,schema=@Schema()) @RequestHeader(value="X-Road-Id", required=false) String xRoadId) {
         logHeaders(request);
         try {
+            List<MandateTriplet> mandateTripletList = new ArrayList<>();
 
-            String json = FileUtil.getFileContent(mocksDir, "getDelegateRepresenteesWithMandates.json");
-            List<MandateTriplet> mandateTripletList = objectMapper.readValue(json, new TypeReference<List<MandateTriplet>>() {});
+            if ("FULL".equalsIgnoreCase(delegate)) {
+                mandateTripletList = mockDataService.getTriplets(100);
+                return new ResponseEntity<List<MandateTriplet>>(mandateTripletList, HttpStatus.OK);
+            }
+            else if (xRoadId != null && xRoadId.toUpperCase().startsWith("STAT")) {
+                String json = FileUtil.getFileContent(mocksDir, "getDelegateRepresenteesWithMandates_STAT.json");
+                mandateTripletList.addAll(objectMapper.readValue(json, new TypeReference<List<MandateTriplet>>() {}));
+            }
+            else if (xRoadId != null && xRoadId.toUpperCase().startsWith("PRIA")) {
+                String json = FileUtil.getFileContent(mocksDir, "getRepresenteeDelegatesWithMandates_PRIA.json");
+                Collection<MandateTriplet> allMandates = objectMapper.readValue(json, new TypeReference<List<MandateTriplet>>() {});
+
+                allMandates.stream().filter(mandateTriplet -> mandateTriplet.getDelegate().getIdentifier().equals(delegate))
+                                .forEach(mandateTripletList::add);
+            }
+            else {
+                String json = FileUtil.getFileContent(mocksDir, "getDelegateRepresenteesWithMandates.json");
+                mandateTripletList.addAll(objectMapper.readValue(json, new TypeReference<List<MandateTriplet>>() {}));
+
+            }
 
             MandateTripletFillerUtil.fillMandateLinks(mandateTripletList);
 

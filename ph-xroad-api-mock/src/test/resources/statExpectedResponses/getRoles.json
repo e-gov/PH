@@ -1,0 +1,138 @@
+[
+  {
+    "code": "STAT_ESTAT:SuperUser",
+    "title": {
+      "et": "Peakasutaja",
+      "en": "Main user"
+    },
+    "description": {
+      "et": "Majandusüksuse peakasutaja, kellel on eSTAT-is kõik lisamise, muutmise ja täitmise õigused. Peakasutaja vastutab tegevjuhi antud volituste alusel andmete esitamise kohustuse täitmise eest.",
+      "en": "Main user of the economic entity who has all the rights to add, edit and fill in data in eSTAT. Main user is responsible for performing the obligation of submitting data based on the authority granted to him/her by CEO."
+    },
+    "modified": "2022-10-18T11:00:00Z",
+    "canSubDelegate": false,
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "assignableBy": [
+      "STAT_ESTAT:SuperUser"
+    ]
+  },
+  {
+    "code": "STAT_ESTAT:respondent",
+    "title": {
+      "et": "Andmeesitaja",
+      "en": "Respondent"
+    },
+    "description": {
+      "et": "Peakasutaja määratud andmeesitaja, kellel on õigus esitada kõigi majandusüksuste küsimustike andmeid.",
+      "en": "Respondent nominated by the main user who has the right to submit questionnaire data for all economic entities."
+    },
+    "modified": "2022-10-18T11:00:00Z",
+    "canSubDelegate": false,
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "assignableBy": [
+      "STAT_ESTAT:SuperUser"
+    ]
+  },
+  {
+    "code": "STAT_ESTAT:CEO",
+    "title": {
+      "et": "Tegevjuht",
+      "en": "CEO"
+    },
+    "description": {
+      "et": "Majandusüksuse tegevjuht, kellel on eSTAT-is kõik lisamise, muutmise ja täitmise õigused. Tegevjuht vastutab andmete esitamise kohustuse täitmise eest ja tal on õigus hallata „Nõusolekuid“ andmete avaldamiseks.",
+      "en": "Chief executive officer of the economic entity who has all the rights to add, edit and fill in data in eSTAT. CEO is responsible for performing the obligation of submitting data and he/she has the right to manage “Consents” for data publication."
+    },
+    "modified": "2022-10-18T11:00:00Z",
+    "canSubDelegate": true,
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "assignableBy": [
+    ]
+  },
+  {
+    "code": "STAT_ESTAT:respondentWithPassword",
+    "title": {
+      "et": "Parooliga andmeesitaja",
+      "en": "Respondent with password"
+    },
+    "description": {
+      "et": "Majandusüksuse tegevjuhi nõusoleku alusel antud õigustega välismaa kodanikust andmeesitaja, kellel puudub ID-kaart sisselogimiseks või internetipanga kasutamise õigus. Parooliga andmeesitajal on õigus näha ja muuta ainult talle määratud küsimustiku andmeid.",
+      "en": "A respondent who is a foreign citizen and does not have an ID card for logging in or the right to use the internet bank, who has been granted the rights with the consent of the economic entity’s CEO. The respondent with password has the right to view and edit only the questionnaire data for which he/she has been granted the right of use."
+    },
+    "modified": "2022-10-18T11:00:00Z",
+    "canSubDelegate": true,
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "assignableBy": [
+    ]
+  },
+  {
+    "code": "STAT_ESTAT:limitedRespondent",
+    "title": {
+      "et": "Piiratud andmeesitaja",
+      "en": "Limited respondent"
+    },
+    "description": {
+      "et": "Peakasutaja määratud piiratud õigustega andmeesitaja, kellel on õigus esitada nende majandusüksuste küsimustike andmeid, mis peakasutaja on talle määranud.",
+      "en": "Respondent with limited rights, appointed by the main user, who has the right to submit questionnaire data for the economic entities that the main user has assigned to him/her."
+    },
+    "modified": "2023-01-18T11:00:00Z",
+    "canSubDelegate": true,
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "assignableBy": [
+      "STAT_ESTAT:SuperUser"
+    ]
+  },
+  {
+    "code": "STAT_ESTAT:otherRights",
+    "title": {
+      "et": "Muude õigustega andmeesitaja",
+      "en": "Respondent with other rights"
+    },
+    "description": {
+      "et": "Paberil laekunud küsimustiku sisestamisel lisatud küsimustiku andmete esitaja. Puuduvad eSTAT-i kasutamise õigused.",
+      "en": "A respondent who submits questionnaire data upon entering a questionnaire on paper. Does not have the eSTAT user rights."
+    },
+    "modified": "2023-01-18T11:00:00Z",
+    "canSubDelegate": true,
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "assignableBy": [
+      "STAT_ESTAT:SuperUser"
+    ]
+  }
+]
