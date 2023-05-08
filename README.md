@@ -9,7 +9,7 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec draft:
-* Latest version is [0.7.5](spec/Pääsuke-xroad-services-spec-v0.7.5.pdf) - 6 April 2023
+* The latest version is [0.8.0](spec/Pääsuke-xroad-services-spec-v0.8.0.pdf) - 8 May 2023
 
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
@@ -30,11 +30,11 @@ OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/x-road-services-prov
 Browse around (mandates defined by law (Äriregistrist), global mandates (katusrollid), regular mandates)
 and try adding a mandate, try to remove a mandate, try to sub-delegate a mandate.
 
-Prototype shows that editing a mandate is possible but currently that is not in scope.
+The Prototype shows that editing a mandate is possible but currently that is not in scope.
 
 ## Mock service
 
-Ver 0.7.5 is available via x-road:
+Ver 0.7.4 is available via x-road:
 https://security-server/r1/ee-dev/GOV/70006317/volitused-mock/volitused/v1/
 
 Example query to x-road security server:
