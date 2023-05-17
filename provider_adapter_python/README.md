@@ -1,5 +1,5 @@
 
-# Adapter application (Python) 
+# Adapter application (Python)
 
 This application is an adapter for Pääsuke.
 This is used by a party who keeps mandates on their side but offers a standard service
@@ -29,5 +29,23 @@ This database has a few tables to sore information about mandates.
 
 ## Configuration
 1. List of roles => view
+
+
+## How to run this app in development environment
+
+    `python3 -m venv venv`
+    `source venv/bin/activate`
+    `pip install -r requirements.txt`
+    `export PYTHONPATH=$PWD`
+
+Check configurarion example example.cfg.
+
+    `cp example.cfg dev.cfg`
+
+Fill configuration parameters.
+
+    `export APP_SETTINGS=../dev.cfg`
+
+    `python3 api/app.py`
 
 
