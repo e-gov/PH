@@ -45,11 +45,14 @@ def create_app():
 
     @app.errorhandler(Exception)
     def handle_unhandled_error(e):
-       app.logger.error('Unexpected error ocurred: %s', e)
-       return jsonify('Unexpected error ocurred'), 500
+        app.logger.error('Unexpected error ocurred: %s', e)
+        return jsonify('Unexpected error ocurred'), 500
 
     @app.route('/delegates/<string:delegate_id>/representees/mandates', methods=['GET'])
     def get_delegates_representees_mandates(delegate_id):
+        xroad_user_id = request.headers.get('X-Road-UserId')
+        app.logger.info(f'X-Road-UserId: {xroad_user_id} Getting delegate mandates')
+
         error_config = CONFIG['errors']['legal_person_format_validation_failed']
         validate_person_company_code(delegate_id, error_config)
         data_rows = get_mandates(db, delegate_identifier=delegate_id)
@@ -62,6 +65,9 @@ def create_app():
 
     @app.route('/representees/<string:representee_id>/delegates/mandates', methods=['GET'])
     def get_representees_delegates_mandates(representee_id):
+        xroad_user_id = request.headers.get('X-Road-UserId')
+        app.logger.info(f'X-Road-UserId: {xroad_user_id} Getting representee mandates')
+
         args = request.args
         subdelegated_by_identifier = args.get('subDelegatedBy')
         delegate_identifier = args.get('delegate')
@@ -90,6 +96,7 @@ def create_app():
     def post_representee_delegate_mandate(representee_id, delegate_id):
         xroad_user_id = request.headers.get('X-Road-UserId')
         xroad_represented_party = request.headers.get('X-Road-Represented-Party')
+        app.logger.info(f'X-Road-UserId: {xroad_user_id} Creating mandate')
 
         error_config = CONFIG['errors']['legal_person_format_validation_failed']
         [
@@ -112,6 +119,9 @@ def create_app():
         methods=['DELETE']
     )
     def delete_mandate(ns, representee_id, delegate_id, mandate_id):
+        xroad_user_id = request.headers.get('X-Road-UserId')
+        app.logger.info(f'X-Road-UserId: {xroad_user_id} Deleting mandate')
+
         db_uri = app.config['SQLALCHEMY_DATABASE_URI']
         deleted = delete_mandate_pg(db_uri, ns, representee_id, delegate_id, mandate_id)
         if deleted:
@@ -126,6 +136,7 @@ def create_app():
     def post_subdelegate_mandate(ns, representee_id, delegate_id, mandate_id):
         xroad_user_id = request.headers.get('X-Road-UserId')
         xroad_represented_party = request.headers.get('X-Road-Represented-Party')
+        app.logger.info(f'X-Road-UserId: {xroad_user_id} Creating subdelegate')
 
         data = request.json
         error_config = CONFIG['errors']['mandate_subdelegate_data_invalid']
