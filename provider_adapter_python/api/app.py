@@ -43,6 +43,11 @@ def create_app():
     app.errorhandler(DelegateNotFound)(create_error_handler(404))
     app.errorhandler(MandateNotFound)(create_error_handler(404))
 
+    @app.errorhandler(Exception)
+    def handle_unhandled_error(e):
+       app.logger.error('Unexpected error ocurred: %s', e)
+       return jsonify('Unexpected error ocurred'), 500
+
     @app.route('/delegates/<string:delegate_id>/representees/mandates', methods=['GET'])
     def get_delegates_representees_mandates(delegate_id):
         error_config = CONFIG['errors']['legal_person_format_validation_failed']
