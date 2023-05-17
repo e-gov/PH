@@ -1,7 +1,8 @@
+import yaml
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
-from api.config import CONFIG
+# from api.config import CONFIG
 from api.exceptions import (CompanyCodeInvalid, DelegateNotFound,
                             MandateDataInvalid, MandateNotFound,
                             MandateSubdelegateDataInvalid, RepresenteeNotFound)
@@ -31,10 +32,16 @@ def create_error_handler(status_code):
     return error_handler
 
 
+def parse_settings(filename):
+    with open(filename, 'r') as stream:
+        return yaml.safe_load(stream)
+
+
 def create_app():
     app = Flask(__name__)
     app.config.from_envvar('APP_SETTINGS')
     db.init_app(app)
+    app.config['SETTINGS'] = parse_settings(app.config['SETTINGS_FULL_PATH'])
 
     app.errorhandler(CompanyCodeInvalid)(create_error_handler(400))
     app.errorhandler(MandateDataInvalid)(create_error_handler(400))
@@ -53,14 +60,15 @@ def create_app():
         xroad_user_id = request.headers.get('X-Road-UserId')
         app.logger.info(f'X-Road-UserId: {xroad_user_id} Getting delegate mandates')
 
-        error_config = CONFIG['errors']['legal_person_format_validation_failed']
+        error_config = app.config['SETTINGS']['errors']['legal_person_format_validation_failed']
+
         validate_person_company_code(delegate_id, error_config)
         data_rows = get_mandates(db, delegate_identifier=delegate_id)
         if not data_rows:
-            error_config = CONFIG['errors']['delegate_not_found']
+            error_config = app.config['SETTINGS']['errors']['delegate_not_found']
             raise DelegateNotFound('Delegate not found', error_config)
         delegate, representees = extract_delegates_mandates(data_rows)
-        response_data = serialize_delegate_mandates(delegate, representees)
+        response_data = serialize_delegate_mandates(delegate, representees, app.config['SETTINGS'])
         return make_success_response(response_data, 200)
 
     @app.route('/representees/<string:representee_id>/delegates/mandates', methods=['GET'])
@@ -72,7 +80,7 @@ def create_app():
         subdelegated_by_identifier = args.get('subDelegatedBy')
         delegate_identifier = args.get('delegate')
 
-        error_config = CONFIG['errors']['legal_person_format_validation_failed']
+        error_config = app.config['SETTINGS']['errors']['legal_person_format_validation_failed']
         [
             validate_person_company_code(code, error_config)
             for code in [representee_id, delegate_identifier, subdelegated_by_identifier]
@@ -85,11 +93,11 @@ def create_app():
         )
         # does representee really uknown ?
         if not data_rows:
-            error_config = CONFIG['errors']['representee_not_found']
+            error_config = app.config['SETTINGS']['errors']['representee_not_found']
             raise RepresenteeNotFound('Representee not found', error_config)
 
         representee, delegates = extract_representee_mandates(data_rows)
-        response_data = serialize_representee_mandates(representee, delegates)
+        response_data = serialize_representee_mandates(representee, delegates, app.config['SETTINGS'])
         return make_success_response(response_data, 200)
 
     @app.route('/representees/<string:representee_id>/delegates/<string:delegate_id>/mandates', methods=['POST'])
@@ -98,13 +106,13 @@ def create_app():
         xroad_represented_party = request.headers.get('X-Road-Represented-Party')
         app.logger.info(f'X-Road-UserId: {xroad_user_id} Creating mandate')
 
-        error_config = CONFIG['errors']['legal_person_format_validation_failed']
+        error_config = app.config['SETTINGS']['errors']['legal_person_format_validation_failed']
         [
             validate_person_company_code(code, error_config)
             for code in [representee_id, delegate_id]
         ]
         data = request.json
-        error_config = CONFIG['errors']['mandate_data_invalid']
+        error_config = app.config['SETTINGS']['errors']['mandate_data_invalid']
         validate_add_mandate_payload(data, error_config, representee_id, delegate_id)
 
         data_to_insert = extract_mandate_data(data)
@@ -126,7 +134,7 @@ def create_app():
         deleted = delete_mandate_pg(db_uri, ns, representee_id, delegate_id, mandate_id)
         if deleted:
             return make_success_response([], 200)
-        error_config = CONFIG['errors']['mandate_not_found']
+        error_config = app.config['SETTINGS']['errors']['mandate_not_found']
         raise MandateNotFound('Mandate to delete was not found', error_config)
 
     @app.route(
@@ -139,10 +147,10 @@ def create_app():
         app.logger.info(f'X-Road-UserId: {xroad_user_id} Creating subdelegate')
 
         data = request.json
-        error_config = CONFIG['errors']['mandate_subdelegate_data_invalid']
+        error_config = app.config['SETTINGS']['errors']['mandate_subdelegate_data_invalid']
         validate_add_mandate_subdelegate_payload(data, error_config)
         if data.get('subDelegate'):
-            error_config = CONFIG['errors']['legal_person_format_validation_failed']
+            error_config = app.config['SETTINGS']['errors']['legal_person_format_validation_failed']
             validate_person_company_code(data['subDelegate']['identifier'], error_config)
         data_to_insert = extract_mandate_subdelegate_data(data)
         data_to_insert['representee_identifier'] = representee_id

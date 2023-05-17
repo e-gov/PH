@@ -42,14 +42,14 @@ Check configurarion example example.cfg.
 
     `cp example.cfg dev.cfg`
 
-Fill configuration parameters.
+Fill configuration parameters. Set SETTINGS_FULL_PATH
 
     `export APP_SETTINGS=../dev.cfg`
 
     `python3 api/app.py`
 
 
-### How to run this app using WSGI and gunicorn
+## How to run this app using WSGI and gunicorn
 
     `pip install gunicorn`
 

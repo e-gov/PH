@@ -1,7 +1,4 @@
-from api.config import CONFIG
-
-
-def serialize_delegate_mandates(delegate, representees):
+def serialize_delegate_mandates(delegate, representees, settings):
     data = []
     for representee in representees:
         item = {
@@ -19,13 +16,13 @@ def serialize_delegate_mandates(delegate, representees):
             }
         }
         for mandate in representee['mandates']:
-            mandate_data = serialize_mandate(representee, delegate, mandate)
+            mandate_data = serialize_mandate(representee, delegate, mandate, settings)
             item['mandates'].append(mandate_data)
         data.append(item)
     return data
 
 
-def serialize_representee_mandates(representee, delegates):
+def serialize_representee_mandates(representee, delegates, settings):
     response_data = []
     for delegate in delegates:
         item = {
@@ -43,16 +40,16 @@ def serialize_representee_mandates(representee, delegates):
             }
         }
         for mandate in delegate['mandates']:
-            mandate_data = serialize_mandate(representee, delegate, mandate)
+            mandate_data = serialize_mandate(representee, delegate, mandate, settings)
             item['mandates'].append(mandate_data)
         response_data.append(item)
     return response_data
 
 
-def serialize_mandate(representee, delegate, mandate):
+def serialize_mandate(representee, delegate, mandate, settings):
     links = {
         'delete': set_delete_link(mandate, representee, delegate),
-        'origin': f'{CONFIG["origin_url"]}/{mandate["mandate_id"]}',
+        'origin': f'{settings["origin_url"]}/{mandate["mandate_id"]}',
     }
 
     if mandate['can_sub_delegate']:
