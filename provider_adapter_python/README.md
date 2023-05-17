@@ -48,6 +48,17 @@ Fill configuration parameters. Set SETTINGS_FULL_PATH
 
     `python3 api/app.py`
 
+## How to run this app with docker-compose
+    `docker-compose up -d`
+
+Access API on http://localhost:5002
+
+```
+curl --location 'http://localhost:5002/representees/EE33333333/delegates/mandates' \
+--header 'X-Road-UserId: test-header-xroad-userid' \
+--header 'X-Road-Represented-Party: TEST-Represented-Party' \
+--header 'X-Road-Id: TEST-ID-12345'
+```
 
 ## How to run this app using WSGI and gunicorn
 
@@ -56,3 +67,4 @@ Fill configuration parameters. Set SETTINGS_FULL_PATH
 Point gunicorn to WSGI entrypoint `wsgi.py`
 
     `gunicorn --bind 127.0.0.1:5001 wsgi:application`
+

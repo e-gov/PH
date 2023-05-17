@@ -13,4 +13,16 @@ services:
         - ./tests/pg_data:/docker-entrypoint-initdb.d/
       ports:
         - 5432:5432
-
+    provider_adapter_api:
+      container_name: "paasuke_provider_adapter_api"
+      build:
+        context: .
+        dockerfile: Dockerfile.provider_adapter_api
+      depends_on:
+        - postgres
+      ports:
+        - 5002:5000
+      environment:
+        FLASK_ENV: development
+      volumes:
+        - .:/app
