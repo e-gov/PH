@@ -49,3 +49,10 @@ Fill configuration parameters.
     `python3 api/app.py`
 
 
+### How to run this app using WSGI and gunicorn
+
+    `pip install gunicorn`
+
+Point gunicorn to WSGI entrypoint `wsgi.py`
+
+    `gunicorn --bind 127.0.0.1:5001 wsgi:application`
