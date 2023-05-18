@@ -8,7 +8,6 @@ class ErrorConfigBase(Exception):
     def to_dict(self):
         return {
             'href': self.error_config['reference'],
-            'ticket': 'am dynamically generated',
             'title': self.message,
             'translation': self.error_config['translation'],
             'type': self.error_config['type']

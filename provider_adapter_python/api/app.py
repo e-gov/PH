@@ -2,10 +2,10 @@ import yaml
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
-# from api.config import CONFIG
 from api.exceptions import (CompanyCodeInvalid, DelegateNotFound,
-                            MandateDataInvalid, MandateNotFound,
-                            MandateSubdelegateDataInvalid, RepresenteeNotFound)
+                            ErrorConfigBase, MandateDataInvalid,
+                            MandateNotFound, MandateSubdelegateDataInvalid,
+                            RepresenteeNotFound)
 from api.serializers import (serialize_delegate_mandates,
                              serialize_representee_mandates)
 from api.services import (create_mandate_pg, delete_mandate_pg,
@@ -52,8 +52,14 @@ def create_app():
 
     @app.errorhandler(Exception)
     def handle_unhandled_error(e):
+        error_config = app.config['SETTINGS']['errors']['internal_server_error']
+        base = ErrorConfigBase(
+            'Internal server error. Please try again later.',
+            error_config,
+            500
+        )
         app.logger.error('Unexpected error ocurred: %s', e)
-        return jsonify('Unexpected error ocurred'), 500
+        return jsonify(base.to_dict()), 500
 
     @app.route('/delegates/<string:delegate_id>/representees/mandates', methods=['GET'])
     def get_delegates_representees_mandates(delegate_id):

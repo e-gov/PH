@@ -48,3 +48,11 @@ errors:
         et: Volituse kustutamine ebaõnnestus
         ru: Volituse kustutamine ebaõnnestus (ru)
       type: test-type-for-mandate-not-found
+    internal_server_error:
+      reference: http://example-internal-server-error-guidence.com
+      title: Internal server error
+      translation:
+        en: Internal server error
+        et: Volituse kustutamine ebaõnnestus
+        ru: Volituse kustutamine ebaõnnestus (ru)
+      type: test-type-for-internal-server-error-found
