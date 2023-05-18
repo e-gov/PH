@@ -171,26 +171,33 @@ def create_app():
     def get_roles():
         roles = []
         roles_data = get_roles_pg(db)
+        mapped = {
+            'assignable_by': 'assignableBy',
+            'code': 'code',
+            'can_sub_delegate': 'canSubDelegate',
+            'delegate_can_equal_to_representee': 'delegateCanEqualToRepresentee',
+            'deletable_by_delegate': 'deletableByDelegate',
+            'modified': 'modified',
+            'assignable_only_if_representee_has_role_in': 'assignableOnlyIfRepresenteeHasRoleIn',
+            'delegate_type': 'delegateType',
+            'deletable_by': 'deletableBy',
+            'modified': 'modified',
+            'representee_type': 'representeeType',
+            'visible': 'visible',
+        }
         for role in roles_data:
             role_item = {
-                'assignableBy': role['assignable_by'],
-                'assignableOnlyIfRepresenteeHasRoleIn': role['assignable_only_if_representee_has_role_in'],
-                'canSubDelegate': role['can_sub_delegate'],
-                'code': role['code'],
-                'delegateCanEqualToRepresentee': role['delegate_can_equal_to_representee'],
-                'delegateType': role['delegate_type'],
-                'deletableBy': role['deletable_by'],
-                'deletableByDelegate': role['deletable_by_delegate'],
-                'description': role['description'],
-                'modified': role['modified'].isoformat(),
-                'representeeType': role['representee_type'],
-                'title': {
+                mapped[key]: value
+                for key, value in role.items()
+                if (value is not None and key in mapped)
+            }
+            role_item['title'] = {
                     'en': role['title_en'],
                     'et': role['title_et'],
                     'ru': role['title_ru']
-                },
-                'visible': role['visible']
-            }
+                }
+            if role_item.get('modified'):
+                role_item['modified'] = role_item['modified'].isoformat()
             roles.append(role_item)
 
         return make_success_response(roles, 200)
