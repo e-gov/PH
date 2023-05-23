@@ -74,7 +74,7 @@ add_mandate_triplet_schema = {
             "required": False,
             "schema": {
                 "canSubDelegate": {"type": "boolean", "required": False},
-                "role": {"type": "string", "required": False},
+                "role": {"type": "string", "required": True},
                 "validityPeriod": {
                     "type": "dict",
                     "required": False,
