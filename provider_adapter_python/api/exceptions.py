@@ -66,3 +66,12 @@ class MandateNotFound(ErrorConfigBase):
         super().__init__(*args, **kwargs)
         status_code = kwargs.get('status_code')
         self.status_code = status_code or MandateNotFound.status_code
+
+
+class UnprocessableRequestError(ErrorConfigBase):
+    status_code = 422
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        status_code = kwargs.get('status_code')
+        self.status_code = status_code or UnprocessableRequestError.status_code

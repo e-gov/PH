@@ -56,3 +56,11 @@ errors:
         et: Volituse kustutamine ebaõnnestus
         ru: Volituse kustutamine ebaõnnestus (ru)
       type: test-type-for-internal-server-error-found
+    unprocessable_request:
+      reference: http://example-unprocessable-request-error-guidence.com
+      title: Unprocessable request error
+      translation:
+        en: Unprocessable request error
+        et: Volituse kustutamine ebaõnnestus
+        ru: Volituse kustutamine ebaõnnestus (ru)
+      type: test-type-for-internal-server-error-found

@@ -1,3 +1,4 @@
+import psycopg2
 import yaml
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
@@ -5,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from api.exceptions import (CompanyCodeInvalid, DelegateNotFound,
                             ErrorConfigBase, MandateDataInvalid,
                             MandateNotFound, MandateSubdelegateDataInvalid,
-                            RepresenteeNotFound)
+                            RepresenteeNotFound, UnprocessableRequestError)
 from api.serializers import (serialize_delegate_mandates,
                              serialize_representee_mandates)
 from api.services import (create_mandate_pg, delete_mandate_pg,
@@ -49,6 +50,7 @@ def create_app():
     app.errorhandler(RepresenteeNotFound)(create_error_handler(404))
     app.errorhandler(DelegateNotFound)(create_error_handler(404))
     app.errorhandler(MandateNotFound)(create_error_handler(404))
+    app.errorhandler(UnprocessableRequestError)(create_error_handler(422))
 
     @app.errorhandler(Exception)
     def handle_unhandled_error(e):
@@ -125,7 +127,15 @@ def create_app():
         data_to_insert['data_created_by'] = xroad_user_id
         data_to_insert['data_created_by_represented_person'] = xroad_represented_party
         db_uri = app.config['SQLALCHEMY_DATABASE_URI']
-        create_mandate_pg(db_uri, data_to_insert)
+        try:
+            create_mandate_pg(db_uri, data_to_insert)
+        except psycopg2.errors.RaiseException as e:
+            app.logger.exception(str(e))
+            error_config = app.config['SETTINGS']['errors']['unprocessable_request']
+            raise UnprocessableRequestError(
+                'Unprocessable request while creating mandate. Something went wrong.',
+                error_config
+            )
         return make_success_response([], 201)
 
     @app.route(
@@ -137,7 +147,12 @@ def create_app():
         app.logger.info(f'X-Road-UserId: {xroad_user_id} Deleting mandate')
 
         db_uri = app.config['SQLALCHEMY_DATABASE_URI']
-        deleted = delete_mandate_pg(db_uri, ns, representee_id, delegate_id, mandate_id)
+        try:
+            deleted = delete_mandate_pg(db_uri, ns, representee_id, delegate_id, mandate_id)
+        except psycopg2.errors.RaiseException as e:
+            app.logger.exception(str(e))
+            error_config = app.config['SETTINGS']['errors']['unprocessable_request']
+            raise UnprocessableRequestError('Unprocessable request while deleting mandate. Something went wrong.', error_config)
         if deleted:
             return make_success_response([], 200)
         error_config = app.config['SETTINGS']['errors']['mandate_not_found']
@@ -164,7 +179,15 @@ def create_app():
         data_to_insert['mandate_identifier'] = mandate_id
         data_to_insert['data_created_by'] = xroad_user_id
         data_to_insert['data_created_by_represented_person'] = xroad_represented_party
-        subdelegate_mandate_pg(app.config['SQLALCHEMY_DATABASE_URI'], data_to_insert)
+        try:
+            subdelegate_mandate_pg(app.config['SQLALCHEMY_DATABASE_URI'], data_to_insert)
+        except psycopg2.errors.RaiseException as e:
+            app.logger.exception(str(e))
+            error_config = app.config['SETTINGS']['errors']['unprocessable_request']
+            raise UnprocessableRequestError(
+                'Unprocessable request while subdelegating mandate. Something went wrong.',
+                error_config
+            )
         return make_success_response([], 200)
 
     @app.route('/roles', methods=['GET'])

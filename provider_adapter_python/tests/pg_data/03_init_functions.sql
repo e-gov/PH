@@ -63,14 +63,18 @@ $$ LANGUAGE PLPGSQL;
 CREATE OR REPLACE FUNCTION function_delete_mandate(
     p_namespace TEXT,
     p_representee_identifier TEXT,
-    p_delegate_id INTEGER,
-    p_mandate_id INTEGER
+    p_delegate_id TEXT, -- change to text type
+    p_mandate_id TEXT -- change to text type
 ) RETURNS BOOLEAN AS $$
 DECLARE
     v_representee_id INTEGER;
     rpcc TEXT := SUBSTRING(p_representee_identifier FROM 3);
     rpccc TEXT := SUBSTRING(p_representee_identifier FROM 1 FOR 2);
 BEGIN
+    IF NOT (p_delegate_id ~ '^\d+$' AND p_mandate_id ~ '^\d+$') THEN -- check for integer using regular expression
+        RAISE EXCEPTION 'p_delegate_id and p_mandate_id must be integers';
+    END IF;
+
     -- Get the representee ID from the code country and personal company code.
     SELECT id INTO v_representee_id
     FROM person
@@ -80,9 +84,9 @@ BEGIN
     -- Set the deleted flag to true for the mandate matching the given IDs.
     UPDATE mandate
     SET deleted = TRUE
-    WHERE id = p_mandate_id
+    WHERE id = CAST(p_mandate_id as INTEGER)
         AND representee_id = v_representee_id
-        AND delegate_id = p_delegate_id
+        AND delegate_id = CAST(p_delegate_id AS INTEGER)
         AND (mandate.role LIKE (p_namespace || ':%') OR mandate.role = p_namespace);
     IF FOUND THEN
           RETURN TRUE;
