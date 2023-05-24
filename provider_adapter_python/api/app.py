@@ -58,7 +58,7 @@ def create_app():
             error_config,
             500
         )
-        app.logger.error('Unexpected error ocurred: %s', e)
+        app.logger.exception('Unexpected error ocurred: %s', e)
         return jsonify(base.to_dict()), 500
 
     @app.route('/delegates/<string:delegate_id>/representees/mandates', methods=['GET'])

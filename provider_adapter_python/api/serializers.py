@@ -48,12 +48,12 @@ def serialize_representee_mandates(representee, delegates, settings):
 
 def serialize_mandate(representee, delegate, mandate, settings):
     links = {
-        'delete': set_delete_link(mandate, representee, delegate),
-        'origin': f'{settings["origin_url"]}/{mandate["mandate_id"]}',
+        'delete': mandate['link_delete'],
+        'origin': settings["origin_url"],
     }
 
-    if mandate['can_sub_delegate']:
-        links['addSubDelegate'] = set_subdelegate_link(mandate, representee, delegate)
+    if mandate['can_sub_delegate'] and mandate['link_add_sub_delegate']:
+        links['addSubDelegate'] = mandate['link_add_sub_delegate']
 
     validity_period = {}
     if mandate['validity_period_from']:

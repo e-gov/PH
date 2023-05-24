@@ -1,7 +1,7 @@
 CREATE OR REPLACE VIEW representee_mandates_view AS
 SELECT
-    mandate.id AS mandate_id, -- ?
-    mandate.delegate_id, -- ?
+    mandate.id AS mandate_id,
+    mandate.delegate_id,
     delegate.personal_company_code_country || delegate.personal_company_code AS delegate_identifier,
     delegate.type AS delegate_type,
     delegate.first_name AS delegate_first_name,
@@ -22,14 +22,15 @@ SELECT
     mandate.original_mandate_id,
     mandate.document_uuid,
     mandate.can_display_document_to_delegate,
-    mandate.link_delete,
-    mandate.link_add_sub_delegate
+    CONCAT('/', 'v1/nss/', LEFT(mandate.role, POSITION(':' IN mandate.role) - 1), '/representees/', mandate.representee_id, '/delegates/', mandate.delegate_id, '/mandates/', mandate.id) AS link_delete,
+    CASE
+        WHEN mandate.can_sub_delegate IS TRUE THEN CONCAT('/', 'v1/nss/', LEFT(mandate.role, POSITION(':' IN mandate.role) - 1), '/representees/', mandate.representee_id, '/delegates/', mandate.delegate_id, '/mandates/', mandate.id, '/subdelegates')
+        ELSE mandate.link_add_sub_delegate
+    END AS link_add_sub_delegate
 FROM mandate
 JOIN person AS delegate ON delegate.id = mandate.delegate_id
 JOIN person AS representee ON representee.id = mandate.representee_id
 WHERE mandate.deleted is NOT TRUE;
-
-
 
 
 CREATE VIEW roles_view AS
