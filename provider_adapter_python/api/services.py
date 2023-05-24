@@ -296,8 +296,10 @@ def subdelegate_mandate_pg(uri, data):
             data['data_can_display_document_to_delegate'],
         ]
     )
+    result = cur.fetchone()[0]
     cur.close()
     conn.close()
+    return result
 
 
 def get_roles_pg(db):

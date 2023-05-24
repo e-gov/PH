@@ -180,7 +180,7 @@ def create_app():
         data_to_insert['data_created_by'] = xroad_user_id
         data_to_insert['data_created_by_represented_person'] = xroad_represented_party
         try:
-            subdelegate_mandate_pg(app.config['SQLALCHEMY_DATABASE_URI'], data_to_insert)
+            result = subdelegate_mandate_pg(app.config['SQLALCHEMY_DATABASE_URI'], data_to_insert)
         except psycopg2.errors.RaiseException as e:
             app.logger.exception(str(e))
             error_config = app.config['SETTINGS']['errors']['unprocessable_request']
@@ -188,6 +188,9 @@ def create_app():
                 'Unprocessable request while subdelegating mandate. Something went wrong.',
                 error_config
             )
+        if not result:
+            error_config = app.config['SETTINGS']['errors']['mandate_not_found']
+            raise MandateNotFound('Mandate to delete was not found', error_config)
         return make_success_response([], 200)
 
     @app.route('/roles', methods=['GET'])
