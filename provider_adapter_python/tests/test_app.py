@@ -1,7 +1,6 @@
 import pytest
 
 from api.app import create_app
-from api.config import CONFIG
 
 
 @pytest.fixture()
@@ -17,28 +16,30 @@ def app():
 def client(app):
     return app.test_client()
 
+@pytest.fixture()
+def config(app):
+    return app.config
 
-def test_delegate_format_validation_failed(client):
+
+def test_delegate_format_validation_failed(client, config):
     response = client.get('/delegates/1EE1234567/representees/mandates')
     assert response.status_code == 400
-    error_config = CONFIG['errors']['legal_person_format_validation_failed']
+    error_config = config['SETTINGS']['errors']['legal_person_format_validation_failed']
 
     assert response.json == {
         'href': error_config['reference'],
-        'ticket': 'am dynamically generated',
         'title': 'Legal person validation failed',
         'translation': error_config['translation'],
         'type': error_config['type']
     }
 
 
-def test_delegate_not_found_validation_failed(client):
+def test_delegate_not_found_validation_failed(client, config):
     response = client.get('/delegates/EE4q486846/representees/mandates')
     assert response.status_code == 404
-    error_config = CONFIG['errors']['delegate_not_found']
+    error_config = config['SETTINGS']['errors']['delegate_not_found']
     assert response.json == {
         'href': error_config['reference'],
-        'ticket': 'am dynamically generated',
         'title': 'Delegate not found',
         'translation': error_config['translation'],
         'type': error_config['type']
@@ -60,7 +61,7 @@ def test_delegate_mandates(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST/representees/100004/delegates/100002/mandates/150000',
-                        'origin': 'http://example.com//150000',
+                        'origin': 'http://example.com/',
                         'addSubDelegate': '/v1/nss/TEST/representees/100004/delegates/100002/mandates/150000/subdelegates'
                     },
                     'role': 'TEST:ROLE1'
@@ -68,7 +69,7 @@ def test_delegate_mandates(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST/representees/100004/delegates/100002/mandates/150001',
-                        'origin': 'http://example.com//150001'
+                        'origin': 'http://example.com/'
                     },
                     'role': 'TEST:ROLE1',
                     'validityPeriod': {
@@ -93,7 +94,7 @@ def test_delegate_mandates(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST6/representees/100005/delegates/100002/mandates/150005',
-                        'origin': 'http://example.com//150005',
+                        'origin': 'http://example.com/',
                         'addSubDelegate': '/v1/nss/TEST6/representees/100005/delegates/100002/mandates/150005/subdelegates'
                     },
                     'role': 'TEST6:ROLE1:ROLE2',
@@ -111,27 +112,25 @@ def test_delegate_mandates(client):
     ]
 
 
-def test_representee_format_validation_failed(client):
+def test_representee_format_validation_failed(client, config):
     response = client.get('representees/1EE33333333/delegates/mandates')
     assert response.status_code == 400
-    error_config = CONFIG['errors']['legal_person_format_validation_failed']
+    error_config = config['SETTINGS']['errors']['legal_person_format_validation_failed']
 
     assert response.json == {
         'href': error_config['reference'],
-        'ticket': 'am dynamically generated',
         'title': 'Legal person validation failed',
         'translation': error_config['translation'],
         'type': error_config['type']
     }
 
 
-def test_representee_not_found_validation_failed(client):
+def test_representee_not_found_validation_failed(client, config):
     response = client.get('/representees/EE4q486846/delegates/mandates')
     assert response.status_code == 404
-    error_config = CONFIG['errors']['representee_not_found']
+    error_config = config['SETTINGS']['errors']['representee_not_found']
     assert response.json == {
         'href': error_config['reference'],
-        'ticket': 'am dynamically generated',
         'title': 'Representee not found',
         'translation': error_config['translation'],
         'type': error_config['type']
@@ -146,18 +145,17 @@ def test_representee_not_found_validation_failed(client):
         'subDelegatedBy': 'not-valid'
     }
 ])
-def test_company_format_validation_failed(client, query_param):
+def test_company_format_validation_failed(client, query_param, config):
     response = client.get(
         'representees/EE33333333/delegates/mandates',
         query_string=query_param
 
     )
     assert response.status_code == 400
-    error_config = CONFIG['errors']['legal_person_format_validation_failed']
+    error_config = config['SETTINGS']['errors']['legal_person_format_validation_failed']
 
     assert response.json == {
         'href': error_config['reference'],
-        'ticket': 'am dynamically generated',
         'title': 'Legal person validation failed',
         'translation': error_config['translation'],
         'type': error_config['type']
@@ -179,7 +177,7 @@ def test_representee_mandates(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST/representees/100004/delegates/100002/mandates/150000',
-                        'origin': 'http://example.com//150000',
+                        'origin': 'http://example.com/',
                         'addSubDelegate': '/v1/nss/TEST/representees/100004/delegates/100002/mandates/150000/subdelegates'
                     },
                     'role': 'TEST:ROLE1'
@@ -187,7 +185,7 @@ def test_representee_mandates(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST/representees/100004/delegates/100002/mandates/150001',
-                        'origin': 'http://example.com//150001'
+                        'origin': 'http://example.com/'
                     },
                     'role': 'TEST:ROLE1',
                     'validityPeriod': {
@@ -212,7 +210,7 @@ def test_representee_mandates(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST2/representees/100004/delegates/100001/mandates/150003',
-                        'origin': 'http://example.com//150003',
+                        'origin': 'http://example.com/',
                         'addSubDelegate': '/v1/nss/TEST2/representees/100004/delegates/100001/mandates/150003/subdelegates'
                     },
                     'role': 'TEST2:ROLE2:ROLE6',
@@ -224,7 +222,7 @@ def test_representee_mandates(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST3/representees/100004/delegates/100001/mandates/150004',
-                        'origin': 'http://example.com//150004',
+                        'origin': 'http://example.com/',
                         'addSubDelegate': '/v1/nss/TEST3/representees/100004/delegates/100001/mandates/150004/subdelegates'
                     },
                     'role': 'TEST3:ROLE12:ROLE100',
@@ -261,7 +259,7 @@ def test_representee_mandates_filter_by_delegate(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST2/representees/100004/delegates/100001/mandates/150003',
-                        'origin': 'http://example.com//150003',
+                        'origin': 'http://example.com/',
                         'addSubDelegate': '/v1/nss/TEST2/representees/100004/delegates/100001/mandates/150003/subdelegates'
                     },
                     'role': 'TEST2:ROLE2:ROLE6',
@@ -273,7 +271,7 @@ def test_representee_mandates_filter_by_delegate(client):
                 {
                     'links': {
                         'delete': '/v1/nss/TEST3/representees/100004/delegates/100001/mandates/150004',
-                        'origin': 'http://example.com//150004',
+                        'origin': 'http://example.com/',
                         'addSubDelegate': '/v1/nss/TEST3/representees/100004/delegates/100001/mandates/150004/subdelegates'
                     },
                     'role': 'TEST3:ROLE12:ROLE100',

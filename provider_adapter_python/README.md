@@ -40,11 +40,9 @@ This database has a few tables to sore information about mandates.
 
 Check configurarion example example.cfg.
 
-    `cp example.cfg dev.cfg`
+    `cp config/example.cfg config/dev.cfg`
 
-Fill configuration parameters. Set SETTINGS_FULL_PATH
-
-    `export APP_SETTINGS=../dev.cfg`
+    `export APP_SETTINGS=../config/dev.cfg`
 
     `python3 api/app.py`
 
@@ -59,6 +57,16 @@ curl --location 'http://localhost:5002/representees/EE33333333/delegates/mandate
 --header 'X-Road-Represented-Party: TEST-Represented-Party' \
 --header 'X-Road-Id: TEST-ID-12345'
 ```
+
+## Tests
+
+Tests are using PG database running on docker container and fixture data inside.
+    `python3 -m venv venv`
+    `source venv/bin/activate`
+    `pip install -r requirements.txt`
+    `export PYTHONPATH=$PWD`
+    `export APP_SETTINGS=../config/test.cfg`
+    `pytest`
 
 ## How to run API app using WSGI and gunicorn
 

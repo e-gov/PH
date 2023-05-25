@@ -1,3 +1,4 @@
+import os
 import psycopg2
 import yaml
 from flask import Flask, jsonify, request
@@ -34,7 +35,7 @@ def create_error_handler(status_code):
 
 
 def parse_settings(filename):
-    with open(filename, 'r') as stream:
+    with open(os.path.join(os.path.dirname(__file__), filename), 'r') as stream:
         return yaml.safe_load(stream)
 
 
@@ -42,7 +43,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_envvar('APP_SETTINGS')
     db.init_app(app)
-    app.config['SETTINGS'] = parse_settings(app.config['SETTINGS_FULL_PATH'])
+    app.config['SETTINGS'] = parse_settings(app.config['SETTINGS_PATH'])
 
     app.errorhandler(CompanyCodeInvalid)(create_error_handler(400))
     app.errorhandler(MandateDataInvalid)(create_error_handler(400))
