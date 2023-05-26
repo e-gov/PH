@@ -9,7 +9,7 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec draft:
-* The latest version is [0.9.1](spec/Pääsuke-xroad-services-spec-v0.1.0.pdf) - 26 May 2023
+* The latest version is [0.9.1](spec/Pääsuke-xroad-services-spec-v0.9.1.pdf) - 26 May 2023
 
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
