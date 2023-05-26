@@ -9,12 +9,12 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec draft:
-* The latest version is [0.9.0](spec/Pääsuke-xroad-services-spec-v0.9.0.pdf) - 23 May 2023
+* The latest version is [0.9.1](spec/Pääsuke-xroad-services-spec-v0.1.0.pdf) - 26 May 2023
 
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
 
-* Description of an example mock service built according to version 0.7.5 of that spec: [sample_client_mock](mock-documentation/description-of-PRIA-mock-for-paasuke-v0.1.pdf)
+* Description of an example mock service built according to version 0.9.1 of that spec: [sample_client_mock](mock-documentation/description-of-PRIA-mock-for-paasuke-v0.2.pdf)
 
 ### X-Road services offered by Pääsuke
 
