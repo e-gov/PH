@@ -39,7 +39,7 @@
           "from": "2022-10-23"
         },
         "links": {
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
           "origin": "https://estat.stat.ee?x=y&z=q"
         }
       }
@@ -65,7 +65,7 @@
           "through": "2030-12-31"
         },
         "links": {
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
           "origin": "https://estat.stat.ee?x=y&z=q"
         }
       }
@@ -90,7 +90,7 @@
           "from": "2028-11-01"
         },
         "links": {
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
           "origin": "https://estat.stat.ee?x=y&z=q"
         }
       }

@@ -51,38 +51,6 @@ public class DelegatesApiController implements DelegatesApi {
         this.mockDataService = mockDataService;
     }
 
-    public ResponseEntity<List<Person>> getDelegateRepresentees(@Pattern(regexp="(^[A-Z]{2}|^email:|^internal:).+") @Parameter(in = ParameterIn.PATH, description = "Person identifier.", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.QUERY, description = "Filter by representee types. SELF means that the person has the right to represent oneself." ,schema=@Schema(allowableValues={ "SELF", "LEGAL_PERSON", "NATURAL_PERSON" }
-    )) @Valid @RequestParam(value = "representeeType", required = false) List<String> representeeType, @Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles must be prefixed with namespace and colon. To match all roles in namespace use * like this: 'MYNS:*'. This parameter is only used if the service is provided by Pääsuke and must be ignored by others." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) List<String> hasRoleIn, @Parameter(in = ParameterIn.HEADER, description = "Unique identifier (UUID) for this message." ,schema=@Schema()) @RequestHeader(value="X-Road-Id", required=false) String xRoadId)
-    {
-        logHeaders(request);
-
-        String accept = request.getHeader("Accept");
-
-        if (accept != null && (accept.contains("application/json") || accept.contains("*/*")) ) {
-
-            try {
-                String json;
-                json = FileUtil.getFileContent(mocksDir, "getDelegateRepresentees.json");
-
-
-
-                List<Person> personList = objectMapper.readValue(json, new TypeReference<List<Person>>() {
-                });
-
-                PersonFillerUtil.replaceInLinks(personList, "{delegate}", delegate);
-
-
-                return new ResponseEntity<List<Person>>(personList, HttpStatus.OK);
-
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<Person>>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
-
-        return new ResponseEntity<List<Person>>(HttpStatus.NOT_IMPLEMENTED);
-    }
-
     @RequestMapping(value = "/delegates/{delegate}/representees/mandates",
             produces = { "application/json" },
             method = RequestMethod.GET)
@@ -103,7 +71,8 @@ public class DelegatesApiController implements DelegatesApi {
                 String json = FileUtil.getFileContent(mocksDir, "getRepresenteeDelegatesWithMandates_PRIA.json");
                 Collection<MandateTriplet> allMandates = objectMapper.readValue(json, new TypeReference<List<MandateTriplet>>() {});
 
-                allMandates.stream().filter(mandateTriplet -> mandateTriplet.getDelegate().getIdentifier().equals(delegate))
+                allMandates.stream()
+                        .filter(mandateTriplet -> mandateTriplet.getDelegate().getIdentifier().equals(delegate))
                                 .forEach(mandateTripletList::add);
             }
             else {

@@ -39,7 +39,7 @@
           "from": "2022-10-23"
         },
         "links": {
-          "delete": "/v1/nss/STAT_ESTAT/representees/imp1-EE11065244/delegates/imp2-EE30303039914/mandates/imp3-SuperUser",
+          "delete": "/v1/representees/imp1-EE11065244/delegates/imp2-EE30303039914/mandates/imp3-SuperUser",
           "origin": "https://estat.stat.ee?x=y&z=q"
         }
       }
@@ -65,7 +65,7 @@
           "through": "2030-12-31"
         },
         "links": {
-          "delete": "/v1/nss/STAT_ESTAT/representees/imp1-EE11065244/delegates/imp2-EE60001019906/mandates/imp3-respondent",
+          "delete": "/v1/representees/imp1-EE11065244/delegates/imp2-EE60001019906/mandates/imp3-respondent",
           "origin": "https://estat.stat.ee?x=y&z=q"
         }
       }
@@ -90,7 +90,7 @@
           "from": "2028-11-01"
         },
         "links": {
-          "delete": "/v1/nss/STAT_ESTAT/representees/imp1-EE11065244/delegates/imp2-EE30303039816/mandates/imp3-limitedRespondent",
+          "delete": "/v1/representees/imp1-EE11065244/delegates/imp2-EE30303039816/mandates/imp3-limitedRespondent",
           "origin": "https://estat.stat.ee?x=y&z=q"
         }
       }

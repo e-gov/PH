@@ -6,16 +6,15 @@
       "identifier": "EE11430169"
     },
     "delegate": {
-      "type": "NATURAL_PERSON",
-      "firstName": "Tõnu",
-      "surname": "Tuuline",
-      "identifier": "EE30303039816"
+      "type": "LEGAL_PERSON",
+      "legalName": "Agro Agro AS",
+      "identifier": "EE11430169"
     },
     "mandates": [
       {
-        "role": "BUSINESS_REGISTRY_CARD_PRIA:FULL_JUHL",
+        "role": "PRIA:PRIA.customer",
         "validityPeriod": {
-          "from": "2020-07-07"
+          "from": "2001-01-30"
         }
       }
     ]
@@ -34,14 +33,13 @@
     },
     "mandates": [
       {
-        "role": "PRIA:Unrestricted",
+        "role": "PRIA:Unrestricted.can.modify.mandates",
         "validityPeriod": {
           "from": "2027-01-01",
           "through": "2028-12-31"
         },
         "links": {
-          "delete": "/v1/nss/PRIA/representees/imp1-EE11430169/delegates/imp2-EE60001019906/mandates/imp3-Unrestricted",
-          "addSubDelegate": "/v1/nss/PRIA/representees/imp1-EE11430169/delegates/imp2-EE60001019906/mandates/imp3-Unrestricted/",
+          "delete": "/v1/representees/imp1-EE11430169/delegates/imp2-EE60001019906/mandates/imp3-Unrestricted.can.modify.mandates",
           "origin": "https://epria.pria.ee?x=y&z=q"
         }
       },
@@ -51,7 +49,7 @@
           "from": "2023-01-01"
         },
         "links": {
-          "delete": "/v1/nss/PRIA/representees/imp1-EE11430169/delegates/imp2-EE60001019906/mandates/imp3-fiscally_marked_gas_buyer",
+          "delete": "/v1/representees/imp1-EE11430169/delegates/imp2-EE60001019906/mandates/imp3-fiscally_marked_gas_buyer",
           "origin": "https://epria.pria.ee?x=y&z=q"
         }
       }
@@ -71,16 +69,15 @@
     },
     "mandates": [
       {
-        "role": "PRIA:Unrestricted",
+        "role": "PRIA:Unrestricted.cancot.modify.mandates",
         "validityPeriod": {
           "from": "2027-01-01",
           "through": "2027-12-31"
         },
         "links": {
-          "delete": "/v1/nss/PRIA/representees/imp1-EE11430169/delegates/imp2-EE37925050002/mandates/imp3-Unrestricted",
+          "delete": "/v1/representees/imp1-EE11430169/delegates/imp2-EE37925050002/mandates/imp3-Unrestricted.cancot.modify.mandates",
           "origin": "https://epria.pria.ee?x=y&z=q"
-        },
-        "subDelegatorIdentifier": "EE60001019906"
+        }
       }
     ]
   },
@@ -104,7 +101,7 @@
           "through": "2028-12-31"
         },
         "links": {
-          "delete": "/v1/nss/PRIA/representees/imp1-EE11430169/delegates/imp2-EE46414160202/mandates/imp3-partial",
+          "delete": "/v1/representees/imp1-EE11430169/delegates/imp2-EE46414160202/mandates/imp3-partial",
           "origin": "https://epria.pria.ee?x=y&z=q"
         }
       }
@@ -130,7 +127,7 @@
           "through": "2029-12-31"
         },
         "links": {
-          "delete": "/v1/nss/PRIA/representees/imp1-EE11430169/delegates/imp2-EE30303039914/mandates/imp3-fiscally_marked_gas_buyer",
+          "delete": "/v1/representees/imp1-EE11430169/delegates/imp2-EE30303039914/mandates/imp3-fiscally_marked_gas_buyer",
           "origin": "https://epria.pria.ee?x=y&z=q"
         }
       }

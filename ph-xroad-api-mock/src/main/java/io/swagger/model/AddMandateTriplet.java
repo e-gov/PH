@@ -4,11 +4,15 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.Authorization;
+import io.swagger.model.Document;
 import io.swagger.model.MandateToAdd;
 import io.swagger.model.Person;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -18,9 +22,9 @@ import javax.validation.constraints.*;
  */
 @Schema(description = "Delegate is optional (in case company gets deleted then updating is needed).")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-23T06:43:49.006407902Z[GMT]")
-
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:36:08.218418870Z[GMT]")
+@ToString
+@EqualsAndHashCode
 public class AddMandateTriplet   {
   @JsonProperty("representee")
   private Person representee = null;
@@ -34,6 +38,9 @@ public class AddMandateTriplet   {
   @JsonProperty("authorizations")
   @Valid
   private List<Authorization> authorizations = null;
+
+  @JsonProperty("document")
+  private Document document = null;
 
   public AddMandateTriplet representee(Person representee) {
     this.representee = representee;
@@ -124,48 +131,24 @@ public class AddMandateTriplet   {
     this.authorizations = authorizations;
   }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    AddMandateTriplet addMandateTriplet = (AddMandateTriplet) o;
-    return Objects.equals(this.representee, addMandateTriplet.representee) &&
-        Objects.equals(this.delegate, addMandateTriplet.delegate) &&
-        Objects.equals(this.mandate, addMandateTriplet.mandate) &&
-        Objects.equals(this.authorizations, addMandateTriplet.authorizations);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(representee, delegate, mandate, authorizations);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AddMandateTriplet {\n");
-    
-    sb.append("    representee: ").append(toIndentedString(representee)).append("\n");
-    sb.append("    delegate: ").append(toIndentedString(delegate)).append("\n");
-    sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
-    sb.append("    authorizations: ").append(toIndentedString(authorizations)).append("\n");
-    sb.append("}");
-    return sb.toString();
+  public AddMandateTriplet document(Document document) {
+    this.document = document;
+    return this;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+   * Get document
+   * @return document
+   **/
+  @Schema(description = "")
+  
+    @Valid
+    public Document getDocument() {
+    return document;
   }
+
+  public void setDocument(Document document) {
+    this.document = document;
+  }
+
 }

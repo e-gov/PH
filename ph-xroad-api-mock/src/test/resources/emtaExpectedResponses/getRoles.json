@@ -1,45 +1,369 @@
 [
   {
-    "code": "GLOBAL1_EMTA:ACCOUNTANT",
-    "title": null,
-    "description": {
-      "et": "Raamatupidaja katusroll EMTA-s",
-      "en": "Global Accountant role in EMTA",
-      "ru": "Raamatupidaja katusroll EMTA-s (vene keeles)"
+    "code": "EMTA:I",
+    "title": {
+      "et": "Raamatupidaja pakett",
+      "en": "Accountant´s package",
+      "ru": "Пакет бухгалтера"
     },
-    "modified": "2022-10-18T11:00:00Z",
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
     "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Pakett sisaldab raamatupidajale vajalike rakenduste kasutamise õigust.",
+      "en": "The package contains the right to use electronic applications necessary for accountants.",
+      "ru": "Пакет содержит право на пользование необходимыми бухгалтеру приложениями. "
+    },
     "representeeType": [
       "LEGAL_PERSON"
     ],
-    "delegateType": [
-      "NATURAL_PERSON",
-      "LEGAL_PERSON"
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
     ],
     "assignableBy": [
       "EMTA:A-JI"
-    ]
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
   },
   {
-    "code": "GLOBAL1_EMTA:HR",
-    "title": null,
-    "description": {
-      "et": "Personalitöötaja katusroll EMTA-s",
-      "en": "Global HR role in EMTA",
-      "ru": "Personalitöötaja katusroll EMTA-s (vene keeles)"
+    "code": "EMTA:I-E",
+    "title": {
+      "et": "Eraisiku maksupakett",
+      "en": "Natural person's tax package",
+      "ru": "Налоговый пакет частногo лицa"
     },
-    "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": true,
-    "representeeType": [
-      "LEGAL_PERSON"
+    "addableBy": [
+      "EMTA:A-JI"
     ],
+    "canSubDelegate": true,
     "delegateType": [
-      "NATURAL_PERSON",
-      "LEGAL_PERSON"
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Eraisiku esindaja pakett sisaldab eraisikule vajalike rakenduste kasutamise õigust.",
+      "en": "The package of the natural person's representative contains the right to use electronic applications necessary for natural persons.",
+      "ru": "Пакет представителя частного лица содержит право на пользование необходимыми  частному лицу приложениями. "
+    },
+    "representeeType": [
+      "NATURAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
     ],
     "assignableBy": [
       "EMTA:A-JI"
-    ]
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOLL",
+    "title": {
+      "et": "Tolliteenuste pakett",
+      "en": "Customs services package",
+      "ru": "Пакет таможенных услуг"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Tolliteenuste pakett sisaldab tolli- ja aktsiisirakenduste kasutamise õigust. ",
+      "en": "The package of customs services contains the right to use the electronic applications of customs and excise.",
+      "ru": "Пакет таможенных услуг содержит право использования таможенных и акцизных приложений."
+    },
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOLL-E",
+    "title": {
+      "et": "Eraisiku tolliteenuste pakett",
+      "en": "Natural person's customs services package",
+      "ru": "Пакет таможенных услуг частногo лицa"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Eraisiku esindaja tolliteenuste pakett sisaldab tollirakenduste kasutamise õigust.",
+      "en": "The package of customs services for the natural person's representative contains the right to use electronic customs applications.",
+      "ru": "Пакет таможенных услуг представителя частного лица содержит право использования таможенных приложений."
+    },
+    "representeeType": [
+      "NATURAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:XT_MM",
+    "title": {
+      "et": "Andmete saatmine masin-masin liidese kaudu",
+      "en": "Sending data through system-to-system interface",
+      "ru": "Передача данных через межмашинный интерфейс"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "description": {
+      "et": "Turvaserveri omaniku (juriidilise isiku) õigus saata teda volitanud ettevõtte nimel Maksu- ja Tolliametile andmeid masin-masin liidese kaudu.",
+      "en": "The right of the owner of a security server (legal person) to send data through system-to-system interface on behalf of the authorizing company to the Estonian Tax and Customs Board.",
+      "ru": " Право собственника сервера защиты (юридического лица) передавать через межмашинный интерфейс Налогово-таможенному департаменту данные от имени уполномочившего его предприятия. "
+    },
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_XT",
+    "title": {
+      "et": "Kütuse käitlemise süsteemi (KKS) andmete saatmine üle X-tee",
+      "en": "Sending fuel handling database (KKS) data over the X-Road",
+      "ru": "Отправка данных базы данных об обращении топлива (KKS) черезX-tee"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "description": {
+      "et": "Kütuse käitlemise süsteemi (KKS) andmete saatmine üle X-tee",
+      "en": "Sending fuel handling database (KKS) data over the X-Road",
+      "ru": "Отправка данных базы данных об обращении топлива (KKS) черезX-tee"
+    },
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:A-FI",
+    "title": {
+      "et": "Füüsilise isiku esindaja pakett",
+      "en": "Package for natural person's representative",
+      "ru": "Пакет представителя физического лица"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Pakett sisaldab eraisiku andmete vaatamise, esitamise ja muutmise õigust.",
+      "en": "The package contains the right to view, submit and change natural person's data.",
+      "ru": "Пакет включает право просмотра, подачу и изменение данных физического лица."
+    },
+    "representeeType": [
+      "NATURAL_PERSON"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": false,
+    "visible": true
+  },
+  {
+    "code": "EMTA:A-FIE",
+    "title": {
+      "et": "FIE esindaja pakett",
+      "en": "Package for sole proprietor's representative",
+      "ru": "Пакет представителя предпринимателя — физического лица (ПФЛ)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Pakett sisaldab FIE andmete vaatamise, esitamise ja muutmise õigust.",
+      "en": "The package contains the right to view, submit and change sole proprietor's data.",
+      "ru": "Пакет включает право просмотра, подачу и изменение данных предпринимателя-физического лица."
+    },
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": false,
+    "visible": true
+  },
+  {
+    "code": "EMTA:A-FIE-V",
+    "title": {
+      "et": "FIE andmete vaataja pakett",
+      "en": "Package for viewing sole proprietor's data",
+      "ru": "Пакет для просмотра данных представителя предпринимателя — физического лица (ПФЛ)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Pakett sisaldab FIE andmete vaatamise õigust.",
+      "en": "The package contains the right to view sole proprietor's data.",
+      "ru": "Пакет включает право просмотра данных предпринимателя-физического лица."
+    },
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": false,
+    "visible": true
+  },
+  {
+    "code": "EMTA:A-FI-V",
+    "title": {
+      "et": "Füüsilise isiku andmete vaataja pakett",
+      "en": "Package for viewing natural person's data",
+      "ru": "Пакет для просмотра данных физического лица"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Pakett sisaldab eraisiku andmete vaatamise õigust.",
+      "en": "The package contains the right to view natural person's data.",
+      "ru": "Пакет включает право просмотра данных физического лица."
+    },
+    "representeeType": [
+      "NATURAL_PERSON"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": false,
+    "visible": true
   },
   {
     "code": "EMTA:A-JI",
@@ -48,20 +372,68 @@
       "en": "Package for legal person's representative",
       "ru": "Пакет представителя юридического лица"
     },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
     "description": {
       "et": "Pakett sisaldab juriidilise isiku andmete vaatamise, esitamise ja muutmise õigust.",
       "en": "The package contains the right to view, submit and change legal person's data.",
       "ru": "Пакет включает право просмотра, подачу и изменение данных юридического лица."
     },
-    "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": false,
     "representeeType": [
       "LEGAL_PERSON"
     ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": false,
+    "visible": true
+  },
+  {
+    "code": "EMTA:A-JI-E",
+    "title": {
+      "et": "Juriidilise isiku esindaja valimine",
+      "en": "Choose legal person's representative",
+      "ru": "Избрание представителя юридического лица"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
     "delegateType": [
+      "LEGAL_PERSON",
       "NATURAL_PERSON"
     ],
-    "assignableBy": []
+    "description": {
+      "et": "Pakett sisaldab äriühingu juhatuse liikmete ühise esindusõiguse korral õigust määrata isikud, kes esindavad äriühingut Maksu- ja Tolliametis (sh e-MTAs).",
+      "en": "The package contains the right to designate persons who represent the company in the Estonian Tax and Customs Board (incl. e-ETCB), in case of joint right of representation of board members of the company.",
+      "ru": "Пакет включает право, в случае права общего представительства членов правления фирмы, назначать лица, которые представляют фирму в Налогово-таможенном департаменте (в т.ч. э-НТД)."
+    },
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": false,
+    "visible": true
   },
   {
     "code": "EMTA:A-JI-V",
@@ -70,41 +442,71 @@
       "en": "Package for viewing the data of legal person",
       "ru": "Пакет просмотра данных юридического лица"
     },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
     "description": {
       "et": "Pakett sisaldab juriidilise isiku andmete vaatamise õigust.",
       "en": "The package contains the right to view legal person's data.",
       "ru": "Пакет включает право просмотра данных юридического лица."
     },
-    "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": false,
     "representeeType": [
       "LEGAL_PERSON"
     ],
-    "delegateType": [
-      "NATURAL_PERSON"
-    ],
-    "assignableBy": []
-  },
-  {
-    "code": "EMTA:HAMPI",
-    "title": {
-      "et": "„Hasartmängu mängimise piirangutega isikute nimekirja“ vaatamine",
-      "en": "View the List of Persons with Restrictions on Gambling (HAMPI)",
-      "ru": "Просмотр «Списка лиц, на которых распространяются ограничения на участие в азартных играх»"
-    },
-    "description": null,
-    "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": true,
-    "representeeType": [
-      "LEGAL_PERSON"
-    ],
-    "delegateType": [
-      "NATURAL_PERSON",
-      "LEGAL_PERSON"
+    "withdrawableBy": [
+      "EMTA:A-JI"
     ],
     "assignableBy": [
       "EMTA:A-JI"
-    ]
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": false,
+    "visible": true
+  },
+  {
+    "code": "EMTA:AKTSIIS",
+    "title": {
+      "et": "Aktsiisipakett",
+      "en": "Excise package",
+      "ru": "Пакет акциз"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "description": {
+      "et": "Pakett sisaldab aktsiisirakenduste kasutamise õigust.",
+      "en": "The package contains the right to use electronic excise applications.",
+      "ru": "Пакет содержит право использования акцизных приложений."
+    },
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
   },
   {
     "code": "EMTA:ADEK_CLIENT",
@@ -113,39 +515,5996 @@
       "en": "Administering excise duty returns (from 01.02.2019)",
       "ru": "Управление акцизными декларациями (c 01.02.2019)"
     },
-    "description": null,
-    "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": true,
-    "representeeType": [
-      "LEGAL_PERSON"
+    "addableBy": [
+      "EMTA:A-JI"
     ],
+    "canSubDelegate": true,
     "delegateType": [
       "LEGAL_PERSON",
       "NATURAL_PERSON"
     ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
     "assignableBy": [
       "EMTA:A-JI"
-    ]
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:AKTS_ESITAMINE",
+    "title": {
+      "et": "Aktsiisideklaratsioonide haldamine (kuni 31.01.2019)",
+      "en": "Administering excise duty returns (until 31.01.3019)",
+      "ru": "Управление акцизными декларациями (до 31.01.2019)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:AKTS_ESITAMINE_FIS",
+    "title": {
+      "et": "Aktsiisideklaratsioonide haldamine füüsilise isikuna (kuni 31.01.2019)",
+      "en": "Administering excise duty returns as a natural person (until 31.01.3019)",
+      "ru": "Управление акцизными декларациями физическим лицом (до 31.01.2019)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.AEO_MANAGE_APPL",
+    "title": {
+      "et": "AEO taotluse andmete haldamine (täiendamine, tagasikutsumine, parandamine, lisainformatsiooni päringutele vastamine, tolliotsuse põhjendatuse kohta omapoolse seisukoha avaldamine) ja vaatamine süsteemis eAEO (eAEO-STP)",
+      "en": "Managing AEO application information (addition, withdrawal, correction, responding to requests for additional information, and providing positions on the reasoning of a customs decision)  and viewing it in the eAEO system (eAEO-STP)",
+      "ru": "Управление данными AEO ходатайства (дополнение, отзыв, удаление, исправление, ответы на запрос о дополнительной информации, предоставление своей точки зрения относительно обоснованности таможенного решения) и просмотр в системе eAEO (eAEO-STP)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.AEO_MANAGE_AUTH",
+    "title": {
+      "et": "AEO loa andmete haldamine ja AEO taotluse/loa andmete vaatamine süsteemis eAEO (eAEO-STP)",
+      "en": "Managing AEO authorisation information and viewing AEO application/authorisation information in the eAEO system  (eAEO-STP)",
+      "ru": "Управление данными AEO разрешения  и просмотр данных AEO заявления/разрешения в системе eAEO (eAEO-STP)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.AEO_MANAGE_SUBM_APPL",
+    "title": {
+      "et": "AEO taotluse andmete esitamine ja vaatamine süsteemis eAEO (eAEO-STP)",
+      "en": "Submitting and viewing AEO application information in the eAEO system (eAEO-STP)",
+      "ru": "Подача и просмотр данных  AEO ходатайства и просмотр в системе eAEO (eAEO-STP)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:AKLA_KLIENT",
+    "title": {
+      "et": "Aktsiisikaupade liikumise andmete koondamise süsteemis (AKLA) andmete vaatamine",
+      "en": "Viewing data in the System of Consolidating the Movement Data of Excise Goods (AKLA)",
+      "ru": "Просмотр данных в системе сбора данных движения акцизных товаров (AKLA)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:ARUANDLUS",
+    "title": {
+      "et": "Mitterahaliste kohustuste haldamine",
+      "en": "Administering non-monetary liabilities",
+      "ru": "Управление неденежными обязательствами"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.EBTISTP_CONSULTATIVE",
+    "title": {
+      "et": "Teabe vaatamine EBTI-STP-s",
+      "en": "Viewing information in EBTI-STP",
+      "ru": "Просмотр информации в EBTI-STP"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.EBTISTP_EXECUTIVE",
+    "title": {
+      "et": "EBTI-STPs teabe vaatamine, sisestamine ja edastamine",
+      "en": "Viewing, inserting and submitting information in EBTI-STP",
+      "ru": "Просмотр, ввод и передача  информации в EBTI-STP"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.CUST_ADMINISTRATIVE",
+    "title": {
+      "et": "Tolliotsuste süsteemis (CDS) taotluste ja tollilubade vaatamine ning taotluste sisestamine",
+      "en": "Viewing applications and customs authorisations and inserting applications in the Customs Decisions System (CDS)",
+      "ru": "Просмотр ходатайств и таможенных разрешений, а также ввод ходатайств в систему принятия таможенных решений (CDS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.CUST_CONSULTATIVE",
+    "title": {
+      "et": "Tolliotsuste süsteemis (CDS) taotluste ja tollilubade vaatamine",
+      "en": "Viewing applications and customs authorisations in the Customs Decision System (CDS)",
+      "ru": "Просмотр ходатайств и таможенных разрешений в системе принятия таможенных решений (CDS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.CUST_EXECUTIVE",
+    "title": {
+      "et": "Tolliotsuste süsteemis (CDS) taotluste ja tollilubade vaatamine ning taotluste sisestamine ja esitamine",
+      "en": "Viewing applications and customs authorisations and inserting and submitting applications in the Customs Decisions System (CDS)",
+      "ru": "Просмотр ходатайств и таможенных разрешений, а также ввод и предоставление ходатайств в системе принятия таможенных решений (CDS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TDE",
+    "title": {
+      "et": "Tollideklaratsioonide esitamine",
+      "en": "Submitting customs declarations",
+      "ru": "Подача таможенных деклараций"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOLLIDEKL_ARUANDED",
+    "title": {
+      "et": "Tollideklaratsioonide töötlemise elektroonilises süsteemis (COMPLEX) tollideklaratsioonide koostamine",
+      "en": "Compiling customs declarations in the Declaration Processing System (COMPLEX)",
+      "ru": "Составление таможенных деклараций в электронной системе обработки таможенных деклараций (COMPLEX)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOLLIDEKL_ESITAMINE",
+    "title": {
+      "et": "Tollideklaratsioonide töötlemise elektroonilises süsteemis (COMPLEX) tollideklaratsioonide haldamine",
+      "en": "Administering customs declarations in the Declaration Processing System (COMPLEX)",
+      "ru": "Управление таможенными декларациями в электронной системе обработки таможенных деклараций (COMPLEX)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOLLIDEKL_ESITAMINE_FIS",
+    "title": {
+      "et": "Tollideklaratsioonide töötlemise elektroonilises süsteemis (COMPLEX) tollideklaratsioonide haldamine füüsilise isikuna",
+      "en": "Administering customs declarations in the Declaration Processing System (COMPLEX) as a natural person",
+      "ru": "Управление таможенными декларациями физическим лицом в электронной системе обработки таможенных деклараций (COMPLEX)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOLLIDEKL_MUUTMINE",
+    "title": {
+      "et": "Tollideklaratsioonide töötlemise elektroonilises süsteemis (COMPLEX) tollideklaratsioonile muutmise ja kehtetuks tunnistamise taotluste esitamine",
+      "en": "Submitting applications for amending and declaring invalid customs declarations in the Declaration Processing System (COMPLEX)",
+      "ru": "Подача ходатайств об изменении и признании таможеной декларации недействительной в электронной системе обработки таможенных деклараций (COMPLEX)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOLLIDEKL_SISESTAMINE",
+    "title": {
+      "et": "Tollideklaratsioonide töötlemise elektroonilises süsteemis (COMPLEX) tollideklaratsioonide sisestamine ja vaatamine",
+      "en": "Inserting and viewing customs declarations in the Declaration Processing System (COMPLEX)",
+      "ru": "Ввод и просмотр таможенных деклараций в электронной системе обработки таможенных деклараций (COMPLEX)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOLLIDEKL_VAATAMINE",
+    "title": {
+      "et": "Tollideklaratsioonide töötlemise elektroonilises süsteemis (COMPLEX) tollideklaratsioonide vaatamine",
+      "en": "Viewing customs declarations in the Declaration Processing System (COMPLEX)",
+      "ru": "Просмотр таможенных деклараций в электронной системе обработки таможенных деклараций (COMPLEX)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:CP_CLIENT_NATURAL",
+    "title": {
+      "et": "Füüsilise isiku profiil",
+      "en": "CLIENT_NATURAL profile",
+      "ru": "Профиль физического лица"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:CPG_CLIENT_MERCHANT",
+    "title": {
+      "et": "CPG, maksmine läbi maksemooduli",
+      "en": "CPG, payment by using the payment module",
+      "ru": "Оплата CPG через платёжный модуль"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:DAC4_CLIENT",
+    "title": {
+      "et": "Riikidepõhise aruande rakenduses (DAC4/CbC) deklaratsioonide haldamine",
+      "en": "Administering declarations in the Application of Country-Based Reports (DAC4/CbC)",
+      "ru": "Управление декларациями в межгосударственном приложении отчётов (DAC4/CbC)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:DAC6_CLIENT_ENCODER",
+    "title": {
+      "et": "Piiriüleste skeemide deklaratsioonide (DAC6) haldamine",
+      "en": "Managing reports on cross-border arrangements (DAC6)",
+      "ru": "Управление декларациями о трансграничных схемах (DAC6) "
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:DAC6_CLIENT_VIEWER",
+    "title": {
+      "et": "Piiriüleste skeemide deklaratsioonide (DAC6) vaatamine",
+      "en": "Viewing reports on cross-border arrangements (DAC6)",
+      "ru": "Просмотр деклараций о трансграничных схемах (DAC6)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:DASHBOARD_GLOBAL_CLIENT",
+    "title": {
+      "et": "Koondvaate õigus",
+      "en": "Right of access to general overview ",
+      "ru": "Право доступа на главную страницу клиента"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-AKTID",
+    "title": {
+      "et": "Dokumentide vaatamine",
+      "en": "Viewing documents",
+      "ru": "Просмотр документов"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-EORI",
+    "title": {
+      "et": "EORI nr taotlemine ja haldamine",
+      "en": "Applying for and managing EORI number",
+      "ru": "Подача ходатайства и управление номером EORI "
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-KONTAKTID",
+    "title": {
+      "et": "Kontaktandmed",
+      "en": "Contact data",
+      "ru": "Контактные данные"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-SAADA",
+    "title": {
+      "et": "Kirjavahetus",
+      "en": "Send messages",
+      "ru": "Отправление сообщений"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-TEATED",
+    "title": {
+      "et": "Kirjavahetuse vaatamine",
+      "en": "View messages",
+      "ru": "Просмотр ответов"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-TEAVITUSED",
+    "title": {
+      "et": "Teavituste vaatamine",
+      "en": "View notifications",
+      "ru": "Просмотр уведомлений"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-VIITED",
+    "title": {
+      "et": "Kiirviidete seadistamine",
+      "en": "Set up quick references",
+      "ru": "Настройка быстрых ссылок"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:YLDVOLITUS",
+    "title": {
+      "et": "Üldvolitus (e-teenustele ligipääs puudub)",
+      "en": "General power of attorney (no access to e-services)",
+      "ru": "Генеральная доверенность (без доступа к э-услугам)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:E-AJATAMINE",
+    "title": {
+      "et": "Lihtsustatud ajatamise taotluste esitamine",
+      "en": "Submitting applications for simplified payment of tax arrears",
+      "ru": "Подача ходатайства о рассрочке в упрощённом порядке"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:E-AJATAMINE_FIS",
+    "title": {
+      "et": "Ajatamine füüsilise isikuna",
+      "en": "Payment of tax arrears in instalments as a natural person",
+      "ru": "Рассрочка физическим лицом"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:EAREST_KASUTAJA",
+    "title": {
+      "et": "Võlamenetluse andmete vaatamine",
+      "en": "Viewing the data of debt proceedings",
+      "ru": "Просмотр долговых процедур"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:ECS_VAATLEJA",
+    "title": {
+      "et": "Ekspordikontrolli süsteemis (ECS, OMF) väljaveodeklaratsioonide vaatamine",
+      "en": "Viewing export declarations in the Export Control System (ECS, OMF)",
+      "ru": "Просмотр деклараций вывоза в системе контроля экспорта (ECS, OMF)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
   },
   {
     "code": "EMTA:ECS_VOLITATUDEV_VALJUMINE",
     "title": {
-      "et": "Ekspordikontrolli süsteemis (ECS, OMF) väljaveodeklaratsioonide haldamine väljumistolliasutuses",
+      "et": "Ekspordikontrolli süsteemis (ECS, OMF)  väljaveodeklaratsioonide haldamine väljumistolliasutuses",
       "en": "Administering export declarations in the Export Control System (ECS, OMF) at a customs office of exit",
       "ru": "Управление декларациями вывоза в системе контроля экспорта (ECS, OMF) в таможенном учреждении выезда"
     },
-    "description": null,
-    "modified": "2023-01-18T11:00:00Z",
-    "canSubDelegate": true,
-    "representeeType": [
-      "LEGAL_PERSON"
+    "addableBy": [
+      "EMTA:A-JI"
     ],
+    "canSubDelegate": true,
     "delegateType": [
       "LEGAL_PERSON",
       "NATURAL_PERSON"
     ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
     "assignableBy": [
       "EMTA:A-JI"
-    ]
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:ECS_YLDDEKLAR_ESITAJA",
+    "title": {
+      "et": "Ekspordikontrolli süsteemis (ECS, OMF) väljaveodeklaratsioonide haldamine",
+      "en": "Administering export declarations in the Export Control System (ECS, OMF)",
+      "ru": "Управление декларациями вывоза в системе контроля экспорта (ECS, OMF)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:EMCS_LAHETAJA",
+    "title": {
+      "et": "Aktsiisikaupade liikumise ja kontrolli süsteemis (EMCS) elektroonsete saatelehtede lähetamine",
+      "en": "Dispatching electronic accompanying documents in the Excise Movement and Control System (EMCS)",
+      "ru": "Отправка электронных путевых листов в системе передвижения и контроля акцизных товаров (EMCS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:EMCS_PEAKLIENT",
+    "title": {
+      "et": "Aktsiisikaupade liikumise ja kontrolli süsteemis (EMCS) elektroonsete saatelehtede haldamine",
+      "en": "Administering electronic accompanying documents in the Excise Movement and Control System (EMCS)",
+      "ru": "Управление электронными путевыми листами в системе передвижения и контроля акцизных товаров (EMCS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:EMCS_PIIRATUD_LAHETAJA",
+    "title": {
+      "et": "Aktsiisikaupade liikumise ja kontrolli süsteemis (EMCS) elektroonsete saatelehtede piiratud lähetamine",
+      "en": "Limited dispatching of electronic accompanying documents in the Excise Movement and Control System (EMCS)",
+      "ru": "Ограниченная отправка электронных путевых листов в системе передвижения и контроля акцизных товаров (EMCS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:EMCS_PIIRATUD_VASTUVOTJA",
+    "title": {
+      "et": "Aktsiisikaupade liikumise ja kontrolli süsteemis (EMCS) elektroonsete saatelehtede piiratud vastuvõtmine",
+      "en": "Limited reception of electronic accompanying documents in the Excise Movement and Control System (EMCS)",
+      "ru": "Ограниченный приём электронных путевых листов в системе передвижения и контроля акцизных товаров (EMCS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:EMCS_VASTUVOTJA",
+    "title": {
+      "et": "Aktsiisikaupade liikumise ja kontrolli süsteemis (EMCS) elektroonsete saatelehtede vastuvõtmine",
+      "en": "Receiving electronic accompanying documents in the Excise Movement and Control System (EMCS)",
+      "ru": "Приём электронных путевых листов в системе передвижения и контроля акцизных товаров (EMCS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:FATCA_KOIKOIGUSED",
+    "title": {
+      "et": "FATCA-deklaratsioonide esitamine",
+      "en": "Submitting FATCA declarations",
+      "ru": "Подача деклараций FATCA "
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:FIDEK",
+    "title": {
+      "et": "Tuludeklaratsiooni esitamine",
+      "en": "Submission of income tax return",
+      "ru": "Подача декларации о доходах"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:FIDEKE",
+    "title": {
+      "et": "Tuludeklaratsiooni E-vorm",
+      "en": "Income tax return E-form",
+      "ru": "Форма Е декларации о доходах"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:FIDEK_READ_ACCESS",
+    "title": {
+      "et": "Tuludeklaratsiooni vaatamine",
+      "en": "View income tax return",
+      "ru": "Просмотр декларации о доходах"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:METS_I_ESITAMINE",
+    "title": {
+      "et": "Metsatehingute teatise esitamine",
+      "en": "Submitting forest transaction notice",
+      "ru": "Подача извещений о сделках с лесом"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:METS_I_ESITAMINE_FIS",
+    "title": {
+      "et": "Metsatehingute teatise esitamine füüsilise isikuna",
+      "en": "Submitting forest transaction notice as a natural person",
+      "ru": "Подача извещений о сделках с лесом физическим лицом"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:GARANTIID",
+    "title": {
+      "et": "Garantiide süsteemis tagatiste haldamine",
+      "en": "Administering securities in the system of guarantees",
+      "ru": "Управление гарантиями в системе гарантий"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:HAMPI",
+    "title": {
+      "et": "„Hasartmängu mängimise piirangutega isikute nimekirja“ vaatamine",
+      "en": "View the List of Persons with Restrictions on Gambling (HAMPI)",
+      "ru": "Просмотр «Списка лиц, на которых распространяются ограничения на участие в азартных играх»"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:HELP_TOEND_KETT",
+    "title": {
+      "et": "Keskmise töötasu tõendi tegevusaladele koostamine",
+      "en": "Certificate of average wages",
+      "ru": "Справка о средней заработной плате"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:HMD_ESITAMINE",
+    "title": {
+      "et": "Hasartmängumaksu deklaratsioonide esitamine",
+      "en": "Submitting gambling tax returns",
+      "ru": "Подача деклараций по налогу на азартные игры"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:ICS_DEKLARATSIOONI_ESITAJA",
+    "title": {
+      "et": "Impordikontrolli süsteemis (ICS) manifestide, loendite ning sisenemise ülddeklaratsioonide esitamine.",
+      "en": "Lodging manifests, lists of goods and entry summary declarations in the Import Control System (ICS)",
+      "ru": "Подача манифестов, списков товаров и общиx въездныx деклараций в системе контроля импорта (ISC)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:ICS_VAATLEJA",
+    "title": {
+      "et": "Impordikontrolli süsteemis (ICS) manifestide, loendite ja sisenemise ülddeklaratsioonide vaatamine ",
+      "en": "Viewing manifests, lists of goods and entry summary declarations in the Import Control System (ICS)",
+      "ru": "Просмотр манифестов, списков товаров , общих  въездных деклараций в системе контроля импорта (ICS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.STISTP_CONFIGURATOR",
+    "title": {
+      "et": "ICS2 STI-STP süsteemis parameetrite seadistamine",
+      "en": "Setting parameters in the ICS2 STI-STP system",
+      "ru": "Настройка параметров в системе ICS2 STI-STP"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.STISTP_CONSULTATIVE",
+    "title": {
+      "et": "ICS2 STI-STP süsteemist teavituste saaja",
+      "en": "Recipient of notifications from the ICS2 STI-STP system",
+      "ru": "Получатель уведомлений от системы ICS2 STI-STP"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.STISTP_EXECUTIVE",
+    "title": {
+      "et": "ICS2 STI-STP süsteemis andmete sisestamine, esitamine ning esitatud andmete muutmine",
+      "en": "Entering, submitting and modifying submitted data in the ICS2 STI-STP system",
+      "ru": "Ввод, представление данных и изменение представленных данных в системе ICS2 STI-STP"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.STISTP_EXECUTIVE_LIMITED",
+    "title": {
+      "et": "ICS2 STI-STP süsteemis piiratud andmete sisestamine, esitamine ning esitatud andmete muutmine",
+      "en": "Entering, submitting and modifying submitted limited data in the ICS2 STI-STP system",
+      "ru": "Ввод, представление и изменение представленных ограниченных данных в системе ICS2 STI-STP"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:IMF_SAABUMISTEATE_ESITAJA",
+    "title": {
+      "et": "Elektrooniliste saabumisteadete töötlemise süsteemis (IMF) saabumisteadete esitamine",
+      "en": "Lodging arrival notifications in the System of Processing Electronic Entry Messages (IMF)",
+      "ru": "Подача извещений о прибытии в электронной системе обработки извещений о прибытии (IMF)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:IMF_VAATLEJA",
+    "title": {
+      "et": "Elektrooniliste saabumisteadete töötlemise süsteemis (IMF) saabumisteadete vaatamine ",
+      "en": "Viewing arrival notifications in the System of Processing Electronic Entry Messages (IMF) ",
+      "ru": "Просмотр извещений о прибытии в электронной системе обработки извещений о прибытии (IMF)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:IMPULSS_CUSTOMER",
+    "title": {
+      "et": "Impordi tollideklaratsioonide töötlemise süsteemi (Impulss) andmete esitamine",
+      "en": "Submission of data to the processing system of import customs declarations (Impulss)",
+      "ru": "Предоставление данных в системе обработки таможенной декларации импорта (Impulss)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:IMPULSS_XROAD",
+    "title": {
+      "et": "Impordi tollideklaratsiooni andmete saatmine üle X-tee",
+      "en": "Sending import customs declaration data over the X-Road",
+      "ru": "Отправка данных декларации по импорту через X-tee"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:INF_ESITAMINE",
+    "title": {
+      "et": "INF-deklaratsioonide esitamine",
+      "en": "Submitting INF declarations",
+      "ru": "Подача INF деклараций"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.INFSTP_CONSULTATIVE",
+    "title": {
+      "et": "INF STP vaatamine",
+      "en": "Viewing INF STP",
+      "ru": "Просмотр INF STP"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.INFSTP_EXECUTIVE",
+    "title": {
+      "et": "INF STP haldamine",
+      "en": "Administering INF STP",
+      "ru": "Управление INF STP"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_CLIENT_CARRIER",
+    "title": {
+      "et": "Kütuse käitleja - vedaja",
+      "en": "Fuel handler – transport operator",
+      "ru": "Обработчик топлива–перевозчик"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_CLIENT_DRIVER_CHANGER",
+    "title": {
+      "et": "Juht - muutja",
+      "en": "Driver – modifying party",
+      "ru": "Водитель / вносящий изменения"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_CLIENT_DRIVER_VIEWER",
+    "title": {
+      "et": "Juht - vaataja",
+      "en": "Driver – modifying party",
+      "ru": "Водитель / вносящий изменения"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_CLIENT_HANDLER",
+    "title": {
+      "et": "Kütuse käitleja - muutja",
+      "en": "Fuel handler – modifying party",
+      "ru": "Обработчик топлива/ вносящий изменения"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_CLIENT_OBSERVER",
+    "title": {
+      "et": "Kütuse käitleja - vaatleja",
+      "en": "Fuel handler – viewer",
+      "ru": "Обработчик топлива–наблюдатель"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_ENTRY_XT",
+    "title": {
+      "et": "Kütuse jäägi korrigeerimise kanded",
+      "en": "Fuel balance correction entries",
+      "ru": "Записи о корректировке остатков топлива"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_PSREP_XT",
+    "title": {
+      "et": "Tankla aruanded",
+      "en": "Gas station reports",
+      "ru": "Отчеты АЗС"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_RECEIPT_XT",
+    "title": {
+      "et": "Kütuse vastuvõtu kinnitused",
+      "en": "Fuel reception confirmations",
+      "ru": "Подтверждения приема топлива"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_SHIP_XT",
+    "title": {
+      "et": "Kütuse planeeritud veod",
+      "en": "Planned fuel shipment",
+      "ru": "Запланированные отгрузки топлива"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KKS_STSERV_XT",
+    "title": {
+      "et": "Kütuse laoteenuse kanded",
+      "en": "Fuel warehouse entries",
+      "ru": "Записи о топливных складах"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KMD_KOIKLUBATUD",
+    "title": {
+      "et": "Käibedeklaratsioonide (KMD) haldamine",
+      "en": "Administering value added tax returns (form KMD)",
+      "ru": "Управление декларациями об обороте"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KMD_KOIKLUBATUD_FIS",
+    "title": {
+      "et": "Käibedeklaratsioonide (KMD) esitamine füüsilise isikuna",
+      "en": "Submitting value added tax returns (form KMD) as a natural person",
+      "ru": "Подача декларации об обороте (KMD) физическим лицом"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KMD_VAATAMINE",
+    "title": {
+      "et": "Käibedeklaratsioonide (KMD) vaatamine",
+      "en": "Viewing value added tax returns (form KMD)",
+      "ru": "Просмотр деклараций об обороте (KMD)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KMKRA_ESITAJA",
+    "title": {
+      "et": "Käibemaksukohustuslasena registreerimise (KMKR) avalduste esitamine",
+      "en": "Submitting applications for registration as a person liable to value added tax (KMKR)",
+      "ru": "Подача ходатайств о регистрации обязанным по налогу с оборота (KMKR)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KMKRA_VAATAJA",
+    "title": {
+      "et": "Käibemaksukohustuslasena registreerimise (KMKR) avalduste vaatamine",
+      "en": "Viewing applications for registration as a person liable to value added tax (KMKR)",
+      "ru": "Просмотр ходатайств по регистрации обязанным по налогу с оборота (KMKR)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KOONDVIITENUMBER",
+    "title": {
+      "et": "Koondviitenumbri haldamine",
+      "en": "Administering joint reference number",
+      "ru": "Управление сводным номером ссылки"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:KOONDVIITENUMBER_FIS",
+    "title": {
+      "et": "Koondviitenumbri haldamine füüsilise isikuna",
+      "en": "Administering joint reference number as a natural person",
+      "ru": "Управление сводным номером ссылки физическим лицом"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:LAAK_CLIENT",
+    "title": {
+      "et": "Laoarvestuse ja -aruandluse andmekogu (LAAK) sisestaja",
+      "en": "Warehouse stock records and reporting database (LAAK)inserter",
+      "ru": "Введение данных в базу складского учета и отчетности (LAAK)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:LIDO_KLIENT",
+    "title": {
+      "et": "Aktsiisisaatedokumentide lisadokumentide elektroonilises süsteemis (LIDO) aktsiisisaatedokumentide lisadokumentide haldamine",
+      "en": "Administering supplementary accompanying documents of excise duty in the Electronic System of Supplementary Accompanying Documents of Excise Duty (LIDO)",
+      "ru": "Управление дополнительными акцизными документами в электронной системе дополнительных акцизных документов (LIDO)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:LIDO_VAATLEJA",
+    "title": {
+      "et": "Aktsiisisaatedokumentide lisadokumentide elektroonilises süsteemis (LIDO) aktsiisisaatedokumentide lisadokumentide vaatamine",
+      "en": "Viewing supplementary accompanying documents of excise duty in the Electronic System of Supplementary Accompanying Documents of Excise Duty (LIDO)",
+      "ru": "Просмотр дополнительных акцизных документов в электронной системе дополнительных акцизных документов (LIDO)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:LOAD",
+    "title": {
+      "et": "Lubade haldamine",
+      "en": "Administering licences",
+      "ru": "Управление разрешениями"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-MAAMAKS",
+    "title": {
+      "et": "Maamaks",
+      "en": "Land tax",
+      "ru": "Земельный налог"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:A-ARUANNETE-KASUTAJA",
+    "title": {
+      "et": "Maksumärkide infosüsteemis (MAIS) alkoholi maksumärkide aruannete koostamine",
+      "en": "Compiling alcohol revenue stamp reports in the Revenue Stamps Information System (MAIS)",
+      "ru": "Составление отчётов о налоговых марках алкоголя в инфосистеме налоговых марок (MAIS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:A-ESITAJA",
+    "title": {
+      "et": "Maksumärkide infosüsteemis (MAIS) alkoholi maksumärkide dokumentide haldamine ja aruannete koostamine",
+      "en": "Administering alcohol revenue stamp documents and compilingreports in the Revenue Stamps Information System (MAIS)",
+      "ru": "Управление документами и составление отчётов о налоговых марках на алкоголь в инфосистеме налоговых марок (MAIS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:A-VAATLEJA",
+    "title": {
+      "et": "Maksumärkide infosüsteemis (MAIS) alkoholi maksumärkide dokumentide vaatamine ja esitamine",
+      "en": "Viewingand submittingalcohol revenue stamp documents in the Revenue Stamps Information System (MAIS)",
+      "ru": "Просмотри предоставлениедокументов об алкогольных налоговых марках в инфосистеме налоговых марок (MAIS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MAIS-M",
+    "title": {
+      "et": "Alkoholi ja tubaka maksumärkide vastuvõtmine",
+      "en": "Receive alcohol and tobacco revenue stamps",
+      "ru": "Получение налоговых марок на алкоголь и табак"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MAISTV",
+    "title": {
+      "et": "Tubaka maksumärkide rakenduse vaatamine",
+      "en": "View the electronic application of tobacco revenue stamps",
+      "ru": "Просмотр приложения налоговых марок на табачные изделия"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:T-ARUANNETE-KASUTAJA",
+    "title": {
+      "et": "Maksumärkide infosüsteemis (MAIS) tubaka maksumärkide aruannete koostamine",
+      "en": "Compiling tobacco revenue stamp reports in the Revenue Stamps Information System (MAIS)",
+      "ru": "Составление отчётов о табачных налоговых марках в инфосистеме налоговых марок (MAIS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:T-ESITAJA",
+    "title": {
+      "et": "Maksumärkide infosüsteemis (MAIS) tubaka maksumärkide dokumentide haldamine ja aruannete koostamine",
+      "en": "Administering tobacco revenue stamp documents and compilingreports in the Revenue Stamps Information System (MAIS)",
+      "ru": "Управление документами и составление отчётов о налоговых марках на табакв инфосистеме налоговых марок(MAIS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:T-VAATLEJA",
+    "title": {
+      "et": "Maksumärkide infosüsteemis (MAIS) tubaka maksumärkide dokumentide vaatamine ja esitamine",
+      "en": "Viewingand submittingdocuments of tobacco revenue stamps in the Revenue Stamps Information System (MAIS)",
+      "ru": "Просмотри предоставлениедокументов о табачных налоговых марок в инфосистеме налоговых марок (MAIS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MIRROR_ADMIN",
+    "title": {
+      "et": "Hinnangute teenuse peakasutaja",
+      "en": "Main user of the service of ratings",
+      "ru": "Право основного пользователя услуги рейтинг"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MIRROR_ANALYST",
+    "title": {
+      "et": "Hinnangute teenuse kasutamine",
+      "en": "Using the service of ratings",
+      "ru": "Использование услуги рейтинга"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MIRROR_TAX_COMPLIANCE",
+    "title": {
+      "et": "Hinnangute teenuse maksukuulekuse hinnangu vaatamine",
+      "en": "Using the service of ratings to view tax compliance rating",
+      "ru": "Просмотр оценки налоговой дисциплины в услуге рейтинг"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MIRROR_TAX_RISK",
+    "title": {
+      "et": "Hinnangute teenuse maksuasjade korrasoleku hinnangu vaatamine",
+      "en": "Using the service of ratings to view tax behaviour adequacy rating",
+      "ru": "Просмотр оценки состояния налоговых дел в услуге рейтинг "
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MIRROR_USER",
+    "title": {
+      "et": "Hinnangute teenuse kasutamine õiguseta vaadata esindatava ettevõtte hinnanguid",
+      "en": "Using the service of ratings without the permission to view the ratings of represented company",
+      "ru": "Право использования услуги рейтинга без права просмотра оценок представляемого"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MIRROR_VIEW_COMPLIANCE",
+    "title": {
+      "et": "Jagatud maksukuulekuse hinnangu vaatamine (õigus teise ettevõtte esindajale, FIEle või eraisikule)",
+      "en": "Viewing shared tax compliance rating (permission for a representative of another company, sole proprietor, private person)",
+      "ru": "Просмотр предоставленной оценки соблюдения налоговой дисциплины (право для представителя другого предприятия, предпринимателя - физического лица или частного лица)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MIRROR_VIEW_RISK",
+    "title": {
+      "et": "Jagatud maksuasjade korrasoleku hinnangu vaatamine (õigus teise ettevõtte esindajale, FIEle või eraisikule)",
+      "en": "Viewing shared tax behaviour adequacy rating (permission for a representative of another company, sole proprietor, private person)",
+      "ru": "Просмотр предоставленной оценки состояния налоговых дел (право для представителя другого предприятия, предпринимателя - физического лица или частного лица)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MOSS_APPACCESS",
+    "title": {
+      "et": "Elektroonilise side teenuste ja elektrooniliste teenuste käibemaksuga maksustamise erikorra (MOSS) avalduste haldamine",
+      "en": "Administering applications of the special arrangements for imposing value added tax on electronic communications service and electronically supplied service (MOSS)",
+      "ru": "Управление заявлениями по налогооблажению налогом с оборота услуг электронной связи и электронных услуг по особому порядку (MOSS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M-RASKEVEDU",
+    "title": {
+      "et": "Raskeveokimaks",
+      "en": "Heavy goods vehicles tax",
+      "ru": "Налог на тяжеловесные транспортные средства"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MRR_USER_R",
+    "title": {
+      "et": "Residentsuse määramise avalduse (vorm R) esitamine",
+      "en": "Submission of an application for determination of residency (form R)",
+      "ru": "Подача заявления о назначении резидентства (форма R)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:MRR_USER_R3",
+    "title": {
+      "et": "Mitteresidendi registreerimise avalduse (vorm R3) esitamine",
+      "en": "Submission of an application for registration of a non-resident (form R3)",
+      "ru": "Подача заявления о регистрации нерезидента (форма R3)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NCTS_DEKLARATSIOONI_ESITAJA",
+    "title": {
+      "et": "Transiidi andmevahetuse süsteemis (NCTS) transiidi- ja TIR-veo deklaratsioonide haldamine ja registreeritud tagatiste vaatamine",
+      "en": "Administering transit declarations and TIR Carnets and viewing registered guarantees in the Transit Data Exchange System (NCTS)",
+      "ru": "Управление транзитными и транспортными декларациями МДП и просмотр зарегистрированных гарантий в системе обмена данными о транзите (NCTS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NCTS_JUHI_ARUANNE",
+    "title": {
+      "et": "Transiidi andmevahetuse süsteemis (NCTS) juhi aruannete koostamine ja vaatamine",
+      "en": "Compiling and viewing director's reports in the Transit Data Exchange System (NCTS)",
+      "ru": "Составление и просмотр отчётов руководителя в в системе обмена данными о транзите (NCTS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NCTS_TAGATISTE_HALDUR",
+    "title": {
+      "et": "Transiidi andmevahetuse süsteemis (NCTS) tagatiste haldamine",
+      "en": "Administering guarantees in the Transit Data Exchange System (NCTS)",
+      "ru": "Управление гарантиямив системе обмена данными о транзите (NCTS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NCTS_VAATLEJA",
+    "title": {
+      "et": "Transiidi andmevahetuse süsteemis (NCTS) transiidideklaratsioonide ja registreeritud tagatiste vaatamine",
+      "en": "Viewing transit declarations and registered guarantees in the Transit Data Exchange System (NCTS)",
+      "ru": "Просмотр транзитных деклараций и зарегистрированных гарантий в системе обмена данными о транзите (NCTS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NCTS_VOLITATUD_SAAJA",
+    "title": {
+      "et": "Transiidi andmevahetuse süsteemis (NCTS) volitatud kaubasaajana transiidideklaratsioonide haldamine ning saabumis- ja mahalaadimisteadete vaatamine",
+      "en": "Administering transit declarations as authorised consignee and viewing notices of arrival and unloading  in the Transit Data Exchange System (NCTS)",
+      "ru": "Просмотр транзитных деклараций, а также уведомлений о прибытии и разгрузке в роли уполномоченного грузополучателя в системе обмена данными о транзите (NCTS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NCTS_VOLITATUD_SAATJA",
+    "title": {
+      "et": "Transiidi andmevahetuse süsteemis (NCTS) volitatud kaubasaatjana transiidideklaratsioonide haldamine ning registreeritud tagatiste vaatamine",
+      "en": "Administering transit declarations and viewing registered guarantees as authorised consignor in the Transit Data Exchange System (NCTS)",
+      "ru": "Управление транзитными декларациями, а также просмотр зарегистрированных гарантий в роли уполномоченного грузопоотправителя в системе обмена данными о транзите (NCTS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NES_DECLARANT",
+    "title": {
+      "et": "Sisenemisformaalsused (NES) – andmete esitaja",
+      "en": "Entry formalities (NES) – declarant",
+      "ru": "Формальности ввоза (NES) – предоставление данных"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NES_FOLLOWING_OPERATION",
+    "title": {
+      "et": "Sisenemisformaalsused (NES) – järgmise toimingu lisaja",
+      "en": "Entry formalities (NES) – one to add following operation",
+      "ru": " Формальности ввоза (NES) – добавление следующего действия"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NES_REUSE_DATA",
+    "title": {
+      "et": "Tollile esitatud andmete taaskasutamise õigus",
+      "en": "Permission for re-use of data provided to customs",
+      "ru": "Право на повторное использование предоставленных таможне данных"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NES_TERMINAL",
+    "title": {
+      "et": "Sisenemisformaalsused (NES) - laopidaja",
+      "en": "Entry formalities (NES) - warehousekeeper",
+      "ru": "Формальности ввоза (NES) - держатель склада"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:NES_VIEW",
+    "title": {
+      "et": "Sisenemisformaalsused (NES) - vaataja",
+      "en": "Entry formalities (NES) - viewer",
+      "ru": "Формальности ввоза (NES) - просмотр"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:OSS_CLIENT_EDIT",
+    "title": {
+      "et": "E-kaubanduse ja teenuste erikordade (OSS/IOSS) avalduste ja deklaratsioonide haldamine ",
+      "en": "Managing applications for and declarations of special schemes for e-commerce and services (OSS/IOSS)",
+      "ru": "Управление ходатайствами и декларациями в системах особого порядка э-торговли и услуг (OSS/IOSS) "
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:OSS_CLIENT_VIEW",
+    "title": {
+      "et": "E-kaubanduse ja teenuste erikordade (OSS/IOSS) avalduste ja deklaratsioonide vaatamine",
+      "en": "Viewing applications for and declarations of special schemes for e-commerce and services (OSS/IOSS)",
+      "ru": "Просмотр ходатайств и деклараций в системах особого порядка э-торговли и услуг (OSS/IOSS) "
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:P_EXTERNAL_AUTHORITY_MANAGER",
+    "title": {
+      "et": "Juriidilise isiku esindaja õigus esindatava isiku rakenduste kasutamise õiguste haldamiseks antud volituse piires",
+      "en": "The right of the representative of the legal person to administer the user rights of applications of representative within the limits of given authorisations",
+      "ru": "Право представителя юридического лица по управлению правами другого юридического лица по использованию приложений в рамках данной доверенности"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:P_EXTERNAL_USER",
+    "title": {
+      "et": "Isiku õigus vaadata talle antud rakenduste kasutamise õigusi",
+      "en": "The right of the person to view rights for using applications given to this person",
+      "ru": "Право лица для просмотра данных ему прав по приложениям"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:P_EXTERNAL_USER_MANAGER",
+    "title": {
+      "et": "Isiku esindaja õigus rakenduste kasutamise õiguste haldamiseks",
+      "en": "The right of the representative of a person to administer the user rights of applications",
+      "ru": "Право представителя по управлению правами использoвания приложений"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:E",
+    "title": {
+      "et": "EL käibemaksu tagastustaotluse esitamine",
+      "en": "Submit EU value added tax refund applications",
+      "ru": "Подача ходатайства о возврате налога с оборота ЕС"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:PAS_BUSINESS",
+    "title": {
+      "et": "Arvestuse rakenduse kasutamine",
+      "en": "Using accounting application",
+      "ru": "Использование приложения учёта"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:PAS_PRIVATE",
+    "title": {
+      "et": "Arvestuse rakenduse kasutamine",
+      "en": "Using accounting application",
+      "ru": "Использование приложения учёта"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TAG_TAOTLUSED",
+    "title": {
+      "et": "Tagastus- ja ümberkandetaotluste esitamine",
+      "en": "Submitting of applications for the refund and transfer of overpaid amounts",
+      "ru": "Подача ходатайства о возврате и взаимозачёте"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TEK",
+    "title": {
+      "et": "Tolli ettemaksukonto kasutamine",
+      "en": "Use customs prepayment account",
+      "ru": "Использование счета таможенной предоплаты"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:REKLAAMIMAKS_KLIENT",
+    "title": {
+      "et": "Reklaamimaksu deklaratsiooni esitamine",
+      "en": "Submitting advertisement tax returns",
+      "ru": "Подача декларации по налогу на рекламу"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:REPORTING_CUSTOMER",
+    "title": {
+      "et": "Andmete päringu rakenduse (REPORTING) kasutamine",
+      "en": "Using the data query (REPORTING) application",
+      "ru": "Использование приложения запроса данных (REPORTING)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:STATISTIKAAMET_SA01_MALL",
+    "title": {
+      "et": "Impordi andmed Statistikaametile (aruanne SA01)",
+      "en": "Import data for Statistics Estonia (report SA01)",
+      "ru": "Данные об импорте для Департамента статистики (отчёт SA01)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.REXSTP_CONSULTATIVE",
+    "title": {
+      "et": "Registreeritud eksportija (REX) süsteemis teabe vaatamine",
+      "en": "Viewing information in the Registered Exporter (REX) system",
+      "ru": "Просмотр информации в системе зарегистрированного экспортера (Rex)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.REXSTP_EXECUTIVE",
+    "title": {
+      "et": "Registreeritud eksportija (REX) süsteemis taotluse sisestamine ja esitamine ning teabe vaatamine",
+      "en": "Entering and submitting applications and viewing information in the Registered Exporter (REX) system",
+      "ru": "Ввод и подача ходатайства и просмотр информации в системе зарегистрированного экспортера (Rex)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:SADHES_LAHETAJA",
+    "title": {
+      "et": "Siseriiklikus aktsiisisaatedokumentide haldamise elektroonilises süsteemis (SADHES) aktsiisisaatedokumentide lähetamine",
+      "en": "Dispatching accompanying documents of excise duty in the National Electronic System for Administering Excise Duty Documents (SADHES)",
+      "ru": "Отправление накладных подакцизных товаров во внутригосударственной системе администрирования накладных подакцизных товаров (SADHES)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:SADHES_PIIRATUD_OIGUSTEGA_LAHETAJA",
+    "title": {
+      "et": "Siseriiklikus aktsiisisaatedokumentide haldamise elektroonilises süsteemis (SADHES) aktsiisisaatedokumentide piiratud lähetamine",
+      "en": "Limited dispatchingof accompanying documents of excise duty in the National Electronic System for Administering Excise Duty Documents (SADHES)",
+      "ru": "Ограниченное отправление накладных подакцизных товаров во внутригосударственной системе администрирования накладных подакцизных товаров (SADHES)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:SADHES_PIIRATUD_OIGUSTEGA_VASTUVOTJA",
+    "title": {
+      "et": "Siseriiklikus aktsiisisaatedokumentide haldamise elektroonilises süsteemis (SADHES) aktsiisisaatedokumentide vastuvõtuteadete piiratud haldamine",
+      "en": "Limited administering of acceptance notices of accompanying documents of excise duty in the National Electronic System for Administering Excise Duty Documents (SADHES)",
+      "ru": "Ограниченное управление уведомлениями о приёме накладных подакцизных товаров во внутригосударственной системе администрирования накладных подакцизных товаров (SADHES)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:SADHES_VAATLEJA",
+    "title": {
+      "et": "Siseriiklikus aktsiisisaatedokumentide haldamise elektroonilises süsteemis (SADHES) aktsiisisaatedokumentide vaatamine ja aruannete koostamine",
+      "en": "Viewing accompanying documents of excise duty and compiling reports in the National Electronic System for Administering Excise Duty Documents (SADHES)",
+      "ru": "Просмотр накладных подакцизных товаров и составление отчётов во внутригосударственной системе администрирования накладных подакцизных товаров (SADHES)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:SADHES_VASTUVOTJA",
+    "title": {
+      "et": "Siseriiklikus aktsiisisaatedokumentide haldamise elektroonilises süsteemis (SADHES) ettevõtte aktsiisisaatedokumentide vastuvõtuteadete haldamine",
+      "en": "Administering of acceptance notices of accompanying documents of excise duty in the National Electronic System for Administering Excise Duty Documents (SADHES)",
+      "ru": "Управлениеуведомлениями о приёме накладных подакцизных товаров предприятия во внутригосударственной системе администрирования накладных подакцизных товаров (SADHES)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:SULARAHA_KLIENT",
+    "title": {
+      "et": "Sularaha deklaratsioonide haldamine",
+      "en": "Administering cash declarations",
+      "ru": "Управление декларациями наличных денег"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:SMARTDECL_KLIENT",
+    "title": {
+      "et": "Postipaki deklaratsioonide haldamine",
+      "en": "Administering declarations of postal and courier parcels",
+      "ru": "Управление декларациями почтовых посылок"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TERM_LADUSTAJA",
+    "title": {
+      "et": "Ladustamisteadete töötlemise süsteemis (TERM) kauba ladustaja",
+      "en": "Goods Depositor in the Storage Notification Processing System (TERM)",
+      "ru": "Лицо, складирующеe товар, в системе обработки уведомлений о хранении (TERM)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TERM_TERMINALIPIDAJA",
+    "title": {
+      "et": "Ladustamisteadete töötlemise süsteemis (TERM) terminalipidaja",
+      "en": "Terminal keeper in the Storage Notification Processing System (TERM)",
+      "ru": "Держатель терминала в системе обработки уведомлений о хранении (TERM)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:M_TOEND_CLIENT",
+    "title": {
+      "et": "Saldoteatis, võlatõend ja maksuvõla puudumise tõend",
+      "en": "Balance statement, Certificate of arrears and Certificate on absence of tax arrears",
+      "ru": "Сальдо извещение, справка о задолженности и справка об отсутствии налоговой задолженности"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_DIV",
+    "title": {
+      "et": "Maksuandmete tõendi dividendide osa koostamine",
+      "en": "Compiling the dividend section of the taxation data certificate",
+      "ru": "Составление налоговой справки по данным о дивидендах"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_ERHT",
+    "title": {
+      "et": "Keskmise töötasu tõendi koostamine ehitusettevõtetele",
+      "en": "Compiling the certificate of average earned income for construction companies",
+      "ru": "Составление справки о средней зарплате для строительных предприятий"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_EVK",
+    "title": {
+      "et": "Maksuandmete tõendi EVK osa",
+      "en": "Taxation data certificate, amounts received on entrepreneur account",
+      "ru": "Справка о налоговых данных, поступления на предпринимательский счёт"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_FIDEK",
+    "title": {
+      "et": "Maksuandmete tõendi tuludeklaratsiooni (FIDEK) osa koostamine",
+      "en": "Compiling the income tax return section of the taxation data certificate",
+      "ru": "Составление налоговой справки по данным декларации о доходах"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_KMD",
+    "title": {
+      "et": "Maksuandmete tõendi käibedeklaratsiooni (KMD) osa koostamine",
+      "en": "Compiling the value added tax return (form KMD) section of the taxation data certificate",
+      "ru": "Составление налоговой справки по данным декларации об обороте (KMD)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_TOR",
+    "title": {
+      "et": "Maksuandmete tõendi töötamise registri (TÖR) osa koostamine",
+      "en": "Compiling the Employment Register (TÖR) section of the taxation data certificate",
+      "ru": "Составление налоговой справки по данным регистра работы (TÖR)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_TSD",
+    "title": {
+      "et": "Maksuandmete tõendi väljamaksete andmete (TSD) osa koostamine",
+      "en": "Compiling the payment data (form TSD) section of the taxation data certificate",
+      "ru": "Составление налоговой справки по данным выплат по (TSD)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_TSD-F",
+    "title": {
+      "et": "Maksuandmete tõendi TSD-F osa",
+      "en": "Form TSD-F section of the taxation data certificate",
+      "ru": "Налоговая справка по данным части TSD-F"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_TSD-F-P",
+    "title": {
+      "et": "Maksuandmete tõendi TSD-F-P osa",
+      "en": "Form TSD-F-P section of the taxation data certificate",
+      "ru": "Налоговая справка по данным части TSD-F-P"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_VD",
+    "title": {
+      "et": "Maksuandmete tõendi ühendusesisese käibe (VD) osa koostamine",
+      "en": "Compiling the intra-Community supply (VD) section of the taxation data certificate",
+      "ru": "Составление налоговой справки по данным отчёта об обороте внутри Сообщества (VD)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOEND_VOL",
+    "title": {
+      "et": "Maksuandmete tõendi võla osa koostamine",
+      "en": "Compiling the tax arrears section of the taxation data certificate",
+      "ru": "Составление налоговой справки по данным задолженности"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOTS2_KOIKOIGUSED",
+    "title": {
+      "et": "Tollikontrollide infosüsteemi kasutamine",
+      "en": "Using the Information System of Customs Controls",
+      "ru": "Использование инфосистемы таможенных проверок "
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TSD123_PIIRATUD",
+    "title": {
+      "et": "Tulu- ja sotsiaalmaksu, kohustusliku kogumispensioni makse ja töötuskindlustusmakse deklaratsiooni (TSD) piiratud esitamine (ligipääs puudub lisadele 1, 2 ja INF1)",
+      "en": "Limited submission of declaration of income and social tax, unemployment insurance premiums and contributions to mandatory funded pension (form TSD). No access to annexes 1, 2 and INF1",
+      "ru": "Ограниченная подача декларации по подоходному и социальному налогам, платежу по обязательной накопительной пенсии и платежу по страхованию от безработицы ((TSD) отсутствует доступ к приложениям 1, 2, и INF1)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TSD123_VAATAMINE",
+    "title": {
+      "et": "Tulu- ja sotsiaalmaksu, kohustusliku kogumispensioni makse ja töötuskindlustusmakse deklaratsiooni (TSD) piiratud esitamine ja lisade 1, 2 ja INF1 vaatamine",
+      "en": "Limited submission of declaration of income and social tax, unemployment insurance premiums and contributions to mandatory funded pension (form TSD) and viewing of annexes 1, 2 and INF1",
+      "ru": "Ограниченная подача декларации по подоходному и социальному налогам, платежу по обязательной накопительной пенсии и платежу по страхованию от безработицы ((TSD) и просмотр приложений 1, 2, и INF1)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TSD_KOIKLUBATUD",
+    "title": {
+      "et": "Tulu- ja sotsiaalmaksu, kohustusliku kogumispensioni makse ja töötuskindlustusmakse deklaratsiooni (TSD) esitamine",
+      "en": "Submitting the declaration of income and social tax, unemployment insurance premiums and contributions to mandatory funded pension (form TSD)",
+      "ru": "Подача декларации по подоходному и социальному налогам, платежу по обязательной накопительной пенсии и платежу по страхованию от безработицы (TSD)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TSD_KOIKLUBATUD_FIS",
+    "title": {
+      "et": "Tulu- ja sotsiaalmaksu, kohustusliku kogumispensioni makse ja töötuskindlustusmakse deklaratsiooni (TSD) esitamine füüsilise isikuna",
+      "en": "Submitting the declaration of income and social tax, unemployment insurance premiums and contributions to mandatory funded pension (form TSD) as a natural person",
+      "ru": "Подача декларации по подоходному и социальному налогам, платежу по обязательной накопительной пенсии и платежу по страхованию от безработицы (TSD) физическим лицом"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TSD_PIIRATUD",
+    "title": {
+      "et": "Tulu- ja sotsiaalmaksu, kohustusliku kogumispensioni makse ja töötuskindlustusmakse deklaratsioonile (TSD) ligipääs keelatud",
+      "en": "Access denied to the declaration of income and social tax, unemployment insurance premiums and contributions to mandatory funded pension (form TSD)",
+      "ru": "Доступ к декларации по подоходному и социальному налогам, платежу по обязательной накопительной пенсии и платежу по страхованию от безработицы (TSD) запрещён"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TSD_VAATAMINE",
+    "title": {
+      "et": "Tulu- ja sotsiaalmaksu, kohustusliku kogumispensioni makse ja töötuskindlustusmakse deklaratsiooni (TSD) vaatamine",
+      "en": "Viewing the declaration of income and social tax, unemployment insurance premiums and contributions to mandatory funded pension (form TSD)",
+      "ru": "Просмотр декларации по подоходному и социальному налогам, платежу по обязательной накопительной пенсии и платежу по страхованию от безработицы (TSD) физическим лицом"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TTK",
+    "title": {
+      "et": "Tolli tagatiste konto kasutamine",
+      "en": "Use customs securities account",
+      "ru": "Использование таможенного депозитного счета"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOR_KLIENT_MUUTJA",
+    "title": {
+      "et": "Töötamise registris (TÖR) andmete muutmine",
+      "en": "Changing data in the Employment Register (TÖR)",
+      "ru": "Изменение данных в регистре работы (TÖR)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOR_KLIENT_MUUTJA_FIS",
+    "title": {
+      "et": "Töötamise registris (TÖR) andmete muutmine füüsilise isikuna",
+      "en": "Changing data in the Employment Register (TÖR) as a natural person",
+      "ru": "Изменение данных физическим лицом в регистре работы (TÖR)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:TOR_KLIENT_VAATAJA",
+    "title": {
+      "et": "Töötamise registris (TÖR) andmete vaatamine",
+      "en": "Viewing data in the Employment Register (TÖR)",
+      "ru": "Просмотр данных в регистре работы (TÖR)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.BP_DELEGATE",
+    "title": {
+      "et": "UUM&DS kesksüsteemis ettevõtjana saadud piiriüleste esindusõiguste haldamine",
+      "en": "Managing cross-border delegations in the UUM & DS central system as an economic operator",
+      "ru": "Управление трансграничными представительскими правами в центральной системе UUM&DS в качестве предпринимателя"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.BP_DELEGATOR",
+    "title": {
+      "et": "UUM&DS kesksüsteemis ettevõtjana piiriülese esindaja määramine",
+      "en": "Assigning a cross-border delegation in the UUM & DS central system as an economic operator",
+      "ru": "Назначение трансграничного представителя в центральной системе UUM&DS в качестве предпринимателя"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.BP_EDITOR",
+    "title": {
+      "et": "Profiilide muutmine EL testrakenduses (Sample CS)",
+      "en": "Profile for editing business profiles in Sample CS",
+      "ru": "Изменение профилей в тестовом приложении ЕС (Sample CS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.BP_MANAGE",
+    "title": {
+      "et": "UUM&DS sertifikaatide haldamine EL kesksüsteemis",
+      "en": "UUM&DS Certificate Management profile",
+      "ru": "Управление сертификатами UUM&DS в центральной системе ЕС"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.BP_MANDATE",
+    "title": {
+      "et": "UUM&DS kesksüsteemis ettevõtja esindajana saadud piiriüleste esindusõiguste haldamine",
+      "en": "Managing cross-border delegations in the UUM & DS central system as an employee",
+      "ru": "Управление трансграничными представительными правами в центральной системе UUM&DS в качестве представителя предпринимателя"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:UUMDS.BP_VIEWER",
+    "title": {
+      "et": "Profiilide vaatamine EL testrakenduses (Sample CS)",
+      "en": "Profile for viewing business profiles in Sample CS",
+      "ru": "Просмотр профилей в тестовом приложении ЕС (Sample CS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:VAT_REF",
+    "title": {
+      "et": "ELi käibemaksu tagastustaotluste volitused",
+      "en": "Powers of attorney for EU value added tax refund applications",
+      "ru": "Доверенности для ходатайства о возврате налога с оборота ЕС"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:VDS_BIO_CLIENT",
+    "title": {
+      "et": "VDS-süsteemis biokütuse aruannete haldamine",
+      "en": "Management of biofuel reports in VDS",
+      "ru": "Управление отчетами о биотопливе в системе VDS"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:VDS_CLIENT_ISSUER",
+    "title": {
+      "et": "Kütuse vastavusdokumendi (VDS) väljastamine",
+      "en": "Issuing fuel conformity document (VDS)",
+      "ru": "Выдача документов соответствия топлива (VDS)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:VDS_CLIENT_OWNER",
+    "title": {
+      "et": "Kütuse omanik või vastavusdokumendi tellija",
+      "en": "Fuel owner or person ordering the conformity document",
+      "ru": "Владелец топлива или заказчик документа соответствия"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:VDS_CLIENT_STOCKER",
+    "title": {
+      "et": "Kütuse laopidaja",
+      "en": "Fuel warehouse keeper",
+      "ru": "Держатель склада топлива"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:VD_VDP_ESITAMINE",
+    "title": {
+      "et": "Ühendusesisese käibe aruande (VD) ja ühendusesisese käibe muutmise aruande (VDP) esitamine",
+      "en": "Submitting the report on intra-Community supply (VD) and report on the amendment of intra-Community supply (VDP)",
+      "ru": "Подача отчёта об обороте внутри Сообщества (VD) и отчёта об изменении оборота внутри Сообщества (VDP)"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:VIES_KAIVE",
+    "title": {
+      "et": "Ühendusesisese käibe andmete päring",
+      "en": "Intra-Community supply data inquiry",
+      "ru": "Запрос данных о внутрисоюзном обороте"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": true,
+    "delegateType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:XT_MM_KMD",
+    "title": {
+      "et": "Käibedeklaratsiooni (KMD) andmete saatmine masin-masin liidese vahendusel",
+      "en": "Sending value added tax return (form KMD) data by machine-to-machine interface",
+      "ru": "Отправка деклараций об обороте (KMD) посредством интерфейса машина-машина "
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
+  },
+  {
+    "code": "EMTA:XT_MM_TOR",
+    "title": {
+      "et": "Töötamise registri (TÖR) andmete saatmine masin-masin liidese vahendusel",
+      "en": "Sending Employment Register (TÖR) data by machine-to-machine interface",
+      "ru": "Отправка данных регистра работы (TÖR) посредством машина-машина интерфейса"
+    },
+    "addableBy": [
+      "EMTA:A-JI"
+    ],
+    "canSubDelegate": false,
+    "delegateType": [
+      "LEGAL_PERSON"
+    ],
+    "representeeType": [
+      "LEGAL_PERSON"
+    ],
+    "waivableBy": [
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "withdrawableBy": [
+      "EMTA:A-JI"
+    ],
+    "assignableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableBy": [
+      "EMTA:A-JI"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
   }
 ]

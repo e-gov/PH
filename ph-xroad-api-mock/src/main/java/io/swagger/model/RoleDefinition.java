@@ -23,7 +23,7 @@ import javax.validation.constraints.*;
  * RoleDefinition
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-04-05T11:46:16.611771420Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:54:25.236828535Z[GMT]")
 @Builder
 @ToString
 @EqualsAndHashCode
@@ -34,14 +34,73 @@ public class RoleDefinition   {
   @JsonProperty("title")
   private Translation title = null;
 
-  @JsonProperty("description")
-  private Translation description = null;
+  @JsonProperty("addableBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> addableBy = null;
 
-  @JsonProperty("modified")
-  private OffsetDateTime modified = null;
+  @JsonProperty("addableOnlyIfRepresenteeHasRoleIn")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> addableOnlyIfRepresenteeHasRoleIn = null;
+
+  @JsonProperty("addingMustBeSigned")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean addingMustBeSigned = null;
 
   @JsonProperty("canSubDelegate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean canSubDelegate = null;
+
+  /**
+   * Gets or Sets delegateType
+   */
+  public enum DelegateTypeEnum {
+    LEGAL_PERSON("LEGAL_PERSON"),
+    
+    NATURAL_PERSON("NATURAL_PERSON");
+
+    private String value;
+
+    DelegateTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static DelegateTypeEnum fromValue(String text) {
+      for (DelegateTypeEnum b : DelegateTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+  @JsonProperty("delegateType")
+  @Valid
+  private List<DelegateTypeEnum> delegateType = new ArrayList<DelegateTypeEnum>();
+
+  @JsonProperty("delegateCanEqualToRepresentee")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean delegateCanEqualToRepresentee = null;
+
+  @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Translation description = null;
+
+  @JsonProperty("hidden")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean hidden = null;
+
+  @JsonProperty("modified")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private OffsetDateTime modified = null;
 
   /**
    * Gets or Sets representeeType
@@ -76,21 +135,20 @@ public class RoleDefinition   {
     }
   }
   @JsonProperty("representeeType")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   @Valid
-  private List<RepresenteeTypeEnum> representeeType = null;
+  private List<RepresenteeTypeEnum> representeeType = new ArrayList<RepresenteeTypeEnum>();
 
   /**
-   * Gets or Sets delegateType
+   * Gets or Sets subDelegateType
    */
-  public enum DelegateTypeEnum {
+  public enum SubDelegateTypeEnum {
     LEGAL_PERSON("LEGAL_PERSON"),
     
     NATURAL_PERSON("NATURAL_PERSON");
 
     private String value;
 
-    DelegateTypeEnum(String value) {
+    SubDelegateTypeEnum(String value) {
       this.value = value;
     }
 
@@ -101,8 +159,8 @@ public class RoleDefinition   {
     }
 
     @JsonCreator
-    public static DelegateTypeEnum fromValue(String text) {
-      for (DelegateTypeEnum b : DelegateTypeEnum.values()) {
+    public static SubDelegateTypeEnum fromValue(String text) {
+      for (SubDelegateTypeEnum b : SubDelegateTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -110,15 +168,43 @@ public class RoleDefinition   {
       return null;
     }
   }
-  @JsonProperty("delegateType")
+  @JsonProperty("subDelegateType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   @Valid
-  private List<DelegateTypeEnum> delegateType = null;
+  private List<SubDelegateTypeEnum> subDelegateType = null;
+
+  @JsonProperty("subDelegableBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> subDelegableBy = null;
+
+  @JsonProperty("waivableBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> waivableBy = null;
+
+  @JsonProperty("waivingMustBeSigned")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean waivingMustBeSigned = null;
+
+  @JsonProperty("withdrawableBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> withdrawableBy = null;
+
+  @JsonProperty("withdrawalMustBeSigned")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean withdrawalMustBeSigned = null;
 
   @JsonProperty("assignableBy")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   @Valid
   private List<String> assignableBy = null;
+
+  @JsonProperty("assignableOnlyIfRepresenteeHasRoleIn")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  @Valid
+  private List<String> assignableOnlyIfRepresenteeHasRoleIn = null;
 
   @JsonProperty("deletableBy")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -132,16 +218,6 @@ public class RoleDefinition   {
   @JsonProperty("visible")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean visible = null;
-
-  @JsonProperty("canAssignIfHasRoleAndOneOf")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  @Valid
-  private List<String> canAssignIfHasRoleAndOneOf = null;
-
-  @JsonProperty("canDeleteIfHasRoleAndOneOf")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  @Valid
-  private List<String> canDeleteIfHasRoleAndOneOf = null;
 
   public RoleDefinition code(String code) {
     this.code = code;
@@ -184,6 +260,142 @@ public class RoleDefinition   {
     this.title = title;
   }
 
+  public RoleDefinition addableBy(List<String> addableBy) {
+    this.addableBy = addableBy;
+    return this;
+  }
+
+  public RoleDefinition addAddableByItem(String addableByItem) {
+    if (this.addableBy == null) {
+      this.addableBy = new ArrayList<String>();
+    }
+    this.addableBy.add(addableByItem);
+    return this;
+  }
+
+  /**
+   * In order to add a mandate with this role the user representing the representee must have a valid mandate with a role in this list. If the value is empty or null, this role cannot be assigned from Pääsuke. If the role is configured so that representeeType has the value NATURAL_PERSON in it then add \"NAT_REPRIGHT:SOLEREP\" to this list - this value indicates that a natural person (as a representee) is allowed to add a mandate with this role if the natural person adding the mandate has the right to represent oneself (kui volituse andja teovõime ei ole piiratud).
+   * @return addableBy
+   **/
+  @Schema(example = "[\"BR_REPRIGHT:SOLEREP\",\"EMTA:I\"]", description = "In order to add a mandate with this role the user representing the representee must have a valid mandate with a role in this list. If the value is empty or null, this role cannot be assigned from Pääsuke. If the role is configured so that representeeType has the value NATURAL_PERSON in it then add \"NAT_REPRIGHT:SOLEREP\" to this list - this value indicates that a natural person (as a representee) is allowed to add a mandate with this role if the natural person adding the mandate has the right to represent oneself (kui volituse andja teovõime ei ole piiratud).")
+  
+    public List<String> getAddableBy() {
+    return addableBy;
+  }
+
+  public void setAddableBy(List<String> addableBy) {
+    this.addableBy = addableBy;
+  }
+
+  public RoleDefinition addableOnlyIfRepresenteeHasRoleIn(List<String> addableOnlyIfRepresenteeHasRoleIn) {
+    this.addableOnlyIfRepresenteeHasRoleIn = addableOnlyIfRepresenteeHasRoleIn;
+    return this;
+  }
+
+  public RoleDefinition addAddableOnlyIfRepresenteeHasRoleInItem(String addableOnlyIfRepresenteeHasRoleInItem) {
+    if (this.addableOnlyIfRepresenteeHasRoleIn == null) {
+      this.addableOnlyIfRepresenteeHasRoleIn = new ArrayList<String>();
+    }
+    this.addableOnlyIfRepresenteeHasRoleIn.add(addableOnlyIfRepresenteeHasRoleInItem);
+    return this;
+  }
+
+  /**
+   * Defining this list is used in rare cases where in order to assign the role, the <u>representee</u> also must have at least one mandate with a role in this list. For example to add some PRIA role the user representing the <u>representee</u> must have a role in the addableBy list and the representee must have the role \"PRIA:PRIA.customer\"
+   * @return addableOnlyIfRepresenteeHasRoleIn
+   **/
+  @Schema(example = "[\"PRIA:PRIA.customer\"]", description = "Defining this list is used in rare cases where in order to assign the role, the <u>representee</u> also must have at least one mandate with a role in this list. For example to add some PRIA role the user representing the <u>representee</u> must have a role in the addableBy list and the representee must have the role \"PRIA:PRIA.customer\"")
+  
+    public List<String> getAddableOnlyIfRepresenteeHasRoleIn() {
+    return addableOnlyIfRepresenteeHasRoleIn;
+  }
+
+  public void setAddableOnlyIfRepresenteeHasRoleIn(List<String> addableOnlyIfRepresenteeHasRoleIn) {
+    this.addableOnlyIfRepresenteeHasRoleIn = addableOnlyIfRepresenteeHasRoleIn;
+  }
+
+  public RoleDefinition addingMustBeSigned(Boolean addingMustBeSigned) {
+    this.addingMustBeSigned = addingMustBeSigned;
+    return this;
+  }
+
+  /**
+   * If this is set as true then the user adding a mandate with this role needs to digitally sign it
+   * @return addingMustBeSigned
+   **/
+  @Schema(description = "If this is set as true then the user adding a mandate with this role needs to digitally sign it")
+  
+    public Boolean isAddingMustBeSigned() {
+    return addingMustBeSigned;
+  }
+
+  public void setAddingMustBeSigned(Boolean addingMustBeSigned) {
+    this.addingMustBeSigned = addingMustBeSigned;
+  }
+
+  public RoleDefinition canSubDelegate(Boolean canSubDelegate) {
+    this.canSubDelegate = canSubDelegate;
+    return this;
+  }
+
+  /**
+   * If this is set as true then a mandate with this role can be added with the right to further sub-delegate it.
+   * @return canSubDelegate
+   **/
+  @Schema(description = "If this is set as true then a mandate with this role can be added with the right to further sub-delegate it.")
+  
+    public Boolean isCanSubDelegate() {
+    return canSubDelegate;
+  }
+
+  public void setCanSubDelegate(Boolean canSubDelegate) {
+    this.canSubDelegate = canSubDelegate;
+  }
+
+  public RoleDefinition delegateType(List<DelegateTypeEnum> delegateType) {
+    this.delegateType = delegateType;
+    return this;
+  }
+
+  public RoleDefinition addDelegateTypeItem(DelegateTypeEnum delegateTypeItem) {
+    this.delegateType.add(delegateTypeItem);
+    return this;
+  }
+
+  /**
+   * Type of persons this role can be assigned to. Setting delegateType only to LEGAL_PERSON is meant to be used for machine-to-machine roles. For example EMTA has a role \"Käibedeklaratsiooni (KMD) andmete saatmine masin-masin liidese vahendusel (kood XT_MM_KMD)\".
+   * @return delegateType
+   **/
+  @Schema(required = true, description = "Type of persons this role can be assigned to. Setting delegateType only to LEGAL_PERSON is meant to be used for machine-to-machine roles. For example EMTA has a role \"Käibedeklaratsiooni (KMD) andmete saatmine masin-masin liidese vahendusel (kood XT_MM_KMD)\".")
+      @NotNull
+
+    public List<DelegateTypeEnum> getDelegateType() {
+    return delegateType;
+  }
+
+  public void setDelegateType(List<DelegateTypeEnum> delegateType) {
+    this.delegateType = delegateType;
+  }
+
+  public RoleDefinition delegateCanEqualToRepresentee(Boolean delegateCanEqualToRepresentee) {
+    this.delegateCanEqualToRepresentee = delegateCanEqualToRepresentee;
+    return this;
+  }
+
+  /**
+   * If this is set to true then in the Pääsuke Admin Portal it is possible to create mandates with this role where the value of the representee equals the value of the delegate. This functionality is used for the eesti.ee RR partner services. These types of roles where representee=delegate can only be added and deleted from the Admin portal (so in eesti.ee they are displayed as read-only).
+   * @return delegateCanEqualToRepresentee
+   **/
+  @Schema(description = "If this is set to true then in the Pääsuke Admin Portal it is possible to create mandates with this role where the value of the representee equals the value of the delegate. This functionality is used for the eesti.ee RR partner services. These types of roles where representee=delegate can only be added and deleted from the Admin portal (so in eesti.ee they are displayed as read-only).")
+  
+    public Boolean isDelegateCanEqualToRepresentee() {
+    return delegateCanEqualToRepresentee;
+  }
+
+  public void setDelegateCanEqualToRepresentee(Boolean delegateCanEqualToRepresentee) {
+    this.delegateCanEqualToRepresentee = delegateCanEqualToRepresentee;
+  }
+
   public RoleDefinition description(Translation description) {
     this.description = description;
     return this;
@@ -204,13 +416,32 @@ public class RoleDefinition   {
     this.description = description;
   }
 
+  public RoleDefinition hidden(Boolean hidden) {
+    this.hidden = hidden;
+    return this;
+  }
+
+  /**
+   * Mandates with hidden roles are not shown in Pääsuke UI. A hidden role is a method to add extra information about the person. For example, we could create a role AA with property addableBy=BB, hidden=false. Now we can create hidden role BB and we can add a mandate with the role BB to persons who are allowed to add role AA. False by default. If hidden is set to true then all of the role properties (except 'code' and 'modified') are ignored.
+   * @return hidden
+   **/
+  @Schema(description = "Mandates with hidden roles are not shown in Pääsuke UI. A hidden role is a method to add extra information about the person. For example, we could create a role AA with property addableBy=BB, hidden=false. Now we can create hidden role BB and we can add a mandate with the role BB to persons who are allowed to add role AA. False by default. If hidden is set to true then all of the role properties (except 'code' and 'modified') are ignored.")
+  
+    public Boolean isHidden() {
+    return hidden;
+  }
+
+  public void setHidden(Boolean hidden) {
+    this.hidden = hidden;
+  }
+
   public RoleDefinition modified(OffsetDateTime modified) {
     this.modified = modified;
     return this;
   }
 
   /**
-   * Last modified
+   * When this role definition was last modified. It is highly recommended to include this value in the response.
    * @return modified
    **/
   @Schema(example = "2022-10-18T13:00+02:00", implementation = OffsetDateTime.class, description = "Last modified")
@@ -224,44 +455,23 @@ public class RoleDefinition   {
     this.modified = modified;
   }
 
-  public RoleDefinition canSubDelegate(Boolean canSubDelegate) {
-    this.canSubDelegate = canSubDelegate;
-    return this;
-  }
-
-  /**
-   * Can this role be given out with the right to sub-delegate it.
-   * @return canSubDelegate
-   **/
-  @Schema(description = "Can this role be given out with the right to sub-delegate it.")
-  
-    public Boolean isCanSubDelegate() {
-    return canSubDelegate;
-  }
-
-  public void setCanSubDelegate(Boolean canSubDelegate) {
-    this.canSubDelegate = canSubDelegate;
-  }
-
   public RoleDefinition representeeType(List<RepresenteeTypeEnum> representeeType) {
     this.representeeType = representeeType;
     return this;
   }
 
   public RoleDefinition addRepresenteeTypeItem(RepresenteeTypeEnum representeeTypeItem) {
-    if (this.representeeType == null) {
-      this.representeeType = new ArrayList<RepresenteeTypeEnum>();
-    }
     this.representeeType.add(representeeTypeItem);
     return this;
   }
 
   /**
-   * What type of representees are allowed to delegate this role. GOVERNMENT_PERSON is a sub-type of a LEGAL_PERSON whose Estonian registry code starts with 7 (state and local government bodies).
+   * Type of representees who can add a mandate with this role. GOVERNMENT_PERSON is a sub-type of LEGAL_PERSON whose Estonian registry code starts with 7. Since LEGAL_PERSON includes GOVERNMENT_PERSON it is never needed to list both types for the same role. Setting representeeType=null could be used for hidden roles.
    * @return representeeType
    **/
-  @Schema(example = "[\"LEGAL_PERSON\",\"NATURAL_PERSON\"]", description = "What type of representees are allowed to delegate this role. GOVERNMENT_PERSON is a sub-type of a LEGAL_PERSON whose Estonian registry code starts with 7 (state and local government bodies).")
-  
+  @Schema(example = "[\"LEGAL_PERSON\",\"NATURAL_PERSON\"]", required = true, description = "Type of representees who can add a mandate with this role. GOVERNMENT_PERSON is a sub-type of LEGAL_PERSON whose Estonian registry code starts with 7. Since LEGAL_PERSON includes GOVERNMENT_PERSON it is never needed to list both types for the same role. Setting representeeType=null could be used for hidden roles.")
+      @NotNull
+
     public List<RepresenteeTypeEnum> getRepresenteeType() {
     return representeeType;
   }
@@ -270,31 +480,150 @@ public class RoleDefinition   {
     this.representeeType = representeeType;
   }
 
-  public RoleDefinition delegateType(List<DelegateTypeEnum> delegateType) {
-    this.delegateType = delegateType;
+  public RoleDefinition subDelegateType(List<SubDelegateTypeEnum> subDelegateType) {
+    this.subDelegateType = subDelegateType;
     return this;
   }
 
-  public RoleDefinition addDelegateTypeItem(DelegateTypeEnum delegateTypeItem) {
-    if (this.delegateType == null) {
-      this.delegateType = new ArrayList<DelegateTypeEnum>();
+  public RoleDefinition addSubDelegateTypeItem(SubDelegateTypeEnum subDelegateTypeItem) {
+    if (this.subDelegateType == null) {
+      this.subDelegateType = new ArrayList<SubDelegateTypeEnum>();
     }
-    this.delegateType.add(delegateTypeItem);
+    this.subDelegateType.add(subDelegateTypeItem);
     return this;
   }
 
   /**
-   * Whom this mandate can be assigned to. If not set then there are no restrictions.
-   * @return delegateType
+   * Type of persons this role can be sub-delegated to. Defaults to NATURAL_PERSON (if canSubDelegate is set as true).
+   * @return subDelegateType
    **/
-  @Schema(description = "Whom this mandate can be assigned to. If not set then there are no restrictions.")
+  @Schema(description = "Type of persons this role can be sub-delegated to. Defaults to NATURAL_PERSON (if canSubDelegate is set as true).")
   
-    public List<DelegateTypeEnum> getDelegateType() {
-    return delegateType;
+    public List<SubDelegateTypeEnum> getSubDelegateType() {
+    return subDelegateType;
   }
 
-  public void setDelegateType(List<DelegateTypeEnum> delegateType) {
-    this.delegateType = delegateType;
+  public void setSubDelegateType(List<SubDelegateTypeEnum> subDelegateType) {
+    this.subDelegateType = subDelegateType;
+  }
+
+  public RoleDefinition subDelegableBy(List<String> subDelegableBy) {
+    this.subDelegableBy = subDelegableBy;
+    return this;
+  }
+
+  public RoleDefinition addSubDelegableByItem(String subDelegableByItem) {
+    if (this.subDelegableBy == null) {
+      this.subDelegableBy = new ArrayList<String>();
+    }
+    this.subDelegableBy.add(subDelegableByItem);
+    return this;
+  }
+
+  /**
+   * In order to add a sub-delegate for a mandate with this role the user representing the delegate must have a valid mandate with a role in this list. Defaults to addableBy.
+   * @return subDelegableBy
+   **/
+  @Schema(example = "[\"BR_REPRIGHT:SOLEREP\",\"EMTA:I\"]", description = "In order to add a sub-delegate for a mandate with this role the user representing the delegate must have a valid mandate with a role in this list. Defaults to addableBy.")
+  
+    public List<String> getSubDelegableBy() {
+    return subDelegableBy;
+  }
+
+  public void setSubDelegableBy(List<String> subDelegableBy) {
+    this.subDelegableBy = subDelegableBy;
+  }
+
+  public RoleDefinition waivableBy(List<String> waivableBy) {
+    this.waivableBy = waivableBy;
+    return this;
+  }
+
+  public RoleDefinition addWaivableByItem(String waivableByItem) {
+    if (this.waivableBy == null) {
+      this.waivableBy = new ArrayList<String>();
+    }
+    this.waivableBy.add(waivableByItem);
+    return this;
+  }
+
+  /**
+   * The user representing the delegate must have a valid mandate with a role in the list to waive this mandate from the delegate side (volitusest loobumine). If this is set to an empty list then this mandate cannot be waived. Defaults to addableBy.
+   * @return waivableBy
+   **/
+  @Schema(example = "[\"BR_REPRIGHT:SOLEREP\",\"NAT_REPRIGHT:SOLEREP\",\"EMTA:I\"]", description = "The user representing the delegate must have a valid mandate with a role in the list to waive this mandate from the delegate side (volitusest loobumine). If this is set to an empty list then this mandate cannot be waived. Defaults to addableBy.")
+  
+    public List<String> getWaivableBy() {
+    return waivableBy;
+  }
+
+  public void setWaivableBy(List<String> waivableBy) {
+    this.waivableBy = waivableBy;
+  }
+
+  public RoleDefinition waivingMustBeSigned(Boolean waivingMustBeSigned) {
+    this.waivingMustBeSigned = waivingMustBeSigned;
+    return this;
+  }
+
+  /**
+   * If this is set true then the delegate has to digitally sign when the delegate (volituse saaja) wants to waive the mandate (volitusest loobumine).
+   * @return waivingMustBeSigned
+   **/
+  @Schema(description = "If this is set true then the delegate has to digitally sign when the delegate (volituse saaja) wants to waive the mandate (volitusest loobumine).")
+  
+    public Boolean isWaivingMustBeSigned() {
+    return waivingMustBeSigned;
+  }
+
+  public void setWaivingMustBeSigned(Boolean waivingMustBeSigned) {
+    this.waivingMustBeSigned = waivingMustBeSigned;
+  }
+
+  public RoleDefinition withdrawableBy(List<String> withdrawableBy) {
+    this.withdrawableBy = withdrawableBy;
+    return this;
+  }
+
+  public RoleDefinition addWithdrawableByItem(String withdrawableByItem) {
+    if (this.withdrawableBy == null) {
+      this.withdrawableBy = new ArrayList<String>();
+    }
+    this.withdrawableBy.add(withdrawableByItem);
+    return this;
+  }
+
+  /**
+   * The user representing the representee must have a mandate with a role in the list to withdraw this mandate from the representee side (volituse tagasivõtmine). If this is set to an empty list then this mandate cannot be withdrawn. Defaults to addableBy.
+   * @return withdrawableBy
+   **/
+  @Schema(example = "[\"BR_REPRIGHT:SOLEREP\",\"EMTA:I\"]", description = "The user representing the representee must have a mandate with a role in the list to withdraw this mandate from the representee side (volituse tagasivõtmine). If this is set to an empty list then this mandate cannot be withdrawn. Defaults to addableBy.")
+  
+    public List<String> getWithdrawableBy() {
+    return withdrawableBy;
+  }
+
+  public void setWithdrawableBy(List<String> withdrawableBy) {
+    this.withdrawableBy = withdrawableBy;
+  }
+
+  public RoleDefinition withdrawalMustBeSigned(Boolean withdrawalMustBeSigned) {
+    this.withdrawalMustBeSigned = withdrawalMustBeSigned;
+    return this;
+  }
+
+  /**
+   * If this is set true then the representee (or the person representing the representee) has to digitally sign when he wants to withdraw the mandate (volituse tagasivõtmine).
+   * @return withdrawalMustBeSigned
+   **/
+  @Schema(description = "If this is set true then the representee (or the person representing the representee) has to digitally sign when he wants to withdraw the mandate (volituse tagasivõtmine).")
+  
+    public Boolean isWithdrawalMustBeSigned() {
+    return withdrawalMustBeSigned;
+  }
+
+  public void setWithdrawalMustBeSigned(Boolean withdrawalMustBeSigned) {
+    this.withdrawalMustBeSigned = withdrawalMustBeSigned;
   }
 
   public RoleDefinition assignableBy(List<String> assignableBy) {
@@ -311,10 +640,10 @@ public class RoleDefinition   {
   }
 
   /**
-   * Who has a mandatate with role in the list can give this mandate. There are situations when the list is empty.
+   * Deprecated. Use 'addableBy' instead.
    * @return assignableBy
    **/
-  @Schema(example = "[\"FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER\",\"EMTA:I\"]", description = "Who has a mandatate with role in the list can give this mandate. There are situations when the list is empty.")
+  @Schema(example = "[\"EMTA:I\"]", description = "Deprecated. Use 'addableBy' instead.")
   
     public List<String> getAssignableBy() {
     return assignableBy;
@@ -322,6 +651,33 @@ public class RoleDefinition   {
 
   public void setAssignableBy(List<String> assignableBy) {
     this.assignableBy = assignableBy;
+  }
+
+  public RoleDefinition assignableOnlyIfRepresenteeHasRoleIn(List<String> assignableOnlyIfRepresenteeHasRoleIn) {
+    this.assignableOnlyIfRepresenteeHasRoleIn = assignableOnlyIfRepresenteeHasRoleIn;
+    return this;
+  }
+
+  public RoleDefinition addAssignableOnlyIfRepresenteeHasRoleInItem(String assignableOnlyIfRepresenteeHasRoleInItem) {
+    if (this.assignableOnlyIfRepresenteeHasRoleIn == null) {
+      this.assignableOnlyIfRepresenteeHasRoleIn = new ArrayList<String>();
+    }
+    this.assignableOnlyIfRepresenteeHasRoleIn.add(assignableOnlyIfRepresenteeHasRoleInItem);
+    return this;
+  }
+
+  /**
+   * Deprecated. Use 'addableOnlyIfRepresenteeHasRoleIn' instead.
+   * @return assignableOnlyIfRepresenteeHasRoleIn
+   **/
+  @Schema(example = "[\"Eesti.ee.RR.partner:isik_aadressid\"]", description = "Deprecated. Use 'addableOnlyIfRepresenteeHasRoleIn' instead.")
+  
+    public List<String> getAssignableOnlyIfRepresenteeHasRoleIn() {
+    return assignableOnlyIfRepresenteeHasRoleIn;
+  }
+
+  public void setAssignableOnlyIfRepresenteeHasRoleIn(List<String> assignableOnlyIfRepresenteeHasRoleIn) {
+    this.assignableOnlyIfRepresenteeHasRoleIn = assignableOnlyIfRepresenteeHasRoleIn;
   }
 
   public RoleDefinition deletableBy(List<String> deletableBy) {
@@ -338,10 +694,10 @@ public class RoleDefinition   {
   }
 
   /**
-   * Who has a mandatate with role in the list can delete this mandate. If this list is not given then assignableBy is used.
+   * Deprecated. Use 'withdrawableBy' instead.
    * @return deletableBy
    **/
-  @Schema(example = "[\"FROM_BUSINESS_REGISTRY:MANAGEMENT_BOARD_MEMBER\",\"EMTA:I\"]", description = "Who has a mandatate with role in the list can delete this mandate. If this list is not given then assignableBy is used.")
+  @Schema(example = "[\"BR_REPRIGHT:SOLEREP\",\"EMTA:I\"]", description = "Deprecated. Use 'withdrawableBy' instead.")
   
     public List<String> getDeletableBy() {
     return deletableBy;
@@ -357,10 +713,10 @@ public class RoleDefinition   {
   }
 
   /**
-   * Is delegate allowed to delete (in Estonian \"loobuda\") a mandate with this role. True by default. False value is used (among other use cases) for management board members.
+   * Deprecated. Use 'waivingAllowed' instead.
    * @return deletableByDelegate
    **/
-  @Schema(description = "Is delegate allowed to delete (in Estonian \"loobuda\") a mandate with this role. True by default. False value is used (among other use cases) for management board members.")
+  @Schema(description = "Deprecated. Use 'waivingAllowed' instead.")
   
     public Boolean isDeletableByDelegate() {
     return deletableByDelegate;
@@ -376,10 +732,10 @@ public class RoleDefinition   {
   }
 
   /**
-   * True by default. Only visible roles are shown in Pääsuke and non-visible ones are not shown out. Non-visible role is a method to inform Pääsuke that a person can add some other role. For example we can create role AA with property AA.assignableBy:BB. Now we can create non-visible role BB that we add to persons who actually can add role AA.
+   * Deprecated. Use 'hidden' instead.
    * @return visible
    **/
-  @Schema(description = "True by default. Only visible roles are shown in Pääsuke and non-visible ones are not shown out. Non-visible role is a method to inform Pääsuke that a person can add some other role. For example we can create role AA with property AA.assignableBy:BB. Now we can create non-visible role BB that we add to persons who actually can add role AA.")
+  @Schema(description = "Deprecated. Use 'hidden' instead.")
   
     public Boolean isVisible() {
     return visible;
@@ -387,60 +743,6 @@ public class RoleDefinition   {
 
   public void setVisible(Boolean visible) {
     this.visible = visible;
-  }
-
-  public RoleDefinition canAssignIfHasRoleAndOneOf(List<String> canAssignIfHasRoleAndOneOf) {
-    this.canAssignIfHasRoleAndOneOf = canAssignIfHasRoleAndOneOf;
-    return this;
-  }
-
-  public RoleDefinition addCanAssignIfHasRoleAndOneOfItem(String canAssignIfHasRoleAndOneOfItem) {
-    if (this.canAssignIfHasRoleAndOneOf == null) {
-      this.canAssignIfHasRoleAndOneOf = new ArrayList<String>();
-    }
-    this.canAssignIfHasRoleAndOneOf.add(canAssignIfHasRoleAndOneOfItem);
-    return this;
-  }
-
-  /**
-   * A delegate can create a mandate with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to add a role you must have that role yourself)
-   * @return canAssignIfHasRoleAndOneOf
-   **/
-  @Schema(example = "[\"RR_PARTNER:VOLITUSTE_HALDUR_ENDA_ROLLIDE_PIIRES\"]", description = "A delegate can create a mandate with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to add a role you must have that role yourself)")
-  
-    public List<String> getCanAssignIfHasRoleAndOneOf() {
-    return canAssignIfHasRoleAndOneOf;
-  }
-
-  public void setCanAssignIfHasRoleAndOneOf(List<String> canAssignIfHasRoleAndOneOf) {
-    this.canAssignIfHasRoleAndOneOf = canAssignIfHasRoleAndOneOf;
-  }
-
-  public RoleDefinition canDeleteIfHasRoleAndOneOf(List<String> canDeleteIfHasRoleAndOneOf) {
-    this.canDeleteIfHasRoleAndOneOf = canDeleteIfHasRoleAndOneOf;
-    return this;
-  }
-
-  public RoleDefinition addCanDeleteIfHasRoleAndOneOfItem(String canDeleteIfHasRoleAndOneOfItem) {
-    if (this.canDeleteIfHasRoleAndOneOf == null) {
-      this.canDeleteIfHasRoleAndOneOf = new ArrayList<String>();
-    }
-    this.canDeleteIfHasRoleAndOneOf.add(canDeleteIfHasRoleAndOneOfItem);
-    return this;
-  }
-
-  /**
-   * A delegate can delete mandates with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to delete a role you must have that role yourself)
-   * @return canDeleteIfHasRoleAndOneOf
-   **/
-  @Schema(example = "[\"RR_PARTNER:VOLITUSTE_HALDUR_ENDA_ROLLIDE_PIIRES\"]", description = "A delegate can delete mandates with this role if the delegate has the following two conditions fulfilled&colon; 1) the delegate has a mandatate with role in the list 2) the deletate has a mandate with the role itself (so in order to delete a role you must have that role yourself)")
-  
-    public List<String> getCanDeleteIfHasRoleAndOneOf() {
-    return canDeleteIfHasRoleAndOneOf;
-  }
-
-  public void setCanDeleteIfHasRoleAndOneOf(List<String> canDeleteIfHasRoleAndOneOf) {
-    this.canDeleteIfHasRoleAndOneOf = canDeleteIfHasRoleAndOneOf;
   }
 
 }

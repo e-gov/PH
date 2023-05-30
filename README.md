@@ -14,7 +14,7 @@ X-road services spec draft:
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
 
-* Description of an example mock service built according to version 0.9.1 of that spec: [sample_client_mock](mock-documentation/description-of-PRIA-mock-for-paasuke-v0.2.pdf)
+* Description of an example mock service built according to version 0.9.1 of that spec: [sample_client_mock](mock-documentation/description-of-PRIA-mock-for-paasuke-v0.3.pdf)
 
 ### X-Road services offered by Pääsuke
 
@@ -34,7 +34,7 @@ The Prototype shows that editing a mandate is possible but currently that is not
 
 ## Mock service
 
-Ver 0.7.4 is available via x-road:
+Ver 0.9.1 is available via x-road:
 https://security-server/r1/ee-dev/GOV/70006317/volitused-mock/volitused/v1/
 
 Example query to x-road security server:

@@ -125,14 +125,17 @@ class EmtaItegrationTest {
                 .header("X-Road-Represented-Party", "EE11065244")
                 .contentType("application/json")
                 .body(payload)
-                .post("/nss/EMTA/representees/imp1-EE11065244/delegates/imp2-EE60001019906/mandates/imp3-HAMPI/subdelegates")
+                .post("/representees/imp1-EE11065244/delegates/imp2-EE60001019906/mandates/imp3-HAMPI/subdelegates")
                 .then()
                 .log().all()
                 .statusCode(202);
     }
 
     @Test
-    void deleteMandateChapter8_4() throws JSONException {
+    void deleteMandateChapter8_4() {
+
+        String payload = TestUtil.readFile("emtaPostPutPayloads/deleteMandate.json");
+
 
         given()
                 .port(port)
@@ -140,7 +143,8 @@ class EmtaItegrationTest {
                 .header("X-Road-User-Id", "EE50001029996")
                 .header("X-Road-Represented-Party", "EE11065244")
                 .contentType("application/json")
-                .delete("/nss/EMTA/representees/imp7-EE11065244/delegates/imp8-EE30303039914/mandates/imp9-HAMPI")
+                .body(payload)
+                .put("/representees/imp7-EE11065244/delegates/imp8-EE30303039914/mandates/imp9-HAMPI")
                 .then()
                 .log().all()
                 .statusCode(202);

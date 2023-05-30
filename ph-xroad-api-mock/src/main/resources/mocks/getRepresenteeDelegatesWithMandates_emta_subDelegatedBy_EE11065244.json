@@ -24,7 +24,7 @@
         },
         "links": {
           "uiExternalView": "https://vaarikas.emta.ee/vaata?x=y&z=2",
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}"
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}"
         }
       },
       {
@@ -37,7 +37,7 @@
         },
         "links": {
           "uiExternalView": "https://vaarikas.emta.ee/vaata?x=y&z=2",
-          "delete": "/v1/nss/STAT/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}"
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}"
         }
       }
     ]

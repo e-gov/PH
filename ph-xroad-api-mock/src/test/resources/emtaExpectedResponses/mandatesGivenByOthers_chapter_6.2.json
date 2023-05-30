@@ -18,8 +18,8 @@
           "through": "2029-12-31"
         },
         "links": {
-          "delete": "/v1/nss/EMTA/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ADEK_CLIENT",
-          "addSubDelegate": "/v1/nss/EMTA/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ADEK_CLIENT/subdelegates"
+          "delete": "/v1/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ADEK_CLIENT",
+          "addSubDelegate": "/v1/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ADEK_CLIENT/subdelegates"
         }
       },
       {
@@ -28,8 +28,8 @@
           "from": "2028-01-01"
         },
         "links": {
-          "delete": "/v1/nss/STAT/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ECS_VOLITATUDEV_VALJUMINE",
-          "addSubDelegate": "/v1/nss/STAT/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ECS_VOLITATUDEV_VALJUMINE/subdelegates"
+          "delete": "/v1/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ECS_VOLITATUDEV_VALJUMINE",
+          "addSubDelegate": "/v1/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ECS_VOLITATUDEV_VALJUMINE/subdelegates"
         }
       }
     ]

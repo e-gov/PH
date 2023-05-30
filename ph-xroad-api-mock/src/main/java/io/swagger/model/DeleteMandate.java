@@ -3,10 +3,9 @@ package io.swagger.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.model.Authorization;
 import io.swagger.model.Document;
-import io.swagger.model.Person;
-import io.swagger.model.ValidityPeriod;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +17,44 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * MandateToSubDelegate
+ * End the validity of a mandate. When document is not null it means that it was digitally signed by the persons in the authorizations list.
  */
+@Schema(description = "End the validity of a mandate. When document is not null it means that it was digitally signed by the persons in the authorizations list.")
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:36:08.218418870Z[GMT]")
 @ToString
 @EqualsAndHashCode
-public class MandateToSubDelegate   {
-  @JsonProperty("subDelegate")
-  private Person subDelegate = null;
+public class DeleteMandate   {
+  /**
+   * Gets or Sets action
+   */
+  public enum ActionEnum {
+    DELETE("DELETE");
 
-  @JsonProperty("validityPeriod")
-  private ValidityPeriod validityPeriod = null;
+    private String value;
+
+    ActionEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ActionEnum fromValue(String text) {
+      for (ActionEnum b : ActionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+  @JsonProperty("action")
+  private ActionEnum action = null;
 
   @JsonProperty("authorizations")
   @Valid
@@ -38,52 +63,32 @@ public class MandateToSubDelegate   {
   @JsonProperty("document")
   private Document document = null;
 
-  public MandateToSubDelegate subDelegate(Person subDelegate) {
-    this.subDelegate = subDelegate;
+  public DeleteMandate action(ActionEnum action) {
+    this.action = action;
     return this;
   }
 
   /**
-   * Get subDelegate
-   * @return subDelegate
+   * Get action
+   * @return action
    **/
-  @Schema(description = "")
-  
-    @Valid
-    public Person getSubDelegate() {
-    return subDelegate;
+  @Schema(example = "DELETE", required = true, description = "")
+      @NotNull
+
+    public ActionEnum getAction() {
+    return action;
   }
 
-  public void setSubDelegate(Person subDelegate) {
-    this.subDelegate = subDelegate;
+  public void setAction(ActionEnum action) {
+    this.action = action;
   }
 
-  public MandateToSubDelegate validityPeriod(ValidityPeriod validityPeriod) {
-    this.validityPeriod = validityPeriod;
-    return this;
-  }
-
-  /**
-   * Get validityPeriod
-   * @return validityPeriod
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ValidityPeriod getValidityPeriod() {
-    return validityPeriod;
-  }
-
-  public void setValidityPeriod(ValidityPeriod validityPeriod) {
-    this.validityPeriod = validityPeriod;
-  }
-
-  public MandateToSubDelegate authorizations(List<Authorization> authorizations) {
+  public DeleteMandate authorizations(List<Authorization> authorizations) {
     this.authorizations = authorizations;
     return this;
   }
 
-  public MandateToSubDelegate addAuthorizationsItem(Authorization authorizationsItem) {
+  public DeleteMandate addAuthorizationsItem(Authorization authorizationsItem) {
     if (this.authorizations == null) {
       this.authorizations = new ArrayList<Authorization>();
     }
@@ -105,7 +110,7 @@ public class MandateToSubDelegate   {
     this.authorizations = authorizations;
   }
 
-  public MandateToSubDelegate document(Document document) {
+  public DeleteMandate document(Document document) {
     this.document = document;
     return this;
   }

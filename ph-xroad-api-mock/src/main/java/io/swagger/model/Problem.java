@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.Translation;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -14,9 +16,9 @@ import javax.validation.constraints.*;
  */
 @Schema(description = "A Problem Details object (RFC 7807)")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-03T08:03:34.064Z[GMT]")
-
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:36:08.218418870Z[GMT]")
+@ToString
+@EqualsAndHashCode
 public class Problem   {
   @JsonProperty("type")
   private String type = "about:blank";
@@ -30,8 +32,8 @@ public class Problem   {
   @JsonProperty("translation")
   private Translation translation = null;
 
-  @JsonProperty("ticket")
-  private String ticket = null;
+  @JsonProperty("instance")
+  private String instance = null;
 
   public Problem type(String type) {
     this.type = type;
@@ -110,69 +112,23 @@ public class Problem   {
     this.translation = translation;
   }
 
-  public Problem ticket(String ticket) {
-    this.ticket = ticket;
+  public Problem instance(String instance) {
+    this.instance = instance;
     return this;
   }
 
   /**
-   * Reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
-   * @return ticket
+   * Reference that identifies the specific occurrence of the problem. UI should display this without dashes.
+   * @return instance
    **/
-  @Schema(description = "Reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.")
+  @Schema(description = "Reference that identifies the specific occurrence of the problem. UI should display this without dashes.")
   
-    public String getTicket() {
-    return ticket;
+    public String getInstance() {
+    return instance;
   }
 
-  public void setTicket(String ticket) {
-    this.ticket = ticket;
+  public void setInstance(String instance) {
+    this.instance = instance;
   }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Problem problem = (Problem) o;
-    return Objects.equals(this.type, problem.type) &&
-        Objects.equals(this.href, problem.href) &&
-        Objects.equals(this.title, problem.title) &&
-        Objects.equals(this.translation, problem.translation) &&
-        Objects.equals(this.ticket, problem.ticket);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(type, href, title, translation, ticket);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Problem {\n");
-    
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    href: ").append(toIndentedString(href)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    translation: ").append(toIndentedString(translation)).append("\n");
-    sb.append("    ticket: ").append(toIndentedString(ticket)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 }

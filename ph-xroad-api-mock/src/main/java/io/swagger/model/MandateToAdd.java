@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.ValidityPeriod;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -13,9 +15,9 @@ import javax.validation.constraints.*;
  * MandateToAdd
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-14T09:20:23.675Z[GMT]")
-
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:36:08.218418870Z[GMT]")
+@ToString
+@EqualsAndHashCode
 public class MandateToAdd   {
   @JsonProperty("role")
   private String role = null;
@@ -35,8 +37,8 @@ public class MandateToAdd   {
    * Role code
    * @return role
    **/
-  @Schema(example = "GLOBAL1_EMTA:ACCOUNTANT", description = "Role code")
-  
+  @Schema(example = "GLOBAL1_EMTA:ACCOUNTANT", required = true, description = "Role code")
+  @NotNull
     public String getRole() {
     return role;
   }
@@ -84,46 +86,4 @@ public class MandateToAdd   {
     this.validityPeriod = validityPeriod;
   }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    MandateToAdd mandateToAdd = (MandateToAdd) o;
-    return Objects.equals(this.role, mandateToAdd.role) &&
-        Objects.equals(this.canSubDelegate, mandateToAdd.canSubDelegate) &&
-        Objects.equals(this.validityPeriod, mandateToAdd.validityPeriod);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(role, canSubDelegate, validityPeriod);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MandateToAdd {\n");
-    
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    canSubDelegate: ").append(toIndentedString(canSubDelegate)).append("\n");
-    sb.append("    validityPeriod: ").append(toIndentedString(validityPeriod)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 }

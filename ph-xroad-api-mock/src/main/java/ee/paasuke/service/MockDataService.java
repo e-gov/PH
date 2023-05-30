@@ -41,8 +41,8 @@ public class MockDataService {
         List<Mandate> mandates = new ArrayList<>();
 
         MandateLinks links = MandateLinks.builder()
-                .delete("/v1/nss/EMTA/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ADEK_CLIENT")
-                .addSubDelegate("/v1/nss/EMTA/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ADEK_CLIENT/subdelegates")
+                .delete("/v1/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ADEK_CLIENT")
+                .addSubDelegate("/v1/representees/imp1-EE10391131/delegates/imp2-EE11065244/mandates/imp3-ADEK_CLIENT/subdelegates")
                 .origin("https://server.ee/system/system2/submenu?configurationKey1=3334455&amp;configurationKey2=4444")
                 .build();
 

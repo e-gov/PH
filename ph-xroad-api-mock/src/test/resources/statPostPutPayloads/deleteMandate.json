@@ -1,0 +1,13 @@
+{
+  "action": "DELETE",
+  "authorizations": [
+    {
+      "userIdentifier": "EE39912310123",
+      "hasRole": "BR_REPRIGHT:SOLEREP"
+    }
+  ],
+  "document": {
+    "uuid": "5b72e01c-fa7f-479c-b014-cc19efe5b732",
+    "singleDelegate": true
+  }
+}

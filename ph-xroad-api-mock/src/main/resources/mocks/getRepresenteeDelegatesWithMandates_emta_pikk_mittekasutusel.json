@@ -18,9 +18,9 @@
           "from": "2022-10-23"
         },
         "links": {
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
-          "update": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
-          "addSubDelegate": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}/subdelegates",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "update": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "addSubDelegate": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}/subdelegates",
           "origin": "https://vaarikas.emta.ee?x=y&z=q"
         }
       },

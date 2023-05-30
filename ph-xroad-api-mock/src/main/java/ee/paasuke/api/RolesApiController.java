@@ -59,12 +59,7 @@ public class RolesApiController implements RolesApi {
         String accept = request.getHeader("Accept");
         if (accept != null && (accept.contains("application/json") || accept.contains("*/*"))) {
             try {
-
-               // return new ResponseEntity<List<RoleDefinition>>(roleService.getRoles(), HttpStatus.OK);
-
-
                 List<RoleDefinition> roles = new ArrayList<>();
-
 
                 if (xRoadId != null && xRoadId.toUpperCase().startsWith("STAT")) {
                     roles.addAll(getRolesList("getRoles_stat.json"));
@@ -73,10 +68,8 @@ public class RolesApiController implements RolesApi {
                     roles.addAll(getRolesList("getRoles_PRIA.json"));
                 }
                 else {
-                    roles.addAll(getRolesList("getRoles_emta_selection.json"));
+                    roles.addAll(getRolesList("getRoles_EMTA.json"));
                 }
-
-
 
                 return new ResponseEntity<List<RoleDefinition>>(roles, HttpStatus.OK);
 
@@ -85,13 +78,6 @@ public class RolesApiController implements RolesApi {
             } finally {
 
             }
-/*
-            catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<RoleDefinition>>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-
- */
         }
 
         return new ResponseEntity<List<RoleDefinition>>(HttpStatus.NOT_IMPLEMENTED);

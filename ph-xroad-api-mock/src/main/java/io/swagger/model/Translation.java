@@ -6,6 +6,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -14,9 +18,10 @@ import javax.validation.constraints.*;
  * Translation
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-01-23T06:43:43.708Z[GMT]")
-
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:36:08.218418870Z[GMT]")
+@ToString
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Translation   {
   @JsonProperty("et")
   private String et = null;
@@ -87,46 +92,4 @@ public class Translation   {
     this.ru = ru;
   }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Translation translation = (Translation) o;
-    return Objects.equals(this.et, translation.et) &&
-        Objects.equals(this.en, translation.en) &&
-        Objects.equals(this.ru, translation.ru);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(et, en, ru);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Translation {\n");
-    
-    sb.append("    et: ").append(toIndentedString(et)).append("\n");
-    sb.append("    en: ").append(toIndentedString(en)).append("\n");
-    sb.append("    ru: ").append(toIndentedString(ru)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 }

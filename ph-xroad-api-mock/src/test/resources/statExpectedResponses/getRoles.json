@@ -20,7 +20,8 @@
     ],
     "assignableBy": [
       "STAT_ESTAT:SuperUser"
-    ]
+    ],
+    "deletableByDelegate": true
   },
   {
     "code": "STAT_ESTAT:respondent",
@@ -43,7 +44,8 @@
     ],
     "assignableBy": [
       "STAT_ESTAT:SuperUser"
-    ]
+    ],
+    "deletableByDelegate": true
   },
   {
     "code": "STAT_ESTAT:CEO",
@@ -56,7 +58,7 @@
       "en": "Chief executive officer of the economic entity who has all the rights to add, edit and fill in data in eSTAT. CEO is responsible for performing the obligation of submitting data and he/she has the right to manage “Consents” for data publication."
     },
     "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": true,
+    "canSubDelegate": false,
     "representeeType": [
       "LEGAL_PERSON"
     ],
@@ -65,7 +67,9 @@
       "NATURAL_PERSON"
     ],
     "assignableBy": [
-    ]
+
+    ],
+    "deletableByDelegate": true
   },
   {
     "code": "STAT_ESTAT:respondentWithPassword",
@@ -78,7 +82,7 @@
       "en": "A respondent who is a foreign citizen and does not have an ID card for logging in or the right to use the internet bank, who has been granted the rights with the consent of the economic entity’s CEO. The respondent with password has the right to view and edit only the questionnaire data for which he/she has been granted the right of use."
     },
     "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": true,
+    "canSubDelegate": false,
     "representeeType": [
       "LEGAL_PERSON"
     ],
@@ -87,7 +91,9 @@
       "NATURAL_PERSON"
     ],
     "assignableBy": [
-    ]
+
+    ],
+    "deletableByDelegate": true
   },
   {
     "code": "STAT_ESTAT:limitedRespondent",
@@ -100,7 +106,7 @@
       "en": "Respondent with limited rights, appointed by the main user, who has the right to submit questionnaire data for the economic entities that the main user has assigned to him/her."
     },
     "modified": "2023-01-18T11:00:00Z",
-    "canSubDelegate": true,
+    "canSubDelegate": false,
     "representeeType": [
       "LEGAL_PERSON"
     ],
@@ -110,7 +116,8 @@
     ],
     "assignableBy": [
       "STAT_ESTAT:SuperUser"
-    ]
+    ],
+    "deletableByDelegate": true
   },
   {
     "code": "STAT_ESTAT:otherRights",
@@ -123,7 +130,7 @@
       "en": "A respondent who submits questionnaire data upon entering a questionnaire on paper. Does not have the eSTAT user rights."
     },
     "modified": "2023-01-18T11:00:00Z",
-    "canSubDelegate": true,
+    "canSubDelegate": false,
     "representeeType": [
       "LEGAL_PERSON"
     ],
@@ -133,6 +140,7 @@
     ],
     "assignableBy": [
       "STAT_ESTAT:SuperUser"
-    ]
+    ],
+    "deletableByDelegate": true
   }
 ]

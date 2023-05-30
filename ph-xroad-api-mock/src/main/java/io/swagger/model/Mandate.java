@@ -15,12 +15,11 @@ import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-
 /**
  * Mandate
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-04-05T08:45:28.834925897Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:36:08.218418870Z[GMT]")
 @Builder
 @ToString
 @EqualsAndHashCode
@@ -50,9 +49,9 @@ public class Mandate   {
    * @return role
    **/
   @Schema(example = "STAT:Legal_person_data_viewer_package", required = true, description = "Role")
-  @NotNull
+      @NotNull
 
-  public String getRole() {
+    public String getRole() {
     return role;
   }
 
@@ -70,9 +69,9 @@ public class Mandate   {
    * @return validityPeriod
    **/
   @Schema(description = "")
-
-  @Valid
-  public ValidityPeriod getValidityPeriod() {
+  
+    @Valid
+    public ValidityPeriod getValidityPeriod() {
     return validityPeriod;
   }
 
@@ -90,9 +89,9 @@ public class Mandate   {
    * @return links
    **/
   @Schema(description = "")
-
-  @Valid
-  public MandateLinks getLinks() {
+  
+    @Valid
+    public MandateLinks getLinks() {
     return links;
   }
 
@@ -110,8 +109,8 @@ public class Mandate   {
    * @return subDelegatorIdentifier
    **/
   @Schema(example = "EE12345678", description = "Identifier of the person who created this mandate through sub-delegation.")
-
-  public String getSubDelegatorIdentifier() {
+  
+    public String getSubDelegatorIdentifier() {
     return subDelegatorIdentifier;
   }
 

@@ -4,17 +4,15 @@
     "title": {
       "et": "<seda rolli ei kuvata kuna on määratud hidden=true. Sellega märgitakse ära, et tegemist on PRIA kliendiga ja Pääsukese kaudu saab isiku alla rolle lisada>"
     },
+    "delegateType": [
+      "NATURAL_PERSON"
+    ],
+    "hidden": true,
+    "modified": "2022-10-18T11:00:00Z",
     "representeeType": [
       "LEGAL_PERSON",
       "NATURAL_PERSON"
-    ],
-    "delegateType": [
-      "LEGAL_PERSON",
-      "NATURAL_PERSON"
-    ],
-    "modified": "2022-10-18T11:00:00Z",
-    "hidden": true,
-    "visible": false
+    ]
   },
   {
     "code": "PRIA:Unrestricted.can.modify.mandates",
@@ -23,52 +21,52 @@
       "en": "Piiranguteta volitus (sh volituste haldamine) (eng)",
       "ru": "Piiranguteta volitus (sh volituste haldamine) (rus)"
     },
-    "description": {
-      "et": "Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
-      "en": "ENG: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
-      "ru": "RUS: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses."
-    },
-    "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": false,
-    "representeeType": [
-      "LEGAL_PERSON",
-      "NATURAL_PERSON"
-    ],
-    "delegateType": [
-      "NATURAL_PERSON"
-    ],
       "addableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP"
-    ],
-    "assignableBy": [
       "PRIA:Unrestricted.can.modify.mandates",
       "BR_REPRIGHT:SOLEREP"
     ],
     "addableOnlyIfRepresenteeHasRoleIn": [
       "PRIA:PRIA.customer"
     ],
-    "assignableOnlyIfRepresenteeHasRoleIn": [
-      "PRIA:PRIA.customer"
+    "addingMustBeSigned": true,
+    "canSubDelegate": false,
+    "delegateType": [
+      "NATURAL_PERSON"
     ],
-    "withdrawableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP"
-    ],
-    "deletableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP"
+    "description": {
+      "et": "Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
+      "en": "ENG: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
+      "ru": "RUS: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses."
+    },
+    "modified": "2022-10-18T11:00:00Z",
+    "representeeType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
     ],
     "waivableBy": [
       "PRIA:Unrestricted.can.modify.mandates",
       "BR_REPRIGHT:SOLEREP",
       "NAT_REPRIGHT:SOLEREP"
     ],
-    "deletableByDelegate": true,
-    "visible": true,
-    "addingMustBeSigned": true,
+    "waivingMustBeSigned": true,
+    "withdrawableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP"
+    ],
     "withdrawalMustBeSigned": true,
-    "waivingMustBeSigned": true
+    "assignableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "assignableOnlyIfRepresenteeHasRoleIn": [
+      "PRIA:PRIA.customer"
+    ],
+    "deletableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
   },
   {
     "code": "PRIA:Unrestricted.cancot.modify.mandates",
@@ -77,43 +75,46 @@
       "en": "Piiranguteta volitus (v.a volituste haldamine) (eng)",
       "ru": "Piiranguteta volitus (v.a volituste haldamine) (rus)"
     },
-    "description": {
-      "et": "Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
-      "en": "ENG: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
-      "ru": "RUS: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses."
-    },
-    "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": false,
-    "representeeType": [
-      "LEGAL_PERSON",
-      "NATURAL_PERSON"
-    ],
-    "delegateType": [
-      "NATURAL_PERSON"
-    ],
       "addableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP"
-    ],
-    "assignableBy": [
       "PRIA:Unrestricted.can.modify.mandates",
       "BR_REPRIGHT:SOLEREP"
     ],
     "addableOnlyIfRepresenteeHasRoleIn": [
       "PRIA:PRIA.customer"
     ],
-    "assignableOnlyIfRepresenteeHasRoleIn": [
-      "PRIA:PRIA.customer"
+    "addingMustBeSigned": true,
+    "canSubDelegate": false,
+    "delegateType": [
+      "NATURAL_PERSON"
     ],
-    "withdrawableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP",
-      "NAT_REPRIGHT:SOLEREP"
+    "description": {
+      "et": "Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
+      "en": "ENG: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses.",
+      "ru": "RUS: Volikirjaga antud volitused kehtivad PRIA iseteeninduskeskkondade kasutamisel, elektrooniliste- ja paberdokumentide esitamisel ning vahetus suhtluses."
+    },
+    "modified": "2022-10-18T11:00:00Z",
+    "representeeType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
     ],
     "waivableBy": [
       "PRIA:Unrestricted.can.modify.mandates",
       "BR_REPRIGHT:SOLEREP",
       "NAT_REPRIGHT:SOLEREP"
+    ],
+    "waivingMustBeSigned": true,
+    "withdrawableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP",
+      "NAT_REPRIGHT:SOLEREP"
+    ],
+    "withdrawalMustBeSigned": true,
+    "assignableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "assignableOnlyIfRepresenteeHasRoleIn": [
+      "PRIA:PRIA.customer"
     ],
     "deletableBy": [
       "PRIA:Unrestricted.can.modify.mandates",
@@ -121,10 +122,7 @@
       "NAT_REPRIGHT:SOLEREP"
     ],
     "deletableByDelegate": true,
-    "visible": true,
-    "addingMustBeSigned": true,
-    "withdrawalMustBeSigned": true,
-    "waivingMustBeSigned": true
+    "visible": true
   },
   {
     "code": "PRIA:partial",
@@ -133,38 +131,38 @@
       "en": "Partial authorisation",
       "ru": "Piirangutega volitus (rus)"
     },
+    "canSubDelegate": false,
+    "delegateType": [
+      "NATURAL_PERSON"
+    ],
     "description": {
       "et": "Osalised ehk piirangutega volitused. Detailide nägemiseks on vja pöörduda e-PRIA-sse.",
       "en": "EN: Osalised ehk piirangutega volitused. Detailide nägemiseks on vja pöörduda e-PRIA-sse",
       "ru": "RU: Osalised ehk piirangutega volitused. Detailide nägemiseks on vja pöörduda e-PRIA-sse"
     },
     "modified": "2022-10-18T11:00:00Z",
-    "canSubDelegate": false,
-    "deletableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP"
-    ],
-    "withdrawableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP",
-      "NAT_REPRIGHT:SOLEREP"
+    "representeeType": [
+      "LEGAL_PERSON",
+      "NATURAL_PERSON"
     ],
     "waivableBy": [
       "PRIA:Unrestricted.can.modify.mandates",
       "BR_REPRIGHT:SOLEREP",
       "NAT_REPRIGHT:SOLEREP"
     ],
-    "deletableByDelegate": true,
-    "visible": true,
-    "withdrawalMustBeSigned": true,
     "waivingMustBeSigned": true,
-    "representeeType": [
-      "LEGAL_PERSON",
-      "NATURAL_PERSON"
+    "withdrawableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP",
+      "NAT_REPRIGHT:SOLEREP"
     ],
-    "delegateType": [
-      "NATURAL_PERSON"
-    ]
+    "withdrawalMustBeSigned": true,
+    "deletableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
   },
   {
     "code": "PRIA:fiscally_marked_gas_buyer",
@@ -173,36 +171,36 @@
       "en": "Erimärgistatud diislikütuse ostuõigus (en)",
       "ru": "Erimärgistatud diislikütuse ostuõigus (ru)"
     },
+    "canSubDelegate": false,
+    "delegateType": [
+      "NATURAL_PERSON"
+    ],
     "description": {
       "et": "Seda õigust saab e-PRIA-st anda erimärgistatud diislikütuse ostuõigust omav juriidiline isik või FIE oma töötajale või kaluri kalapüügi loale antud isikule.",
       "en": "ENG: Seda õigust saab e-PRIA-st anda erimärgistatud diislikütuse ostuõigust omav juriidiline isik või FIE oma töötajale või kaluri kalapüügi loale antud isikule.",
       "ru": "RU: Seda õigust saab e-PRIA-st anda erimärgistatud diislikütuse ostuõigust omav juriidiline isik või FIE oma töötajale või kaluri kalapüügi loale antud isikule."
     },
+    "modified": "2023-01-18T11:00:00Z",
     "representeeType": [
       "LEGAL_PERSON",
       "NATURAL_PERSON"
-    ],
-    "delegateType": [
-      "NATURAL_PERSON"
-    ],
-    "modified": "2023-01-18T11:00:00Z",
-    "canSubDelegate": false,
-    "withdrawableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP"
-    ],
-    "deletableBy": [
-      "PRIA:Unrestricted.can.modify.mandates",
-      "BR_REPRIGHT:SOLEREP"
     ],
     "waivableBy": [
       "PRIA:Unrestricted.can.modify.mandates",
       "BR_REPRIGHT:SOLEREP",
       "NAT_REPRIGHT:SOLEREP"
     ],
-    "deletableByDelegate": true,
-    "visible": true,
+    "waivingMustBeSigned": true,
+    "withdrawableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP"
+    ],
     "withdrawalMustBeSigned": true,
-    "waivingMustBeSigned": true
+    "deletableBy": [
+      "PRIA:Unrestricted.can.modify.mandates",
+      "BR_REPRIGHT:SOLEREP"
+    ],
+    "deletableByDelegate": true,
+    "visible": true
   }
 ]

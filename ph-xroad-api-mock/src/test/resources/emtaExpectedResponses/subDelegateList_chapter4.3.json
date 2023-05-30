@@ -19,7 +19,7 @@
           "through": "2025-12-31"
         },
         "links": {
-          "delete": "/v1/nss/EMTA/representees/imp1-EE10391131/delegates/imp2-EE30303039816/mandates/imp3-ADEK_CLIENT"
+          "delete": "/v1/representees/imp1-EE10391131/delegates/imp2-EE30303039816/mandates/imp3-ADEK_CLIENT"
         }
       },
       {
@@ -28,7 +28,7 @@
           "from": "2025-01-01"
         },
         "links": {
-          "delete": "/v1/nss/STAT/representees/imp1-EE10391131/delegates/imp2-EE30303039816/mandates/imp3-ECS_VOLITATUDEV_VALJUMINE"
+          "delete": "/v1/representees/imp1-EE10391131/delegates/imp2-EE30303039816/mandates/imp3-ECS_VOLITATUDEV_VALJUMINE"
         }
       }
     ]

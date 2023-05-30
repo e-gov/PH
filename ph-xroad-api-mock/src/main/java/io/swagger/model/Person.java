@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -16,8 +18,9 @@ import javax.validation.constraints.*;
  * Person
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-14T09:20:23.675Z[GMT]")
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:36:08.218418870Z[GMT]")
+@ToString
+@EqualsAndHashCode
 @Builder
 public class Person   {
   /**
@@ -169,50 +172,4 @@ public class Person   {
     this.identifier = identifier;
   }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Person person = (Person) o;
-    return Objects.equals(this.type, person.type) &&
-        Objects.equals(this.firstName, person.firstName) &&
-        Objects.equals(this.surname, person.surname) &&
-        Objects.equals(this.legalName, person.legalName) &&
-        Objects.equals(this.identifier, person.identifier);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(type, firstName, surname, legalName, identifier);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Person {\n");
-    
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    surname: ").append(toIndentedString(surname)).append("\n");
-    sb.append("    legalName: ").append(toIndentedString(legalName)).append("\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 }

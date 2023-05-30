@@ -51,47 +51,27 @@ public class RepresenteesApiController implements RepresenteesApi {
         this.mocksDir = mocksDir;
     }
 
-    public ResponseEntity<MandateTriplet> getRepresenteeDelegateWithMandates(@Pattern(regexp="(^[A-Z]{2}|^email:|^internal:).+") @Parameter(in = ParameterIn.PATH, description = "Identifier of the of the representee.", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Pattern(regexp="(^[A-Z]{2}|^email:|^internal:).+") @Parameter(in = ParameterIn.PATH, description = "Identifier of the delegate who'se mandate is being sub-delegated.", required=true, schema=@Schema()) @PathVariable("delegate") String delegate, @Parameter(in = ParameterIn.QUERY, description = "Filter by namespace (comma separated)" ,schema=@Schema()) @Valid @RequestParam(value = "namespace", required = false) String namespace, @Parameter(in = ParameterIn.QUERY, description = "Filter out representees where delegate doesn't have any mandates with any of the roles in the list. Roles must be prefixed with namespace and colon. To match all roles in namespace use * like this: 'MYNS:*'." ,schema=@Schema()) @Valid @RequestParam(value = "hasRoleIn", required = false) List<String> hasRoleIn, @Parameter(in = ParameterIn.HEADER, description = "User identifier whose action initiated the request." ,schema=@Schema()) @RequestHeader(value="X-Road-User-Id", required=false) String xRoadUserId, @Parameter(in = ParameterIn.HEADER, description = "When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted." ,schema=@Schema()) @RequestHeader(value="X-Road-Represented-Party", required=false) String xRoadRepresentedParty, @Parameter(in = ParameterIn.HEADER, description = "Unique identifier (UUID) for this message." ,schema=@Schema()) @RequestHeader(value="X-Road-Id", required=false) String xRoadId) {
-        logHeaders(request);
-        String accept = request.getHeader("Accept");
-        if (accept != null && (accept.contains("application/json") || accept.contains("*/*"))) {
-            try {
-
-
-                Person majAruandjaTy = Person.builder().type(Person.TypeEnum.LEGAL_PERSON).legalName("MAJ Aruandja TÜ").identifier("EE77543210").build();
-                Person mariMaasikas = Person.builder().type(Person.TypeEnum.NATURAL_PERSON).firstName("Mari").surname("Maasikas").identifier("EE49028099999").build();
-
-                String mandateId = "44444";
-
-               String namespaceCode = "TODO";
-
-
-                MandateLinks links = MandateLinks.builder()
-                        .delete("/v1/nss/" + namespaceCode + "/representees/internal-id-for-" + majAruandjaTy.getIdentifier()+"/delegates/interal-id-for-" + mariMaasikas.getIdentifier() + "/mandates/"+mandateId).build();
-
-                Mandate mandate = Mandate.builder().role(RoleService.MANDATE_DEFINER.getCode()).links(links).build();
-                MandateTriplet man = MandateTriplet.builder().mandates(asList(mandate)).build();
-
-                return new ResponseEntity<MandateTriplet>(man, HttpStatus.OK);
-
-
-
-            }
-            finally {
-
-            }
-
-        }
-
-        return new ResponseEntity<MandateTriplet>(HttpStatus.NOT_IMPLEMENTED);
-    }
 
     @Override
     public ResponseEntity<Void> addMandate(String representee, String delegate, String xRoadUserId, String xRoadRepresentedParty, String xRoadId, AddMandateTriplet body) {
         return null;
     }
 
-    public ResponseEntity<List<MandateTriplet>> getRepresenteeDelegatesWithMandates(@Parameter(in = ParameterIn.PATH, description = "<b>Identifier of the representee (volitaja).</b> Can be one of the follwing&colon; <p>a)  'EE' followed by 8-digit legal entity code from Estonian Business Registry</p> <p>b) 'EE' followed by 11-digit national identity number</p> <p>c) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p>", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.QUERY, description = "<p><b>To add a filter to results so that only mandates that were sub-delegated by this person (edasivolitaja) would be returned.</b></p> <p>This is to cover the following use case. Let's say LittleCompany has given BookkeepingCompany some role together with the right for BookkeepingCompany to further sub-delegate the role to its employees.</p> <p>BookkeepingCompany can use this query to get the list of its employees who have received this role from BookkeepingCompany through sub-delegation.</p> <p>To display this list Pääsuke makes a query  where representee={LittleCompanyIdentifier} and subDelegatedBy={BookkeepingCompanyIdentifier}.</p>" ,schema=@Schema()) @Valid @RequestParam(value = "subDelegatedBy", required = false) String subDelegatedBy, @Parameter(in = ParameterIn.HEADER, description = "User identifier whose action initiated the request. NB! This can be employee of RIA." ,schema=@Schema()) @RequestHeader(value="X-Road-User-Id", required=false) String xRoadUserId, @Parameter(in = ParameterIn.HEADER, description = "When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted." ,schema=@Schema()) @RequestHeader(value="X-Road-Represented-Party", required=false) String xRoadRepresentedParty, @Parameter(in = ParameterIn.HEADER, description = "Unique identifier (UUID) for this message." ,schema=@Schema()) @RequestHeader(value="X-Road-Id", required=false) String xRoadId) {
+    @Override
+    public ResponseEntity<Void> addSubDelegate(String representeeId, String delegateId, String mandateId, String xRoadUserId, String xRoadRepresentedParty, String xRoadId, MandateToSubDelegate body) {
+        String accept = request.getHeader("Accept");
+        return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+    }
+
+    @Override
+    public ResponseEntity<Void> editMandate(String representeeId, String delegateId, String mandateId, String xRoadUserId, String xRoadRepresentedParty, String xRoadId, Object body) {
+        String accept = request.getHeader("Accept");
+        System.out.println(body);
+        return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+    }
+
+    @Override
+    public ResponseEntity<List<MandateTriplet>> getRepresenteeDelegatesWithMandates(@Parameter(in = ParameterIn.PATH, description = "<b>Identifier of the representee (volitaja).</b> Can be one of the follwing&colon; <p>a)  'EE' followed by 8-digit legal entity code from Estonian Business Registry</p> <p>b) 'EE' followed by 11-digit national identity number</p> <p>c) Two-letter country code followed by eIDAS identification (1...254 symbols) - Pääsuke uses the value that was returned by Tara when the person logged into eesti.ee portal.</p>", required=true, schema=@Schema()) @PathVariable("representee") String representee, @Parameter(in = ParameterIn.QUERY, description = "<p><b>To add a filter to results so that only mandates that were sub-delegated by this person (edasivolitaja) would be returned.</b></p> <p>This is to cover the following use case. Let's say LittleCompany has given BookkeepingCompany some role together with the right for BookkeepingCompany to further sub-delegate the role to its employees.</p> <p>BookkeepingCompany can use this query to get the list of its employees who have received this role from BookkeepingCompany through sub-delegation.</p> <p>To display this list Pääsuke makes a query  where representee={LittleCompanyIdentifier} and subDelegatedBy={BookkeepingCompanyIdentifier}.</p>" ,schema=@Schema()) @Valid @RequestParam(value = "subDelegatedBy", required = false) String subDelegatedBy, @Parameter(in = ParameterIn.QUERY, description = "Only return mandates with this delegate (volitatu). This is used for TÖR queries." ,schema=@Schema()) @Valid @RequestParam(value = "delegate", required = false) String delegate, @Parameter(in = ParameterIn.HEADER, description = "User identifier whose action initiated the request. This also can be an employee of RIA using some back-end." ,schema=@Schema()) @RequestHeader(value="X-Road-UserId", required=false) String xRoadUserId, @Parameter(in = ParameterIn.HEADER, description = "When service client represents third party while issuing a query then it must be filled with identifier of that third party. When service client represents itself then this header is omitted." ,schema=@Schema()) @RequestHeader(value="X-Road-Represented-Party", required=false) String xRoadRepresentedParty, @Parameter(in = ParameterIn.HEADER, description = "Unique identifier (UUID) for this message." ,schema=@Schema()) @RequestHeader(value="X-Road-Id", required=false) String xRoadId) {
         logHeaders(request);
         String accept = request.getHeader("Accept");
         if (accept != null && (accept.contains("application/json") || accept.contains("*/*"))) {
@@ -108,7 +88,12 @@ public class RepresenteesApiController implements RepresenteesApi {
                 else if (xRoadId != null && xRoadId.toUpperCase().startsWith("PRIA")) {
 
                     String json = FileUtil.getFileContent(mocksDir, "getRepresenteeDelegatesWithMandates_PRIA.json");
-                    Collection<MandateTriplet> triplets = objectMapper.readValue(json, new TypeReference<List<MandateTriplet>>() {});
+                    List<MandateTriplet> triplets = objectMapper.readValue(json, new TypeReference<List<MandateTriplet>>() {});
+
+                    triplets = triplets.stream()
+                            .filter( triplet -> representee.equals(triplet.getRepresentee().getIdentifier()))
+                            .collect(Collectors.toList());
+
 
                     if (subDelegatedBy != null && subDelegatedBy.length() > 0) {
                         mandateTripletList.addAll(triplets.stream()

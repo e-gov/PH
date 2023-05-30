@@ -18,7 +18,7 @@ import javax.validation.constraints.*;
  * MandateTriplet
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-02-14T09:20:23.675Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-23T12:36:08.218418870Z[GMT]")
 
 @Builder
 public class MandateTriplet   {
@@ -99,46 +99,4 @@ public class MandateTriplet   {
     this.mandates = mandates;
   }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    MandateTriplet mandateTriplet = (MandateTriplet) o;
-    return Objects.equals(this.representee, mandateTriplet.representee) &&
-        Objects.equals(this.delegate, mandateTriplet.delegate) &&
-        Objects.equals(this.mandates, mandateTriplet.mandates);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(representee, delegate, mandates);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MandateTriplet {\n");
-    
-    sb.append("    representee: ").append(toIndentedString(representee)).append("\n");
-    sb.append("    delegate: ").append(toIndentedString(delegate)).append("\n");
-    sb.append("    mandates: ").append(toIndentedString(mandates)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 }

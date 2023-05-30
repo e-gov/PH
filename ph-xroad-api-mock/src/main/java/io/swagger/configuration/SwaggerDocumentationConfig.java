@@ -17,6 +17,8 @@ import io.swagger.v3.oas.models.info.License;
 @Configuration
 public class SwaggerDocumentationConfig {
 
+    public static final String VERSION = "0.9.0";
+
     @Bean
     public Docket customImplementation(){
         return new Docket(DocumentationType.OAS_30)
@@ -35,7 +37,7 @@ public class SwaggerDocumentationConfig {
             .license("Apache 2.0")
             .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
             .termsOfServiceUrl("")
-            .version("0.7.4")
+            .version(VERSION)
             .contact(new Contact("","", "you@your-company.com"))
             .build();
     }
@@ -47,7 +49,7 @@ public class SwaggerDocumentationConfig {
                 .title("Pääsukese X-tee liides")
                 .description("Sisaldab Pääsukese poolt standardiseeritud x-tee teeunuseid")
                 .termsOfService("")
-                .version("0.7.4")
+                .version(VERSION)
                 .license(new License()
                     .name("Apache 2.0")
                     .url("http://www.apache.org/licenses/LICENSE-2.0.html"))

@@ -6,16 +6,15 @@
       "identifier": "EE11430169"
     },
     "delegate": {
-      "type": "NATURAL_PERSON",
-      "firstName": "Tõnu",
-      "surname": "Tuuline",
-      "identifier": "EE30303039816"
+      "type": "LEGAL_PERSON",
+      "legalName": "Agro Agro AS",
+      "identifier": "EE11430169"
     },
     "mandates": [
       {
-        "role": "BUSINESS_REGISTRY_CARD_PRIA:FULL_JUHL",
+        "role": "PRIA:PRIA.customer",
         "validityPeriod": {
-          "from": "2020-07-07"
+          "from": "2001-01-30"
         },
         "canSubDelegate": false
       }
@@ -35,15 +34,14 @@
     },
     "mandates": [
       {
-        "role": "PRIA:Unrestricted",
+        "role": "PRIA:Unrestricted.can.modify.mandates",
         "validityPeriod": {
           "from": "2027-01-01",
           "through": "2028-12-31"
         },
         "canSubDelegate": true,
         "links": {
-          "addSubDelegate": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}/",
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
           "origin": "https://epria.pria.ee?x=y&z=q"
         }
       },
@@ -53,7 +51,7 @@
           "from": "2023-01-01"
         },
         "links": {
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
           "origin": "https://epria.pria.ee?x=y&z=q"
         }
       }
@@ -74,17 +72,16 @@
     },
     "mandates": [
       {
-        "role": "PRIA:Unrestricted",
+        "role": "PRIA:Unrestricted.cancot.modify.mandates",
         "validityPeriod": {
           "from": "2027-01-01",
           "through": "2027-12-31"
         },
         "canSubDelegate": false,
         "links": {
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
           "origin": "https://epria.pria.ee?x=y&z=q"
-        },
-        "subDelegatorIdentifier": "EE60001019906"
+        }
       }
     ]
   },
@@ -109,7 +106,7 @@
           "through": "2028-12-31"
         },
         "links": {
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
           "origin": "https://epria.pria.ee?x=y&z=q"
         }
       }
@@ -135,7 +132,7 @@
           "through": "2029-12-31"
         },
         "links": {
-          "delete": "/v1/nss/{ns}/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
+          "delete": "/v1/representees/{representeeId}/delegates/{delegateId}/mandates/{mandateId}",
           "origin": "https://epria.pria.ee?x=y&z=q"
         }
       }
