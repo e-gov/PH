@@ -9,12 +9,22 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec draft:
-* The latest version is [0.9.1](spec/Pääsuke-xroad-services-spec-v0.9.1.pdf) - 26 May 2023
+* The latest version is [0.9.2](spec/Pääsuke-xroad-services-spec-v0.9.2.pdf) - 13 June 2023
 
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
 
+### Sample provider application
+
+* Sample provider application built in Python - https://github.com/e-gov/PH-sample-provider-python (based on 0.9.2)
+* You can run it locally using Docker-compose
+* The provider stores mandates and persons in a Postgres database
+* The application keeps state—so if you add a mandate, then you can get it back
+
+### Old mock
+
 * Description of an example mock service built according to version 0.9.1 of that spec: [sample_client_mock](mock-documentation/description-of-PRIA-mock-for-paasuke-v0.3.pdf)
+* It is recommended to use the sample provider application
 
 ### X-Road services offered by Pääsuke
 
