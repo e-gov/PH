@@ -31,7 +31,10 @@ OpenAPI definitions:
 The following specification is for systems that keep mandates in Pääsuke and load them from there using X-Road queries.
 Spec is currently work-in-progress.
 
-OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/x-road-services-provided-by-paasuke/
+OpenAPI definitions:
+* https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-mandates/
+* https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-role-definitions
+* https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-documents/
 
 ## Prototype
 
