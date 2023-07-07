@@ -30,7 +30,7 @@ OpenAPI definitions:
 
 The following specification is for systems that keep mandates in Pääsuke and load them from there using X-Road queries.
 
-* The latest version is [0.3.0](spec/x-road_services_provided_by_paasuke.v0.3.0.pdf) - 6 July 2023
+* The latest version is [0.4.0](spec/x-road_services_provided_by_paasuke.v0.4.0.pdf) - 7 July 2023
 
 OpenAPI definitions:
 * https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-mandates/
