@@ -9,7 +9,7 @@ General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-av
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec draft:
-* The latest version is [0.9.3](spec/Pääsuke-xroad-services-spec-v0.9.3.pdf) - 19 June 2023
+* The latest version is [0.9.4](spec/Pääsuke-xroad-services-spec-v0.9.4.pdf) - 4 September 2023
 
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
@@ -35,7 +35,14 @@ The following specification is for systems that keep mandates in Pääsuke and l
 OpenAPI definitions:
 * https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-mandates/
 * https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-role-definitions
-* https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-documents/
+
+
+### Actual X-road service in ee-dev environment
+
+In ee-dev environment the services will be made available here:
+https://x-tee.ee/catalogue/ee-dev/COM/10391131/volitused
+
+Please note that currently this will be connected to development environment which might be unstable
 
 ## Prototype
 
