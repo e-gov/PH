@@ -2,14 +2,25 @@
 
 General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
 
-## Specification draft
+# Prototype
 
-### X-Road services offered to Pääsuke
+Pääsuke prototype is available here: https://paasuke.github.io/proto/
+
+Browse around (representation rights from the business registry (Äriregister), global mandates (katusrollid), regular mandates)
+and try adding a mandate, try to remove a mandate, try to sub-delegate (edasi volitama) a mandate.
+
+# Specification draft
+
+There are two ways to integrate with Pääsuke:
+1) integrator keeps mandates on their side and Pääsuke queries X-Road services [offered to Pääsuke](#x-road-services-offered-to-p%C3%A4%C3%A4suke) by the integrator
+2) integrator keeps mandates in Pääsuke and the integrator queries X-Road services [offered by Pääsuke](#x-road-services-offered-by-p%C3%A4%C3%A4suke).
+
+## X-Road services offered to Pääsuke
 
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec draft:
-* The latest version is [0.9.4](spec/Pääsuke-xroad-services-spec-v0.9.4.pdf) - 4 September 2023
+* The latest version is [0.9.5](spec/Pääsuke-xroad-services-spec-v0.9.4.pdf) - 25 September 2023
 
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
@@ -26,32 +37,23 @@ OpenAPI definitions:
 * Description of an example mock service built according to version 0.9.1 of that spec: [sample_client_mock](mock-documentation/description-of-PRIA-mock-for-paasuke-v0.3.pdf)
 * It is recommended to use the sample provider application
 
-### X-Road services offered by Pääsuke
+## X-Road services offered by Pääsuke
 
 The following specification is for systems that keep mandates in Pääsuke and load them from there using X-Road queries.
 
 * The latest version is [0.4.0](spec/x-road_services_provided_by_paasuke.v0.4.0.pdf) - 7 July 2023
 
-OpenAPI definitions:
-* https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-mandates/
-* https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-role-definitions
+OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-mandates/
 
 
 ### Actual X-road service in ee-dev environment
 
-In ee-dev environment the services will be made available here:
-https://x-tee.ee/catalogue/ee-dev/COM/10391131/volitused
+In ee-dev environment, the services are made available: https://x-tee.ee/catalogue/ee-dev/GOV/70006317/volitused/
+Contact RIA to get access to the services.
+Please note that the endpoint is connected to the development environment which might be unstable
 
-Please note that currently this will be connected to development environment which might be unstable
 
-## Prototype
 
-* Prototype is available here: https://paasuke.github.io/proto/
-
-Browse around (mandates defined by law (Äriregistrist), global mandates (katusrollid), regular mandates)
-and try adding a mandate, try to remove a mandate, try to sub-delegate a mandate.
-
-The Prototype shows that editing a mandate is possible but currently that is not in scope.
 
 ## Mock service
 
