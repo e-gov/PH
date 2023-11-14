@@ -53,8 +53,6 @@ Contact RIA to get access to the services.
 Please note that the endpoint is connected to the development environment which might be unstable
 
 
-
-
 ## Mock service
 
 Ver 0.9.1 is available via x-road:
@@ -75,3 +73,7 @@ curl
 ```
 
 The code serving the mock is available in directory: ph-xroad-api-mock
+
+# How Pääsuke handles representation rights from the Business Registry
+
+* The latest version is [0.1](spec/How_Paasuke_handles_representation_rights_from_the_Business_Registry.v0.1.pdf) - 14 November 2023
