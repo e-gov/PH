@@ -76,4 +76,4 @@ The code serving the mock is available in directory: ph-xroad-api-mock
 
 # How Pääsuke handles representation rights from the Business Registry
 
-* The latest version is [0.1](spec/How_Paasuke_handles_representation_rights_from_the_Business_Registry.v0.1.pdf) - 14 November 2023
+* The latest version is [0.2](spec/How_Paasuke_handles_representation_rights_from_the_Business_Registry.v0.2.pdf) - 24 November 2023
