@@ -1,6 +1,7 @@
 # Public documentation of Pääsuke
 
-General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
+* General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
+* Technical introduction [0.2](spec/Introduction_to_Pääsuke_and_configuring_roles.v0.2.pdf) - 11 December 2023
 
 # Prototype
 
@@ -20,14 +21,14 @@ There are two ways to integrate with Pääsuke:
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec draft:
-* The latest version is [0.9.5](spec/Pääsuke-xroad-services-spec-v0.9.5.pdf) - 25 September 2023
+* The latest version is [0.9.7](spec/Pääsuke-xroad-services-spec-v0.9.7.pdf) - 11 December 2023
 
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
 
 ### Sample provider application
 
-* Sample provider application built in Python - https://github.com/e-gov/PH-sample-provider-python (based on 0.9.2)
+* Sample provider application built in Python—https://github.com/e-gov/PH-sample-provider-python (based on 0.9.2)
 * You can run it locally using Docker-compose
 * The provider stores mandates and persons in a Postgres database
 * The application keeps state—so if you add a mandate, then you can get it back
@@ -77,3 +78,7 @@ The code serving the mock is available in directory: ph-xroad-api-mock
 # How Pääsuke handles representation rights from the Business Registry
 
 * The latest version is [0.2](spec/How_Paasuke_handles_representation_rights_from_the_Business_Registry.v0.2.pdf) - 24 November 2023
+
+# Mandates manager roles in Pääsuke
+
+* The latest version is [0.1](spec/Mandates_manager_roles_in_Paasuke_v.0.1.pdf) - 11 December 2023
