@@ -1,7 +1,7 @@
 # Public documentation of Pääsuke
 
 * General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
-* Technical introduction [0.2](spec/Introduction_to_Pääsuke_and_configuring_roles.v0.2.pdf) - 11 December 2023
+* Technical introduction [0.3](spec/Introduction_to_Paasuke_and_configuring_roles.v0.3.pdf) - 22 December 2023
 
 # Prototype
 
@@ -50,8 +50,14 @@ OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-servi
 ### Actual X-road service in ee-dev environment
 
 In ee-dev environment, the services are made available: https://x-tee.ee/catalogue/ee-dev/GOV/70006317/volitused/
-Contact RIA to get access to the services.
-Please note that the endpoint is connected to the development environment which might be unstable
+
+You need to fill in an application to get access to the services.
+The application formula can be found:
+https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
+(chapter "Taotlused ja tingimused")
+
+Please note that the endpoint is connected to the development environment which might be unstable.
+
 
 
 ## Mock service
