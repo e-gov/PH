@@ -1,7 +1,7 @@
 # Public documentation of Pääsuke
 
 * General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
-* Technical introduction [0.3](spec/Introduction_to_Paasuke_and_configuring_roles.v0.3.pdf) - 22 December 2023
+* Technical introduction [0.3](spec/Introduction_to_Paasuke_and_configuring_roles.v0.4.pdf) - 11 January 2024
 
 # Prototype
 
