@@ -1,13 +1,10 @@
 # Public documentation of Pääsuke
 
 * General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
-* Technical introduction [0.3](spec/Introduction_to_Paasuke_and_configuring_roles.v0.4.pdf) - 11 January 2024
-
-# Prototype
-
-Pääsuke prototype is available here: https://paasuke.github.io/proto/
-
-Browse around (representation rights from the business registry (Äriregister), global mandates (katusrollid), regular mandates)
+* Technical introduction - version [0.4](spec/Introduction_to_Paasuke_and_configuring_roles.v0.4.pdf) - 11 January 2024
+* How Pääsuke synchronizes representation rights from the Business Registry - version [0.6](spec/How_Paasuke_handles_representation_rights_from_the_Business_Registry.v0.6.pdf) - 30 January 2024
+* Pääsuke prototype: https://paasuke.github.io/proto/ -
+  Browse around (representation rights from the business registry (Äriregister), global mandates (katusrollid), regular mandates)
 and try adding a mandate, try to remove a mandate, try to sub-delegate (edasi volitama) a mandate.
 
 # Specification draft
@@ -33,10 +30,6 @@ OpenAPI definitions:
 * The provider stores mandates and persons in a Postgres database
 * The application keeps state—so if you add a mandate, then you can get it back
 
-### Old mock
-
-* Description of an example mock service built according to version 0.9.1 of that spec: [sample_client_mock](mock-documentation/description-of-PRIA-mock-for-paasuke-v0.3.pdf)
-* It is recommended to use the sample provider application
 
 ## X-Road services offered by Pääsuke
 
@@ -81,9 +74,7 @@ curl
 
 The code serving the mock is available in directory: ph-xroad-api-mock
 
-# How Pääsuke handles representation rights from the Business Registry
 
-* The latest version is [0.5](spec/How_Paasuke_handles_representation_rights_from_the_Business_Registry.v0.5.pdf) - 24 January 2024
 
 # Mandates manager roles in Pääsuke
 
