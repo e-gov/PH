@@ -49,8 +49,8 @@ The services are made available through x-road.
 * ee-test: https://x-tee.ee/catalogue/ee-test/GOV/70006317/volitused/
   * oraakel
   * oraakel-stage (different database)
-* EE (production): https://x-tee.ee/catalogue/EE/GOV/70006317/volitused/
-  * oraakel
+* EE: https://x-tee.ee/catalogue/EE/GOV/70006317/volitused/
+  * oraakel (production system)
 
 You need to fill in an application to get access to the services.
 The application formula can be found:
