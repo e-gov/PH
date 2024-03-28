@@ -15,7 +15,7 @@ There are two ways to integrate with Pääsuke:
 
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
-X-road services spec draft:
+X-road services spec:
 * The latest version is [1.0.1](spec/Pääsuke-xroad-services-spec-v1.0.1.pdf) - 21 March 2024
 
 OpenAPI definitions: 
@@ -40,7 +40,12 @@ OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-servi
 
 ### Actual X-road service in ee-dev environment
 
-In ee-dev environment, the services are made available: https://x-tee.ee/catalogue/ee-dev/GOV/70006317/volitused/
+The services are made available through x-road.
+
+* ee-dev: https://x-tee.ee/catalogue/ee-dev/GOV/70006317/volitused/ -> oraakel
+* ee-test: https://x-tee.ee/catalogue/ee-test/GOV/70006317/volitused/ -> oraakel
+* ee-test (connected to different environment): https://x-tee.ee/catalogue/ee-test/GOV/70006317/volitused/ -> oraakel-stage
+* EE (production): https://x-tee.ee/catalogue/EE/GOV/70006317/volitused/ -> oraakel
 
 You need to fill in an application to get access to the services.
 The application formula can be found:
