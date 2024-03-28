@@ -2,8 +2,9 @@
 
 * General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
 * Technical introduction—version [1.0](spec/Introduction_to_Paasuke_and_configuring_roles.v1.0.pdf) - 28 March 2024
+* Mandates manager roles in Pääsuke [0.1](spec/Mandates_manager_roles_in_Paasuke_v.0.1.pdf) - 11 December 2023
 * How Pääsuke synchronizes representation rights from the Business Registry—version [0.6](spec/How_Paasuke_handles_representation_rights_from_the_Business_Registry.v0.6.pdf) - 30 January 2024
-* Since 7 February 20204 Pääsuke is available in production: https://www.eesti.ee/volitused 
+* Since 7 February 2024 Pääsuke is available in production: https://www.eesti.ee/volitused 
 
 # Specification draft
 
@@ -28,8 +29,9 @@ OpenAPI definitions:
 * The provider stores mandates and persons in a Postgres database
 * The application keeps state—so if you add a mandate, then you can get it back
 
-
 ## X-Road services offered by Pääsuke
+
+### Specification of the X-road services
 
 The following specification is for systems that keep mandates in Pääsuke and load them from there using X-Road queries.
 
@@ -38,7 +40,7 @@ The following specification is for systems that keep mandates in Pääsuke and l
 OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-mandates/
 
 
-### Actual X-road service in ee-dev environment
+### X-road services in different X-road environments
 
 The services are made available through x-road.
 
@@ -58,6 +60,3 @@ https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakku
 Please note that the endpoint is connected to the development environment which might be unstable.
 
 
-# Mandates manager roles in Pääsuke
-
-* The latest version is [0.1](spec/Mandates_manager_roles_in_Paasuke_v.0.1.pdf) - 11 December 2023
