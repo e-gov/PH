@@ -3,9 +3,7 @@
 * General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
 * Technical introduction—version [1.0](spec/Introduction_to_Paasuke_and_configuring_roles.v1.0.pdf) - 28 March 2024
 * How Pääsuke synchronizes representation rights from the Business Registry—version [0.6](spec/How_Paasuke_handles_representation_rights_from_the_Business_Registry.v0.6.pdf) - 30 January 2024
-* Pääsuke prototype: https://paasuke.github.io/proto/ -
-  Browse around (representation rights from the business registry (Äriregister), global mandates (katusrollid), regular mandates)
-and try adding a mandate, try to remove a mandate, try to sub-delegate (edasi volitama) a mandate.
+* Since 7 February 20204 Pääsuke is available in production: https://www.eesti.ee/volitused 
 
 # Specification draft
 
@@ -50,30 +48,6 @@ https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakku
 (chapter "Taotlused ja tingimused")
 
 Please note that the endpoint is connected to the development environment which might be unstable.
-
-
-
-## Mock service
-
-Ver 0.9.1 is available via x-road:
-https://security-server/r1/ee-dev/GOV/70006317/volitused-mock/volitused/v1/
-
-Example query to x-road security server:
-
-```
-curl 
- --insecure 
- --cert /path/to/trusted.crt
- --key /path/to/trusted.key 
- -H "accept: application/json" 
- -H "X-Road-Client: ee-dev/GOV/70006317/volitused" 
- -H "X-Road-User-Id: EE39301020304" 
- -H "X-Road-Id: PRIA" 
- "https://your.xroad.security.server.host/r1/ee-dev/GOV/70006317/volitused-mock/volitused/v1/roles"
-```
-
-The code serving the mock is available in directory: ph-xroad-api-mock
-
 
 
 # Mandates manager roles in Pääsuke
