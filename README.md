@@ -42,10 +42,13 @@ OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-servi
 
 The services are made available through x-road.
 
-* ee-dev: https://x-tee.ee/catalogue/ee-dev/GOV/70006317/volitused/ -> oraakel
-* ee-test: https://x-tee.ee/catalogue/ee-test/GOV/70006317/volitused/ -> oraakel
-* ee-test (connected to different environment): https://x-tee.ee/catalogue/ee-test/GOV/70006317/volitused/ -> oraakel-stage
-* EE (production): https://x-tee.ee/catalogue/EE/GOV/70006317/volitused/ -> oraakel
+* ee-dev: https://x-tee.ee/catalogue/ee-dev/GOV/70006317/volitused/
+  * oraakel
+* ee-test: https://x-tee.ee/catalogue/ee-test/GOV/70006317/volitused/
+  * oraakel
+  * oraakel-stage (different database)
+* EE (production): https://x-tee.ee/catalogue/EE/GOV/70006317/volitused/
+  * oraakel
 
 You need to fill in an application to get access to the services.
 The application formula can be found:
