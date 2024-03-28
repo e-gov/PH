@@ -25,7 +25,7 @@ OpenAPI definitions:
 
 ### Sample provider application
 
-* Sample provider application built in Python—https://github.com/e-gov/PH-sample-provider-python (based on 0.9.2)
+* Sample provider application built in Python—https://github.com/e-gov/PH-sample-provider-python (based on 1.0.0)
 * You can run it locally using Docker-compose
 * The provider stores mandates and persons in a Postgres database
 * The application keeps state—so if you add a mandate, then you can get it back
