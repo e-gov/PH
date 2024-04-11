@@ -17,7 +17,7 @@ There are two ways to integrate with Pääsuke:
 Systems that keep mandates on their side and open API to Pääsuke to query and change them
 
 X-road services spec:
-* The latest version is [1.0.1](spec/Pääsuke-xroad-services-spec-v1.0.1.pdf) - 21 March 2024
+* The latest version is [1.0.2](spec/Pääsuke-xroad-services-spec-v1.0.1.pdf) - 11 April 2024
 
 OpenAPI definitions: 
 * https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
