@@ -20,7 +20,7 @@ X-road services spec:
 * The latest version is [1.0.4](spec/Pääsuke-xroad-services-spec-v1.0.4.pdf) - 12 July 2024
 
 OpenAPI definitions: 
-* https://app.swaggerhub.com/apis/aasaru/x-road-services-consumed-by-paasuke/
+* https://app.swaggerhub.com/apis/TUGI/x-road-services-consumed-by-paasuke/
 
 ### Sample provider application
 
@@ -37,7 +37,7 @@ The following specification is for systems that keep mandates in Pääsuke and l
 
 * The latest version is [0.5.3](spec/x-road_services_provided_by_paasuke.v0.5.3.pdf) - 26 February 2024
 
-OpenAPI definitions: https://app.swaggerhub.com/apis/aasaru/paasuke-x-road-services-to-query-mandates/
+OpenAPI definitions: https://app.swaggerhub.com/apis/TUGI/paasuke-oraakliliides/
 
 
 ### X-road services in different X-road environments
