@@ -1,10 +1,11 @@
-# Public documentation of Pääsuke
+# Pääsuke infosüsteemi avalik dokumentatsioon
 
-* General introduction: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
-* Technical introduction—version [1.0](spec/Introduction_to_Paasuke_and_configuring_roles.v1.0.pdf) - 28 March 2024
-* Mandates manager roles in Pääsuke [0.1](spec/Mandates_manager_roles_in_Paasuke_v.0.1.pdf) - 11 December 2023
+* Tutvustus: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
+* Rollide konfigureerimine:  [v1.0](spec/rollide_konfigureerimine_v010.pdf) - 27. jaanuar 2025
+
+# Liidestumise inglisekeelne dokumentatsioon
+
 * Querying representation rights defined in the Business Registry [1.0](spec/Querying_representation_rights_defined_in_the_Business_Registry.1.0.pdf) - 16 August 2024
-* Since 7 February 2024 Pääsuke is available in production: https://www.eesti.ee/volitused 
 
 # Specification draft
 
