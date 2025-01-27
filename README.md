@@ -1,7 +1,7 @@
 # Pääsuke infosüsteemi avalik dokumentatsioon
 
 * Tutvustus: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
-* Rollide konfigureerimine:  [v1.0](spec/rollide_konfigureerimine_v010.pdf) - 27. jaanuar 2025
+* Rollide konfigureerimise kasutusjuhend:  [v1.0](spec/rollide_konfigureerimine_v010.pdf) - 27. jaanuar 2025
 
 # Liidestumise inglisekeelne dokumentatsioon
 
