@@ -7,7 +7,7 @@
 
 ## Main ways to integrate with Pääsuke:
 1) The most common integration pattern is that integrator keeps authorisations (in payloads referred to as mandates) in Pääsuke and the integrator queries X-Road services [offered by Pääsuke](#specification-of-the-x-road-services-that-pääsuke-provides-to-other-parties).
-2) It is also possible to keep authorisations in Pääsuke, but use GovSSO service to access the authorisations.
+2) It is also possible to keep authorisations in Pääsuke, but use GovSSO service to access the authorisations. More info can be found from [GovSSO documentation](https://e-gov.github.io/GOVSSO/Representee).
 3) integrator keeps authorisations on their information system and Pääsuke queries X-Road services [offered to Pääsuke](#specification-of-the-x-road-services-that-pääsuke-queries-from-other-parties) by the integrator
 
 ## Specification of the X-road services that Pääsuke provides to other parties
@@ -39,7 +39,7 @@ https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakku
 
 The following specification is for systems that keep authorisations on their own information system and open API to Pääsuke to query and change them
 
-* [Description of X-Road services offered to Pääsuke - v1.0.5](spec/Pääsuke-xroad-services-spec-v1.0.5.pdf) - 13 August 2024
+* [Description of X-Road services offered to Pääsuke - v1.0.5](https://e-gov.github.io/PH-Doku/files/xroad-services-offered-to-paasuke-v1.0.5.pdf) - 13 August 2024
 * OpenAPI definitions: https://app.swaggerhub.com/apis/TUGI/x-road-services-consumed-by-paasuke/
 
 ### Sample provider application 
