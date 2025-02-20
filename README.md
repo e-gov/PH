@@ -1,7 +1,7 @@
 # Pääsuke infosüsteemi avalik dokumentatsioon
 
 * Tutvustus: https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakkumiseks/paasuke
-* [Pääsukesega liidestumise äriline kirjeldus ja rollide konfigureerimise kasutusjuhend v1.0](spec/rollide_konfigureerimine_v010.pdf) - 27. jaanuar 2025
+* [Pääsukesega liidestumise äriline kirjeldus ja rollide konfigureerimise kasutusjuhend v1.0](https://e-gov.github.io/PH-Doku/files/rollide_konfigureerimine_v011.pdf)
 
 # Documentation for the developer implementing the integration with Pääsuke
 
@@ -14,7 +14,7 @@
 
 The following specification is for systems that keep authorisations in Pääsuke and load them from there using X-Road queries.
 
-* [Description of X-Road services provided by Pääsuke (Oraakliliides) - v1.0.0](https://e-gov.github.io/PH-Doku/files/x-road_services_provided_by_paasuke.v1.0.0.pdf) - 20 February 2025
+* [Description of X-Road services provided by Pääsuke (Oraakliliides) - v1.0.0](https://e-gov.github.io/PH-Doku/files/x-road_services_provided_by_paasuke.v1.0.0.pdf)
 * OpenAPI definitions: https://app.swaggerhub.com/apis/TUGI/paasuke-oraakliliides/
 
 ### X-road services in different X-road environments
@@ -39,7 +39,7 @@ https://www.ria.ee/riigi-infosusteem/kesksed-platvormid-avalike-e-teenuste-pakku
 
 The following specification is for systems that keep authorisations on their own information system and open API to Pääsuke to query and change them
 
-* [Description of X-Road services offered to Pääsuke - v1.0.5](https://e-gov.github.io/PH-Doku/files/xroad-services-offered-to-paasuke-v1.0.5.pdf) - 13 August 2024
+* [Description of X-Road services offered to Pääsuke - v1.0.5](https://e-gov.github.io/PH-Doku/files/xroad-services-offered-to-paasuke-v1.0.5.pdf)
 * OpenAPI definitions: https://app.swaggerhub.com/apis/TUGI/x-road-services-consumed-by-paasuke/
 
 ### Sample provider application 
