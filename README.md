@@ -14,7 +14,7 @@
 
 The following specification is for systems that keep authorisations in Pääsuke and load them from there using X-Road queries.
 
-* <a href="spec/x-road_services_provided_by_paasuke.v1.0.0.pdf" target="_blank" type="application/pdf">Description of X-Road services provided by Pääsuke (Oraakliliides) - v1.0.0</a>
+* [Description of X-Road services provided by Pääsuke (Oraakliliides) - v1.0.0](https://e-gov.github.io/PH-Doku/files/x-road_services_provided_by_paasuke.v1.0.0.pdf) - 20 February 2025
 * OpenAPI definitions: https://app.swaggerhub.com/apis/TUGI/paasuke-oraakliliides/
 
 ### X-road services in different X-road environments
